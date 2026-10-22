@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087b35">
+  <meta name="description" content="Privacy Policy for the CONSISTENCY 2027 campaign website. Learn how website forms and locally stored information are handled.">
+  <title>Privacy Policy | CONSISTENCY 2027</title>  <style>
+    :root {
+      --green: #087b35;
+      --dark-green: #064b25;
+      --red: #d92332;
+      --gold: #f2c14e;
+      --white: #ffffff;
+      --light: #f4faf5;
+      --text: #26362b;
+      --muted: #657368;
+      --border: #dfe9e1;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .top-strip {
+      background: var(--dark-green);
+      color: white;
+      text-align: center;
+      padding: 9px 12px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--dark-green);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--red);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px 14px;
+    }
+
+    nav a {
+      color: var(--dark-green);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--red);
+    }
+
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      padding: 9px 13px;
+      border-radius: 6px;
+    }
+
+    .hero {
+      background: linear-gradient(130deg, var(--dark-green), var(--green));
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 6vw, 55px);
+      line-height: 1.2;
+      margin: 14px 0;
+    }
+
+    .hero p {
+      color: #e6f4e9;
+      max-width: 680px;
+      margin: auto;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 5px;
+      margin: 23px auto 0;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: auto;
+      padding: 55px 20px 70px;
+    }
+
+    .last-updated {
+      background: #fff8e5;
+      border-left: 5px solid var(--gold);
+      border-radius: 7px;
+      padding: 16px 20px;
+      color: #65552a;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .policy-card {
+      background: white;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .policy-card h2 {
+      color: var(--dark-green);
+      font-size: 22px;
+      margin: 27px 0 10px;
+      line-height: 1.4;
+    }
+
+    .policy-card h2:first-child {
+      margin-top: 0;
+    }
+
+    .policy-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .policy-card ul {
+      padding-left: 24px;
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .policy-card li {
+      margin-bottom: 8px;
+    }
+
+    .notice {
+      background: #edf8ef;
+      border: 1px solid #cde7d2;
+      border-radius: 8px;
+      padding: 18px;
+      margin: 20px 0;
+    }
+
+    .notice strong {
+      color: var(--dark-green);
+    }
+
+    .notice p {
+      margin: 5px 0 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 12px 19px;
+      border-radius: 7px;
+      font-weight: 800;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .button:hover {
+      background: var(--dark-green);
+    }
+
+    .footer-cta {
+      background: var(--red);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .footer-cta h2 {
+      font-size: clamp(24px, 4vw, 35px);
+      margin-bottom: 8px;
+    }
+
+    .footer-cta p {
+      margin-bottom: 15px;
+    }
+
+    .footer-cta .button {
+      background: white;
+      color: var(--red);
+    }
+
+    footer {
+      background: #073a20;
+      color: #d9e9dd;
+      padding: 35px 20px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #d9e9dd;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 12px;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 25px auto 0;
+      padding-top: 17px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 50px 18px;
+      }
+
+      .container {
+        padding: 35px 14px 50px;
+      }
+
+      .policy-card {
+        padding: 20px 17px;
+      }
+
+      .policy-card h2 {
+        font-size: 20px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        font-size: 19px;
+      }
+
+      nav {
+        gap: 9px 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+    }
+  </style></head><body>
+  <div class="top-strip">
+    CONSISTENCY 2027 | MBAITOLI/IKEDURU FEDERAL CONSTITUENCY, IMO STATE
+  </div>  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        CONSISTENCY 2027
+        <span>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</span>
+      </a>  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin.html" class="nav-cta">Admin</a>
+  </nav>
+</div>
+
+  </header>  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">YOUR PRIVACY MATTERS</span>
+        <h1>Privacy Policy</h1>
+        <p>
+          This page explains how information may be handled when you visit
+          the CONSISTENCY 2027 campaign website and use its forms.
+        </p>
+        <div class="gold-line"></div>
+      </div>
+    </section><section class="container">
+  <div class="last-updated">
+    <strong>Important:</strong> Review and update this policy before
+    publishing the website for public use. The website owner should confirm
+    the actual hosting, analytics, form and data-storage arrangements.
+  </div>
+
+  <div class="policy-card">
+    <h2>1. Introduction</h2>
+    <p>
+      This Privacy Policy describes the intended handling of information
+      on the CONSISTENCY 2027 campaign website associated with
+      Barr. Sunny John Unachukwu, Esq. It should be read alongside the
+      website's actual features and any notices displayed when information
+      is submitted.
+    </p>
+
+    <h2>2. Information You May Provide</h2>
+    <p>
+      Depending on which features are enabled, you may choose to enter
+      information such as:
+    </p>
+    <ul>
+      <li>Your name.</li>
+      <li>Contact details, such as a phone number or email address.</li>
+      <li>Volunteer interests or availability.</li>
+      <li>Messages or other information you choose to submit through a form.</li>
+    </ul>
+    <p>
+      Please do not submit passwords, bank details, identity documents,
+      or other highly sensitive information through ordinary website forms.
+    </p>
+
+    <h2>3. How the Volunteer Form Works</h2>
+    <div class="notice">
+      <strong>Local storage notice</strong>
+      <p>
+        The current volunteer form is designed to save submissions in
+        the browser's local storage on the device being used. This means
+        the saved information is not automatically transmitted to a
+        campaign administrator or made available on other devices.
+      </p>
+    </div>
+    <p>
+      Information stored locally may remain on that device until it is
+      deleted by the user, cleared through browser settings, or removed
+      by other device or browser actions. Clearing browser data or changing
+      devices may cause saved information to become unavailable.
+    </p>
+
+    <h2>4. How Information May Be Used</h2>
+    <p>
+      If the campaign later enables a shared online form or another data
+      collection service, information provided through that feature may
+      be used for the purpose explained when the information is collected,
+      such as responding to an enquiry or coordinating a volunteer request.
+      Any such use should be explained clearly before the feature is launched.
+    </p>
+    <p>
+      This page does not claim that locally stored volunteer records are
+      currently being sent to the campaign team.
+    </p>
+
+    <h2>5. Cookies, Analytics and Third-Party Services</h2>
+    <p>
+      The website may be hosted by a third-party provider, such as GitHub
+      Pages. The site owner should review the hosting provider's current
+      privacy information to understand what technical information may
+      be processed when visitors access the website.
+    </p>
+    <p>
+      This policy does not confirm that analytics, advertising trackers,
+      or additional third-party form services are installed. If any are
+      added, this policy should be updated to describe them accurately.
+    </p>
+
+    <h2>6. Sharing of Information</h2>
+    <p>
+      Information saved only in local storage is generally kept within
+      the relevant browser on that device. The campaign should not describe
+      such information as being received centrally unless a shared
+      submission system is actually implemented.
+    </p>
+    <p>
+      If a future website feature sends information to another service,
+      the campaign should explain the purpose and relevant service before
+      collecting that information.
+    </p>
+
+    <h2>7. Protecting Your Information</h2>
+    <p>
+      Keep your device secure, use a screen lock where appropriate, and
+      avoid entering personal information on shared devices. Anyone with
+      access to an unlocked device or browser profile may be able to view
+      information stored there.
+    </p>
+    <p>
+      No website or electronic storage method can be guaranteed to be
+      completely secure.
+    </p>
+
+    <h2>8. Your Choices</h2>
+    <p>You can help protect your privacy by:</p>
+    <ul>
+      <li>Choosing carefully what information you submit.</li>
+      <li>Avoiding the entry of sensitive personal information.</li>
+      <li>Using your browser's storage and privacy settings when appropriate.</li>
+      <li>Removing locally saved information when it is no longer needed, if the form provides that option.</li>
+    </ul>
+    <p>
+      If a shared online registration system is introduced, the campaign
+      should provide an appropriate way for people to ask about access,
+      correction or deletion of their information.
+    </p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>
+      This website is not intended to encourage children to submit personal
+      information without appropriate guidance. If a child has entered
+      information by mistake, the responsible adult should review the
+      available options for removing it from the device or contacting
+      the website owner.
+    </p>
+
+    <h2>10. External Links</h2>
+    <p>
+      This website may link to other websites or social media platforms.
+      Those services have their own privacy policies and practices.
+      Review their policies before providing them with personal information.
+    </p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>
+      This policy may need to change when website features, hosting
+      arrangements, or information-handling practices change. The published
+      version should be reviewed and updated whenever those arrangements
+      materially change.
+    </p>
+
+    <h2>12. Contact and Privacy Questions</h2>
+    <p>
+      If you have a question about this policy, visit the website's
+      <a href="contact.html" style="color:#087b35;font-weight:bold;">Contact page</a>
+      for the available contact options. Official contact details should
+      be added here once they have been confirmed by the website owner.
+    </p>
+
+    <a href="index.html" class="button">Return to Homepage</a>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
+  <p>The Choice Is Now. The Choice Is Clear.</p>
+  <a href="contact.html" class="button">Visit Contact Page</a>
+</section>
+
+  </main>  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>CONSISTENCY 2027</h3>
+        <p>
+          Campaign website for Barr. Sunny John Unachukwu, Esq.,
+          associated with Mbaitoli/Ikeduru Federal Constituency, Imo State.
+        </p>
+        <p style="margin-top:10px;">The Choice Is Now. The Choice Is Clear.</p>
+      </div>  <div>
+    <h3>Quick Links</h3>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bottom">
+  &copy; <span id="year"></span> CONSISTENCY 2027 Campaign. All rights reserved.
+</div>
+
+  </footer>  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script></body>
+</html>
