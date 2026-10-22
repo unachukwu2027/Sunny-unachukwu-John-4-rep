@@ -1,0 +1,949 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f23">
+<title>Polling Unit Results | CONSISTENCY 2027</title><style>
+:root {
+  --green: #087f23;
+  --dark-green: #045718;
+  --red: #c62828;
+  --gold: #d4a017;
+  --light: #f3f8f3;
+  --white: #ffffff;
+  --text: #222;
+  --border: #d8e2d8;
+}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--green);
+  color: white;
+  padding: 23px 15px;
+  text-align: center;
+  border-bottom: 5px solid var(--gold);
+}
+
+header h1 { margin: 0; font-size: 27px; }
+header p { margin: 7px 0 0; }
+
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 12px;
+  background: white;
+  color: var(--dark-green);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+nav {
+  background: var(--dark-green);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 11px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+nav a:hover { background: var(--green); }
+
+.container {
+  width: min(100% - 24px, 1000px);
+  margin: 22px auto;
+}
+
+.notice {
+  background: #fff7df;
+  border-left: 5px solid var(--gold);
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+h2 {
+  color: var(--dark-green);
+  font-size: 21px;
+  margin: 0 0 15px;
+}
+
+h3 {
+  color: var(--dark-green);
+  margin-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field { margin-bottom: 12px; }
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdcdbd;
+  border-radius: 7px;
+  background: white;
+  font: inherit;
+  font-size: 15px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #8acb96;
+  border-color: var(--green);
+}
+
+input[type="checkbox"] { width: auto; }
+small { color: #555; }
+
+.candidate-row {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #fbfdfb;
+}
+
+.candidate-grid {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 10px;
+  align-items: end;
+}
+
+.btn {
+  border: none;
+  border-radius: 7px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-green { background: var(--green); color: white; }
+.btn-red { background: var(--red); color: white; }
+.btn-gold { background: var(--gold); color: #222; }
+.btn-gray { background: #e7ece7; color: #222; }
+.btn:hover { opacity: .9; }
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.total-box {
+  background: #e7f5e9;
+  border: 1px solid #b6dcbc;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.upload-box {
+  border: 2px dashed #9ab99e;
+  padding: 18px;
+  border-radius: 8px;
+  background: #fbfdfb;
+}
+
+#photoPreview {
+  display: none;
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  margin-top: 12px;
+  border-radius: 8px;
+  background: #eee;
+}
+
+.status {
+  padding: 12px;
+  border-radius: 7px;
+  display: none;
+  margin: 12px 0;
+  font-weight: bold;
+}
+
+.status.ok {
+  display: block;
+  background: #e5f6e8;
+  color: #145b22;
+}
+
+.status.error {
+  display: block;
+  background: #fff0f0;
+  color: #a01818;
+}
+
+.report {
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 15px;
+  margin-top: 12px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+.report h3 { margin-top: 0; }
+.report-meta { color: #555; font-size: 13px; }
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.report th, .report td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.report th { background: #edf5ed; }
+
+.report-photo {
+  width: 100%;
+  max-width: 420px;
+  max-height: 350px;
+  object-fit: contain;
+  display: block;
+  margin-top: 12px;
+  background: #eee;
+}
+
+.empty {
+  padding: 20px;
+  background: #f6f8f6;
+  border-radius: 8px;
+  text-align: center;
+  color: #555;
+}
+
+footer {
+  text-align: center;
+  background: #063d13;
+  color: white;
+  padding: 22px 14px;
+  margin-top: 30px;
+  font-size: 13px;
+}
+
+@media(max-width:650px) {
+  .grid { grid-template-columns: 1fr; gap: 0; }
+  .candidate-grid { grid-template-columns: 1fr 100px; }
+  .card { padding: 15px; }
+  header h1 { font-size: 23px; }
+  .btn { padding: 11px 12px; }
+}
+
+@media print {
+  header, nav, form, .button-row, footer,
+  #searchReports, #filterLga, .notice {
+    display: none !important;
+  }
+
+  body { background: white; }
+  .container { width: 100%; margin: 0; }
+  .card { box-shadow: none; border: none; }
+  .report { break-inside: avoid; }
+}
+</style></head><body><header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Polling Unit Results Reporting</p>
+  <span class="badge">POLLING UNIT REPORTING</span>
+</header><nav>
+  <a href="index.html">Home</a>
+  <a href="biography.html">Biography</a>
+  <a href="manifesto.html">Manifesto</a>
+  <a href="news.html">News</a>
+  <a href="polling-agent-registration.html">Agent Registration</a>
+  <a href="#upload">Submit Report</a>
+  <a href="#reports">Saved Reports</a>
+</nav><main class="container">  <div class="notice">
+    <strong>Reporting instructions:</strong>
+    Enter figures exactly as recorded on the official polling-unit result sheet.
+    Check the arithmetic before saving. Keep the original result document safe
+    and follow applicable election rules.
+  </div>  <section class="card" id="upload">
+    <h2>Submit Polling Unit Report</h2><form id="resultForm">
+  <h3>1. Agent and polling-unit details</h3>
+
+  <div class="grid">
+    <div class="field">
+      <label for="agentName">Agent's Full Name *</label>
+      <input id="agentName" required maxlength="100" autocomplete="name">
+    </div>
+
+    <div class="field">
+      <label for="agentPhone">Agent's Phone Number *</label>
+      <input id="agentPhone" type="tel" required maxlength="25" autocomplete="tel">
+    </div>
+
+    <div class="field">
+      <label for="state">State *</label>
+      <select id="state" required>
+        <option value="">Select state</option>
+        <option value="Imo State">Imo State</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="lga">Local Government Area *</label>
+      <select id="lga" required>
+        <option value="">Select LGA</option>
+        <option value="Mbaitoli">Mbaitoli</option>
+        <option value="Ikeduru">Ikeduru</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="ward">Ward Name/Number *</label>
+      <input id="ward" required maxlength="100">
+    </div>
+
+    <div class="field">
+      <label for="puCode">Polling Unit Number/Code *</label>
+      <input id="puCode" required maxlength="80">
+    </div>
+
+    <div class="field">
+      <label for="puName">Polling Unit Name *</label>
+      <input id="puName" required maxlength="150">
+    </div>
+
+    <div class="field">
+      <label for="election">Election Type *</label>
+      <select id="election" required>
+        <option value="">Select election</option>
+        <option value="Presidential">Presidential</option>
+        <option value="Senatorial">Senatorial</option>
+        <option value="House of Representatives">House of Representatives</option>
+        <option value="State House of Assembly">State House of Assembly</option>
+        <option value="Governorship">Governorship</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="electionDate">Election Date *</label>
+      <input id="electionDate" type="date" required>
+    </div>
+
+    <div class="field">
+      <label for="reportTime">Report Time *</label>
+      <input id="reportTime" type="time" required>
+    </div>
+  </div>
+
+  <h3>2. Results recorded on the result sheet</h3>
+  <p><small>Enter each candidate's name and the votes recorded on the official result sheet.</small></p>
+
+  <div id="candidateRows"></div>
+
+  <button type="button" class="btn btn-gray" id="addCandidate">+ Add Candidate</button>
+
+  <div class="grid" style="margin-top:15px">
+    <div class="field">
+      <label for="validVotes">Total Valid Votes *</label>
+      <input id="validVotes" type="number" min="0" step="1" required value="0">
+    </div>
+
+    <div class="field">
+      <label for="rejectedVotes">Rejected Ballots *</label>
+      <input id="rejectedVotes" type="number" min="0" step="1" required value="0">
+    </div>
+
+    <div class="field">
+      <label for="accredited">Accredited Voters *</label>
+      <input id="accredited" type="number" min="0" step="1" required value="0">
+    </div>
+
+    <div class="field">
+      <label for="ballotTotal">Total Votes Cast *</label>
+      <input id="ballotTotal" type="number" min="0" step="1" required value="0">
+    </div>
+  </div>
+
+  <div class="total-box">
+    Sum of candidate votes: <span id="candidateSum">0</span><br>
+    <span id="checkMessage" style="font-size:14px;font-weight:normal">
+      Enter figures to check totals.
+    </span>
+  </div>
+
+  <h3 style="margin-top:24px">3. Result sheet photograph</h3>
+
+  <div class="upload-box">
+    <div class="field">
+      <label for="resultPhoto">Select result sheet photograph</label>
+      <input id="resultPhoto" type="file" accept="image/*">
+      <small>Select a clear image. For this browser-only version, images must be no larger than 2 MB.</small>
+    </div>
+    <img id="photoPreview" alt="Selected result sheet preview">
+  </div>
+
+  <div class="field" style="margin-top:15px">
+    <label for="remarks">Remarks / Notes (optional)</label>
+    <textarea id="remarks" rows="3" maxlength="1000"
+      placeholder="Enter relevant observations. Avoid personal voter information."></textarea>
+  </div>
+
+  <div class="field">
+    <label>
+      <input id="confirm" type="checkbox" required>
+      I confirm that I have entered the figures as recorded on the result sheet to the best of my knowledge.
+    </label>
+  </div>
+
+  <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+  <div class="button-row">
+    <button class="btn btn-green" type="submit">Save Report</button>
+    <button class="btn btn-gray" type="reset" id="resetBtn">Clear Form</button>
+  </div>
+</form>
+
+  </section>  <section class="card" id="reports">
+    <h2>Saved Polling Unit Reports</h2>
+    <p><small>Reports saved here are available in this browser on this device.</small></p><div class="grid">
+  <div class="field">
+    <label for="searchReports">Search reports</label>
+    <input id="searchReports" type="search" placeholder="Search LGA, ward or polling unit">
+  </div>
+
+  <div class="field">
+    <label for="filterLga">Filter by LGA</label>
+    <select id="filterLga">
+      <option value="">All LGAs</option>
+      <option value="Mbaitoli">Mbaitoli</option>
+      <option value="Ikeduru">Ikeduru</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+</div>
+
+<div id="reportSummary" class="total-box" style="font-size:16px"></div>
+
+<div class="button-row">
+  <button type="button" class="btn btn-green" id="exportCsv">Export CSV</button>
+  <button type="button" class="btn btn-gray" id="exportJson">Download Backup</button>
+  <button type="button" class="btn btn-gray" id="printReports">Print Reports</button>
+</div>
+
+<div id="reportList"></div>
+
+  </section>  <section class="card">
+    <h2>Official Election Information</h2>
+    <p>Visit INEC's official website for election information.</p>
+    <div class="button-row">
+      <a class="btn btn-green" href="https://www.inecnigeria.org/" target="_blank" rel="noopener noreferrer">INEC Website</a>
+      <a class="btn btn-gray" href="https://irev.inecnigeria.org/" target="_blank" rel="noopener noreferrer">INEC Result Viewing Portal</a>
+    </div>
+  </section></main><footer>
+  <strong>CONSISTENCY 2027</strong>
+  <p>Polling Unit Results Reporting</p>
+  <p>Private reporting tool. Reports saved here are not official INEC results.</p>
+</footer><script>
+"use strict";
+
+const STORAGE_KEY = "consistency2027_polling_unit_reports_v1";
+const form = document.getElementById("resultForm");
+const candidateRows = document.getElementById("candidateRows");
+const resultPhoto = document.getElementById("resultPhoto");
+const photoPreview = document.getElementById("photoPreview");
+const formStatus = document.getElementById("formStatus");
+let selectedPhotoData = "";
+
+function showStatus(message, type) {
+  formStatus.textContent = message;
+  formStatus.className = "status " + type;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[ch]);
+}
+
+function readReports() {
+  try {
+    const reports = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(reports) ? reports : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeReports(reports) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(reports));
+    return true;
+  } catch {
+    showStatus("Unable to save. Browser storage may be full. Try a smaller photograph.", "error");
+    return false;
+  }
+}
+
+function addCandidateRow(name = "", votes = "0") {
+  const row = document.createElement("div");
+  row.className = "candidate-row";
+  row.innerHTML = `
+    <div class="candidate-grid">
+      <div class="field">
+        <label>Candidate / Party Name *</label>
+        <input class="candidate-name" required maxlength="150"
+          placeholder="Enter candidate and party">
+      </div>
+      <div class="field">
+        <label>Votes *</label>
+        <input class="candidate-votes" type="number" required min="0" step="1" value="0">
+      </div>
+    </div>
+    <button type="button" class="btn btn-red remove-candidate">Remove Candidate</button>
+  `;
+
+  row.querySelector(".candidate-name").value = name;
+  row.querySelector(".candidate-votes").value = votes;
+
+  row.querySelector(".remove-candidate").addEventListener("click", () => {
+    if (candidateRows.children.length <= 1) {
+      alert("At least one candidate row is required.");
+      return;
+    }
+    row.remove();
+    updateTotals();
+  });
+
+  row.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", updateTotals);
+  });
+
+  candidateRows.appendChild(row);
+  updateTotals();
+}
+
+function numberValue(id) {
+  const input = document.getElementById(id);
+  const number = Number(input.value);
+  return Number.isSafeInteger(number) && number >= 0 ? number : 0;
+}
+
+function updateTotals() {
+  let sum = 0;
+
+  document.querySelectorAll(".candidate-votes").forEach(input => {
+    const number = Number(input.value);
+    if (Number.isSafeInteger(number) && number >= 0) sum += number;
+  });
+
+  document.getElementById("candidateSum").textContent = sum;
+
+  const valid = numberValue("validVotes");
+  const rejected = numberValue("rejectedVotes");
+  const total = numberValue("ballotTotal");
+  const accredited = numberValue("accredited");
+  const message = document.getElementById("checkMessage");
+
+  if (sum !== valid) {
+    message.textContent = "Check: candidate votes do not equal total valid votes.";
+    message.style.color = "#a01818";
+  } else if (valid + rejected !== total) {
+    message.textContent = "Check: valid votes plus rejected ballots do not equal total votes cast.";
+    message.style.color = "#a01818";
+  } else if (total > accredited) {
+    message.textContent = "Check: total votes cast exceeds the accredited-voter figure entered.";
+    message.style.color = "#a01818";
+  } else {
+    message.textContent = "Entered totals are arithmetically consistent; the official result has not been verified.";
+    message.style.color = "#145b22";
+  }
+}
+
+document.getElementById("addCandidate").addEventListener("click", () => addCandidateRow());
+
+["validVotes", "rejectedVotes", "ballotTotal", "accredited"].forEach(id => {
+  document.getElementById(id).addEventListener("input", updateTotals);
+});
+
+resultPhoto.addEventListener("change", () => {
+  selectedPhotoData = "";
+  photoPreview.removeAttribute("src");
+  photoPreview.style.display = "none";
+
+  const file = resultPhoto.files && resultPhoto.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    showStatus("Select a valid image file.", "error");
+    resultPhoto.value = "";
+    return;
+  }
+
+  if (file.size > 2 * 1024 * 1024) {
+    showStatus("Image exceeds 2 MB. Please resize or compress it first.", "error");
+    resultPhoto.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = event => {
+    selectedPhotoData = String(event.target.result || "");
+    photoPreview.src = selectedPhotoData;
+    photoPreview.style.display = "block";
+  };
+
+  reader.onerror = () => showStatus("Unable to read the image. Choose another file.", "error");
+  reader.readAsDataURL(file);
+});
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+
+  const candidates = [];
+  const nameSet = new Set();
+  let sum = 0;
+
+  document.querySelectorAll("#candidateRows .candidate-row").forEach(row => {
+    const name = row.querySelector(".candidate-name").value.trim();
+    const votes = Number(row.querySelector(".candidate-votes").value);
+
+    if (name && Number.isSafeInteger(votes) && votes >= 0) {
+      candidates.push({ name, votes });
+      nameSet.add(name.toLowerCase());
+      sum += votes;
+    }
+  });
+
+  if (!candidates.length) {
+    showStatus("Enter at least one candidate and vote count.", "error");
+    return;
+  }
+
+  if (nameSet.size !== candidates.length) {
+    showStatus("Duplicate candidate names detected. Check the entries.", "error");
+    return;
+  }
+
+  const valid = numberValue("validVotes");
+  const rejected = numberValue("rejectedVotes");
+  const total = numberValue("ballotTotal");
+  const accredited = numberValue("accredited");
+
+  if (sum !== valid) {
+    showStatus("Candidate votes must equal total valid votes. Check the result sheet.", "error");
+    return;
+  }
+
+  if (valid + rejected !== total) {
+    showStatus("Valid votes plus rejected ballots must equal total votes cast.", "error");
+    return;
+  }
+
+  if (total > accredited) {
+    showStatus("Total votes cast exceeds the accredited-voter figure. Check the figures.", "error");
+    return;
+  }
+
+  const report = {
+    id: (window.crypto && crypto.randomUUID)
+      ? crypto.randomUUID()
+      : String(Date.now()) + "-" + Math.random().toString(36).slice(2),
+    submittedAt: new Date().toISOString(),
+    agentName: document.getElementById("agentName").value.trim(),
+    agentPhone: document.getElementById("agentPhone").value.trim(),
+    state: document.getElementById("state").value,
+    lga: document.getElementById("lga").value,
+    ward: document.getElementById("ward").value.trim(),
+    puCode: document.getElementById("puCode").value.trim(),
+    puName: document.getElementById("puName").value.trim(),
+    election: document.getElementById("election").value,
+    electionDate: document.getElementById("electionDate").value,
+    reportTime: document.getElementById("reportTime").value,
+    candidates,
+    validVotes: valid,
+    rejectedVotes: rejected,
+    accredited,
+    ballotTotal: total,
+    remarks: document.getElementById("remarks").value.trim(),
+    photoData: selectedPhotoData,
+    status: "Saved locally — not officially verified"
+  };
+
+  const reports = readReports();
+  reports.unshift(report);
+
+  if (!writeReports(reports)) return;
+
+  showStatus("Report saved in this browser on this device.", "ok");
+
+  form.reset();
+  selectedPhotoData = "";
+  photoPreview.style.display = "none";
+  photoPreview.removeAttribute("src");
+  candidateRows.innerHTML = "";
+  addCandidateRow();
+  updateTotals();
+  renderReports();
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  setTimeout(() => {
+    selectedPhotoData = "";
+    photoPreview.style.display = "none";
+    photoPreview.removeAttribute("src");
+    formStatus.className = "status";
+    if (!candidateRows.children.length) addCandidateRow();
+    updateTotals();
+  }, 0);
+});
+
+function formatDate(value) {
+  if (!value) return "Not provided";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? value : date.toLocaleString();
+}
+
+function reportMatches(report) {
+  const query = document.getElementById("searchReports").value.trim().toLowerCase();
+  const lga = document.getElementById("filterLga").value;
+
+  const searchable = [
+    report.agentName, report.agentPhone, report.state, report.lga,
+    report.ward, report.puCode, report.puName, report.election
+  ].join(" ").toLowerCase();
+
+  return (!query || searchable.includes(query)) && (!lga || report.lga === lga);
+}
+
+function renderReports() {
+  const reports = readReports();
+  const filtered = reports.filter(reportMatches);
+  const list = document.getElementById("reportList");
+
+  document.getElementById("reportSummary").textContent =
+    "Saved on this device: " + reports.length +
+    " | Matching search: " + filtered.length;
+
+  if (!filtered.length) {
+    list.innerHTML = '<div class="empty">No saved reports match your search.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(report => {
+    const candidateTable = (report.candidates || []).map(candidate => `
+      <tr>
+        <td>${escapeHtml(candidate.name)}</td>
+        <td>${escapeHtml(candidate.votes)}</td>
+      </tr>
+    `).join("");
+
+    const photo = report.photoData
+      ? `<img class="report-photo" src="${report.photoData}" alt="Saved result sheet photograph">`
+      : "<p><small>No photograph attached.</small></p>";
+
+    return `
+      <article class="report">
+        <h3>${escapeHtml(report.puName)} — ${escapeHtml(report.puCode)}</h3>
+        <p class="report-meta">
+          Reference: ${escapeHtml(report.id)}<br>
+          Saved: ${escapeHtml(formatDate(report.submittedAt))}<br>
+          Status: ${escapeHtml(report.status)}
+        </p>
+
+        <p>
+          <strong>State:</strong> ${escapeHtml(report.state)}<br>
+          <strong>LGA:</strong> ${escapeHtml(report.lga)}<br>
+          <strong>Ward:</strong> ${escapeHtml(report.ward)}<br>
+          <strong>Election:</strong> ${escapeHtml(report.election)}<br>
+          <strong>Election date:</strong> ${escapeHtml(report.electionDate)}<br>
+          <strong>Agent:</strong> ${escapeHtml(report.agentName)}<br>
+          <strong>Phone:</strong> ${escapeHtml(report.agentPhone)}
+        </p>
+
+        <table>
+          <thead><tr><th>Candidate / Party</th><th>Votes</th></tr></thead>
+          <tbody>${candidateTable}</tbody>
+        </table>
+
+        <p>
+          <strong>Valid votes:</strong> ${escapeHtml(report.validVotes)}<br>
+          <strong>Rejected ballots:</strong> ${escapeHtml(report.rejectedVotes)}<br>
+          <strong>Accredited voters:</strong> ${escapeHtml(report.accredited)}<br>
+          <strong>Total votes cast:</strong> ${escapeHtml(report.ballotTotal)}
+        </p>
+
+        <p><strong>Remarks:</strong> ${escapeHtml(report.remarks || "None")}</p>
+        ${photo}
+
+        <div class="button-row">
+          <button class="btn btn-gray" type="button"
+            data-action="download" data-id="${escapeHtml(report.id)}">Download Report</button>
+          <button class="btn btn-red" type="button"
+            data-action="delete" data-id="${escapeHtml(report.id)}">Delete Report</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+document.getElementById("reportList").addEventListener("click", event => {
+  const button = event.target.closest("button[data-action]");
+  if (!button) return;
+
+  const id = button.dataset.id;
+  const reports = readReports();
+  const report = reports.find(item => item.id === id);
+  if (!report) return;
+
+  if (button.dataset.action === "delete") {
+    if (!confirm("Delete this saved report? This cannot be undone.")) return;
+
+    if (writeReports(reports.filter(item => item.id !== id))) renderReports();
+  }
+
+  if (button.dataset.action === "download") {
+    downloadFile(
+      "polling-unit-report-" + safeFilename(report.puCode || id) + ".json",
+      JSON.stringify(report, null, 2),
+      "application/json"
+    );
+  }
+});
+
+function safeFilename(value) {
+  return String(value).replace(/[^a-z0-9_-]/gi, "_").slice(0, 70) || "report";
+}
+
+function downloadFile(filename, content, type) {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function csvCell(value) {
+  let text = String(value ?? "");
+  if (/^[=+\-@]/.test(text)) text = "'" + text;
+  return '"' + text.replace(/"/g, '""') + '"';
+}
+
+document.getElementById("exportCsv").addEventListener("click", () => {
+  const reports = readReports();
+
+  if (!reports.length) {
+    alert("There are no saved reports to export.");
+    return;
+  }
+
+  const headers = [
+    "Reference", "Saved At", "State", "LGA", "Ward", "Polling Unit Code",
+    "Polling Unit Name", "Election", "Election Date", "Report Time",
+    "Agent Name", "Agent Phone", "Candidate Votes", "Valid Votes",
+    "Rejected Ballots", "Accredited Voters", "Total Votes Cast",
+    "Remarks", "Status"
+  ];
+
+  const rows = reports.map(report => [
+    report.id, report.submittedAt, report.state, report.lga, report.ward,
+    report.puCode, report.puName, report.election, report.electionDate,
+    report.reportTime, report.agentName, report.agentPhone,
+    (report.candidates || []).map(c => c.name + ": " + c.votes).join(" | "),
+    report.validVotes, report.rejectedVotes, report.accredited,
+    report.ballotTotal, report.remarks, report.status
+  ]);
+
+  const csv = [headers, ...rows]
+    .map(row => row.map(csvCell).join(","))
+    .join("\r\n");
+
+  downloadFile(
+    "consistency2027-polling-unit-reports.csv",
+    "\uFEFF" + csv,
+    "text/csv;charset=utf-8"
+  );
+});
+
+document.getElementById("exportJson").addEventListener("click", () => {
+  const reports = readReports();
+
+  if (!reports.length) {
+    alert("There are no saved reports to back up.");
+    return;
+  }
+
+  downloadFile(
+    "consistency2027-polling-unit-backup.json",
+    JSON.stringify(reports, null, 2),
+    "application/json"
+  );
+});
+
+document.getElementById("printReports").addEventListener("click", () => {
+  window.print();
+});
+
+document.getElementById("searchReports").addEventListener("input", renderReports);
+document.getElementById("filterLga").addEventListener("change", renderReports);
+
+addCandidateRow();
+renderReports();
+updateTotals();
+</script></body>
+</html>
