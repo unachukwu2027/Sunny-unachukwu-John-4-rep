@@ -4,256 +4,659 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Campaign Announcements | CONSISTENCY 2027</title>
+<title>Official Campaign Announcements | CONSISTENCY 2027</title>
 
 <meta name="theme-color" content="#087f23">
-<meta name="description" content="Campaign announcements and official updates from CONSISTENCY 2027.">
+<meta name="description" content="Official campaign announcements, public notices and verified updates from Barr. Sunny John Unachukwu, CONSISTENCY 2027.">
 
 <style>
+:root {
+    --green: #087f23;
+    --dark-green: #045519;
+    --gold: #d6a500;
+    --red: #c9232d;
+    --white: #ffffff;
+    --light: #f3f8f3;
+    --text: #253126;
+    --muted: #68756a;
+}
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f9f5;
-  color: #222;
-  line-height: 1.7;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-strip {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 header {
-  background: #087f23;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-  border-bottom: 5px solid #d6a500;
+    background: white;
+    padding: 20px 15px;
+    border-bottom: 4px solid var(--gold);
 }
 
-header h1 {
-  margin: 0;
-  font-size: 30px;
+.brand {
+    max-width: 1150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: left;
 }
 
-header p {
-  margin: 5px 0 0;
+.logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    border: 4px solid var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 900;
+    flex-shrink: 0;
+}
+
+.brand h1 {
+    color: var(--green);
+    font-size: clamp(23px, 4vw, 34px);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.brand p {
+    margin: 5px 0 0;
+    color: #555;
+    font-size: 14px;
 }
 
 nav {
-  background: #045b19;
-  padding: 10px;
-  text-align: center;
+    background: var(--dark-green);
+    padding: 8px 10px;
+    text-align: center;
 }
 
 nav a {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  padding: 9px 12px;
-  font-weight: bold;
-  font-size: 14px;
+    color: white;
+    display: inline-block;
+    padding: 9px 12px;
+    margin: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
-nav a:hover {
-  background: #087f23;
-  border-radius: 5px;
+nav a:hover,
+nav a.active {
+    background: var(--green);
+    color: white;
 }
 
 .hero {
-  background: linear-gradient(135deg, #045b19, #087f23);
-  color: white;
-  text-align: center;
-  padding: 45px 20px;
+    background:
+        linear-gradient(135deg, rgba(4,85,25,.97), rgba(8,127,35,.90));
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+    border-bottom: 6px solid var(--gold);
+}
+
+.hero-label {
+    display: inline-block;
+    background: var(--gold);
+    color: #172817;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
 }
 
 .hero h2 {
-  margin: 0 0 10px;
-  font-size: clamp(26px, 5vw, 40px);
+    margin: 0 auto 15px;
+    font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.2;
+    max-width: 850px;
 }
 
 .hero p {
-  max-width: 700px;
-  margin: auto;
+    max-width: 700px;
+    margin: auto;
+    font-size: 16px;
+    color: #f0fff1;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #172817;
+}
+
+.btn-white {
+    background: white;
+    color: var(--dark-green);
 }
 
 .container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 35px 18px;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 18px;
 }
 
-.section-title {
-  text-align: center;
-  color: #087f23;
-  margin-bottom: 25px;
+.intro {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 30px;
+}
+
+.intro h2 {
+    color: var(--green);
+    font-size: 29px;
+    margin: 0 0 10px;
+}
+
+.intro p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.notice-banner {
+    background: white;
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,.04);
+}
+
+.notice-banner strong {
+    color: var(--green);
+}
+
+.announcement-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .announcement {
-  background: white;
-  border-left: 5px solid #087f23;
-  border-radius: 8px;
-  padding: 23px;
-  margin-bottom: 22px;
-  box-shadow: 0 3px 12px #0000000a;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+    border: 1px solid #e6eee6;
+    display: flex;
+    flex-direction: column;
 }
 
-.announcement h3 {
-  color: #087f23;
-  margin: 0 0 10px;
+.card-top {
+    background: var(--green);
+    color: white;
+    padding: 17px 20px;
+    border-bottom: 4px solid var(--gold);
 }
 
-.badge {
-  display: inline-block;
-  background: #eaf7ed;
-  color: #045b19;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.card-top .category {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    color: #fff0a8;
+    text-transform: uppercase;
+}
+
+.card-top h3 {
+    font-size: 20px;
+    line-height: 1.35;
+    margin: 8px 0 0;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-body p {
+    margin: 0 0 15px;
 }
 
 .date {
-  color: #666;
-  font-size: 13px;
-  margin-bottom: 12px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
 }
 
-.empty-message {
-  text-align: center;
-  background: white;
-  padding: 25px;
-  border-radius: 8px;
-  border: 1px dashed #087f23;
+.card-footer {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid #edf1ed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.back-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 20px;
-  color: white;
-  background: #087f23;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
+.official-label {
+    font-size: 11px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+.share-btn {
+    background: #e9f7ec;
+    color: var(--dark-green);
+    border: 0;
+    padding: 9px 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.share-btn:hover {
+    background: #d5efd9;
+}
+
+.info-section {
+    margin-top: 40px;
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    border: 1px solid #e3ece3;
+}
+
+.info-section h3 {
+    color: var(--green);
+    margin-top: 0;
+    font-size: 23px;
+}
+
+.info-section p {
+    max-width: 700px;
+    margin: 0 auto 20px;
+    color: var(--muted);
+}
+
+.home-btn {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.home-btn:hover {
+    background: var(--dark-green);
 }
 
 footer {
-  background: #073d16;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-  margin-top: 30px;
+    background: #073d16;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    border-top: 5px solid var(--gold);
+}
+
+footer h3 {
+    margin: 0;
+    font-size: 22px;
 }
 
 footer p {
-  font-size: 13px;
+    font-size: 13px;
+    margin: 6px 0;
+    color: #e2f0e4;
 }
 
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 24px;
-  }
+.footer-links {
+    margin: 15px 0;
+}
 
-  nav a {
-    padding: 8px;
+.footer-links a {
+    color: white;
+    margin: 5px 10px;
+    display: inline-block;
     font-size: 13px;
-  }
+}
 
-  .announcement {
-    padding: 17px;
-  }
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+@media (max-width: 700px) {
+    .brand {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .brand h1 {
+        font-size: 25px;
+    }
+
+    nav a {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 45px 18px;
+    }
+
+    .announcement-list {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 30px 14px;
+    }
+
+    .info-section {
+        padding: 22px 16px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<div class="top-strip">
+    CONSISTENCY 2027 • SERVICE TO THE PEOPLE
+</div>
+
 <header>
-  <h1>CONSISTENCY 2027</h1>
-  <p>Barr. Sunny John Unachukwu, Esq.</p>
-  <p>Service to the People</p>
+    <div class="brand">
+        <div class="logo">C27</div>
+
+        <div>
+            <h1>CONSISTENCY 2027</h1>
+            <p><strong>Barr. Sunny John Unachukwu, Esq.</strong></p>
+            <p>MBAIKE'S CHOSEN ONE FOR HOR</p>
+        </div>
+    </div>
 </header>
 
 <nav aria-label="Main navigation">
-  <a href="index.html">Home</a>
-  <a href="biography.html">Biography</a>
-  <a href="manifesto.html">Manifesto</a>
-  <a href="priorities.html">Priorities</a>
-  <a href="news.html">Latest News</a>
-  <a href="announcements.html">Announcements</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="biography.html">Biography</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="priorities.html">Priorities</a>
+    <a href="news.html">Latest News</a>
+    <a href="announcement.html" class="active">Announcements</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="video.html">Videos</a>
+    <a href="events.html">Events</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
 <section class="hero">
-  <h2>OFFICIAL CAMPAIGN ANNOUNCEMENTS</h2>
-  <p>
-    Welcome to the announcements page of CONSISTENCY 2027.
-    Visit this page for campaign notices, scheduled activities
-    and important updates.
-  </p>
+    <span class="hero-label">OFFICIAL CAMPAIGN INFORMATION</span>
+
+    <h2>Campaign Announcements</h2>
+
+    <p>
+        Stay informed about official notices, campaign activities,
+        public information and updates from CONSISTENCY 2027.
+        Always verify event details through official campaign
+        communications before making arrangements.
+    </p>
+
+    <div class="hero-buttons">
+        <a href="#latest" class="btn btn-gold">View Announcements</a>
+        <a href="index.html" class="btn btn-white">Return Home</a>
+    </div>
 </section>
 
-<main class="container">
+<main class="container" id="latest">
 
-  <h2 class="section-title">Latest Announcements</h2>
+    <div class="intro">
+        <h2>Latest Announcements</h2>
+        <p>
+            This page serves as a central information point for
+            campaign notices and public updates.
+        </p>
+    </div>
 
-  <article class="announcement">
-    <span class="badge">WELCOME</span>
+    <div class="notice-banner">
+        <strong>PUBLIC INFORMATION:</strong>
+        Please rely on verified campaign communications for
+        confirmed dates, venues, appointments, registration
+        instructions and other time-sensitive information.
+    </div>
 
-    <h3>Welcome to CONSISTENCY 2027</h3>
+    <div class="announcement-list">
 
-    <div class="date">Campaign Website Notice</div>
+        <article class="announcement">
+            <div class="card-top">
+                <div class="category">Campaign Notice</div>
+                <h3>Welcome to CONSISTENCY 2027</h3>
+            </div>
 
-    <p>
-      Welcome to the official campaign website of Barr. Sunny John
-      Unachukwu, Esq. This platform is intended to provide information
-      about the candidate, campaign activities and proposed priorities
-      for Mbaitoli/Ikeduru Federal Constituency.
-    </p>
-  </article>
+            <div class="card-body">
+                <div class="date">General Campaign Information</div>
 
-  <article class="announcement">
-    <span class="badge">PUBLIC INFORMATION</span>
+                <p>
+                    Welcome to the official campaign information
+                    platform of Barr. Sunny John Unachukwu, Esq.
+                    The website provides information about the
+                    candidate, campaign priorities, public updates
+                    and ways to connect with the campaign.
+                </p>
 
-    <h3>Stay Connected for Campaign Updates</h3>
+                <div class="card-footer">
+                    <span class="official-label">CONSISTENCY 2027</span>
+                    <button class="share-btn"
+                        onclick="shareAnnouncement('Welcome to CONSISTENCY 2027', this)">
+                        Share Notice
+                    </button>
+                </div>
+            </div>
+        </article>
 
-    <div class="date">General Notice</div>
+        <article class="announcement">
+            <div class="card-top">
+                <div class="category">Public Information</div>
+                <h3>Stay Connected for Verified Updates</h3>
+            </div>
 
-    <p>
-      Supporters and visitors are encouraged to check this page
-      regularly for verified campaign announcements and updates.
-      Any specific event date, venue or registration instruction
-      should be confirmed through an official campaign communication.
-    </p>
-  </article>
+            <div class="card-body">
+                <div class="date">Public Notice</div>
 
-  <div class="empty-message">
-    <h3>More Announcements Coming Soon</h3>
+                <p>
+                    Visitors are encouraged to check this page
+                    regularly for campaign information. Event
+                    dates, venues, participation requirements and
+                    other specific instructions should be treated
+                    as confirmed only when published through
+                    an authorised campaign communication.
+                </p>
 
-    <p>
-      New announcements can be added to this page when official
-      information becomes available.
-    </p>
+                <div class="card-footer">
+                    <span class="official-label">PUBLIC NOTICE</span>
+                    <button class="share-btn"
+                        onclick="shareAnnouncement('Stay Connected for Verified Updates', this)">
+                        Share Notice
+                    </button>
+                </div>
+            </div>
+        </article>
 
-    <a href="index.html" class="back-button">
-      ← Return to Homepage
-    </a>
-  </div>
+        <article class="announcement">
+            <div class="card-top">
+                <div class="category">Campaign Values</div>
+                <h3>Consistency Today, Better Tomorrow</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="date">Campaign Message</div>
+
+                <p>
+                    CONSISTENCY 2027 highlights service to the
+                    people, responsible representation and attention
+                    to community needs. Visitors can explore the
+                    campaign priorities page to read about the
+                    issues and proposals being presented.
+                </p>
+
+                <div class="card-footer">
+                    <span class="official-label">SERVICE TO THE PEOPLE</span>
+                    <button class="share-btn"
+                        onclick="shareAnnouncement('Consistency Today, Better Tomorrow', this)">
+                        Share Notice
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="announcement">
+            <div class="card-top">
+                <div class="category">Website Update</div>
+                <h3>Explore Campaign Information</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="date">Website Information</div>
+
+                <p>
+                    You can use this website to explore the
+                    candidate's biography, manifesto, campaign
+                    priorities, news, gallery and contact page.
+                    Please check individual pages for the
+                    information available in each section.
+                </p>
+
+                <div class="card-footer">
+                    <span class="official-label">VISITOR INFORMATION</span>
+                    <button class="share-btn"
+                        onclick="shareAnnouncement('Explore Campaign Information', this)">
+                        Share Notice
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <section class="info-section">
+        <h3>More Announcements Coming Soon</h3>
+
+        <p>
+            New notices can be published here when additional
+            verified campaign information becomes available.
+            Please revisit this page for updates.
+        </p>
+
+        <a href="priorities.html" class="home-btn">
+            Explore Campaign Priorities
+        </a>
+
+        <a href="index.html" class="home-btn">
+            Return to Homepage
+        </a>
+    </section>
 
 </main>
 
 <footer>
-  <strong>CONSISTENCY 2027</strong>
-  <p>Barr. Sunny John Unachukwu, Esq.</p>
-  <p>Service to the People</p>
-  <p>&copy; <span id="year"></span> CONSISTENCY 2027</p>
+    <h3>CONSISTENCY 2027</h3>
+    <p>Barr. Sunny John Unachukwu, Esq.</p>
+    <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+    <p>Consistency Today, Better Tomorrow!</p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="biography.html">Biography</a>
+        <a href="priorities.html">Priorities</a>
+        <a href="news.html">Latest News</a>
+        <a href="announcement.html">Announcements</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <p>&copy; <span id="year"></span> CONSISTENCY 2027. All rights reserved.</p>
 </footer>
 
 <script>
 document.getElementById("year").textContent =
-  new Date().getFullYear();
+    new Date().getFullYear();
+
+function shareAnnouncement(title, button) {
+    const pageUrl = window.location.href;
+    const shareText = title + " - CONSISTENCY 2027";
+
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: shareText,
+            url: pageUrl
+        }).catch(function(error) {
+            if (error.name !== "AbortError") {
+                copyAnnouncementLink(pageUrl, button);
+            }
+        });
+    } else {
+        copyAnnouncementLink(pageUrl, button);
+    }
+}
+
+function copyAnnouncementLink(url, button) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(function() {
+            const oldText = button.textContent;
+            button.textContent = "Link Copied!";
+            setTimeout(function() {
+                button.textContent = oldText;
+            }, 2000);
+        }).catch(function() {
+            window.prompt("Copy this announcement page link:", url);
+        });
+    } else {
+        window.prompt("Copy this announcement page link:", url);
+    }
+}
 </script>
 
 </body>
