@@ -7,7 +7,7 @@
 <title>CONSISTENCY 2027 | Barr. Sunny John Unachukwu</title>
 
 <meta name="theme-color" content="#087f23">
-<meta name="description" content="Official campaign website of Barr. Sunny John Unachukwu for Mbaitoli/Ikeduru Federal Constituency, Imo State.">
+<meta name="description" content="Campaign website of Barr. Sunny John Unachukwu, for Mbaitoli/Ikeduru Federal Constituency, Imo State.">
 
 <style>
 :root {
@@ -17,7 +17,7 @@
   --red: #c62828;
   --gold: #d6a500;
   --white: #ffffff;
-  --text: #222;
+  --text: #222222;
 }
 
 * {
@@ -36,16 +36,18 @@ body {
   line-height: 1.7;
 }
 
-/* TOP BAR */
+/* TOP ANNOUNCEMENT BAR */
 .topbar {
   background: var(--dark-green);
   color: white;
   text-align: center;
   padding: 9px 12px;
   font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-/* HEADER */
+/* WEBSITE HEADER */
 header {
   background: white;
   border-bottom: 3px solid var(--gold);
@@ -61,15 +63,15 @@ header {
 }
 
 .logo {
-  width: 65px;
-  height: 65px;
+  width: 68px;
+  height: 68px;
   flex-shrink: 0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: bold;
   background: var(--green);
   border: 3px solid var(--gold);
@@ -77,17 +79,17 @@ header {
 
 .brand h1 {
   color: var(--green);
-  font-size: 21px;
+  font-size: 22px;
   margin: 0;
   line-height: 1.4;
 }
 
 .brand p {
-  margin: 4px 0 0;
+  margin: 3px 0 0;
   font-size: 13px;
 }
 
-/* NAVIGATION MENU */
+/* NAVIGATION */
 nav {
   background: var(--green);
   position: relative;
@@ -97,7 +99,7 @@ nav {
 .nav-inner {
   max-width: 1250px;
   margin: auto;
-  padding: 0 12px;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +110,7 @@ nav {
   color: white;
   text-decoration: none;
   display: block;
-  padding: 14px 11px;
+  padding: 13px 10px;
   font-size: 13px;
   font-weight: bold;
 }
@@ -119,7 +121,6 @@ nav {
 
 .nav-inner .admin-link {
   background: var(--red);
-  color: white;
   border-radius: 5px;
   margin: 5px;
 }
@@ -131,7 +132,7 @@ nav {
 .menu-toggle {
   display: none;
   width: 100%;
-  padding: 13px 18px;
+  padding: 14px 18px;
   background: var(--green);
   color: white;
   border: none;
@@ -141,9 +142,59 @@ nav {
   cursor: pointer;
 }
 
-/* HERO SECTION */
+/* MOVING WELCOME NOTE */
+.welcome-section {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-bottom: 2px solid var(--gold);
+  overflow: hidden;
+  min-height: 55px;
+}
+
+.welcome-label {
+  background: var(--red);
+  color: white;
+  padding: 15px 18px;
+  font-size: 13px;
+  font-weight: bold;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.welcome-message {
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  padding: 12px 0;
+}
+
+.welcome-moving-text {
+  display: inline-block;
+  color: var(--green);
+  font-weight: bold;
+  font-size: 14px;
+  padding-left: 100%;
+  animation: welcomeScroll 40s linear infinite;
+}
+
+.welcome-message:hover .welcome-moving-text {
+  animation-play-state: paused;
+}
+
+@keyframes welcomeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* HERO BANNER */
 .hero {
-  min-height: 430px;
+  min-height: 440px;
   padding: 65px 20px;
   display: flex;
   align-items: center;
@@ -151,16 +202,16 @@ nav {
   text-align: center;
   color: white;
   background:
-    linear-gradient(135deg, rgba(4,91,25,.96), rgba(8,127,35,.88));
+    linear-gradient(135deg, rgba(4,91,25,.97), rgba(8,127,35,.88));
 }
 
 .hero-content {
   max-width: 900px;
 }
 
-.hero .label {
+.hero-label {
   display: inline-block;
-  padding: 7px 15px;
+  padding: 7px 16px;
   border: 1px solid var(--gold);
   border-radius: 30px;
   color: white;
@@ -194,7 +245,7 @@ nav {
 
 .button {
   display: inline-block;
-  padding: 12px 20px;
+  padding: 12px 21px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
@@ -215,7 +266,7 @@ nav {
   opacity: .9;
 }
 
-/* CONTENT */
+/* GENERAL CONTENT */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -239,6 +290,7 @@ nav {
   margin: auto;
 }
 
+/* CAMPAIGN CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -256,6 +308,7 @@ nav {
 .card h3 {
   color: var(--green);
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .card p {
@@ -274,7 +327,7 @@ nav {
   text-decoration: underline;
 }
 
-/* SLOGAN */
+/* CAMPAIGN SLOGAN */
 .slogan {
   background: var(--light-green);
   border-top: 1px solid #cce5d1;
@@ -302,6 +355,10 @@ footer {
   padding: 30px 20px;
 }
 
+footer h3 {
+  margin-top: 0;
+}
+
 footer p {
   margin: 7px 0;
   font-size: 13px;
@@ -325,7 +382,14 @@ footer p {
   text-decoration: underline;
 }
 
-/* MOBILE */
+/* ACCESSIBILITY */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 850px) {
   .menu-toggle {
     display: block;
@@ -366,7 +430,33 @@ footer p {
   }
 
   .brand h1 {
-    font-size: 17px;
+    font-size: 18px;
+  }
+
+  .welcome-label {
+    padding: 15px 10px;
+    font-size: 11px;
+  }
+
+  .welcome-moving-text {
+    font-size: 12px;
+    animation-duration: 45s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .welcome-moving-text {
+    animation: none;
+    padding-left: 12px;
+    white-space: normal;
+  }
+
+  .welcome-message {
+    white-space: normal;
   }
 }
 </style>
@@ -374,10 +464,12 @@ footer p {
 
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar">
   CONSISTENCY 2027 — SERVICE TO THE PEOPLE
 </div>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
 
@@ -392,7 +484,7 @@ footer p {
   </div>
 </header>
 
-<!-- MAIN WEBSITE MENU -->
+<!-- MAIN MENU -->
 <nav aria-label="Main navigation">
 
   <button
@@ -400,42 +492,28 @@ footer p {
     id="menuToggle"
     aria-expanded="false"
     aria-controls="mainMenu"
-    type="button"
-  >
+    type="button">
     ☰ MENU
   </button>
 
   <div class="nav-inner" id="mainMenu">
 
     <a href="index.html">Home</a>
-
     <a href="about.html">About Candidate</a>
-
     <a href="biography.html">Biography</a>
-
     <a href="manifesto.html">Manifesto</a>
-
     <a href="priorities.html">Priorities</a>
-
     <a href="projects.html">Projects</a>
-
     <a href="campaign-team.html">Campaign Team</a>
-
     <a href="news.html">Latest News</a>
-
     <a href="announcements.html">Announcements</a>
-
     <a href="gallery.html">Gallery</a>
-
     <a href="videos.html">Videos</a>
-
     <a href="events.html">Events</a>
-
     <a href="volunteer.html">Volunteer</a>
-
     <a href="contact.html">Contact</a>
 
-    <!-- ADMIN LOGIN MENU LINK -->
+    <!-- ADMIN LOGIN LINK -->
     <a href="admin-login.html" class="admin-link">
       🔐 Admin Login
     </a>
@@ -443,12 +521,37 @@ footer p {
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- MOVING WELCOME NOTE -->
+<section class="welcome-section" aria-label="Welcome message">
+
+  <div class="welcome-label">
+    WELCOME
+  </div>
+
+  <div class="welcome-message">
+
+    <div class="welcome-moving-text">
+      Welcome to the official campaign website of Barr. Sunny John
+      Unachukwu, Esq. — CONSISTENCY 2027!
+      &nbsp;&nbsp;&nbsp; Service to the People.
+      &nbsp;&nbsp;&nbsp; Consistency Today, Better Tomorrow!
+      &nbsp;&nbsp;&nbsp; MBAIKE'S CHOSEN ONE FOR HOR.
+      &nbsp;&nbsp;&nbsp; Together, let us work towards a better future
+      for Mbaitoli/Ikeduru Federal Constituency.
+    </div>
+
+  </div>
+
+</section>
+
+<!-- HERO BANNER -->
 <section class="hero">
 
   <div class="hero-content">
 
-    <span class="label">CONSISTENCY 2027</span>
+    <span class="hero-label">
+      CONSISTENCY 2027
+    </span>
 
     <h2>
       THE CHOICE IS NOW.<br>
@@ -462,6 +565,7 @@ footer p {
     </p>
 
     <div class="hero-buttons">
+
       <a class="button button-gold" href="biography.html">
         Meet the Candidate
       </a>
@@ -469,6 +573,7 @@ footer p {
       <a class="button button-white" href="manifesto.html">
         Explore the Manifesto
       </a>
+
     </div>
 
   </div>
@@ -491,6 +596,7 @@ footer p {
 
     <article class="card">
       <h3>Education</h3>
+
       <p>
         Promote improved access to quality education,
         learning resources and opportunities for young people.
@@ -503,6 +609,7 @@ footer p {
 
     <article class="card">
       <h3>Healthcare</h3>
+
       <p>
         Support efforts to improve access to healthcare services
         and strengthen community health facilities.
@@ -515,6 +622,7 @@ footer p {
 
     <article class="card">
       <h3>Roads and Infrastructure</h3>
+
       <p>
         Advocate for better roads, reliable water access,
         electricity and other essential infrastructure.
@@ -527,6 +635,7 @@ footer p {
 
     <article class="card">
       <h3>Youth Empowerment</h3>
+
       <p>
         Encourage skills development, entrepreneurship
         and opportunities for young people.
@@ -539,6 +648,7 @@ footer p {
 
     <article class="card">
       <h3>Agriculture</h3>
+
       <p>
         Promote agricultural development, farming opportunities
         and support for local producers.
@@ -551,6 +661,7 @@ footer p {
 
     <article class="card">
       <h3>Community Development</h3>
+
       <p>
         Encourage inclusive representation, community engagement
         and development initiatives.
@@ -565,16 +676,18 @@ footer p {
 
 </section>
 
-<!-- SLOGAN -->
+<!-- CAMPAIGN SLOGAN -->
 <section class="slogan">
 
   <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
 
-  <p>MBAIKE'S CHOSEN ONE FOR HOR · SERVICE TO THE PEOPLE</p>
+  <p>
+    MBAIKE'S CHOSEN ONE FOR HOR · SERVICE TO THE PEOPLE
+  </p>
 
 </section>
 
-<!-- QUICK LINKS -->
+<!-- EXPLORE CAMPAIGN -->
 <section class="container">
 
   <div class="section-heading">
@@ -590,6 +703,7 @@ footer p {
 
     <article class="card">
       <h3>Candidate Biography</h3>
+
       <p>
         Read about the candidate's background, professional journey
         and public service experience.
@@ -602,6 +716,7 @@ footer p {
 
     <article class="card">
       <h3>Campaign News</h3>
+
       <p>
         Visit the news section for campaign reports and announcements.
       </p>
@@ -612,10 +727,11 @@ footer p {
     </article>
 
     <article class="card">
-      <h3>Admin Login</h3>
+      <h3>Website Administration</h3>
+
       <p>
-        Authorized campaign website administrators can open
-        the administration page here.
+        Authorized website administrators can access the
+        administration login page.
       </p>
 
       <a class="card-link" href="admin-login.html">
@@ -627,6 +743,7 @@ footer p {
 
 </section>
 
+<!-- FOOTER -->
 <footer>
 
   <h3>CONSISTENCY 2027</h3>
@@ -636,33 +753,42 @@ footer p {
   <p>Service to the People</p>
 
   <div class="footer-links">
+
     <a href="index.html">Home</a>
     <a href="biography.html">Biography</a>
     <a href="news.html">News</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
     <a href="admin-login.html">Admin Login</a>
+
   </div>
 
   <p style="margin-top:20px">
-    &copy; <span id="currentYear"></span> CONSISTENCY 2027.
-    All rights reserved.
+    &copy; <span id="currentYear"></span>
+    CONSISTENCY 2027. All rights reserved.
   </p>
 
 </footer>
 
 <script>
+/* MOBILE MENU */
 const menuToggle = document.getElementById("menuToggle");
 const mainMenu = document.getElementById("mainMenu");
 
 menuToggle.addEventListener("click", function () {
   const isOpen = mainMenu.classList.toggle("open");
 
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute(
+    "aria-expanded",
+    String(isOpen)
+  );
 
-  menuToggle.innerHTML = isOpen ? "✕ CLOSE MENU" : "☰ MENU";
+  menuToggle.innerHTML = isOpen
+    ? "✕ CLOSE MENU"
+    : "☰ MENU";
 });
 
+/* AUTOMATIC COPYRIGHT YEAR */
 document.getElementById("currentYear").textContent =
   new Date().getFullYear();
 </script>
