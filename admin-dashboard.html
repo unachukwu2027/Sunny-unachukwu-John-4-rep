@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | CONSISTENCY 2027</title>
+
+<meta name="theme-color" content="#087f23">
+
+<style>
+:root {
+  --green: #087f23;
+  --dark-green: #045b19;
+  --light-green: #eaf7ed;
+  --red: #c62828;
+  --gold: #d6a500;
+  --white: #ffffff;
+  --text: #263238;
+  --muted: #64748b;
+  --border: #dce5dd;
+  --background: #f3f7f3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+header {
+  background: linear-gradient(135deg, var(--dark-green), var(--green));
+  color: white;
+  padding: 22px 16px;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0 0 7px;
+  font-size: 25px;
+}
+
+header p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.badge {
+  background: var(--gold);
+  color: #222;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 22px auto;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.sidebar,
+.panel,
+.stat {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.sidebar {
+  padding: 15px;
+  align-self: start;
+}
+
+.sidebar h3 {
+  margin: 5px 0 15px;
+  color: var(--green);
+}
+
+.nav-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 7px;
+  text-align: left;
+  background: white;
+  color: #263238;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  background: var(--light-green);
+  color: var(--dark-green);
+  font-weight: bold;
+}
+
+.main {
+  min-width: 0;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.page-title {
+  margin: 0 0 7px;
+  font-size: 25px;
+}
+
+.subtitle {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.stat {
+  padding: 18px;
+  border-top: 4px solid var(--green);
+}
+
+.stat span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+
+.stat strong {
+  font-size: 27px;
+}
+
+.panel {
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.panel h3 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 15px 0 7px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5ce;
+  border-radius: 7px;
+  font: inherit;
+  background: white;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #a8ddb2;
+  border-color: var(--green);
+}
+
+button,
+.button {
+  display: inline-block;
+  border: none;
+  background: var(--green);
+  color: white;
+  padding: 11px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 8px 5px 0 0;
+}
+
+button:hover,
+.button:hover {
+  background: var(--dark-green);
+}
+
+.secondary {
+  background: #475569;
+}
+
+.danger {
+  background: var(--red);
+}
+
+.gold {
+  background: var(--gold);
+  color: #222;
+}
+
+.notice {
+  background: #fff8df;
+  border: 1px solid #ead58a;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+.success {
+  background: #e7f8ea;
+  border: 1px solid #9ad4a4;
+  padding: 12px;
+  border-radius: 7px;
+  margin: 12px 0;
+  display: none;
+  line-height: 1.5;
+}
+
+.item {
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 14px;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.item h4 {
+  margin: 0 0 8px;
+}
+
+.item p {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.item img {
+  display: block;
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+.small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 25px 15px;
+  font-size: 13px;
+}
+
+.empty {
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+  background: #f8faf8;
+  border-radius: 8px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .sidebar.mobile-open {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: inline-block;
+    margin: 12px 15px 0;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <h1>CONSISTENCY 2027</h1>
+      <p>Campaign Website Administration</p>
+      <p class="small" style="color:#e2f4e5">
+        Barr. Sunny John Unachukwu, Esq.
+      </p>
+    </div>
+
+    <span class="badge">LOCAL DRAFT DASHBOARD</span>
+  </div>
+</header>
+
+<button class="mobile-menu" onclick="toggleMenu()">
+  ☰ Dashboard Menu
+</button>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar">
+    <h3>ADMIN MENU</h3>
+
+    <button class="nav-button active" data-page="overview">
+      🏠 Dashboard Overview
+    </button>
+
+    <button class="nav-button" data-page="news">
+      📰 News Management
+    </button>
+
+    <button class="nav-button" data-page="updates">
+      📢 Campaign Updates
+    </button>
+
+    <button class="nav-button" data-page="gallery">
+      🖼️ Gallery Management
+    </button>
+
+    <button class="nav-button" data-page="biography">
+      👤 Biography Editor
+    </button>
+
+    <button class="nav-button" data-page="priorities">
+      📋 Campaign Priorities
+    </button>
+
+    <button class="nav-button" data-page="backup">
+      💾 Backup & Restore
+    </button>
+
+    <hr style="border:0;border-top:1px solid #ddd;margin:15px 0">
+
+    <a class="button" href="index.html"
+       style="display:block;text-align:center">
+      View Website
+    </a>
+  </aside>
+
+  <main class="main">
+
+    <!-- OVERVIEW -->
+    <section class="page active" id="page-overview">
+
+      <h2 class="page-title">Dashboard Overview</h2>
+
+      <p class="subtitle">
+        Manage your campaign content and prepare updates from your phone.
+      </p>
+
+      <div class="notice">
+        <strong>Important:</strong> This dashboard stores content in this
+        browser on this device. Saving here does not update the live
+        GitHub Pages website. Use the backup section to save a copy.
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span>Saved News Articles</span>
+          <strong id="newsCount">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>Campaign Updates</span>
+          <strong id="updatesCount">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>Gallery Items</span>
+          <strong id="galleryCount">0</strong>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Quick Actions</h3>
+
+        <button onclick="showPage('news')">
+          Write News Article
+        </button>
+
+        <button onclick="showPage('updates')">
+          Add Campaign Update
+        </button>
+
+        <button onclick="showPage('gallery')">
+          Add Gallery Picture
+        </button>
+
+        <button class="secondary" onclick="showPage('backup')">
+          Backup Content
+        </button>
+      </div>
+
+      <div class="panel">
+        <h3>Website Pages</h3>
+
+        <a class="button" href="index.html">Homepage</a>
+        <a class="button" href="biography.html">Biography</a>
+        <a class="button" href="news.html">News Page</a>
+        <a class="button" href="gallery.html">Gallery Page</a>
+        <a class="button" href="projects.html">Priorities Page</a>
+      </div>
+
+    </section>
+
+    <!-- NEWS -->
+    <section class="page" id="page-news">
+
+      <h2 class="page-title">News Management</h2>
+
+      <p class="subtitle">
+        Write and save campaign news drafts.
+      </p>
+
+      <div class="panel">
+        <h3 id="newsFormTitle">Create News Article</h3>
+
+        <form id="newsForm">
+
+          <input type="hidden" id="newsEditId">
+
+          <label for="newsTitle">News Headline</label>
+          <input id="newsTitle" required maxlength="180"
+                 placeholder="Enter news headline">
+
+          <label for="newsCategory">Category</label>
+          <select id="newsCategory">
+            <option>Campaign News</option>
+            <option>Announcements</option>
+            <option>Community Development</option>
+            <option>Public Engagement</option>
+            <option>Other</option>
+          </select>
+
+          <label for="newsDate">Date</label>
+          <input type="date" id="newsDate" required>
+
+          <label for="newsImage">Image URL (optional)</label>
+          <input type="url" id="newsImage"
+                 placeholder="https://example.com/image.jpg">
+
+          <label for="newsBody">Full Story</label>
+          <textarea id="newsBody" required
+                    placeholder="Write the complete news story here"></textarea>
+
+          <button type="submit">Save News Draft</button>
+
+          <button type="button" class="secondary"
+                  onclick="resetNewsForm()">
+            Clear Form
+          </button>
+
+        </form>
+
+        <div class="success" id="newsSuccess" role="status"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Saved News Drafts</h3>
+        <div id="newsList"></div>
+      </div>
+
+    </section>
+
+    <!-- CAMPAIGN UPDATES -->
+    <section class="page" id="page-updates">
+
+      <h2 class="page-title">Campaign Updates</h2>
+
+      <p class="subtitle">
+        Save announcements, notices and campaign messages.
+      </p>
+
+      <div class="panel">
+
+        <form id="updateForm">
+
+          <input type="hidden" id="updateEditId">
+
+          <label for="updateTitle">Update Title</label>
+          <input id="updateTitle" required maxlength="180"
+                 placeholder="Enter update title">
+
+          <label for="updateDate">Date</label>
+          <input type="date" id="updateDate" required>
+
+          <label for="updateBody">Update Message</label>
+          <textarea id="updateBody" required
+                    placeholder="Write the campaign announcement"></textarea>
+
+          <button type="submit">Save Update Draft</button>
+
+          <button type="button" class="secondary"
+                  onclick="resetUpdateForm()">
+            Clear Form
+          </button>
+
+        </form>
+
+        <div class="success" id="updateSuccess" role="status"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Saved Campaign Updates</h3>
+        <div id="updatesList"></div>
+      </div>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section class="page" id="page-gallery">
+
+      <h2 class="page-title">Gallery Management</h2>
+
+      <p class="subtitle">
+        Save image links and captions for your campaign gallery.
+      </p>
+
+      <div class="panel">
+
+        <form id="galleryForm">
+
+          <input type="hidden" id="galleryEditId">
+
+          <label for="galleryTitle">Image Caption</label>
+          <input id="galleryTitle" required maxlength="180"
+                 placeholder="Describe the picture">
+
+          <label for="galleryUrl">Direct Image URL</label>
+          <input id="galleryUrl" type="url" required
+                 placeholder="https://i.ibb.co/.../image.jpg">
+
+          <label for="galleryDate">Date</label>
+          <input type="date" id="galleryDate" required>
+
+          <button type="submit">Save Gallery Draft</button>
+
+          <button type="button" class="secondary"
+                  onclick="resetGalleryForm()">
+            Clear Form
+          </button>
+
+        </form>
+
+        <div class="success" id="gallerySuccess" role="status"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Saved Gallery Drafts</h3>
+        <div id="galleryList"></div>
+      </div>
+
+    </section>
+
+    <!-- BIOGRAPHY -->
+    <section class="page" id="page-biography">
+
+      <h2 class="page-title">Biography Editor</h2>
+
+      <p class="subtitle">
+        Prepare and save biography text for later publishing.
+      </p>
+
+      <div class="panel">
+
+        <form id="biographyForm">
+
+          <label for="bioHeading">Biography Heading</label>
+          <input id="bioHeading" required
+                 placeholder="About the Candidate">
+
+          <label for="bioText">Biography Content</label>
+          <textarea id="bioText" required
+                    style="min-height:250px"
+                    placeholder="Enter the candidate biography"></textarea>
+
+          <button type="submit">Save Biography Draft</button>
+
+        </form>
+
+        <div class="success" id="bioSuccess" role="status"></div>
+
+        <button class="secondary" onclick="downloadBiography()">
+          Download Biography Text
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- PRIORITIES -->
+    <section class="page" id="page-priorities">
+
+      <h2 class="page-title">Campaign Priorities</h2>
+
+      <p class="subtitle">
+        Prepare proposed development priorities for publication.
+      </p>
+
+      <div class="notice">
+        Label plans as proposals or commitments as appropriate.
+        Do not describe proposed projects as completed projects.
+      </div>
+
+      <div class="panel">
+
+        <form id="prioritiesForm">
+
+          <label for="prioritiesHeading">Section Heading</label>
+          <input id="prioritiesHeading" required
+                 placeholder="Our Development Priorities">
+
+          <label for="prioritiesText">Priorities and Proposals</label>
+          <textarea id="prioritiesText" required
+                    style="min-height:250px"
+                    placeholder="Describe education, healthcare, roads, water, jobs and other priorities"></textarea>
+
+          <button type="submit">Save Priorities Draft</button>
+
+        </form>
+
+        <div class="success" id="prioritiesSuccess" role="status"></div>
+
+        <button class="secondary" onclick="downloadPriorities()">
+          Download Priorities Text
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- BACKUP -->
+    <section class="page" id="page-backup">
+
+      <h2 class="page-title">Backup & Restore</h2>
+
+      <p class="subtitle">
+        Export your saved content so you can keep a separate backup.
+      </p>
+
+      <div class="notice">
+        Your saved drafts are stored in this browser. Clearing browser
+        data or switching devices can make them unavailable. Export
+        a backup regularly.
+      </div>
+
+      <div class="panel">
+        <h3>Download Backup</h3>
+
+        <p>
+          Export news, updates, gallery entries, biography and priorities
+          into a JSON file.
+        </p>
+
+        <button onclick="exportBackup()">
+          Download Complete Backup
+        </button>
+      </div>
+
+      <div class="panel">
+        <h3>Restore Backup</h3>
+
+        <p>
+          Select a backup previously exported from this dashboard.
+          Restoring replaces the saved dashboard data on this browser.
+        </p>
+
+        <label for="backupFile">Choose Backup JSON File</label>
+        <input type="file" id="backupFile" accept=".json,application/json">
+
+        <button class="danger" onclick="importBackup()">
+          Restore Selected Backup
+        </button>
+
+        <div class="success" id="backupSuccess" role="status"></div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  CONSISTENCY 2027 | Service to the People<br>
+  <span class="small">
+    Local content manager — not connected to a publishing server.
+  </span>
+</footer>
+
+<script>
+"use strict";
+
+/*
+ * LOCAL DRAFT STORAGE ONLY.
+ * This file does not provide authentication or live publishing.
+ */
+
+const STORAGE_KEY = "consistency2027_admin_drafts_v1";
+
+const defaultData = {
+  news: [],
+  updates: [],
+  gallery: [],
+  biography: {
+    heading: "About the Candidate",
+    text: ""
+  },
+  priorities: {
+    heading: "Our Development Priorities",
+    text: ""
+  }
+};
+
+let data = loadData();
+
+function cloneDefault() {
+  return JSON.parse(JSON.stringify(defaultData));
+}
+
+function loadData() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (!saved) return cloneDefault();
+
+    const parsed = JSON.parse(saved);
+
+    return {
+      news: Array.isArray(parsed.news) ? parsed.news : [],
+      updates: Array.isArray(parsed.updates) ? parsed.updates : [],
+      gallery: Array.isArray(parsed.gallery) ? parsed.gallery : [],
+      biography: {
+        heading: String(parsed.biography?.heading || defaultData.biography.heading),
+        text: String(parsed.biography?.text || "")
+      },
+      priorities: {
+        heading: String(parsed.priorities?.heading || defaultData.priorities.heading),
+        text: String(parsed.priorities?.text || "")
+      }
+    };
+  } catch (error) {
+    return cloneDefault();
+  }
+}
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    renderAll();
+    return true;
+  } catch (error) {
+    alert(
+      "The browser could not save this content. " +
+      "The storage limit may have been reached. Export a backup " +
+      "or remove large content and try again."
+    );
+    return false;
+  }
+}
+
+function makeId() {
+  return Date.now().toString(36) +
+    Math.random().toString(36).slice(2, 9);
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function safeImageURL(value) {
+  try {
+    const url = new URL(value);
+
+    if (url.protocol === "https:" || url.protocol === "http:") {
+      return url.href;
+    }
+  } catch (error) {}
+
+  return "";
+}
+
+function showMessage(id, message) {
+  const element = document.getElementById(id);
+  element.textContent = message;
+  element.style.display = "block";
+
+  setTimeout(() => {
+    element.style.display = "none";
+  }, 4500);
+}
+
+function showPage(name) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.querySelectorAll(".nav-button").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.page === name
+    );
+  });
+
+  const target = document.getElementById("page-" + name);
+
+  if (target) {
+    target.classList.add("active");
+  }
+
+  document.getElementById("sidebar").classList.remove("mobile-open");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function toggleMenu() {
+  document.getElementById("sidebar").classList.toggle("mobile-open");
+}
+
+document.querySelectorAll(".nav-button").forEach(button => {
+  button.addEventListener("click", () => {
+    showPage(button.dataset.page);
+  });
+});
+
+/* NEWS */
+
+document.getElementById("newsDate").value =
+  new Date().toISOString().slice(0, 10);
+
+document.getElementById("newsForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const id = document.getElementById("newsEditId").value;
+
+  const article = {
+    id: id || makeId(),
+    title: document.getElementById("newsTitle").value.trim(),
+    category: document.getElementById("newsCategory").value,
+    date: document.getElementById("newsDate").value,
+    image: safeImageURL(document.getElementById("newsImage").value.trim()),
+    body: document.getElementById("newsBody").value.trim(),
+    savedAt: new Date().toISOString()
+  };
+
+  if (!article.title || !article.body || !article.date) {
+    alert("Please complete the headline, date and story.");
+    return;
+  }
+
+  if (id) {
+    data.news = data.news.map(item => item.id === id ? article : item);
+  } else {
+    data.news.unshift(article);
+  }
+
+  if (saveData()) {
+    resetNewsForm();
+    showMessage("newsSuccess", "News draft saved on this device.");
+  }
+});
+
+function resetNewsForm() {
+  document.getElementById("newsForm").reset();
+  document.getElementById("newsEditId").value = "";
+  document.getElementById("newsDate").value =
+    new Date().toISOString().slice(0, 10);
+  document.getElementById("newsFormTitle").textContent =
+    "Create News Article";
+}
+
+function editNews(id) {
+  const item = data.news.find(entry => entry.id === id);
+  if (!item) return;
+
+  document.getElementById("newsEditId").value = item.id;
+  document.getElementById("newsTitle").value = item.title;
+  document.getElementById("newsCategory").value = item.category;
+  document.getElementById("newsDate").value = item.date;
+  document.getElementById("newsImage").value = item.image || "";
+  document.getElementById("newsBody").value = item.body;
+  document.getElementById("newsFormTitle").textContent = "Edit News Draft";
+
+  showPage("news");
+}
+
+function deleteNews(id) {
+  if (!confirm("Delete this saved news draft?")) return;
+
+  data.news = data.news.filter(item => item.id !== id);
+  saveData();
+}
+
+/* CAMPAIGN UPDATES */
+
+document.getElementById("updateDate").value =
+  new Date().toISOString().slice(0, 10);
+
+document.getElementById("updateForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const id = document.getElementById("updateEditId").value;
+
+  const update = {
+    id: id || makeId(),
+    title: document.getElementById("updateTitle").value.trim(),
+    date: document.getElementById("updateDate").value,
+    body: document.getElementById("updateBody").value.trim(),
+    savedAt: new Date().toISOString()
+  };
+
+  if (!update.title || !update.body || !update.date) {
+    alert("Please complete all fields.");
+    return;
+  }
+
+  if (id) {
+    data.updates = data.updates.map(item =>
+      item.id === id ? update : item
+    );
+  } else {
+    data.updates.unshift(update);
+  }
+
+  if (saveData()) {
+    resetUpdateForm();
+    showMessage("updateSuccess", "Campaign update saved on this device.");
+  }
+});
+
+function resetUpdateForm() {
+  document.getElementById("updateForm").reset();
+  document.getElementById("updateEditId").value = "";
+  document.getElementById("updateDate").value =
+    new Date().toISOString().slice(0, 10);
+}
+
+function editUpdate(id) {
+  const item = data.updates.find(entry => entry.id === id);
+  if (!item) return;
+
+  document.getElementById("updateEditId").value = item.id;
+  document.getElementById("updateTitle").value = item.title;
+  document.getElementById("updateDate").value = item.date;
+  document.getElementById("updateBody").value = item.body;
+
+  showPage("updates");
+}
+
+function deleteUpdate(id) {
+  if (!confirm("Delete this campaign update?")) return;
+
+  data.updates = data.updates.filter(item => item.id !== id);
+  saveData();
+}
+
+/* GALLERY */
+
+document.getElementById("galleryDate").value =
+  new Date().toISOString().slice(0, 10);
+
+document.getElementById("galleryForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const id = document.getElementById("galleryEditId").value;
+  const imageURL = safeImageURL(
+    document.getElementById("galleryUrl").value.trim()
+  );
+
+  if (!imageURL) {
+    alert("Please enter a valid HTTP or HTTPS image URL.");
+    return;
+  }
+
+  const item = {
+    id: id || makeId(),
+    title: document.getElementById("galleryTitle").value.trim(),
+    url: imageURL,
+    date: document.getElementById("galleryDate").value,
+    savedAt: new Date().toISOString()
+  };
+
+  if (!item.title || !item.date) {
+    alert("Please complete the caption and date.");
+    return;
+  }
+
+  if (id) {
+    data.gallery = data.gallery.map(entry =>
+      entry.id === id ? item : entry
+    );
+  } else {
+    data.gallery.unshift(item);
+  }
+
+  if (saveData()) {
+    resetGalleryForm();
+    showMessage("gallerySuccess", "Gallery draft saved on this device.");
+  }
+});
+
+function resetGalleryForm() {
+  document.getElementById("galleryForm").reset();
+  document.getElementById("galleryEditId").value = "";
+  document.getElementById("galleryDate").value =
+    new Date().toISOString().slice(0, 10);
+}
+
+function editGallery(id) {
+  const item = data.gallery.find(entry => entry.id === id);
+  if (!item) return;
+
+  document.getElementById("galleryEditId").value = item.id;
+  document.getElementById("galleryTitle").value = item.title;
+  document.getElementById("galleryUrl").value = item.url;
+  document.getElementById("galleryDate").value = item.date;
+
+  showPage("gallery");
+}
+
+function deleteGallery(id) {
+  if (!confirm("Delete this saved gallery entry?")) return;
+
+  data.gallery = data.gallery.filter(item => item.id !== id);
+  saveData();
+}
+
+/* BIOGRAPHY */
+
+document.getElementById("biographyForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.biography = {
+    heading: document.getElementById("bioHeading").value.trim(),
+    text: document.getElementById("bioText").value.trim()
+  };
+
+  if (saveData()) {
+    showMessage("bioSuccess", "Biography draft saved on this device.");
+  }
+});
+
+function downloadBiography() {
+  const heading = document.getElementById("bioHeading").value.trim();
+  const text = document.getElementById("bioText").value.trim();
+
+  downloadText(
+    "consistency-2027-biography.txt",
+    heading + "\n\n" + text
+  );
+}
+
+/* PRIORITIES */
+
+document.getElementById("prioritiesForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  data.priorities = {
+    heading: document.getElementById("prioritiesHeading").value.trim(),
+    text: document.getElementById("prioritiesText").value.trim()
+  };
+
+  if (saveData()) {
+    showMessage("prioritiesSuccess", "Priorities draft saved on this device.");
+  }
+});
+
+function downloadPriorities() {
+  const heading = document.getElementById("prioritiesHeading").value.trim();
+  const text = document.getElementById("prioritiesText").value.trim();
+
+  downloadText(
+    "consistency-2027-priorities.txt",
+    heading + "\n\n" + text
+  );
+}
+
+/* RENDER SAVED CONTENT */
+
+function renderNews() {
+  const list = document.getElementById("newsList");
+
+  if (!data.news.length) {
+    list.innerHTML = '<div class="empty">No news drafts saved yet.</div>';
+    return;
+  }
+
+  list.innerHTML = data.news.map(item => `
+    <article class="item">
+      <h4>${escapeHTML(item.title)}</h4>
+      <div class="small">
+        ${escapeHTML(item.category)} · ${escapeHTML(item.date)}
+      </div>
+      ${item.image ? `<img src="${escapeHTML(item.image)}" alt="News image" loading="lazy" onerror="this.style.display='none'">` : ""}
+      <p>${escapeHTML(item.body)}</p>
+      <button onclick="editNews('${escapeHTML(item.id)}')">Edit</button>
+      <button class="danger" onclick="deleteNews('${escapeHTML(item.id)}')">Delete</button>
+    </article>
+  `).join("");
+}
+
+function renderUpdates() {
+  const list = document.getElementById("updatesList");
+
+  if (!data.updates.length) {
+    list.innerHTML = '<div class="empty">No campaign updates saved yet.</div>';
+    return;
+  }
+
+  list.innerHTML = data.updates.map(item => `
+    <article class="item">
+      <h4>${escapeHTML(item.title)}</h4>
+      <div class="small">${escapeHTML(item.date)}</div>
+      <p>${escapeHTML(item.body)}</p>
+      <button onclick="editUpdate('${escapeHTML(item.id)}')">Edit</button>
+      <button class="danger" onclick="deleteUpdate('${escapeHTML(item.id)}')">Delete</button>
+    </article>
+  `).join("");
+}
+
+function renderGallery() {
+  const list = document.getElementById("galleryList");
+
+  if (!data.gallery.length) {
+    list.innerHTML = '<div class="empty">No gallery drafts saved yet.</div>';
+    return;
+  }
+
+  list.innerHTML = data.gallery.map(item => `
+    <article class="item">
+      <h4>${escapeHTML(item.title)}</h4>
+      <div class="small">${escapeHTML(item.date)}</div>
+      <img src="${escapeHTML(item.url)}" alt="${escapeHTML(item.title)}" loading="lazy" onerror="this.alt='Image could not be loaded';this.style.display='none'">
+      <p>${escapeHTML(item.url)}</p>
+      <button onclick="editGallery('${escapeHTML(item.id)}')">Edit</button>
+      <button class="danger" onclick="deleteGallery('${escapeHTML(item.id)}')">Delete</button>
+    </article>
+  `).join("");
+}
+
+function renderAll() {
+  renderNews();
+  renderUpdates();
+  renderGallery();
+
+  document.getElementById("newsCount").textContent = data.news.length;
+  document.getElementById("updatesCount").textContent = data.updates.length;
+  document.getElementById("galleryCount").textContent = data.gallery.length;
+}
+
+/* BACKUP */
+
+function downloadText(filename, content) {
+  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+
+  anchor.href = url;
+  anchor.download = filename;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+
+  URL.revokeObjectURL(url);
+}
+
+function exportBackup() {
+  const blob = new Blob(
+    [JSON.stringify(data, null, 2)],
+    { type: "application/json" }
+  );
+
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+
+  anchor.href = url;
+  anchor.download =
+    "consistency-2027-backup-" +
+    new Date().toISOString().slice(0, 10) + ".json";
+
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+
+  URL.revokeObjectURL(url);
+}
+
+function importBackup() {
+  const input = document.getElementById("backupFile");
+  const file = input.files && input.files[0];
+
+  if (!file) {
+    alert("Please select a backup JSON file first.");
+    return;
+  }
+
+  if (!confirm(
+    "Restoring will replace the dashboard drafts currently saved " +
+    "in this browser. Continue?"
+  )) return;
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    try {
+      const parsed = JSON.parse(reader.result);
+
+      if (
+        !parsed ||
+        !Array.isArray(parsed.news) ||
+        !Array.isArray(parsed.updates) ||
+        !Array.isArray(parsed.gallery) ||
+        typeof parsed.biography !== "object" ||
+        typeof parsed.priorities !== "object"
+      ) {
+        throw new Error("Invalid backup structure");
+      }
+
+      const restored = {
+        news: parsed.news,
+        updates: parsed.updates,
+        gallery: parsed.gallery,
+        biography: {
+          heading: String(parsed.biography.heading || ""),
+          text: String(parsed.biography.text || "")
+        },
+        priorities: {
+          heading: String(parsed.priorities.heading || ""),
+          text: String(parsed.priorities.text || "")
+        }
+      };
+
+      const previous = data;
+      data = restored;
+
+      if (!saveData()) {
+        data = previous;
+        return;
+      }
+
+      document.getElementById("bioHeading").value =
+        data.biography.heading;
+
+      document.getElementById("bioText").value =
+        data.biography.text;
+
+      document.getElementById("prioritiesHeading").value =
+        data.priorities.heading;
+
+      document.getElementById("prioritiesText").value =
+        data.priorities.text;
+
+      showMessage("backupSuccess", "Backup restored successfully.");
+      input.value = "";
+
+    } catch (error) {
+      alert("Could not restore this file. Select a valid dashboard backup.");
+    }
+  };
+
+  reader.readAsText(file);
+}
+
+/* INITIALIZE */
+
+document.getElementById("bioHeading").value =
+  data.biography.heading;
+
+document.getElementById("bioText").value =
+  data.biography.text;
+
+document.getElementById("prioritiesHeading").value =
+  data.priorities.heading;
+
+document.getElementById("prioritiesText").value =
+  data.priorities.text;
+
+renderAll();
+</script>
+
+</body>
+</html>
