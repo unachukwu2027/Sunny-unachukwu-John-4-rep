@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087b35">
+  <meta name="description" content="Share your feedback, community concerns, and suggestions with the CONSISTENCY 2027 campaign.">
+  <title>Community Feedback | CONSISTENCY 2027</title>
+
+  <style>
+    :root {
+      --green: #087b35;
+      --dark-green: #064b25;
+      --red: #d92332;
+      --gold: #f2c14e;
+      --white: #fff;
+      --light: #f3f8f4;
+      --text: #25352a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--dark-green);
+      border-bottom: 4px solid var(--gold);
+      padding: 17px 5%;
+    }
+
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: bold;
+      padding: 8px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--green);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #064b25, #087b35);
+      color: var(--white);
+      text-align: center;
+      padding: 58px 20px;
+      border-bottom: 5px solid var(--red);
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--gold);
+      color: #243329;
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 45px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #eef8f0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .info-card,
+    .form-card,
+    .saved-card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      color: var(--dark-green);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .notice {
+      background: #fff8e8;
+      border-left: 5px solid var(--gold);
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+      color: var(--dark-green);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd9ce;
+      border-radius: 7px;
+      font-family: inherit;
+      font-size: 15px;
+      background: #fff;
+      color: var(--text);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid rgba(8, 123, 53, 0.2);
+      border-color: var(--green);
+    }
+
+    textarea {
+      min-height: 145px;
+      resize: vertical;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 18px 0;
+      font-size: 14px;
+    }
+
+    .checkbox-row input {
+      width: auto;
+      margin-top: 6px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 7px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn-light {
+      background: #e8f4eb;
+      color: var(--dark-green);
+    }
+
+    .btn:hover {
+      opacity: 0.88;
+    }
+
+    .feedback-entry {
+      border: 1px solid #dce7df;
+      border-left: 4px solid var(--green);
+      border-radius: 8px;
+      padding: 17px;
+      margin: 15px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .feedback-entry h3 {
+      color: var(--dark-green);
+      margin-bottom: 5px;
+    }
+
+    .feedback-meta {
+      font-size: 12px;
+      color: #667368;
+      margin-bottom: 10px;
+    }
+
+    .empty-state {
+      padding: 18px;
+      background: var(--light);
+      border-radius: 7px;
+      color: #526156;
+    }
+
+    .status-message {
+      display: none;
+      padding: 13px;
+      border-radius: 7px;
+      margin-top: 15px;
+      overflow-wrap: anywhere;
+    }
+
+    .status-message.success {
+      display: block;
+      background: #e6f6e9;
+      color: #075c27;
+    }
+
+    .status-message.error {
+      display: block;
+      background: #ffeded;
+      color: #9d1420;
+    }
+
+    .cta {
+      background: var(--dark-green);
+      color: var(--white);
+      text-align: center;
+      padding: 32px 22px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    .cta h2 {
+      color: var(--white);
+    }
+
+    footer {
+      background: #04371b;
+      color: var(--white);
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 45px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 13px 0;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 45px 16px;
+      }
+
+      .info-card,
+      .form-card,
+      .saved-card {
+        padding: 21px;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      CONSISTENCY 2027
+      <span>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="projects.html">Projects</a>
+      <a href="team.html">Our Team</a>
+      <a href="news.html">News</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="feedback.html" class="active">Feedback</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-label">YOUR VOICE MATTERS</span>
+  <h1>Community Feedback</h1>
+  <p>
+    Share your ideas, community concerns, and suggestions for
+    the future of Mbaitoli/Ikeduru Federal Constituency.
+  </p>
+</section>
+
+<main class="container">
+
+  <section class="info-card">
+    <h2>Let's Hear From You</h2>
+    <p>
+      Constructive feedback can help identify issues that matter to
+      residents and encourage meaningful community conversations.
+      Please keep your submission respectful, relevant, and factual.
+    </p>
+
+    <div class="notice">
+      <strong>Privacy notice:</strong>
+      This demonstration page stores feedback in the browser's local
+      storage on the device used to submit it. The feedback is not
+      automatically delivered to the campaign team and will not
+      automatically appear on another device. Avoid entering sensitive
+      personal information.
+    </div>
+  </section>
+
+  <section class="form-card">
+    <h2>Submit Your Feedback</h2>
+
+    <form id="feedbackForm">
+      <div class="form-group">
+        <label for="fullName">Name (optional)</label>
+        <input
+          type="text"
+          id="fullName"
+          maxlength="80"
+          autocomplete="name"
+          placeholder="Enter your name if you wish"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="community">Community or town (optional)</label>
+        <input
+          type="text"
+          id="community"
+          maxlength="100"
+          placeholder="Enter your community"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="category">Feedback category *</label>
+        <select id="category" required>
+          <option value="">Select a category</option>
+          <option value="Roads and Infrastructure">Roads and Infrastructure</option>
+          <option value="Education">Education</option>
+          <option value="Healthcare">Healthcare</option>
+          <option value="Youth and Employment">Youth and Employment</option>
+          <option value="Agriculture and Business">Agriculture and Business</option>
+          <option value="Community Development">Community Development</option>
+          <option value="Campaign Suggestion">Campaign Suggestion</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your feedback or suggestion *</label>
+        <textarea
+          id="message"
+          required
+          minlength="10"
+          maxlength="3000"
+          placeholder="Describe your concern, idea, or suggestion..."
+        ></textarea>
+        <small>Maximum 3,000 characters.</small>
+      </div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="consent" required>
+        <label for="consent" style="font-weight:normal;">
+          I understand that this demonstration form saves my submission
+          locally on this device and does not automatically send it to
+          the campaign team.
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-green">
+        Save Feedback on This Device
+      </button>
+
+      <div id="statusMessage" class="status-message" role="status"></div>
+    </form>
+  </section>
+
+  <section class="saved-card">
+    <h2>Feedback Saved on This Device</h2>
+    <p>
+      This section shows locally saved submissions in this browser.
+      It is intended for testing and personal review, not public display.
+    </p>
+
+    <div class="buttons">
+      <button type="button" class="btn btn-light" id="exportBtn">
+        Export Feedback Backup
+      </button>
+      <button type="button" class="btn btn-light" id="refreshBtn">
+        Refresh List
+      </button>
+      <button type="button" class="btn btn-red" id="clearBtn">
+        Clear Local Feedback
+      </button>
+    </div>
+
+    <div id="feedbackList" aria-live="polite" style="margin-top:20px;"></div>
+  </section>
+
+  <section class="cta">
+    <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
+    <p>
+      Thank you for taking the time to share your thoughts and
+      community priorities.
+    </p>
+
+    <div class="buttons" style="justify-content:center;">
+      <a href="manifesto.html" class="btn btn-light">Read the Manifesto</a>
+      <a href="contact.html" class="btn btn-light">Contact the Campaign</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>CONSISTENCY 2027</strong>
+  <p>Campaign for Federal House of Representatives</p>
+  <p>Mbaitoli/Ikeduru Federal Constituency, Imo State</p>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="projects.html">Projects</a>
+    <a href="team.html">Our Team</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="faq.html">FAQ</a>
+    <a href="donate.html">Support</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+
+  <p style="font-size:12px;margin-top:15px;">
+    &copy; <span id="year"></span> CONSISTENCY 2027. All rights reserved.
+  </p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const STORAGE_KEY = "sunnyCampaignFeedback";
+  const form = document.getElementById("feedbackForm");
+  const list = document.getElementById("feedbackList");
+  const status = document.getElementById("statusMessage");
+
+  function getFeedback() {
+    try {
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function showStatus(message, type) {
+    status.textContent = message;
+    status.className = "status-message " + type;
+  }
+
+  function addTextElement(parent, tag, value, className) {
+    const element = document.createElement(tag);
+    element.textContent = value;
+
+    if (className) {
+      element.className = className;
+    }
+
+    parent.appendChild(element);
+    return element;
+  }
+
+  function renderFeedback() {
+    list.replaceChildren();
+
+    const entries = getFeedback();
+
+    if (entries.length === 0) {
+      addTextElement(
+        list,
+        "p",
+        "No feedback has been saved in this browser yet.",
+        "empty-state"
+      );
+      return;
+    }
+
+    entries.slice().reverse().forEach(function(entry) {
+      const card = document.createElement("article");
+      card.className = "feedback-entry";
+
+      addTextElement(card, "h3", entry.category || "Feedback");
+      addTextElement(
+        card,
+        "div",
+        "Saved: " + (entry.date || "Date unavailable"),
+        "feedback-meta"
+      );
+
+      if (entry.name) {
+        addTextElement(card, "p", "Name: " + entry.name);
+      }
+
+      if (entry.community) {
+        addTextElement(card, "p", "Community: " + entry.community);
+      }
+
+      addTextElement(card, "p", entry.message || "");
+
+      const deleteButton = document.createElement("button");
+      deleteButton.type = "button";
+      deleteButton.className = "btn btn-red";
+      deleteButton.style.marginTop = "12px";
+      deleteButton.textContent = "Delete Entry";
+
+      deleteButton.addEventListener("click", function() {
+        if (!confirm("Delete this feedback entry from this device?")) {
+          return;
+        }
+
+        const current = getFeedback();
+        const updated = current.filter(function(item) {
+          return item.id !== entry.id;
+        });
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        renderFeedback();
+      });
+
+      card.appendChild(deleteButton);
+      list.appendChild(card);
+    });
+  }
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("fullName").value.trim();
+    const community = document.getElementById("community").value.trim();
+    const category = document.getElementById("category").value;
+    const message = document.getElementById("message").value.trim();
+    const consent = document.getElementById("consent").checked;
+
+    if (!category || message.length < 10 || !consent) {
+      showStatus("Please complete the required fields and confirm the notice.", "error");
+      return;
+    }
+
+    const entry = {
+      id: Date.now().toString() + "-" + Math.random().toString(36).slice(2, 8),
+      name: name,
+      community: community,
+      category: category,
+      message: message,
+      date: new Date().toLocaleString()
+    };
+
+    const entries = getFeedback();
+    entries.push(entry);
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+      form.reset();
+      showStatus("Feedback saved on this device successfully.", "success");
+      renderFeedback();
+    } catch (error) {
+      showStatus("Could not save feedback. Your browser storage may be full or unavailable.", "error");
+    }
+  });
+
+  document.getElementById("refreshBtn").addEventListener("click", renderFeedback);
+
+  document.getElementById("exportBtn").addEventListener("click", function() {
+    const entries = getFeedback();
+
+    if (entries.length === 0) {
+      alert("There is no feedback to export.");
+      return;
+    }
+
+    const blob = new Blob(
+      [JSON.stringify(entries, null, 2)],
+      { type: "application/json" }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "consistency-2027-feedback-backup.json";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", function() {
+    if (!confirm("Permanently clear all feedback saved in this browser? Export a backup first if needed.")) {
+      return;
+    }
+
+    localStorage.removeItem(STORAGE_KEY);
+    renderFeedback();
+    showStatus("Local feedback has been cleared.", "success");
+  });
+
+  renderFeedback();
+</script>
+
+</body>
+</html>
