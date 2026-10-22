@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Campaign Supporters | Consistency 2027</title>
+
+<meta name="description" content="Meet campaign supporters, volunteers and community advocates connected with the Consistency 2027 campaign of Barr. Sunny Unachukwu John, Esq.">
+
+<meta name="theme-color" content="#087f23">
+
+<style>
+:root {
+    --green: #087f23;
+    --dark-green: #064c19;
+    --red: #c62828;
+    --gold: #d4af37;
+    --white: #ffffff;
+    --light: #f3f8f3;
+    --text: #263328;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+header {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-bottom: 5px solid var(--gold);
+}
+
+header h1 {
+    font-size: 27px;
+}
+
+header p {
+    color: #ffe69a;
+    font-size: 14px;
+}
+
+nav {
+    background: white;
+    padding: 13px 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px #00000010;
+}
+
+nav a {
+    display: inline-block;
+    color: var(--green);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 5px 9px;
+}
+
+nav a:hover {
+    color: var(--red);
+}
+
+.hero {
+    background: linear-gradient(135deg, #087f23, #034b17);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 6px solid var(--red);
+}
+
+.hero-label {
+    display: inline-block;
+    background: var(--gold);
+    color: #173d1b;
+    padding: 6px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 17px;
+}
+
+.hero h2 {
+    font-size: 38px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 0 auto 14px;
+    font-size: 16px;
+}
+
+.hero .slogan {
+    color: #ffe69a;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 35px auto;
+    padding: 0 18px;
+}
+
+.intro {
+    background: white;
+    padding: 27px;
+    border-left: 5px solid var(--gold);
+    border-radius: 10px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 15px #00000008;
+}
+
+.intro h2 {
+    color: var(--green);
+    margin-bottom: 12px;
+}
+
+.intro p {
+    margin-bottom: 10px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    color: var(--green);
+    font-size: 30px;
+}
+
+.section-heading p {
+    color: #637063;
+    margin-top: 8px;
+}
+
+.supporter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.supporter-card {
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px #00000010;
+    border-bottom: 4px solid var(--green);
+    text-align: center;
+}
+
+.supporter-card:nth-child(even) {
+    border-bottom-color: var(--red);
+}
+
+.profile-area {
+    background: #e5f2e7;
+    padding: 25px 15px 15px;
+}
+
+.profile-photo {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 3px 12px #00000018;
+    background: #d5e6d7;
+}
+
+.profile-placeholder {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 5px solid white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin: auto;
+    box-shadow: 0 3px 12px #00000018;
+}
+
+.supporter-content {
+    padding: 22px;
+}
+
+.supporter-content h3 {
+    color: var(--green);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.role {
+    color: var(--red);
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.supporter-content p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.profile-status {
+    display: inline-block;
+    background: #fff4d2;
+    color: #725700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.notice {
+    background: #fff8df;
+    border-left: 5px solid var(--gold);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.notice h3 {
+    color: #735b00;
+    margin-bottom: 8px;
+}
+
+.why-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: 0 4px 15px #00000008;
+}
+
+.why-section h2 {
+    color: var(--green);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.reason {
+    padding: 20px;
+    background: var(--light);
+    border-radius: 8px;
+    border-top: 3px solid var(--gold);
+}
+
+.reason h3 {
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.reason p {
+    font-size: 14px;
+}
+
+.cta {
+    text-align: center;
+    background: #e4f3e6;
+    border: 1px solid #c9e3cd;
+    padding: 38px 22px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.cta h2 {
+    color: var(--green);
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    max-width: 750px;
+    margin: 0 auto 18px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 6px 4px;
+}
+
+.button-green {
+    background: var(--green);
+    color: white;
+}
+
+.button-red {
+    background: var(--red);
+    color: white;
+}
+
+.button-gold {
+    background: var(--gold);
+    color: #173d1b;
+}
+
+.button:hover {
+    opacity: 0.88;
+}
+
+footer {
+    background: #063d17;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+    margin-top: 45px;
+}
+
+footer p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+footer .gold {
+    color: #ffe69a;
+    font-weight: bold;
+}
+
+.back-top {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--gold);
+    color: #173d1b;
+    padding: 9px 17px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .supporter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reason-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    .hero {
+        padding: 45px 17px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .supporter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .intro,
+    .why-section {
+        padding: 21px;
+    }
+}
+</style>
+</head>
+
+<body id="top">
+
+<header>
+    <h1>SUNNY UNACHUKWU JOHN, ESQ.</h1>
+    <p>CONSISTENCY 2027 | Mbaitoli/Ikeduru Federal Constituency</p>
+</header>
+
+<nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="biography.html">Biography</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="projects.html">Projects</a>
+    <a href="news.html">News</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="supporters.html">Supporters</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+    <span class="hero-label">CONSISTENCY 2027</span>
+
+    <h2>Our Supporters</h2>
+
+    <p>
+        Celebrating the people, volunteers and community advocates
+        who choose to participate in the campaign and contribute
+        to conversations about the future of Mbaitoli/Ikeduru.
+    </p>
+
+    <p class="slogan">
+        THE CHOICE IS NOW. THE CHOICE IS CLEAR.
+    </p>
+</section>
+
+<main class="container">
+
+    <section class="intro">
+        <h2>People, Participation and Community</h2>
+
+        <p>
+            Community participation is an important part of public
+            engagement. This page is designed to introduce verified
+            supporters, volunteers and authorised campaign advocates.
+        </p>
+
+        <p>
+            Supporter names, photographs and personal descriptions
+            should only be published with the individuals' permission.
+            Being listed on this page should not be taken as an official
+            endorsement unless that endorsement has been confirmed.
+        </p>
+    </section>
+
+    <section>
+        <div class="section-heading">
+            <h2>Meet Our Supporters</h2>
+
+            <p>
+                This section is ready for your confirmed supporter
+                profiles and authorised photographs.
+            </p>
+        </div>
+
+        <div class="supporter-grid">
+
+            <!-- SUPPORTER 1: REPLACE WITH A VERIFIED PROFILE -->
+
+            <article class="supporter-card">
+                <div class="profile-area">
+                    <div class="profile-placeholder">S1</div>
+                </div>
+
+                <div class="supporter-content">
+                    <h3>Supporter Profile 1</h3>
+
+                    <div class="role">Supporter Profile</div>
+
+                    <p>
+                        Replace this text with a short, verified
+                        biography of the supporter after obtaining
+                        their permission.
+                    </p>
+
+                    <span class="profile-status">
+                        PROFILE PLACEHOLDER
+                    </span>
+                </div>
+            </article>
+
+            <!-- SUPPORTER 2 -->
+
+            <article class="supporter-card">
+                <div class="profile-area">
+                    <div class="profile-placeholder">S2</div>
+                </div>
+
+                <div class="supporter-content">
+                    <h3>Supporter Profile 2</h3>
+
+                    <div class="role">Community Supporter</div>
+
+                    <p>
+                        Add the person's verified name, approved
+                        photograph and a factual description of
+                        their campaign involvement.
+                    </p>
+
+                    <span class="profile-status">
+                        PROFILE PLACEHOLDER
+                    </span>
+                </div>
+            </article>
+
+            <!-- SUPPORTER 3 -->
+
+            <article class="supporter-card">
+                <div class="profile-area">
+                    <div class="profile-placeholder">S3</div>
+                </div>
+
+                <div class="supporter-content">
+                    <h3>Supporter Profile 3</h3>
+
+                    <div class="role">Volunteer</div>
+
+                    <p>
+                        Use this card to introduce a confirmed
+                        volunteer who has agreed to have their
+                        information displayed publicly.
+                    </p>
+
+                    <span class="profile-status">
+                        PROFILE PLACEHOLDER
+                    </span>
+                </div>
+            </article>
+
+            <!-- SUPPORTER 4 -->
+
+            <article class="supporter-card">
+                <div class="profile-area">
+                    <div class="profile-placeholder">S4</div>
+                </div>
+
+                <div class="supporter-content">
+                    <h3>Supporter Profile 4</h3>
+
+                    <div class="role">Community Advocate</div>
+
+                    <p>
+                        Add verified information about the person's
+                        public role or voluntary campaign activities.
+                    </p>
+
+                    <span class="profile-status">
+                        PROFILE PLACEHOLDER
+                    </span>
+                </div>
+            </article>
+
+            <!-- SUPPORTER 5 -->
+
+            <article class="supporter-card">
+                <div class="profile-area">
+                    <div class="profile-placeholder">S5</div>
+                </div>
+
+                <div class="supporter-content">
+                    <h3>Supporter Profile 5</h3>
+
+                    <div class="role">Campaign Volunteer</div>
+
+                    <p>
+                        Replace this sample with a real profile only
+                        after confirming the person's participation
+                        and obtaining their consent.
+                    </p>
+
+                    <span class="profile-status">
+                        PROFILE PLACEHOLDER
+                    </span>
+                </div>
+            </article>
+
+            <!-- SUPPORTER 6 -->
+
+            <article class="supporter-card">
+                <div class="profile-area">
+                    <div class="profile-placeholder">S6</div>
+                </div>
+
+                <div class="supporter-content">
+                    <h3>Supporter Profile 6</h3>
+
+                    <div class="role">Community Participant</div>
+
+                    <p>
+                        Use this space for another confirmed
+                        supporter, with an approved photograph
+                        and accurate description.
+                    </p>
+
+                    <span class="profile-status">
+                        PROFILE PLACEHOLDER
+                    </span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="notice">
+        <h3>Before Publishing Supporter Profiles</h3>
+
+        <p>
+            The six profiles above are placeholders, not real
+            endorsements or confirmed supporters. Replace them
+            with verified details before presenting them as actual
+            campaign participants.
+        </p>
+
+        <p>
+            Obtain permission before publishing photographs,
+            names, personal details or endorsement statements.
+        </p>
+    </section>
+
+    <section class="why-section">
+        <h2>Ways to Participate</h2>
+
+        <div class="reason-grid">
+
+            <div class="reason">
+                <h3>Community Engagement</h3>
+
+                <p>
+                    Participate in respectful conversations about
+                    local needs, public services and development
+                    priorities.
+                </p>
+            </div>
+
+            <div class="reason">
+                <h3>Volunteering</h3>
+
+                <p>
+                    People interested in volunteering can contact
+                    the campaign to ask about available activities
+                    and responsibilities.
+                </p>
+            </div>
+
+            <div class="reason">
+                <h3>Sharing Information</h3>
+
+                <p>
+                    Help share verified campaign announcements
+                    and public information through appropriate
+                    communication channels.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Interested in Getting Involved?</h2>
+
+        <p>
+            Contact the campaign to ask about participation,
+            volunteering and community engagement opportunities.
+        </p>
+
+        <a href="contact.html" class="button button-green">
+            Contact the Campaign
+        </a>
+
+        <a href="volunteer.html" class="button button-red">
+            Volunteer Registration
+        </a>
+
+        <button
+            type="button"
+            class="button button-gold"
+            onclick="shareCampaign()">
+            Share This Page
+        </button>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>SUNNY UNACHUKWU JOHN, ESQ.</strong></p>
+
+    <p class="gold">CONSISTENCY 2027</p>
+
+    <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+
+    <p>MBAIKE'S CHOSEN ONE FOR HOR</p>
+
+    <p>Service to the People</p>
+
+    <a href="#top" class="back-top">Back to Top</a>
+
+    <p style="margin-top:18px;">
+        &copy; <span id="year"></span>
+        Sunny Unachukwu John. All rights reserved.
+    </p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+function shareCampaign() {
+    const pageURL = window.location.href;
+
+    const message =
+        "Visit the Consistency 2027 campaign supporters page: " +
+        pageURL;
+
+    const whatsappURL =
+        "https://wa.me/?text=" +
+        encodeURIComponent(message);
+
+    window.open(
+        whatsappURL,
+        "_blank",
+        "noopener,noreferrer"
+    );
+}
+</script>
+
+</body>
+</html>
