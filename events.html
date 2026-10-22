@@ -1,0 +1,776 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087b35">
+  <meta name="description" content="Follow campaign events, public engagements, meetings and activities for Barr. Sunny John Unachukwu, CONSISTENCY 2027, Mbaitoli/Ikeduru Federal Constituency, Imo State.">
+  <title>Campaign Events | CONSISTENCY 2027</title>  <style>
+    :root {
+      --green: #087b35;
+      --dark-green: #064b25;
+      --red: #d92332;
+      --gold: #f2c14e;
+      --white: #ffffff;
+      --light: #f4faf5;
+      --text: #25352b;
+      --muted: #657368;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--light);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .top-strip {
+      background: var(--dark-green);
+      color: var(--white);
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--dark-green);
+      font-weight: 900;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--red);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--dark-green);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 0;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--red);
+    }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--white) !important;
+      padding: 10px 15px;
+      border-radius: 6px;
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(6, 75, 37, 0.97), rgba(8, 123, 53, 0.91));
+      color: var(--white);
+      padding: 85px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "2027";
+      position: absolute;
+      font-size: clamp(100px, 22vw, 250px);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.045);
+      right: 1%;
+      bottom: -50px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 3px;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 6vw, 62px);
+      line-height: 1.13;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #e7f5e9;
+      font-size: 17px;
+    }
+
+    .hero-rule {
+      width: 75px;
+      height: 5px;
+      border-radius: 5px;
+      background: var(--gold);
+      margin: 25px auto 0;
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: auto;
+      padding: 65px 20px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading .label {
+      text-transform: uppercase;
+      color: var(--green);
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .section-heading h2 {
+      color: var(--dark-green);
+      font-size: clamp(27px, 4vw, 39px);
+      margin: 8px 0 12px;
+      line-height: 1.25;
+    }
+
+    .section-heading p {
+      max-width: 680px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .announcement {
+      max-width: 850px;
+      margin: 0 auto 30px;
+      background: #fff8e5;
+      border: 1px solid #f2d98a;
+      border-left: 5px solid var(--gold);
+      padding: 22px;
+      border-radius: 9px;
+    }
+
+    .announcement h3 {
+      color: var(--dark-green);
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+
+    .announcement p {
+      color: #62552d;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: 0 auto 35px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      width: 100%;
+      min-width: 0;
+      padding: 14px 16px;
+      border: 1px solid #d6e3d8;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+    }
+
+    .search-box input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(8, 123, 53, 0.1);
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .event-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid #e7eee8;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .event-banner {
+      min-height: 145px;
+      padding: 25px;
+      background: linear-gradient(135deg, var(--dark-green), var(--green));
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .event-banner .icon {
+      font-size: 37px;
+      margin-bottom: 8px;
+    }
+
+    .event-banner strong {
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+
+    .event-body {
+      padding: 23px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .event-type {
+      align-self: flex-start;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: #e7f5eb;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 13px;
+    }
+
+    .event-body h3 {
+      color: var(--dark-green);
+      font-size: 20px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .event-body p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .event-details {
+      list-style: none;
+      border-top: 1px solid #edf1ed;
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .event-details li {
+      font-size: 13px;
+      color: #526256;
+      margin: 7px 0;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 15px;
+      background: #fff0f0;
+      color: #a71c27;
+      padding: 7px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 35px 20px;
+      background: white;
+      border-radius: 10px;
+      color: var(--muted);
+      border: 1px dashed #cddbcf;
+    }
+
+    .subscribe-panel {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 35px;
+      text-align: center;
+      border-top: 5px solid var(--red);
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .subscribe-panel h2 {
+      color: var(--dark-green);
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .subscribe-panel p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      border-radius: 7px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--dark-green);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--dark-green);
+      border: 1px solid #cbd9cd;
+    }
+
+    .btn-outline:hover {
+      background: #f0f7f1;
+    }
+
+    .closing-banner {
+      background: var(--red);
+      color: var(--white);
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    .closing-banner h2 {
+      font-size: clamp(25px, 4vw, 37px);
+      margin-bottom: 10px;
+    }
+
+    .closing-banner p {
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+
+    .closing-banner .btn {
+      background: var(--white);
+      color: var(--red);
+    }
+
+    footer {
+      background: #073a20;
+      color: #e3f0e6;
+      padding: 35px 20px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      font-size: 13px;
+      color: #d2e5d7;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 15px;
+    }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 25px auto 0;
+      padding-top: 17px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      text-align: center;
+      font-size: 12px;
+      color: #c4dac9;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 9px 14px;
+      }
+
+      .event-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 65px 18px;
+      }
+
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 48px 16px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .subscribe-panel {
+        padding: 25px 18px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .brand {
+        font-size: 19px;
+      }
+    }
+  </style></head><body>
+  <div class="top-strip">
+    CONSISTENCY 2027 | Mbaitoli/Ikeduru Federal Constituency, Imo State
+  </div>  <header>
+    <div class="nav-container">
+      <a class="brand" href="index.html">
+        CONSISTENCY 2027
+        <span>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</span>
+      </a>  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="news.html">News</a>
+    <a href="events.html" class="active">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin.html" class="nav-cta">Admin</a>
+  </nav>
+</div>
+
+  </header>  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">MEETINGS • ENGAGEMENTS • ACTIVITIES</span>
+        <h1>Campaign Events &amp; Activities</h1>
+        <p>
+          Stay informed about official campaign announcements, public engagements
+          and activities connected with Barr. Sunny John Unachukwu, Esq.,
+          and the CONSISTENCY 2027 campaign.
+        </p>
+        <div class="hero-rule"></div>
+      </div>
+    </section><section class="section">
+  <div class="section-heading">
+    <span class="label">Stay Informed</span>
+    <h2>Campaign Event Updates</h2>
+    <p>
+      This page is where confirmed event information will be published.
+      Please check back for official dates, venues and participation details.
+    </p>
+  </div>
+
+  <div class="announcement">
+    <h3>📢 Official Announcement</h3>
+    <p>
+      Campaign event dates, venues and schedules have not yet been published
+      on this page. Confirmed details will be added when they are available.
+      Please verify event information through the campaign's official
+      communication channels before making travel arrangements.
+    </p>
+  </div>
+
+  <div class="search-box">
+    <input
+      type="search"
+      id="eventSearch"
+      placeholder="Search campaign event updates..."
+      aria-label="Search campaign event updates"
+    >
+    <button class="btn btn-primary" type="button" onclick="searchEvents()">
+      Search
+    </button>
+    <button class="btn btn-outline" type="button" onclick="clearSearch()">
+      Clear
+    </button>
+  </div>
+
+  <div class="event-grid" id="eventGrid">
+    <article class="event-card" data-search="campaign rally public gathering">
+      <div class="event-banner">
+        <div class="icon" aria-hidden="true">📣</div>
+        <strong>CAMPAIGN RALLY</strong>
+      </div>
+      <div class="event-body">
+        <span class="event-type">Upcoming announcement</span>
+        <h3>Campaign Rally</h3>
+        <p>
+          Information about any officially confirmed campaign rally will
+          appear here once the date, venue and programme are announced.
+        </p>
+        <ul class="event-details">
+          <li>📅 Date: To be announced</li>
+          <li>📍 Venue: To be announced</li>
+          <li>🕒 Time: To be announced</li>
+        </ul>
+        <span class="status">Details pending confirmation</span>
+      </div>
+    </article>
+
+    <article class="event-card" data-search="community engagement stakeholders meeting">
+      <div class="event-banner">
+        <div class="icon" aria-hidden="true">🤝</div>
+        <strong>COMMUNITY ENGAGEMENT</strong>
+      </div>
+      <div class="event-body">
+        <span class="event-type">Upcoming announcement</span>
+        <h3>Community &amp; Stakeholder Engagement</h3>
+        <p>
+          Confirmed information about community meetings and stakeholder
+          engagements will be published here when available.
+        </p>
+        <ul class="event-details">
+          <li>📅 Date: To be announced</li>
+          <li>📍 Venue: To be announced</li>
+          <li>🕒 Time: To be announced</li>
+        </ul>
+        <span class="status">Details pending confirmation</span>
+      </div>
+    </article>
+
+    <article class="event-card" data-search="volunteer coordination campaign activities">
+      <div class="event-banner">
+        <div class="icon" aria-hidden="true">🌟</div>
+        <strong>VOLUNTEER ACTIVITIES</strong>
+      </div>
+      <div class="event-body">
+        <span class="event-type">Upcoming announcement</span>
+        <h3>Volunteer Coordination Activities</h3>
+        <p>
+          Details of any officially announced volunteer orientation,
+          coordination meeting or campaign activity will be posted here.
+        </p>
+        <ul class="event-details">
+          <li>📅 Date: To be announced</li>
+          <li>📍 Venue: To be announced</li>
+          <li>🕒 Time: To be announced</li>
+        </ul>
+        <span class="status">Details pending confirmation</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="empty-state" id="emptyState">
+    <h3>No matching updates found</h3>
+    <p>Try another search term or clear your search.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="subscribe-panel">
+    <h2>Want to Participate?</h2>
+    <p>
+      If you would like to express interest in supporting campaign activities,
+      visit the volunteer page. Registration details saved by that form
+      remain on the device where the form is completed.
+    </p>
+    <a href="volunteer.html" class="btn btn-primary">Visit Volunteer Page</a>
+    <button class="btn btn-outline" onclick="shareEvents()" type="button">
+      Share This Page
+    </button>
+  </div>
+</section>
+
+<section class="closing-banner">
+  <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
+  <p>
+    Follow official updates for the CONSISTENCY 2027 campaign of
+    Barr. Sunny John Unachukwu, Esq.
+  </p>
+  <a href="news.html" class="btn">Read Campaign News</a>
+</section>
+
+  </main>  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>CONSISTENCY 2027</h3>
+        <p>
+          Campaign website for Barr. Sunny John Unachukwu, Esq.,
+          associated with the Mbaitoli/Ikeduru Federal Constituency,
+          Imo State.
+        </p>
+        <p style="margin-top: 10px;">
+          “The Choice Is Now. The Choice Is Clear.”
+        </p>
+      </div>  <div>
+    <h3>Quick Links</h3>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bottom">
+  &copy; <span id="year"></span> CONSISTENCY 2027 Campaign. All rights reserved.
+</div>
+
+  </footer>  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function searchEvents() {
+      const input = document.getElementById("eventSearch").value
+        .trim()
+        .toLowerCase();
+
+      const cards = document.querySelectorAll(".event-card");
+      let visibleCount = 0;
+
+      cards.forEach(function(card) {
+        const text = (card.innerText + " " + card.dataset.search).toLowerCase();
+        const matches = text.includes(input);
+
+        card.style.display = matches ? "flex" : "none";
+
+        if (matches) {
+          visibleCount++;
+        }
+      });
+
+      document.getElementById("emptyState").style.display =
+        visibleCount === 0 ? "block" : "none";
+    }
+
+    function clearSearch() {
+      document.getElementById("eventSearch").value = "";
+      searchEvents();
+    }
+
+    document.getElementById("eventSearch").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        searchEvents();
+      }
+    });
+
+    async function shareEvents() {
+      const shareData = {
+        title: "CONSISTENCY 2027 Campaign Events",
+        text: "Follow campaign event announcements for Barr. Sunny John Unachukwu, Esq.",
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (error) {
+          // Sharing was cancelled or unavailable.
+        }
+      } else if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          alert("Page link copied. You can now share it.");
+        } catch (error) {
+          showShareLink();
+        }
+      } else {
+        showShareLink();
+      }
+    }
+
+    function showShareLink() {
+      prompt("Copy this page link to share:", window.location.href);
+    }
+  </script></body>
+</html>
