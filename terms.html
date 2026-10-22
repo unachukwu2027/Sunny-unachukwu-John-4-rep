@@ -1,0 +1,528 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087b35">
+  <meta name="description" content="Terms of Use for the CONSISTENCY 2027 campaign website associated with Barr. Sunny John Unachukwu, Esq.">
+  <title>Terms of Use | CONSISTENCY 2027</title>  <style>
+    :root {
+      --green: #087b35;
+      --dark-green: #064b25;
+      --red: #d92332;
+      --gold: #f2c14e;
+      --white: #ffffff;
+      --light: #f4faf5;
+      --text: #26362b;
+      --muted: #657368;
+      --border: #dfe9e1;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .top-strip {
+      background: var(--dark-green);
+      color: white;
+      text-align: center;
+      padding: 9px 12px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--dark-green);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--red);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px 14px;
+    }
+
+    nav a {
+      color: var(--dark-green);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--red);
+    }
+
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      padding: 9px 13px;
+      border-radius: 6px;
+    }
+
+    .hero {
+      background: linear-gradient(130deg, var(--dark-green), var(--green));
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 6vw, 55px);
+      line-height: 1.2;
+      margin: 14px 0;
+    }
+
+    .hero p {
+      color: #e6f4e9;
+      max-width: 680px;
+      margin: auto;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 5px;
+      margin: 23px auto 0;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: auto;
+      padding: 55px 20px 70px;
+    }
+
+    .notice {
+      background: #fff8e5;
+      border-left: 5px solid var(--gold);
+      border-radius: 7px;
+      padding: 17px 20px;
+      color: #65552a;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .terms-card {
+      background: white;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .terms-card h2 {
+      color: var(--dark-green);
+      font-size: 22px;
+      margin: 27px 0 10px;
+      line-height: 1.4;
+    }
+
+    .terms-card h2:first-child {
+      margin-top: 0;
+    }
+
+    .terms-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .terms-card ul {
+      padding-left: 24px;
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .terms-card li {
+      margin-bottom: 8px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 12px 19px;
+      border-radius: 7px;
+      font-weight: 800;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .button:hover {
+      background: var(--dark-green);
+    }
+
+    .closing {
+      background: var(--red);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .closing h2 {
+      font-size: clamp(24px, 4vw, 35px);
+      margin-bottom: 8px;
+    }
+
+    .closing p {
+      margin-bottom: 15px;
+    }
+
+    .closing .button {
+      background: white;
+      color: var(--red);
+    }
+
+    footer {
+      background: #073a20;
+      color: #d9e9dd;
+      padding: 35px 20px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #d9e9dd;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 12px;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 25px auto 0;
+      padding-top: 17px;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 50px 18px;
+      }
+
+      .container {
+        padding: 35px 14px 50px;
+      }
+
+      .terms-card {
+        padding: 20px 17px;
+      }
+
+      .terms-card h2 {
+        font-size: 20px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        font-size: 19px;
+      }
+
+      nav {
+        gap: 9px 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+    }
+  </style></head><body>
+  <div class="top-strip">
+    CONSISTENCY 2027 | MBAITOLI/IKEDURU FEDERAL CONSTITUENCY, IMO STATE
+  </div>  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        CONSISTENCY 2027
+        <span>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</span>
+      </a>  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin.html" class="nav-cta">Admin</a>
+  </nav>
+</div>
+
+  </header>  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">WEBSITE GUIDELINES</span>
+        <h1>Terms of Use</h1>
+        <p>
+          Please read these terms before using the CONSISTENCY 2027 campaign
+          website or sharing content from it.
+        </p>
+        <div class="gold-line"></div>
+      </div>
+    </section><section class="container">
+  <div class="notice">
+    <strong>Website owner review required:</strong>
+    This is a general terms template. Review it against the actual website
+    features and obtain appropriate legal advice where necessary before
+    relying on it as a binding legal document.
+  </div>
+
+  <div class="terms-card">
+    <h2>1. Acceptance of These Terms</h2>
+    <p>
+      These Terms of Use apply to visitors accessing the CONSISTENCY 2027
+      campaign website associated with Barr. Sunny John Unachukwu, Esq.
+      By using this website, you agree to use it responsibly and in
+      accordance with applicable law.
+    </p>
+
+    <h2>2. Purpose of the Website</h2>
+    <p>
+      This website is intended to provide campaign-related information,
+      published updates, photographs, event announcements and ways for
+      visitors to learn about campaign activities.
+    </p>
+    <p>
+      Content may be updated, corrected, replaced or removed as campaign
+      information changes.
+    </p>
+
+    <h2>3. Accuracy of Information</h2>
+    <p>
+      Reasonable efforts should be made to publish accurate and current
+      information. However, visitors should verify important details,
+      including event dates, venues, announcements and contact information,
+      before relying on them.
+    </p>
+    <p>
+      Where event information is marked as awaiting confirmation, it should
+      not be treated as a confirmed event schedule.
+    </p>
+
+    <h2>4. Acceptable Use</h2>
+    <p>You agree not to use this website to:</p>
+    <ul>
+      <li>Break applicable laws or encourage unlawful activity.</li>
+      <li>Attempt to damage, disrupt or gain unauthorized access to the website.</li>
+      <li>Upload malicious software or interfere with website functionality.</li>
+      <li>Impersonate another person or misrepresent the source of information.</li>
+      <li>Publish threats, harassment, or unlawful material through any enabled form.</li>
+      <li>Use website content in a misleading way that changes its meaning or context.</li>
+    </ul>
+
+    <h2>5. Intellectual Property and Campaign Materials</h2>
+    <p>
+      Names, logos, photographs, designs, text and other materials appearing
+      on this website may be protected by copyright, trademark or other
+      applicable rights.
+    </p>
+    <p>
+      Unless permission or applicable law allows otherwise, do not assume
+      that you may reproduce, modify, sell or commercially distribute
+      campaign materials simply because they are publicly visible.
+    </p>
+
+    <h2>6. Sharing Website Links</h2>
+    <p>
+      Visitors may share links to publicly accessible website pages.
+      When sharing campaign information, do not knowingly remove important
+      context or present outdated material as a current official announcement.
+    </p>
+
+    <h2>7. Volunteer and Contact Forms</h2>
+    <p>
+      Website forms may allow visitors to enter information voluntarily.
+      The current volunteer form is designed to store entries in local
+      browser storage on the device where the form is completed. It does
+      not automatically transmit entries to a central campaign database.
+    </p>
+    <p>
+      Visitors should provide only information they are comfortable entering
+      and should not submit passwords, bank details or other highly sensitive
+      information through ordinary forms.
+    </p>
+    <p>
+      If online submission or other data-processing features are added,
+      the website owner should update the relevant privacy notices and
+      explain how those features work.
+    </p>
+
+    <h2>8. External Websites and Services</h2>
+    <p>
+      This website may link to external websites or services, including
+      social media platforms. The campaign does not control every external
+      service's content, availability or privacy practices. Visitors should
+      review the terms and privacy policies of those services.
+    </p>
+
+    <h2>9. Website Availability</h2>
+    <p>
+      The website may occasionally be unavailable because of maintenance,
+      hosting issues, technical problems or other circumstances. Continuous
+      availability is not guaranteed.
+    </p>
+
+    <h2>10. Disclaimer</h2>
+    <p>
+      Website content is provided for general informational purposes.
+      Nothing on this page should be interpreted as a guarantee that every
+      item of information will always be complete, error-free or current.
+    </p>
+    <p>
+      Nothing in these terms is intended to exclude or limit any right or
+      protection that cannot lawfully be excluded or limited under
+      applicable law.
+    </p>
+
+    <h2>11. Changes to These Terms</h2>
+    <p>
+      These terms may be revised as the website develops. The website owner
+      should update the published version when material changes are made
+      and review it periodically.
+    </p>
+
+    <h2>12. Applicable Law</h2>
+    <p>
+      These terms are intended to operate subject to applicable laws.
+      The website owner should obtain appropriate legal advice to confirm
+      any governing-law and dispute-resolution wording before publication.
+    </p>
+
+    <h2>13. Contact</h2>
+    <p>
+      For questions about these terms, visit the
+      <a href="contact.html" style="color:#087b35;font-weight:bold;">Contact page</a>
+      to review the available contact options. Official contact details
+      should only be added after confirmation.
+    </p>
+
+    <a href="index.html" class="button">Return to Homepage</a>
+  </div>
+</section>
+
+<section class="closing">
+  <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
+  <p>The Choice Is Now. The Choice Is Clear.</p>
+  <a href="contact.html" class="button">Visit Contact Page</a>
+</section>
+
+  </main>  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>CONSISTENCY 2027</h3>
+        <p>
+          Campaign website for Barr. Sunny John Unachukwu, Esq.,
+          associated with Mbaitoli/Ikeduru Federal Constituency, Imo State.
+        </p>
+        <p style="margin-top:10px;">The Choice Is Now. The Choice Is Clear.</p>
+      </div>  <div>
+    <h3>Quick Links</h3>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bottom">
+  &copy; <span id="year"></span> CONSISTENCY 2027 Campaign. All rights reserved.
+</div>
+
+  </footer>  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script></body>
+</html>
