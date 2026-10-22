@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087b35">
+  <meta name="description" content="Frequently asked questions about the CONSISTENCY 2027 campaign for Mbaitoli/Ikeduru Federal Constituency.">
+  <title>Frequently Asked Questions | CONSISTENCY 2027</title>
+
+  <style>
+    :root {
+      --green: #087b35;
+      --dark-green: #064b25;
+      --red: #d92332;
+      --gold: #f2c14e;
+      --white: #ffffff;
+      --light: #f3f8f4;
+      --text: #25352a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--dark-green);
+      border-bottom: 4px solid var(--gold);
+      padding: 17px 5%;
+    }
+
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: bold;
+      padding: 8px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--green);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #064b25, #087b35);
+      color: var(--white);
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom: 5px solid var(--red);
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--gold);
+      color: #243329;
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 45px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #eef8f0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 15px 17px;
+      border: 1px solid #cbd9ce;
+      border-radius: 9px;
+      font-size: 16px;
+      outline: none;
+      background: var(--white);
+      margin-bottom: 25px;
+    }
+
+    .search-box:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(8, 123, 53, 0.12);
+    }
+
+    .category-title {
+      color: var(--dark-green);
+      margin: 28px 0 13px;
+      font-size: 22px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 9px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      border: 1px solid #e2ebe4;
+    }
+
+    .faq-question {
+      width: 100%;
+      border: none;
+      background: var(--white);
+      color: var(--dark-green);
+      padding: 18px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .faq-question:hover {
+      background: #f0f8f2;
+    }
+
+    .faq-question .symbol {
+      font-size: 23px;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 18px 19px;
+      color: #46564a;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-question {
+      background: #f0f8f2;
+    }
+
+    .faq-item.open .symbol {
+      transform: rotate(45deg);
+    }
+
+    .faq-item.hidden {
+      display: none;
+    }
+
+    .no-results {
+      display: none;
+      background: var(--white);
+      padding: 25px;
+      border-radius: 9px;
+      text-align: center;
+    }
+
+    .contact-card {
+      background: var(--dark-green);
+      color: var(--white);
+      text-align: center;
+      padding: 32px 22px;
+      border-radius: 12px;
+      margin-top: 35px;
+    }
+
+    .contact-card h2 {
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 7px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #243329;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--dark-green);
+    }
+
+    footer {
+      background: #04371b;
+      color: var(--white);
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 45px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 13px 0;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 45px 16px;
+      }
+
+      .faq-question {
+        font-size: 15px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      CONSISTENCY 2027
+      <span>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="projects.html">Projects</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-label">WE ARE HERE TO HELP</span>
+  <h1>Frequently Asked Questions</h1>
+  <p>
+    Find answers to common questions about CONSISTENCY 2027,
+    the campaign's priorities, events, and ways to participate.
+  </p>
+</section>
+
+<main class="container">
+
+  <input
+    type="search"
+    id="faqSearch"
+    class="search-box"
+    placeholder="Search for a question..."
+    aria-label="Search frequently asked questions"
+  >
+
+  <h2 class="category-title">About the Campaign</h2>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      What is CONSISTENCY 2027?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        CONSISTENCY 2027 is the campaign identity associated with
+        Barr. Sunny John Unachukwu, Esq., for the Federal House of
+        Representatives seat representing Mbaitoli/Ikeduru Federal
+        Constituency in Imo State.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      What is the campaign slogan?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        The campaign slogan is "THE CHOICE IS NOW. THE CHOICE IS CLEAR."
+        Another campaign message is "CONSISTENCY TODAY, BETTER TOMORROW!"
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Where can I read the campaign manifesto?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Visit the
+        <a href="manifesto.html" style="color:#087b35;font-weight:bold;">Manifesto page</a>
+        to read the campaign's stated priorities and proposals.
+        Check official campaign communications for the latest confirmed information.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="category-title">Projects & Development</h2>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Where can I find the campaign's development priorities?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Visit the <a href="projects.html" style="color:#087b35;font-weight:bold;">Projects & Priorities page</a>.
+        Proposed priorities are not the same as completed or funded projects.
+        Confirmed project details should be published only after verification.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      How can I suggest a project for my community?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Use the <a href="contact.html" style="color:#087b35;font-weight:bold;">Contact page</a>
+        to submit a community concern or development suggestion.
+        Include the community name and a clear description of the issue.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="category-title">Volunteering & Participation</h2>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      How can I become a campaign volunteer?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Visit the <a href="volunteer.html" style="color:#087b35;font-weight:bold;">Volunteer page</a>
+        and complete the registration form. Follow any additional instructions
+        provided by an authorized campaign representative.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Does the volunteer form send my details to the campaign team?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        The current demonstration form stores information in the browser's
+        local storage on the device where it is completed. It does not
+        automatically send submissions to the campaign team or share them
+        with other devices. Do not enter sensitive personal information.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      How can I share the campaign website?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Copy the website address from your browser and share it with others.
+        You can also use the share feature on pages where it is available.
+        Always share accurate information from official campaign sources.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="category-title">Events & Updates</h2>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Where can I find campaign events?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Check the <a href="events.html" style="color:#087b35;font-weight:bold;">Events page</a>
+        for announcements. An event should be treated as confirmed only
+        when its date, venue, and other details have been officially verified.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Where can I read campaign news?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Visit the <a href="news.html" style="color:#087b35;font-weight:bold;">News page</a>
+        for campaign updates published on the website. Check publication
+        dates and consult official sources when verifying important claims.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="category-title">Support & Contact</h2>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      How can I support the campaign?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        You can explore volunteering, share approved campaign information,
+        offer ideas, and participate in lawful campaign activities.
+        Visit the <a href="donate.html" style="color:#087b35;font-weight:bold;">Support page</a>
+        for further guidance.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      How can I contact the campaign team?
+      <span class="symbol">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>
+        Visit the <a href="contact.html" style="color:#087b35;font-weight:bold;">Contact page</a>
+        for the available contact options. Confirm that contact details
+        are official before sharing private information.
+      </p>
+    </div>
+  </div>
+
+  <div class="no-results" id="noResults">
+    <h3>No matching questions found</h3>
+    <p>Try another search term or contact the campaign for assistance.</p>
+  </div>
+
+  <section class="contact-card">
+    <h2>Still Have Questions?</h2>
+    <p>
+      If you need more information, visit the contact page and send
+      your question to the campaign through an available official channel.
+    </p>
+
+    <div class="buttons">
+      <a href="contact.html" class="btn btn-gold">Contact the Campaign</a>
+      <a href="index.html" class="btn btn-white">Return Home</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>CONSISTENCY 2027</strong>
+  <p>Campaign for Federal House of Representatives</p>
+  <p>Mbaitoli/Ikeduru Federal Constituency, Imo State</p>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="projects.html">Projects</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="donate.html">Support</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+
+  <p style="font-size:12px;margin-top:15px;">
+    &copy; <span id="year"></span> CONSISTENCY 2027. All rights reserved.
+  </p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const questions = document.querySelectorAll(".faq-question");
+  const searchInput = document.getElementById("faqSearch");
+  const faqItems = document.querySelectorAll(".faq-item");
+  const noResults = document.getElementById("noResults");
+
+  questions.forEach(function(button) {
+    button.addEventListener("click", function() {
+      const item = button.closest(".faq-item");
+      const isOpen = item.classList.contains("open");
+
+      item.classList.toggle("open", !isOpen);
+      button.setAttribute("aria-expanded", String(!isOpen));
+    });
+  });
+
+  searchInput.addEventListener("input", function() {
+    const term = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    faqItems.forEach(function(item) {
+      const matches = item.textContent.toLowerCase().includes(term);
+
+      item.classList.toggle("hidden", !matches);
+
+      if (matches) {
+        visibleCount++;
+      }
+    });
+
+    document.querySelectorAll(".category-title").forEach(function(heading) {
+      let next = heading.nextElementSibling;
+      let hasVisibleQuestion = false;
+
+      while (next && !next.classList.contains("category-title") &&
+             !next.classList.contains("contact-card")) {
+        if (next.classList.contains("faq-item") &&
+            !next.classList.contains("hidden")) {
+          hasVisibleQuestion = true;
+        }
+        next = next.nextElementSibling;
+      }
+
+      heading.style.display = hasVisibleQuestion ? "" : "none";
+    });
+
+    noResults.style.display = visibleCount === 0 ? "block" : "none";
+  });
+</script>
+
+</body>
+</html>
