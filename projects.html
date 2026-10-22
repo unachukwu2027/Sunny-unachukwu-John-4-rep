@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects and Development Priorities | Consistency 2027</title>
+
+<meta name="description" content="Explore proposed development priorities for Mbaitoli/Ikeduru Federal Constituency, including education, healthcare, roads, clean water, agriculture and economic empowerment.">
+
+<meta name="theme-color" content="#087f23">
+
+<style>
+:root {
+    --green: #087f23;
+    --dark-green: #064c19;
+    --red: #c62828;
+    --gold: #d4af37;
+    --white: #ffffff;
+    --light: #f3f8f3;
+    --text: #263328;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+header {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-bottom: 5px solid var(--gold);
+}
+
+header h1 {
+    font-size: 27px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #fff1b8;
+    font-size: 14px;
+}
+
+nav {
+    background: white;
+    padding: 13px 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px #00000010;
+}
+
+nav a {
+    display: inline-block;
+    color: var(--green);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 5px 9px;
+}
+
+nav a:hover {
+    color: var(--red);
+}
+
+.hero {
+    background: linear-gradient(135deg, #087f23, #034b17);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 6px solid var(--red);
+}
+
+.hero .label {
+    display: inline-block;
+    background: var(--gold);
+    color: #173d1b;
+    padding: 6px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 17px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 0 auto 15px;
+    font-size: 17px;
+}
+
+.hero .slogan {
+    color: #ffe69a;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0 18px;
+}
+
+.intro {
+    background: white;
+    padding: 27px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 4px 15px #00000009;
+}
+
+.intro h2 {
+    color: var(--green);
+    margin-bottom: 12px;
+}
+
+.intro p {
+    margin-bottom: 10px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-title h2 {
+    color: var(--green);
+    font-size: 30px;
+}
+
+.section-title p {
+    margin-top: 8px;
+    color: #59675b;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: white;
+    overflow: hidden;
+    border-radius: 13px;
+    box-shadow: 0 5px 18px #00000012;
+    border-bottom: 4px solid var(--green);
+    transition: transform 0.2s;
+}
+
+.project-card:nth-child(even) {
+    border-bottom-color: var(--red);
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.project-image {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: #dfe9df;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.04);
+}
+
+.image-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    background: var(--green);
+    color: white;
+    padding: 7px 13px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.project-content {
+    padding: 24px;
+}
+
+.project-content h3 {
+    color: var(--green);
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    margin-bottom: 12px;
+}
+
+.project-content ul {
+    padding-left: 21px;
+    font-size: 14px;
+}
+
+.project-content li {
+    margin-bottom: 7px;
+}
+
+.extra-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.extra-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 4px 14px #0000000c;
+}
+
+.extra-card h3 {
+    color: var(--green);
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.note {
+    background: #fff8df;
+    border-left: 5px solid var(--gold);
+    padding: 22px;
+    border-radius: 8px;
+    margin-top: 35px;
+}
+
+.note h3 {
+    color: #735b00;
+    margin-bottom: 8px;
+}
+
+.note p {
+    margin-bottom: 10px;
+}
+
+.representation {
+    margin-top: 35px;
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    background: #e5f3e7;
+    border: 1px solid #c8e2cb;
+}
+
+.representation h2 {
+    color: var(--green);
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.representation p {
+    max-width: 800px;
+    margin: 0 auto 18px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 6px;
+}
+
+.button-green {
+    background: var(--green);
+    color: white;
+}
+
+.button-red {
+    background: var(--red);
+    color: white;
+}
+
+.button:hover {
+    opacity: 0.88;
+}
+
+footer {
+    background: #063d17;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+    margin-top: 45px;
+}
+
+footer p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+footer .gold {
+    color: #ffe69a;
+    font-weight: bold;
+}
+
+footer a {
+    color: #ffe69a;
+    text-decoration: none;
+}
+
+.back-top {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--gold);
+    color: #173d1b;
+    padding: 9px 17px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    .hero {
+        padding: 45px 17px;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .projects-grid,
+    .extra-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 230px;
+    }
+
+    .project-content {
+        padding: 20px;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    .intro {
+        padding: 21px;
+    }
+}
+</style>
+</head>
+
+<body id="top">
+
+<header>
+    <h1>SUNNY UNACHUKWU JOHN, ESQ.</h1>
+    <p>CONSISTENCY 2027 | Mbaitoli/Ikeduru Federal Constituency</p>
+</header>
+
+<nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="biography.html">Biography</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="projects.html">Projects</a>
+    <a href="news.html">News</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+    <span class="label">CONSISTENCY 2027</span>
+
+    <h2>Development Priorities for Mbaitoli/Ikeduru</h2>
+
+    <p>
+        Exploring practical development priorities in education,
+        healthcare, roads, clean water, agriculture and economic
+        opportunities for communities across the constituency.
+    </p>
+
+    <p class="slogan">
+        CONSISTENCY TODAY, BETTER TOMORROW!
+    </p>
+</section>
+
+<main class="container">
+
+    <section class="intro">
+        <h2>Building a Conversation About Development</h2>
+
+        <p>
+            This page presents proposed development priorities for
+            public discussion in Mbaitoli/Ikeduru Federal Constituency.
+            The photographs are illustrative and help visitors
+            understand the types of facilities and services being
+            discussed.
+        </p>
+
+        <p>
+            <strong>Important:</strong> These images do not establish
+            that the facilities are located in Mbaitoli or Ikeduru.
+            They are not evidence of completed projects by Sunny
+            Unachukwu John, Esq.
+        </p>
+    </section>
+
+    <section>
+        <div class="section-title">
+            <h2>Key Development Priorities</h2>
+            <p>
+                Education, healthcare, infrastructure, clean water
+                and other essential community needs.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- 1. EDUCATION -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative school building"
+                        loading="lazy">
+                    <span class="image-label">EDUCATION</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>1. Education and School Development</h3>
+
+                    <p>
+                        Education creates opportunities for children
+                        and young people. School facilities and
+                        learning resources are important development
+                        priorities.
+                    </p>
+
+                    <ul>
+                        <li>Advocate for improved classrooms.</li>
+                        <li>Promote access to learning materials.</li>
+                        <li>Encourage digital and vocational education.</li>
+                        <li>Explore legitimate scholarship opportunities.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 2. HEALTHCARE -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative hospital and healthcare facility"
+                        loading="lazy">
+                    <span class="image-label">HEALTHCARE</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>2. Hospitals and Community Healthcare</h3>
+
+                    <p>
+                        Accessible healthcare is an important
+                        community concern, particularly for families,
+                        children and older residents.
+                    </p>
+
+                    <ul>
+                        <li>Advocate for accessible primary healthcare.</li>
+                        <li>Promote maternal and child health awareness.</li>
+                        <li>Encourage better-equipped health centres.</li>
+                        <li>Support public health education.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 3. ROADS -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative road and urban infrastructure"
+                        loading="lazy">
+                    <span class="image-label">ROADS</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>3. Roads and Infrastructure</h3>
+
+                    <p>
+                        Reliable roads can improve access to schools,
+                        healthcare, markets and other public facilities.
+                    </p>
+
+                    <ul>
+                        <li>Raise concerns about roads needing attention.</li>
+                        <li>Advocate for drainage and erosion control.</li>
+                        <li>Promote safer access to community facilities.</li>
+                        <li>Encourage transparent infrastructure planning.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 4. WATER -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative clean-water image"
+                        loading="lazy">
+                    <span class="image-label">CLEAN WATER</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>4. Clean Water and Sanitation</h3>
+
+                    <p>
+                        Access to safe water and proper sanitation
+                        supports public health and improves daily
+                        living conditions.
+                    </p>
+
+                    <ul>
+                        <li>Advocate for safe water sources.</li>
+                        <li>Raise concerns about broken water facilities.</li>
+                        <li>Promote sanitation and hygiene education.</li>
+                        <li>Encourage maintenance of public water systems.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 5. AGRICULTURE -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative agricultural landscape"
+                        loading="lazy">
+                    <span class="image-label">AGRICULTURE</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>5. Agriculture and Farmer Support</h3>
+
+                    <p>
+                        Agriculture contributes to food security,
+                        livelihoods and economic activity.
+                    </p>
+
+                    <ul>
+                        <li>Promote agricultural training.</li>
+                        <li>Encourage access to farming information.</li>
+                        <li>Advocate for appropriate farmer assistance.</li>
+                        <li>Encourage access to agricultural markets.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 6. HOUSING -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative residential community"
+                        loading="lazy">
+                    <span class="image-label">COMMUNITY DEVELOPMENT</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>6. Housing and Community Development</h3>
+
+                    <p>
+                        Well-planned communities and appropriate
+                        infrastructure can contribute to safer,
+                        healthier living environments.
+                    </p>
+
+                    <ul>
+                        <li>Advocate for improved community facilities.</li>
+                        <li>Encourage appropriate settlement planning.</li>
+                        <li>Promote environmental cleanliness.</li>
+                        <li>Raise concerns about local infrastructure.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 7. ELECTRICITY -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative electricity infrastructure"
+                        loading="lazy">
+                    <span class="image-label">ELECTRICITY</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>7. Electricity and Public Lighting</h3>
+
+                    <p>
+                        Reliable electricity and suitable public
+                        lighting are important concerns for homes,
+                        businesses and public facilities.
+                    </p>
+
+                    <ul>
+                        <li>Raise electricity access concerns.</li>
+                        <li>Advocate for attention to public facilities.</li>
+                        <li>Encourage suitable street-lighting initiatives.</li>
+                        <li>Promote safe energy solutions.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 8. VOCATIONAL TRAINING -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative professional training and teamwork"
+                        loading="lazy">
+                    <span class="image-label">SKILLS DEVELOPMENT</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>8. Vocational Training and Skills</h3>
+
+                    <p>
+                        Practical training can help young people and
+                        adults explore employment and entrepreneurship.
+                    </p>
+
+                    <ul>
+                        <li>Promote vocational education.</li>
+                        <li>Encourage digital skills training.</li>
+                        <li>Support apprenticeship opportunities.</li>
+                        <li>Explore partnerships with training providers.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 9. DRAINAGE -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative civil engineering and infrastructure"
+                        loading="lazy">
+                    <span class="image-label">DRAINAGE</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>9. Drainage and Erosion Control</h3>
+
+                    <p>
+                        Appropriate drainage and erosion management
+                        can help protect roads, homes and public spaces.
+                    </p>
+
+                    <ul>
+                        <li>Identify communities affected by erosion.</li>
+                        <li>Advocate for drainage assessments.</li>
+                        <li>Encourage proper stormwater management.</li>
+                        <li>Promote environmental awareness.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 10. MARKETS -->
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1000&q=85"
+                        alt="Illustrative market produce and small business activity"
+                        loading="lazy">
+                    <span class="image-label">LOCAL ECONOMY</span>
+                </div>
+
+                <div class="project-content">
+                    <h3>10. Markets and Small Business Support</h3>
+
+                    <p>
+                        Local markets and small businesses contribute
+                        to livelihoods, commerce and community growth.
+                    </p>
+
+                    <ul>
+                        <li>Raise concerns about market facilities.</li>
+                        <li>Promote business and financial literacy.</li>
+                        <li>Encourage local entrepreneurship.</li>
+                        <li>Advocate for improved market infrastructure.</li>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- OTHER DEVELOPMENT PRIORITIES -->
+
+    <section style="margin-top:45px;">
+
+        <div class="section-title">
+            <h2>Other Areas of Focus</h2>
+            <p>
+                Development also includes economic opportunity,
+                social welfare and effective representation.
+            </p>
+        </div>
+
+        <div class="extra-grid">
+
+            <article class="extra-card">
+                <h3>🌱 Youth Empowerment</h3>
+                <p>
+                    Encourage skills acquisition, mentorship,
+                    digital education and access to information
+                    about legitimate employment opportunities.
+                </p>
+            </article>
+
+            <article class="extra-card">
+                <h3>🤝 Support for Vulnerable People</h3>
+                <p>
+                    Promote attention to older people, persons with
+                    disabilities, disadvantaged families and other
+                    vulnerable members of the community.
+                </p>
+            </article>
+
+            <article class="extra-card">
+                <h3>🏘️ Community Engagement</h3>
+                <p>
+                    Encourage public consultation and communication
+                    so community concerns can be raised through
+                    appropriate channels.
+                </p>
+            </article>
+
+            <article class="extra-card">
+                <h3>📋 Transparency and Accountability</h3>
+                <p>
+                    Promote responsible public communication,
+                    transparency in public affairs and appropriate
+                    oversight of public projects.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="note">
+        <h3>Important Information</h3>
+
+        <p>
+            The items on this page are proposed development priorities.
+            They are not confirmation that projects have been approved,
+            funded or completed.
+        </p>
+
+        <p>
+            Implementation would depend on the responsibilities of
+            relevant government institutions, legislative processes,
+            project assessments, available funding and applicable
+            procurement requirements.
+        </p>
+
+        <p>
+            Photographs are illustrative images loaded from external
+            sources. They should not be presented as pictures of
+            completed projects in Mbaitoli or Ikeduru.
+        </p>
+    </section>
+
+    <section class="representation">
+        <h2>Community Voices Matter</h2>
+
+        <p>
+            Residents can help identify development needs by sharing
+            their concerns, experiences and suggestions through
+            appropriate community and public channels.
+        </p>
+
+        <a href="contact.html" class="button button-green">
+            Contact the Campaign
+        </a>
+
+        <a href="manifesto.html" class="button button-red">
+            Read the Manifesto
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>SUNNY UNACHUKWU JOHN, ESQ.</strong></p>
+    <p class="gold">CONSISTENCY 2027</p>
+    <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+    <p>MBAIKE'S CHOSEN ONE FOR HOR</p>
+    <p>Service to the People</p>
+
+    <a href="#top" class="back-top">Back to Top</a>
+
+    <p style="margin-top:18px;">
+        &copy; <span id="year"></span>
+        Sunny Unachukwu John. All rights reserved.
+    </p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
