@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f23">
+
+<title>Admin Login | CONSISTENCY 2027</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #045b19, #087f23);
+}
+
+.login-box {
+  width: 100%;
+  max-width: 410px;
+  background: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 35px #0004;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: #087f23;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 auto 15px;
+  border: 4px solid #d6a500;
+}
+
+h1 {
+  text-align: center;
+  color: #087f23;
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 16px 0 7px;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: 2px solid #b8e3c0;
+  border-color: #087f23;
+}
+
+.password-wrap {
+  display: flex;
+  gap: 6px;
+}
+
+.password-wrap input {
+  min-width: 0;
+  flex: 1;
+}
+
+.password-wrap button {
+  padding: 0 12px;
+  background: #e8f5e9;
+  color: #045b19;
+  border: 1px solid #b8d8be;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.login-button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 23px;
+  border: 0;
+  border-radius: 7px;
+  color: white;
+  background: #087f23;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #045b19;
+}
+
+.error {
+  display: none;
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 11px;
+  border-radius: 6px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.notice {
+  margin-top: 20px;
+  padding: 12px;
+  background: #fff8df;
+  border: 1px solid #ead58a;
+  border-radius: 7px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #087f23;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+  <div class="logo">C27</div>
+
+  <h1>ADMIN LOGIN</h1>
+
+  <p class="subtitle">
+    CONSISTENCY 2027<br>
+    Campaign Website Administration
+  </p>
+
+  <form id="loginForm">
+
+    <label for="username">Username</label>
+
+    <input
+      type="text"
+      id="username"
+      autocomplete="username"
+      placeholder="Enter admin username"
+      required
+    >
+
+    <label for="password">Password</label>
+
+    <div class="password-wrap">
+      <input
+        type="password"
+        id="password"
+        autocomplete="current-password"
+        placeholder="Enter admin password"
+        required
+      >
+
+      <button type="button" id="togglePassword">
+        Show
+      </button>
+    </div>
+
+    <button class="login-button" type="submit">
+      Login to Dashboard
+    </button>
+
+    <div class="error" id="errorMessage" role="alert">
+      Incorrect username or password.
+    </div>
+
+  </form>
+
+  <div class="notice">
+    <strong>Security notice:</strong>
+    This demonstration login does not provide secure authentication.
+    Do not enter confidential information.
+  </div>
+
+  <a class="back" href="index.html">
+    ← Return to Campaign Website
+  </a>
+
+  <footer>
+    CONSISTENCY 2027 | Service to the People
+  </footer>
+
+</div>
+
+<script>
+"use strict";
+
+/*
+ * DEMONSTRATION ONLY.
+ * Anyone who can read this public source code can discover these values.
+ * Replace them only for testing; this does not make the login secure.
+ */
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "ChangeMe2027!";
+
+const SESSION_KEY = "consistency2027_demo_admin_session";
+
+document.getElementById("togglePassword").addEventListener("click", function () {
+  const passwordInput = document.getElementById("password");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    this.textContent = "Hide";
+  } else {
+    passwordInput.type = "password";
+    this.textContent = "Show";
+  }
+});
+
+document.getElementById("loginForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+  const errorMessage = document.getElementById("errorMessage");
+
+  if (
+    username === ADMIN_USERNAME &&
+    password === ADMIN_PASSWORD
+  ) {
+    /*
+     * This is only a browser-side demonstration session.
+     * It is not a security boundary.
+     */
+    sessionStorage.setItem(SESSION_KEY, "demo");
+
+    window.location.href = "admin-dashboard.html";
+  } else {
+    errorMessage.style.display = "block";
+    document.getElementById("password").value = "";
+  }
+});
+</script>
+
+</body>
+</html>
