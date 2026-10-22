@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CONSISTENCY 2027 | Admin Dashboard</title>
+
+<style>
+:root {
+  --green: #087a35;
+  --dark: #045522;
+  --gold: #f2c14e;
+  --light: #f3f7f4;
+  --white: #ffffff;
+  --text: #203027;
+  --muted: #66746a;
+  --red: #c62828;
+  --border: #dce6de;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button, .button {
+  cursor: pointer;
+}
+
+header {
+  background: var(--dark);
+  color: var(--white);
+  padding: 20px;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 23px;
+}
+
+header p {
+  color: #dceee1;
+  font-size: 13px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 22px 15px 45px;
+}
+
+.notice {
+  background: #fff8df;
+  border: 1px solid #ecdca4;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.stat {
+  background: var(--white);
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stat strong {
+  display: block;
+  color: var(--green);
+  font-size: 28px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.sidebar, .panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.sidebar {
+  padding: 10px;
+  position: sticky;
+  top: 10px;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 3px 0;
+  border: 0;
+  border-radius: 6px;
+  text-align: left;
+  background: transparent;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  background: var(--green);
+  color: var(--white);
+}
+
+.panel {
+  padding: 22px;
+  min-width: 0;
+}
+
+.panel h2 {
+  font-size: 23px;
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.panel-description {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.field {
+  margin-bottom: 15px;
+  min-width: 0;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd8ce;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid #94cba6;
+  border-color: var(--green);
+}
+
+.help {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 15px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: none;
+  margin: 3px 4px 3px 0;
+}
+
+.btn:hover {
+  background: var(--dark);
+}
+
+.btn-secondary {
+  background: #e6efe8;
+  color: var(--dark);
+}
+
+.btn-secondary:hover {
+  background: #d2e4d6;
+}
+
+.btn-danger {
+  background: var(--red);
+  color: white;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #25301f;
+}
+
+.list {
+  margin-top: 25px;
+}
+
+.list h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.item h4 {
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.item p {
+  color: var(--muted);
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.item img, .item video {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin: 12px 0;
+  background: #edf2ee;
+}
+
+.item-actions {
+  margin-top: 10px;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 15px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.status {
+  padding: 11px;
+  border-radius: 6px;
+  margin: 12px 0;
+  background: #e6f5e9;
+  color: var(--dark);
+  display: none;
+  overflow-wrap: anywhere;
+}
+
+.status.show {
+  display: block;
+}
+
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.check-row input {
+  width: auto;
+  margin-top: 5px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 22px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 22px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <h1>CONSISTENCY 2027</h1>
+      <p>Campaign Content Management Dashboard</p>
+    </div>
+
+    <div class="header-actions">
+      <a class="btn btn-gold" href="index.html">View Website</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="notice">
+    <strong>Local demonstration dashboard:</strong>
+    Content is saved in this browser on this device only. It does not
+    automatically publish to the public website or transfer to another
+    device. Do not store confidential information here. This page does
+    not provide secure administrator authentication.
+  </div>
+
+  <section class="stats">
+    <div class="stat">
+      <span>News Articles</span>
+      <strong id="newsCount">0</strong>
+    </div>
+
+    <div class="stat">
+      <span>Gallery Pictures</span>
+      <strong id="pictureCount">0</strong>
+    </div>
+
+    <div class="stat">
+      <span>Videos</span>
+      <strong id="videoCount">0</strong>
+    </div>
+
+    <div class="stat">
+      <span>Announcements</span>
+      <strong id="announcementCount">0</strong>
+    </div>
+  </section>
+
+  <div class="layout">
+
+    <aside class="sidebar" aria-label="Dashboard sections">
+      <button class="active" data-tab="dashboard">🏠 Dashboard</button>
+      <button data-tab="news">📰 Publish News</button>
+      <button data-tab="gallery">📸 Pictures</button>
+      <button data-tab="videos">🎥 Videos</button>
+      <button data-tab="announcements">📢 Announcements</button>
+      <button data-tab="events">📅 Events</button>
+      <button data-tab="welcome">💬 Welcome Message</button>
+      <button data-tab="backup">💾 Backup & Restore</button>
+    </aside>
+
+    <div class="panel">
+
+      <!-- DASHBOARD -->
+      <section class="tab active" id="tab-dashboard">
+        <h2>Welcome to Your Dashboard</h2>
+
+        <p class="panel-description">
+          Manage your campaign content from one place.
+        </p>
+
+        <div class="highlight-box">
+          <h3>Available tools</h3>
+          <p>📰 Create and manage news articles.</p>
+          <p>📸 Add photographs and captions.</p>
+          <p>🎥 Save video links and descriptions.</p>
+          <p>📢 Write campaign announcements.</p>
+          <p>📅 Record event information.</p>
+          <p>💬 Edit the moving welcome message.</p>
+          <p>💾 Export your content as a backup.</p>
+        </div>
+
+        <div class="list">
+          <h3>Before you start</h3>
+          <p class="panel-description">
+            This version is for testing the dashboard interface and
+            local content management. It is not yet connected to the
+            public news, gallery, or video pages.
+          </p>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section class="tab" id="tab-news">
+        <h2>News Management</h2>
+        <p class="panel-description">
+          Create, edit, and delete campaign news articles.
+        </p>
+
+        <form id="newsForm">
+          <input type="hidden" id="newsId">
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="newsTitle">News Headline *</label>
+              <input id="newsTitle" maxlength="180" required
+                     placeholder="Enter news headline">
+            </div>
+
+            <div class="field">
+              <label for="newsCategory">Category</label>
+              <select id="newsCategory">
+                <option>Campaign News</option>
+                <option>Announcement</option>
+                <option>Community Engagement</option>
+                <option>Press Release</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="newsDate">Publication Date</label>
+              <input id="newsDate" type="date">
+            </div>
+
+            <div class="field full">
+              <label for="newsSummary">Short Summary</label>
+              <textarea id="newsSummary"
+                        placeholder="Write a short introduction"></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="newsBody">Full News Story *</label>
+              <textarea id="newsBody" required
+                        placeholder="Write the full news article"></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="newsImage">Featured Picture (optional)</label>
+              <input id="newsImage" type="file"
+                     accept="image/*">
+              <span class="help">
+                Small pictures only in this local version. For reliable
+                online media storage, we will add cloud storage later.
+              </span>
+            </div>
+          </div>
+
+          <button class="btn" type="submit">Save News</button>
+          <button class="btn btn-secondary" type="button"
+                  onclick="resetNewsForm()">Clear Form</button>
+          <div class="status" id="newsStatus" role="status"></div>
+        </form>
+
+        <hr>
+
+        <div class="list">
+          <h3>Saved News</h3>
+          <div id="newsList"></div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="tab" id="tab-gallery">
+        <h2>Picture Gallery</h2>
+        <p class="panel-description">
+          Save pictures with captions and descriptions.
+        </p>
+
+        <form id="pictureForm">
+          <input type="hidden" id="pictureId">
+
+          <div class="field">
+            <label for="pictureTitle">Picture Caption *</label>
+            <input id="pictureTitle" maxlength="180" required
+                   placeholder="Enter picture caption">
+          </div>
+
+          <div class="field">
+            <label for="pictureCategory">Category</label>
+            <select id="pictureCategory">
+              <option>Campaign</option>
+              <option>Community Engagement</option>
+              <option>Events</option>
+              <option>Media</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="pictureFile">Choose Picture *</label>
+            <input id="pictureFile" type="file" accept="image/*">
+            <span class="help">
+              Browser storage is limited. Large files may fail to save.
+            </span>
+          </div>
+
+          <div class="field">
+            <label for="pictureUrl">Or Image URL</label>
+            <input id="pictureUrl" type="url"
+                   placeholder="https://example.com/image.jpg">
+            <span class="help">
+              Use a direct image URL if the picture is already hosted online.
+            </span>
+          </div>
+
+          <button class="btn" type="submit">Save Picture</button>
+          <button class="btn btn-secondary" type="button"
+                  onclick="resetPictureForm()">Clear Form</button>
+
+          <div class="status" id="pictureStatus" role="status"></div>
+        </form>
+
+        <hr>
+
+        <div class="list">
+          <h3>Saved Pictures</h3>
+          <div id="pictureList"></div>
+        </div>
+      </section>
+
+      <!-- VIDEOS -->
+      <section class="tab" id="tab-videos">
+        <h2>Video Management</h2>
+        <p class="panel-description">
+          Save campaign video links and descriptions.
+        </p>
+
+        <form id="videoForm">
+          <input type="hidden" id="videoId">
+
+          <div class="field">
+            <label for="videoTitle">Video Title *</label>
+            <input id="videoTitle" maxlength="180" required
+                   placeholder="Enter video title">
+          </div>
+
+          <div class="field">
+            <label for="videoUrl">YouTube or Video URL *</label>
+            <input id="videoUrl" type="url" required
+                   placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+
+          <div class="field">
+            <label for="videoDescription">Description</label>
+            <textarea id="videoDescription"
+                      placeholder="Describe the video"></textarea>
+          </div>
+
+          <button class="btn" type="submit">Save Video</button>
+          <button class="btn btn-secondary" type="button"
+                  onclick="resetVideoForm()">Clear Form</button>
+
+          <div class="status" id="videoStatus" role="status"></div>
+        </form>
+
+        <hr>
+
+        <div class="list">
+          <h3>Saved Videos</h3>
+          <div id="videoList"></div>
+        </div>
+      </section>
+
+      <!-- ANNOUNCEMENTS -->
+      <section class="tab" id="tab-announcements">
+        <h2>Campaign Announcements</h2>
+        <p class="panel-description">
+          Prepare announcements for future publication.
+        </p>
+
+        <form id="announcementForm">
+          <input type="hidden" id="announcementId">
+
+          <div class="field">
+            <label for="announcementTitle">Announcement Title *</label>
+            <input id="announcementTitle" maxlength="180" required>
+          </div>
+
+          <div class="field">
+            <label for="announcementBody">Announcement Details *</label>
+            <textarea id="announcementBody" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Save Announcement</button>
+          <button class="btn btn-secondary" type="button"
+                  onclick="resetAnnouncementForm()">Clear Form</button>
+
+          <div class="status" id="announcementStatus" role="status"></div>
+        </form>
+
+        <hr>
+
+        <div class="list">
+          <h3>Saved Announcements</h3>
+          <div id="announcementList"></div>
+        </div>
+      </section>
+
+      <!-- EVENTS -->
+      <section class="tab" id="tab-events">
+        <h2>Event Management</h2>
+        <p class="panel-description">
+          Record campaign event information.
+        </p>
+
+        <form id="eventForm">
+          <input type="hidden" id="eventId">
+
+          <div class="field">
+            <label for="eventTitle">Event Name *</label>
+            <input id="eventTitle" maxlength="180" required>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="eventDate">Event Date</label>
+              <input id="eventDate" type="date">
+            </div>
+
+            <div class="field">
+              <label for="eventVenue">Venue</label>
+              <input id="eventVenue" maxlength="180"
+                     placeholder="Enter confirmed venue">
+            </div>
+
+            <div class="field full">
+              <label for="eventDescription">Event Details</label>
+              <textarea id="eventDescription"></textarea>
+            </div>
+          </div>
+
+          <button class="btn" type="submit">Save Event</button>
+          <button class="btn btn-secondary" type="button"
+                  onclick="resetEventForm()">Clear Form</button>
+
+          <div class="status" id="eventStatus" role="status"></div>
+        </form>
+
+        <hr>
+
+        <div class="list">
+          <h3>Saved Events</h3>
+          <div id="eventList"></div>
+        </div>
+      </section>
+
+      <!-- WELCOME MESSAGE -->
+      <section class="tab" id="tab-welcome">
+        <h2>Homepage Welcome Message</h2>
+        <p class="panel-description">
+          Change the welcome text that will be used by the homepage after
+          we connect this dashboard to the website.
+        </p>
+
+        <form id="welcomeForm">
+          <div class="field">
+            <label for="welcomeText">Welcome Message *</label>
+            <textarea id="welcomeText" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Save Welcome Message</button>
+          <div class="status" id="welcomeStatus" role="status"></div>
+        </form>
+
+        <p class="help">
+          This saves the message in this browser only. It does not yet
+          change the live homepage automatically.
+        </p>
+      </section>
+
+      <!-- BACKUP -->
+      <section class="tab" id="tab-backup">
+        <h2>Backup and Restore</h2>
+        <p class="panel-description">
+          Export your locally saved dashboard content or restore a backup.
+        </p>
+
+        <button class="btn" id="exportButton" type="button">
+          Download Backup
+        </button>
+
+        <hr>
+
+        <div class="field">
+          <label for="backupFile">Choose Backup JSON File</label>
+          <input id="backupFile" type="file" accept=".json,application/json">
+        </div>
+
+        <label class="check-row">
+          <input type="checkbox" id="replaceBackup">
+          <span>
+            Replace my existing dashboard content with the backup.
+            Without selecting this, imported records will be added to
+            the current records.
+          </span>
+        </label>
+
+        <button class="btn" id="importButton" type="button">
+          Import Backup
+        </button>
+
+        <div class="status" id="backupStatus" role="status"></div>
+
+        <hr>
+
+        <h3>Clear Local Content</h3>
+        <p class="panel-description">
+          This removes the content saved by this dashboard in this browser.
+          Download a backup first if you need to keep it.
+        </p>
+
+        <button class="btn btn-danger" id="clearButton" type="button">
+          Delete All Dashboard Content
+        </button>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  CONSISTENCY 2027 · Local Dashboard Demonstration
+</footer>
+
+<script>
+"use strict";
+
+/*
+  LOCAL DASHBOARD ONLY.
+
+  This is not a secure login system and does not publish to GitHub Pages.
+  Data and media are saved in this browser's localStorage.
+*/
+
+const STORAGE_KEY = "consistency2027AdminData";
+const WELCOME_DEFAULT =
+  "Welcome to the CONSISTENCY 2027 Campaign Website! Together, let us work towards a better future for Mbaitoli/Ikeduru. Your voice matters. Get involved today!";
+
+let data = {
+  news: [],
+  pictures: [],
+  videos: [],
+  announcements: [],
+  events: [],
+  welcome: WELCOME_DEFAULT
+};
+
+function createId() {
+  return Date.now().toString(36) +
+    Math.random().toString(36).slice(2, 9);
+}
+
+function loadData() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (saved) {
+      const parsed = JSON.parse(saved);
+
+      data.news = Array.isArray(parsed.news) ? parsed.news : [];
+      data.pictures = Array.isArray(parsed.pictures) ? parsed.pictures : [];
+      data.videos = Array.isArray(parsed.videos) ? parsed.videos : [];
+      data.announcements = Array.isArray(parsed.announcements)
+        ? parsed.announcements : [];
+      data.events = Array.isArray(parsed.events) ? parsed.events : [];
+      data.welcome = typeof parsed.welcome === "string"
+        ? parsed.welcome : WELCOME_DEFAULT;
+    }
+  } catch (error) {
+    alert("Could not read saved data. Export or restore a valid backup if available.");
+  }
+}
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    renderAll();
+    return true;
+  } catch (error) {
+    alert(
+      "The browser could not save this content. The storage limit may " +
+      "have been reached, especially if pictures are large. Try a smaller " +
+      "image or remove large files."
+    );
+    return false;
+  }
+}
+
+function showStatus(id, message) {
+  const element = document.getElementById(id);
+  element.textContent = message;
+  element.classList.add("show");
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, function (character) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[character];
+  });
+}
+
+function safeLink(value) {
+  try {
+    const url = new URL(value);
+
+    if (url.protocol === "https:" || url.protocol === "http:") {
+      return url.href;
+    }
+  } catch (error) {}
+
+  return "";
+}
+
+function safeImageSource(value) {
+  if (typeof value !== "string") return "";
+
+  if (value.startsWith("data:image/")) {
+    return value;
+  }
+
+  return safeLink(value);
+}
+
+function showTab(name) {
+  document.querySelectorAll(".tab").forEach(function (section) {
+    section.classList.toggle("active", section.id === "tab-" + name);
+  });
+
+  document.querySelectorAll(".sidebar button").forEach(function (button) {
+    button.classList.toggle("active", button.dataset.tab === name);
+  });
+}
+
+document.querySelectorAll(".sidebar button").forEach(function (button) {
+  button.addEventListener("click", function () {
+    showTab(button.dataset.tab);
+  });
+});
+
+function updateCounts() {
+  document.getElementById("newsCount").textContent = data.news.length;
+  document.getElementById("pictureCount").textContent = data.pictures.length;
+  document.getElementById("videoCount").textContent = data.videos.length;
+  document.getElementById("announcementCount").textContent =
+    data.announcements.length;
+}
+
+function renderList(elementId, items, type, formatter) {
+  const element = document.getElementById(elementId);
+
+  if (!items.length) {
+    element.innerHTML = '<p class="empty">No items saved yet.</p>';
+    return;
+  }
+
+  element.innerHTML = items.map(function (item) {
+    return `
+      <article class="item">
+        ${formatter(item)}
+        <div class="item-actions">
+          <button class="btn btn-secondary"
+                  type="button"
+                  data-edit="${type}"
+                  data-id="${escapeHTML(item.id)}">Edit</button>
+
+          <button class="btn btn-danger"
+                  type="button"
+                  data-delete="${type}"
+                  data-id="${escapeHTML(item.id)}">Delete</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderAll() {
+  updateCounts();
+
+  renderList("newsList", data.news, "news", function (item) {
+    const image = safeImageSource(item.image);
+    return `
+      <h4>${escapeHTML(item.title)}</h4>
+      <p>${escapeHTML(item.category)} · ${escapeHTML(item.date)}</p>
+      ${image ? `<img src="${image}" alt="">` : ""}
+      <p>${escapeHTML(item.summary)}</p>
+      <p>${escapeHTML(item.body)}</p>
+    `;
+  });
+
+  renderList("pictureList", data.pictures, "picture", function (item) {
+    const image = safeImageSource(item.image);
+    return `
+      <h4>${escapeHTML(item.title)}</h4>
+      <p>${escapeHTML(item.category)}</p>
+      ${image ? `<img src="${image}" alt="${escapeHTML(item.title)}">` : ""}
+    `;
+  });
+
+  renderList("videoList", data.videos, "video", function (item) {
+    const link = safeLink(item.url);
+    return `
+      <h4>${escapeHTML(item.title)}</h4>
+      <p>${escapeHTML(item.description)}</p>
+      ${link ? `<p><a href="${escapeHTML(link)}" target="_blank" rel="noopener noreferrer">Open video</a></p>` : ""}
+    `;
+  });
+
+  renderList("announcementList", data.announcements, "announcement",
+    function (item) {
+      return `
+        <h4>${escapeHTML(item.title)}</h4>
+        <p>${escapeHTML(item.body)}</p>
+      `;
+    }
+  );
+
+  renderList("eventList", data.events, "event", function (item) {
+    return `
+      <h4>${escapeHTML(item.title)}</h4>
+      <p>Date: ${escapeHTML(item.date || "Not specified")}</p>
+      <p>Venue: ${escapeHTML(item.venue || "Not specified")}</p>
+      <p>${escapeHTML(item.description)}</p>
+    `;
+  });
+
+  document.getElementById("welcomeText").value = data.welcome;
+}
+
+function fileToDataURL(file) {
+  return new Promise(function (resolve, reject) {
+    if (!file) {
+      resolve("");
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      reject(new Error("Please select an image file."));
+      return;
+    }
+
+    // Limit each local image to approximately 1 MB.
+    if (file.size > 1024 * 1024) {
+      reject(new Error(
+        "This local demo accepts images up to 1 MB. Choose a smaller image."
+      ));
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+      resolve(String(reader.result));
+    };
+
+    reader.onerror = function () {
+      reject(new Error("Could not read the selected image."));
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
+function resetNewsForm() {
+  document.getElementById("newsForm").reset();
+  document.getElementById("newsId").value = "";
+}
+
+function resetPictureForm() {
+  document.getElementById("pictureForm").reset();
+  document.getElementById("pictureId").value = "";
+}
+
+function resetVideoForm() {
+  document.getElementById("videoForm").reset();
+  document.getElementById("videoId").value = "";
+}
+
+function resetAnnouncementForm() {
+  document.getElementById("announcementForm").reset();
+  document.getElementById("announcementId").value = "";
+}
+
+function resetEventForm() {
+  document.getElementById("eventForm").reset();
+  document.getElementById("eventId").value = "";
+}
+
+document.getElementById("newsForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const id = document.getElementById("newsId").value;
+  const old = data.news.find(function (item) {
+    return item.id === id;
+  });
+
+  let image = old ? old.image || "" : "";
+
+  try {
+    const file = document.getElementById("newsImage").files[0];
+    if (file) image = await fileToDataURL(file);
+  } catch (error) {
+    showStatus("newsStatus", error.message);
+    return;
+  }
+
+  const item = {
+    id: id || createId(),
+    title: document.getElementById("newsTitle").value.trim(),
+    category: document.getElementById("newsCategory").value,
+    date: document.getElementById("newsDate").value,
+    summary: document.getElementById("newsSummary").value.trim(),
+    body: document.getElementById("newsBody").value.trim(),
+    image: image
+  };
+
+  if (!item.title || !item.body) return;
+
+  if (id) {
+    data.news = data.news.map(function (entry) {
+      return entry.id === id ? item : entry;
+    });
+  } else {
+    data.news.unshift(item);
+  }
+
+  if (saveData()) {
+    resetNewsForm();
+    showStatus("newsStatus", "News saved in this browser.");
+  }
+});
+
+document.getElementById("pictureForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const id = document.getElementById("pictureId").value;
+  const old = data.pictures.find(function (item) {
+    return item.id === id;
+  });
+
+  let image = old ? old.image || "" : "";
+
+  try {
+    const file = document.getElementById("pictureFile").files[0];
+    const url = document.getElementById("pictureUrl").value.trim();
+
+    if (file) {
+      image = await fileToDataURL(file);
+    } else if (url) {
+      image = safeLink(url);
+
+      if (!image) {
+        throw new Error("Enter a valid HTTP or HTTPS image URL.");
+      }
+    } else if (!old) {
+      throw new Error("Choose a picture or enter an image URL.");
+    }
+  } catch (error) {
+    showStatus("pictureStatus", error.message);
+    return;
+  }
+
+  const item = {
+    id: id || createId(),
+    title: document.getElementById("pictureTitle").value.trim(),
+    category: document.getElementById("pictureCategory").value,
+    image: image
+  };
+
+  if (!item.title || !item.image) return;
+
+  if (id) {
+    data.pictures = data.pictures.map(function (entry) {
+      return entry.id === id ? item : entry;
+    });
+  } else {
+    data.pictures.unshift(item);
+  }
+
+  if (saveData()) {
+    resetPictureForm();
+    showStatus("pictureStatus", "Picture saved in this browser.");
+  }
+});
+
+document.getElementById("videoForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const id = document.getElementById("videoId").value;
+  const url = safeLink(document.getElementById("videoUrl").value.trim());
+
+  if (!url) {
+    showStatus("videoStatus", "Enter a valid HTTP or HTTPS video URL.");
+    return;
+  }
+
+  const item = {
+    id: id || createId(),
+    title: document.getElementById("videoTitle").value.trim(),
+    url: url,
+    description: document.getElementById("videoDescription").value.trim()
+  };
+
+  if (!item.title) return;
+
+  if (id) {
+    data.videos = data.videos.map(function (entry) {
+      return entry.id === id ? item : entry;
+    });
+  } else {
+    data.videos.unshift(item);
+  }
+
+  if (saveData()) {
+    resetVideoForm();
+    showStatus("videoStatus", "Video link saved in this browser.");
+  }
+});
+
+document.getElementById("announcementForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const id = document.getElementById("announcementId").value;
+
+  const item = {
+    id: id || createId(),
+    title: document.getElementById("announcementTitle").value.trim(),
+    body: document.getElementById("announcementBody").value.trim()
+  };
+
+  if (!item.title || !item.body) return;
+
+  if (id) {
+    data.announcements = data.announcements.map(function (entry) {
+      return entry.id === id ? item : entry;
+    });
+  } else {
+    data.announcements.unshift(item);
+  }
+
+  if (saveData()) {
+    resetAnnouncementForm();
+    showStatus("announcementStatus", "Announcement saved locally.");
+  }
+});
+
+document.getElementById("eventForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const id = document.getElementById("eventId").value;
+
+  const item = {
+    id: id || createId(),
+    title: document.getElementById("eventTitle").value.trim(),
+    date: document.getElementById("eventDate").value,
+    venue: document.getElementById("eventVenue").value.trim(),
+    description: document.getElementById("eventDescription").value.trim()
+  };
+
+  if (!item.title) return;
+
+  if (id) {
+    data.events = data.events.map(function (entry) {
+      return entry.id === id ? item : entry;
+    });
+  } else {
+    data.events.unshift(item);
+  }
+
+  if (saveData()) {
+    resetEventForm();
+    showStatus("eventStatus", "Event saved locally.");
+  }
+});
+
+document.getElementById("welcomeForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const message = document.getElementById("welcomeText").value.trim();
+
+  if (!message) {
+    showStatus("welcomeStatus", "Please enter a welcome message.");
+    return;
+  }
+
+  data.welcome = message;
+
+  if (saveData()) {
+    showStatus(
+      "welcomeStatus",
+      "Welcome message saved locally. The live homepage is not updated yet."
+    );
+  }
+});
+
+// Edit and delete controls for every content list.
+document.addEventListener("click", function (event) {
+  const editButton = event.target.closest("[data-edit]");
+  const deleteButton = event.target.closest("[data-delete]");
+
+  if (editButton) {
+    editItem(editButton.dataset.edit, editButton.dataset.id);
+  }
+
+  if (deleteButton) {
+    deleteItem(deleteButton.dataset.delete, deleteButton.dataset.id);
+  }
+});
+
+function editItem(type, id) {
+  const collectionName = type === "picture" ? "pictures" :
+    type === "video" ? "videos" :
+    type === "announcement" ? "announcements" :
+    type === "event" ? "events" : "news";
+
+  const item = data[collectionName].find(function (entry) {
+    return entry.id === id;
+  });
+
+  if (!item) return;
+
+  showTab(type === "picture" ? "gallery" :
+    type === "video" ? "videos" :
+    type === "announcement" ? "announcements" :
+    type === "event" ? "events" : "news");
+
+  if (type === "news") {
+    document.getElementById("newsId").value = item.id;
+    document.getElementById("newsTitle").value = item.title || "";
+    document.getElementById("newsCategory").value = item.category || "Campaign News";
+    document.getElementById("newsDate").value = item.date || "";
+    document.getElementById("newsSummary").value = item.summary || "";
+    document.getElementById("newsBody").value = item.body || "";
+  }
+
+  if (type === "picture") {
+    document.getElementById("pictureId").value = item.id;
+    document.getElementById("pictureTitle").value = item.title || "";
+    document.getElementById("pictureCategory").value = item.category || "Campaign";
+    document.getElementById("pictureUrl").value =
+      item.image && !item.image.startsWith("data:image/")
+        ? item.image : "";
+  }
+
+  if (type === "video") {
+    document.getElementById("videoId").value = item.id;
+    document.getElementById("videoTitle").value = item.title || "";
+    document.getElementById("videoUrl").value = item.url || "";
+    document.getElementById("videoDescription").value = item.description || "";
+  }
+
+  if (type === "announcement") {
+    document.getElementById("announcementId").value = item.id;
+    document.getElementById("announcementTitle").value = item.title || "";
+    document.getElementById("announcementBody").value = item.body || "";
+  }
+
+  if (type === "event") {
+    document.getElementById("eventId").value = item.id;
+    document.getElementById("eventTitle").value = item.title || "";
+    document.getElementById("eventDate").value = item.date || "";
+    document.getElementById("eventVenue").value = item.venue || "";
+    document.getElementById("eventDescription").value = item.description || "";
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function deleteItem(type, id) {
+  if (!confirm("Delete this item from this browser?")) return;
+
+  const collectionName = type === "picture" ? "pictures" :
+    type === "video" ? "videos" :
+    type === "announcement" ? "announcements" :
+    type === "event" ? "events" : "news";
+
+  data[collectionName] = data[collectionName].filter(function (item) {
+    return item.id !== id;
+  });
+
+  saveData();
+}
+
+document.getElementById("exportButton").addEventListener("click", function () {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: "application/json"
+  });
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "consistency-2027-backup.json";
+  link.click();
+
+  setTimeout(function () {
+    URL.revokeObjectURL(url);
+  }, 1000);
+
+  showStatus("backupStatus", "Backup download requested.");
+});
+
+document.getElementById("importButton").addEventListener("click", async function () {
+  const file = document.getElementById("backupFile").files[0];
+
+  if (!file) {
+    showStatus("backupStatus", "Choose a JSON backup file first.");
+    return;
+  }
+
+  try {
+    const text = await file.text();
+    const imported = JSON.parse(text);
+
+    const validKeys = ["news", "pictures", "videos", "announcements", "events"];
+
+    for (const key of validKeys) {
+      if (imported[key] !== undefined && !Array.isArray(imported[key])) {
+        throw new Error("Invalid backup structure.");
+      }
+    }
+
+    const replace = document.getElementById("replaceBackup").checked;
+
+    if (replace && !confirm("Replace all existing local content with this backup?")) {
+      return;
+    }
+
+    if (replace) {
+      data.news = imported.news || [];
+      data.pictures = imported.pictures || [];
+      data.videos = imported.videos || [];
+      data.announcements = imported.announcements || [];
+      data.events = imported.events || [];
+      data.welcome = typeof imported.welcome === "string"
+        ? imported.welcome : WELCOME_DEFAULT;
+    } else {
+      for (const key of validKeys) {
+        if (Array.isArray(imported[key])) {
+          data[key] = data[key].concat(imported[key]);
+        }
+      }
+
+      if (typeof imported.welcome === "string") {
+        data.welcome = imported.welcome;
+      }
+    }
+
+    if (saveData()) {
+      showStatus("backupStatus", "Backup imported successfully.");
+    }
+  } catch (error) {
+    showStatus("backupStatus", "Import failed: " + error.message);
+  }
+});
+
+document.getElementById("clearButton").addEventListener("click", function () {
+  const confirmed = confirm(
+    "This permanently removes this dashboard's locally saved content. " +
+    "Download a backup first. Continue?"
+  );
+
+  if (!confirmed) return;
+
+  data = {
+    news: [],
+    pictures: [],
+    videos: [],
+    announcements: [],
+    events: [],
+    welcome: WELCOME_DEFAULT
+  };
+
+  if (saveData()) {
+    resetNewsForm();
+    resetPictureForm();
+    resetVideoForm();
+    resetAnnouncementForm();
+    resetEventForm();
+    showStatus("backupStatus", "Local dashboard content cleared.");
+  }
+});
+
+loadData();
+renderAll();
+</script>
+
+</body>
+</html>
