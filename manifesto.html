@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#075b2a">
+
+<title>Campaign Manifesto | Sunny John Unachukwu 2027</title>
+
+<meta name="description" content="Explore the campaign priorities and vision of Sunny John Unachukwu for Mbaitoli/Ikeduru Federal Constituency. Consistency Today, Better Tomorrow.">
+
+<style>
+:root {
+  --green: #075b2a;
+  --darkgreen: #03391b;
+  --red: #d71920;
+  --gold: #f4d21f;
+  --light: #f4f8f5;
+  --text: #26352b;
+  --muted: #66736a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.container {
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* TOP BAR */
+
+.topbar {
+  background: var(--darkgreen);
+  color: white;
+  text-align: center;
+  padding: 9px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* HEADER */
+
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 15px #00000012;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 75px;
+  gap: 15px;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--green);
+}
+
+.brand small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+.menu-button {
+  display: none;
+  border: none;
+  background: var(--green);
+  color: white;
+  padding: 9px 13px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--red);
+}
+
+.nav-contact {
+  background: var(--red);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(135deg, #eaf5ed, #ffffff);
+  padding: 85px 0;
+  text-align: center;
+  border-bottom: 5px solid var(--gold);
+}
+
+.badge {
+  display: inline-block;
+  padding: 7px 17px;
+  background: var(--green);
+  color: white;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  color: var(--darkgreen);
+  font-size: clamp(34px, 6vw, 62px);
+  line-height: 1.15;
+  margin: 22px 0;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p {
+  max-width: 760px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.hero-buttons {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 5px;
+  font-weight: bold;
+  background: var(--green);
+  color: white;
+}
+
+.button-red {
+  background: var(--red);
+}
+
+/* INTRODUCTION */
+
+section {
+  padding: 70px 0;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 40px;
+}
+
+.section-title .label {
+  color: var(--red);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.section-title h2 {
+  color: var(--darkgreen);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  margin: 12px 0;
+}
+
+.section-title p {
+  color: var(--muted);
+}
+
+.introduction {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  font-size: 17px;
+}
+
+/* MANIFESTO CARDS */
+
+.manifesto-section {
+  background: var(--light);
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.manifesto-card {
+  background: white;
+  padding: 28px;
+  border-radius: 10px;
+  border: 1px solid #e1eae3;
+  border-top: 5px solid var(--green);
+  box-shadow: 0 7px 20px #00000005;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.manifesto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px #0000000c;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: #e7f4ea;
+  color: var(--green);
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.manifesto-card h3 {
+  color: var(--green);
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.manifesto-card p {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.manifesto-card ul {
+  padding-left: 20px;
+  color: var(--text);
+}
+
+.manifesto-card li {
+  margin: 7px 0;
+}
+
+/* VALUES */
+
+.values {
+  background: var(--green);
+  color: white;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.value-item {
+  padding: 15px;
+}
+
+.value-item strong {
+  color: var(--gold);
+  display: block;
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.value-item p {
+  font-size: 14px;
+  color: #e1eee5;
+}
+
+/* CLOSING MESSAGE */
+
+.closing {
+  text-align: center;
+  background: #fff;
+}
+
+.closing h2 {
+  color: var(--darkgreen);
+  font-size: clamp(28px, 5vw, 45px);
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.closing h2 span {
+  color: var(--red);
+}
+
+.closing p {
+  max-width: 750px;
+  margin: 0 auto 25px;
+  color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+  background: #062d17;
+  color: white;
+  padding: 35px 0;
+  text-align: center;
+}
+
+footer h3 {
+  margin-bottom: 8px;
+}
+
+footer p {
+  color: #c9d9ce;
+  font-size: 13px;
+  margin: 6px 0;
+}
+
+.footer-links {
+  margin: 18px 0;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.copyright {
+  border-top: 1px solid #ffffff25;
+  padding-top: 17px;
+  margin-top: 20px !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 75px;
+    background: white;
+    padding: 20px 5%;
+    box-shadow: 0 10px 20px #00000015;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    padding: 8px 0;
+  }
+
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .brand {
+    font-size: 13px;
+  }
+
+  .brand small {
+    font-size: 8px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  CONSISTENCY 2027 | SERVICE TO THE PEOPLE
+</div>
+
+<header>
+  <div class="container navbar">
+
+    <a href="index.html" class="brand">
+      SUNNY JOHN UNACHUKWU
+      <small>CONSISTENCY • SERVICE • DEVELOPMENT</small>
+    </a>
+
+    <button
+      class="menu-button"
+      onclick="toggleMenu()"
+      aria-label="Toggle navigation"
+      aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="navigation">
+      <a href="index.html">Home</a>
+      <a href="#introduction">Introduction</a>
+      <a href="#priorities">Priorities</a>
+      <a href="#values">Our Values</a>
+      <a href="#contact" class="nav-contact">Connect</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="container">
+
+    <span class="badge">CONSISTENCY 2027</span>
+
+    <h1>
+      A Vision for a<br>
+      <span>Better Tomorrow</span>
+    </h1>
+
+    <p>
+      Exploring the campaign priorities of Barr. Sunny John
+      Unachukwu for the Federal House of Representatives,
+      Mbaitoli/Ikeduru Federal Constituency.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#priorities" class="button">Explore Priorities</a>
+      <a href="index.html" class="button button-red">Back to Homepage</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- INTRODUCTION -->
+
+<section id="introduction">
+  <div class="container">
+
+    <div class="section-title">
+      <span class="label">The Campaign Vision</span>
+      <h2>Service to the People</h2>
+      <p>Consistency Today, Better Tomorrow!</p>
+    </div>
+
+    <div class="introduction">
+      <p>
+        This page outlines the broad themes associated with the
+        Consistency 2027 campaign: people-first service,
+        accountability, youth empowerment, infrastructure,
+        unity and sustainable development.
+      </p>
+
+      <br>
+
+      <p>
+        Effective representation begins with listening to the
+        people, understanding local needs and working with
+        communities to advance practical priorities. The campaign
+        invites constituents to participate in constructive
+        conversations about the future of Mbaitoli/Ikeduru.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MANIFESTO PRIORITIES -->
+
+<section class="manifesto-section" id="priorities">
+  <div class="container">
+
+    <div class="section-title">
+      <span class="label">Our Priorities</span>
+      <h2>Building a Better Tomorrow</h2>
+      <p>
+        Four broad areas for public discussion and community engagement.
+      </p>
+    </div>
+
+    <div class="manifesto-grid">
+
+      <article class="manifesto-card">
+        <div class="card-icon">♧</div>
+
+        <h3>1. People-Centred Representation</h3>
+
+        <p>
+          Representation should listen to constituents and
+          take community concerns seriously.
+        </p>
+
+        <ul>
+          <li>Encourage regular community engagement.</li>
+          <li>Promote accountability and openness.</li>
+          <li>Support inclusive participation in public discussions.</li>
+          <li>Communicate constituency concerns responsibly.</li>
+        </ul>
+      </article>
+
+      <article class="manifesto-card">
+        <div class="card-icon">↗</div>
+
+        <h3>2. Youth Empowerment</h3>
+
+        <p>
+          Young people need opportunities to learn, contribute
+          and participate in community development.
+        </p>
+
+        <ul>
+          <li>Encourage vocational and digital skills initiatives.</li>
+          <li>Promote entrepreneurship and innovation.</li>
+          <li>Support access to information about opportunities.</li>
+          <li>Encourage youth participation in community affairs.</li>
+        </ul>
+      </article>
+
+      <article class="manifesto-card">
+        <div class="card-icon">⌂</div>
+
+        <h3>3. Infrastructure and Development</h3>
+
+        <p>
+          Sustainable development requires attention to essential
+          infrastructure and local priorities.
+        </p>
+
+        <ul>
+          <li>Listen to communities about infrastructure needs.</li>
+          <li>Advocate for appropriate development priorities.</li>
+          <li>Encourage transparent use of public resources.</li>
+          <li>Support cooperation with relevant authorities.</li>
+        </ul>
+      </article>
+
+      <article class="manifesto-card">
+        <div class="card-icon">🤝</div>
+
+        <h3>4. Unity, Peace and Inclusion</h3>
+
+        <p>
+          Lasting progress is stronger when communities work
+          together with mutual respect.
+        </p>
+
+        <ul>
+          <li>Promote peaceful and respectful dialogue.</li>
+          <li>Encourage cooperation across communities.</li>
+          <li>Respect diverse perspectives and experiences.</li>
+          <li>Support inclusive community participation.</li>
+        </ul>
+      </article>
+
+      <article class="manifesto-card">
+        <div class="card-icon">◎</div>
+
+        <h3>5. Community Development</h3>
+
+        <p>
+          Local needs should be understood through meaningful
+          engagement and responsible planning.
+        </p>
+
+        <ul>
+          <li>Encourage community feedback and consultation.</li>
+          <li>Promote practical, needs-based discussions.</li>
+          <li>Support partnerships that benefit communities.</li>
+          <li>Track public priorities and communicate progress.</li>
+        </ul>
+      </article>
+
+      <article class="manifesto-card">
+        <div class="card-icon">✓</div>
+
+        <h3>6. Accountability and Service</h3>
+
+        <p>
+          Public service should be guided by responsibility,
+          integrity and clear communication.
+        </p>
+
+        <ul>
+          <li>Encourage transparent communication.</li>
+          <li>Promote responsible public representation.</li>
+          <li>Listen to concerns and feedback.</li>
+          <li>Keep public priorities at the centre of engagement.</li>
+        </ul>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- VALUES -->
+
+<section id="values" class="values">
+  <div class="container">
+
+    <div class="section-title">
+      <span class="label" style="color:#f4d21f">Our Values</span>
+      <h2 style="color:white">The Foundation of Our Vision</h2>
+      <p style="color:#e1eee5">
+        The principles behind the message of Consistency 2027.
+      </p>
+    </div>
+
+    <div class="values-grid">
+
+      <div class="value-item">
+        <strong>Consistency</strong>
+        <p>Maintaining focus on service and responsible engagement.</p>
+      </div>
+
+      <div class="value-item">
+        <strong>Integrity</strong>
+        <p>Encouraging honesty, openness and accountability.</p>
+      </div>
+
+      <div class="value-item">
+        <strong>Unity</strong>
+        <p>Building understanding and cooperation across communities.</p>
+      </div>
+
+      <div class="value-item">
+        <strong>Progress</strong>
+        <p>Supporting constructive ideas for a better tomorrow.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CLOSING MESSAGE -->
+
+<section class="closing" id="contact">
+  <div class="container">
+
+    <h2>
+      Consistency Today,<br>
+      <span>Better Tomorrow!</span>
+    </h2>
+
+    <p>
+      Follow the campaign for verified announcements and further
+      information about Sunny John Unachukwu and the campaign's
+      priorities for Mbaitoli/Ikeduru Federal Constituency.
+    </p>
+
+    <a href="index.html" class="button">Return to Homepage</a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+
+    <h3>SUNNY JOHN UNACHUKWU</h3>
+
+    <p>CONSISTENCY 2027</p>
+
+    <p>Federal House of Representatives</p>
+
+    <p>Mbaitoli/Ikeduru Federal Constituency</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="#introduction">Introduction</a>
+      <a href="#priorities">Priorities</a>
+      <a href="#values">Our Values</a>
+    </div>
+
+    <p>
+      Consistency Today, Better Tomorrow!
+    </p>
+
+    <p class="copyright">
+      &copy; <span id="year"></span>
+      Sunny John Unachukwu Campaign Website.
+      All rights reserved.
+    </p>
+
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navigation = document.getElementById("navigation");
+  const button = document.querySelector(".menu-button");
+
+  navigation.classList.toggle("show");
+
+  button.setAttribute(
+    "aria-expanded",
+    navigation.classList.contains("show") ? "true" : "false"
+  );
+}
+
+document.querySelectorAll("#navigation a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    document.getElementById("navigation").classList.remove("show");
+
+    document.querySelector(".menu-button")
+      .setAttribute("aria-expanded", "false");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
