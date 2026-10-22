@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Website Directory | CONSISTENCY 2027</title>
+
+  <meta name="description" content="Find all pages and resources on the official CONSISTENCY 2027 campaign website for Barr. Sunny John Unachukwu, Esq., Mbaitoli/Ikeduru Federal Constituency, Imo State.">
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    :root {
+      --green: #087f23;
+      --dark-green: #075d1b;
+      --light-green: #eef8ee;
+      --gold: #ffd700;
+      --red: #c62828;
+      --white: #ffffff;
+      --text: #263238;
+      --muted: #64748b;
+      --border: #dce8dc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6faf6;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--green);
+      color: var(--white);
+      border-bottom: 5px solid var(--gold);
+    }
+
+    .top-line {
+      height: 5px;
+      background: linear-gradient(
+        to right,
+        var(--green) 33%,
+        var(--white) 33%,
+        var(--white) 66%,
+        var(--red) 66%
+      );
+    }
+
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 24px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand h1 {
+      font-size: 25px;
+      line-height: 1.3;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .brand h1 span {
+      color: var(--gold);
+    }
+
+    .brand p {
+      font-size: 13px;
+      margin-top: 5px;
+      color: #e8f5e9;
+    }
+
+    .header-button {
+      display: inline-block;
+      background: var(--gold);
+      color: #172017;
+      padding: 11px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .header-button:hover {
+      background: var(--white);
+    }
+
+    nav {
+      background: var(--dark-green);
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--white);
+      display: inline-block;
+      margin: 5px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #e9f8e9, #ffffff);
+      text-align: center;
+      padding: 55px 20px 45px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--gold);
+      color: #253019;
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-size: clamp(29px, 5vw, 45px);
+      color: var(--dark-green);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #4b5b4d;
+      font-size: 16px;
+    }
+
+    .hero strong {
+      color: var(--green);
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1150px;
+      margin: 40px auto;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h3 {
+      font-size: 27px;
+      color: var(--dark-green);
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+    }
+
+    .search-box {
+      max-width: 600px;
+      margin: 25px auto 35px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid #b9d2bb;
+      border-radius: 7px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px #087f2318;
+    }
+
+    .search-box button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 7px;
+      background: var(--green);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background: var(--dark-green);
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .directory-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--green);
+      border-radius: 10px;
+      padding: 23px;
+      box-shadow: 0 5px 18px #12341208;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .directory-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 25px #12341212;
+    }
+
+    .card-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .directory-card h3 {
+      color: var(--dark-green);
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .directory-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .page-links {
+      list-style: none;
+    }
+
+    .page-links li {
+      border-top: 1px solid #edf2ed;
+    }
+
+    .page-links a {
+      display: block;
+      padding: 9px 0;
+      color: #176b2a;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .page-links a:hover {
+      color: var(--red);
+      padding-left: 5px;
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 25px;
+      background: #fff4f4;
+      border: 1px solid #f2caca;
+      border-radius: 8px;
+      color: #9b1c1c;
+      margin-top: 20px;
+    }
+
+    .notice {
+      margin-top: 40px;
+      padding: 22px;
+      background: #fffbe6;
+      border-left: 5px solid var(--gold);
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .notice strong {
+      color: var(--dark-green);
+    }
+
+    .bottom-cta {
+      text-align: center;
+      background: var(--green);
+      color: white;
+      padding: 38px 20px;
+      border-top: 5px solid var(--gold);
+      border-bottom: 5px solid var(--red);
+    }
+
+    .bottom-cta h2 {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .bottom-cta p {
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 22px;
+      background: var(--gold);
+      color: #172017;
+      border-radius: 6px;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .cta-button:hover {
+      background: white;
+    }
+
+    footer {
+      background: #102b17;
+      color: #e3eee4;
+      padding: 30px 18px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    .footer-links {
+      margin: 15px 0;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      margin: 5px 9px;
+      color: var(--gold);
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden-card {
+      display: none !important;
+    }
+
+    @media (max-width: 850px) {
+      .directory-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header-inner {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .brand h1 {
+        font-size: 22px;
+      }
+
+      .directory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 40px 16px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box button {
+        width: 100%;
+      }
+
+      nav a {
+        margin: 5px 7px;
+      }
+
+      .container {
+        margin: 28px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-line"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <h1>CONSISTENCY <span>2027</span></h1>
+        <p>Barr. Sunny John Unachukwu, Esq.</p>
+        <p>Mbaitoli/Ikeduru Federal Constituency, Imo State</p>
+      </div>
+
+      <a class="header-button" href="index.html">
+        Visit Homepage →
+      </a>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="manifesto.html">Manifesto</a>
+    <a href="projects.html">Priorities</a>
+    <a href="news.html">News</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-label">CONSISTENCY 2027</span>
+
+    <h2>Website Directory</h2>
+
+    <p>
+      Find the information you need about
+      <strong>Barr. Sunny John Unachukwu, Esq.</strong>,
+      the campaign, proposed priorities, activities, news,
+      events and ways to participate in the movement for
+      Mbaitoli/Ikeduru Federal Constituency.
+    </p>
+  </section>
+
+  <main class="container">
+
+    <div class="intro">
+      <h3>Explore Our Website</h3>
+      <p>Choose a section below or search for a page by name.</p>
+    </div>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="pageSearch"
+        placeholder="Search pages, e.g. manifesto, volunteer..."
+        aria-label="Search website directory"
+      >
+
+      <button type="button" onclick="searchPages()">
+        Search Pages
+      </button>
+    </div>
+
+    <div class="directory-grid" id="directoryGrid">
+
+      <!-- CAMPAIGN INFORMATION -->
+      <section class="directory-card">
+        <div class="card-icon">🏛️</div>
+        <h3>Campaign Information</h3>
+        <p>Learn about the candidate, the campaign and its guiding principles.</p>
+
+        <ul class="page-links">
+          <li><a href="index.html">Home — Campaign Homepage</a></li>
+          <li><a href="about.html">About the Candidate</a></li>
+          <li><a href="manifesto.html">Campaign Manifesto</a></li>
+          <li><a href="projects.html">Proposed Development Priorities</a></li>
+          <li><a href="team.html">Campaign Team</a></li>
+        </ul>
+      </section>
+
+      <!-- NEWS AND MEDIA -->
+      <section class="directory-card">
+        <div class="card-icon">📰</div>
+        <h3>News and Media</h3>
+        <p>Explore campaign updates, photographs, videos and announcements.</p>
+
+        <ul class="page-links">
+          <li><a href="news.html">Latest News</a></li>
+          <li><a href="announcements.html">Campaign Announcements</a></li>
+          <li><a href="gallery.html">Photo Gallery</a></li>
+          <li><a href="videos.html">Campaign Videos</a></li>
+          <li><a href="search.html">Search Website Content</a></li>
+        </ul>
+      </section>
+
+      <!-- EVENTS -->
+      <section class="directory-card">
+        <div class="card-icon">📅</div>
+        <h3>Events and Activities</h3>
+        <p>Check campaign events, scheduled activities and calendar information.</p>
+
+        <ul class="page-links">
+          <li><a href="events.html">Campaign Events</a></li>
+          <li><a href="calendar.html">Campaign Calendar</a></li>
+        </ul>
+      </section>
+
+      <!-- PARTICIPATION -->
+      <section class="directory-card">
+        <div class="card-icon">🤝</div>
+        <h3>Get Involved</h3>
+        <p>Discover ways to participate, share feedback and support campaign activities.</p>
+
+        <ul class="page-links">
+          <li><a href="volunteer.html">Become a Volunteer</a></li>
+          <li><a href="feedback.html">Community Feedback</a></li>
+          <li><a href="contact.html">Contact the Campaign</a></li>
+          <li><a href="donate.html">Campaign Support Information</a></li>
+        </ul>
+      </section>
+
+      <!-- HELP -->
+      <section class="directory-card">
+        <div class="card-icon">❓</div>
+        <h3>Help and Information</h3>
+        <p>Find answers to common questions and learn how the website operates.</p>
+
+        <ul class="page-links">
+          <li><a href="faq.html">Frequently Asked Questions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </section>
+
+      <!-- WEBSITE MANAGEMENT -->
+      <section class="directory-card">
+        <div class="card-icon">⚙️</div>
+        <h3>Website Management</h3>
+        <p>Tools intended for the person managing campaign website content.</p>
+
+        <ul class="page-links">
+          <li><a href="admin.html">Admin Dashboard</a></li>
+        </ul>
+
+        <p style="margin-top:12px; font-size:12px;">
+          Note: The current dashboard is a local demonstration.
+          It does not securely authenticate administrators or publish
+          content to every visitor's device.
+        </p>
+      </section>
+
+    </div>
+
+    <div class="no-results" id="noResults">
+      No matching pages found. Try another search word.
+    </div>
+
+    <div class="notice">
+      <strong>Important website information:</strong>
+      Some pages may depend on content added through the campaign
+      dashboard. If a page has no published information yet, its
+      content may be empty. Event dates, venues, contact information
+      and campaign support arrangements should be confirmed by the
+      campaign team before being published as official information.
+    </div>
+
+  </main>
+
+  <section class="bottom-cta">
+    <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
+
+    <p>
+      THE CHOICE IS NOW. THE CHOICE IS CLEAR.
+    </p>
+
+    <a class="cta-button" href="index.html">
+      Return to Homepage
+    </a>
+
+    <a class="cta-button" href="volunteer.html">
+      Get Involved
+    </a>
+  </section>
+
+  <footer>
+    <p><strong>CONSISTENCY 2027</strong></p>
+
+    <p>
+      Barr. Sunny John Unachukwu, Esq.
+    </p>
+
+    <p>
+      Campaign for Federal House of Representatives,
+      Mbaitoli/Ikeduru Federal Constituency, Imo State.
+    </p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="site-map.html">Website Directory</a>
+    </div>
+
+    <p>
+      &copy; <span id="currentYear"></span>
+      CONSISTENCY 2027. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    function searchPages() {
+      const input = document
+        .getElementById("pageSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+      const cards = document.querySelectorAll(".directory-card");
+      let visibleCards = 0;
+
+      cards.forEach(function(card) {
+        const matches = card.textContent.toLowerCase().includes(input);
+
+        if (matches) {
+          card.classList.remove("hidden-card");
+          visibleCards++;
+        } else {
+          card.classList.add("hidden-card");
+        }
+      });
+
+      document.getElementById("noResults").style.display =
+        visibleCards === 0 ? "block" : "none";
+    }
+
+    document
+      .getElementById("pageSearch")
+      .addEventListener("input", searchPages);
+
+    document
+      .getElementById("pageSearch")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          searchPages();
+        }
+      });
+  </script>
+
+</body>
+</html>
