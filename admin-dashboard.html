@@ -2,170 +2,122 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087f23">
 <title>Admin Dashboard | CONSISTENCY 2027</title>
-
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f1f7f1;
-  color:#222;
-}
-header{
-  background:#087f23;
-  color:white;
-  padding:25px 15px;
-  text-align:center;
-}
-header h1{margin:0 0 8px;font-size:26px}
-header p{margin:0}
-.container{
-  max-width:1100px;
-  margin:25px auto;
-  padding:15px;
-}
-.notice{
-  background:#fff3cd;
-  border-left:5px solid #e0a800;
-  padding:14px;
-  border-radius:6px;
-  line-height:1.6;
-  margin-bottom:22px;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f7f1;color:#222}
+header{background:#087f23;color:white;text-align:center;padding:25px 15px}
+header h1{margin:0 0 8px}
+.container{max-width:1100px;margin:25px auto;padding:15px}
+.notice{background:#fff3cd;border-left:5px solid #e0a800;padding:14px;border-radius:6px;line-height:1.6;margin-bottom:22px}
 h2{color:#087f23}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-}
-.card{
-  background:white;
-  border-radius:10px;
-  padding:20px;
-  box-shadow:0 3px 10px #00000012;
-  border-top:4px solid #087f23;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:white;border-radius:10px;padding:20px;box-shadow:0 3px 10px #00000012;border-top:4px solid #087f23}
 .card h3{margin:0 0 10px;color:#087f23}
 .card p{font-size:14px;line-height:1.5;min-height:42px}
-.btn{
-  display:block;
-  text-align:center;
-  text-decoration:none;
-  background:#087f23;
-  color:white;
-  padding:12px;
-  border-radius:6px;
-  font-weight:bold;
-  margin-top:12px;
-}
+.btn{display:block;text-align:center;text-decoration:none;background:#087f23;color:white;padding:12px;border-radius:6px;font-weight:bold;margin-top:12px}
 .btn:hover{background:#055d19}
 .media{border-top-color:#b91c1c}
 .media h3{color:#b91c1c}
 .media .btn{background:#b91c1c}
-footer{
-  text-align:center;
-  padding:25px 12px;
-  color:#555;
-  font-size:13px;
-}
+footer{text-align:center;padding:25px 12px;color:#555;font-size:13px}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>CONSISTENCY 2027</h1>
-  <p>Campaign Administration Dashboard</p>
-  <p>Service to the People • Consistency Today, Better Tomorrow!</p>
+<h1>CONSISTENCY 2027</h1>
+<p>Campaign Administration Dashboard</p>
+<p>Service to the People • Consistency Today, Better Tomorrow!</p>
 </header>
 
 <main class="container">
+<div class="notice">
+<strong>Welcome to the Admin Dashboard.</strong>
+Select a section below to open its management page. Some pages may require additional setup before they can publish content to the public website.
+</div>
 
-  <div class="notice">
-    <strong>Administrator Notice:</strong>
-    Select a section below to open its page. These buttons open the
-    corresponding HTML files; they do not automatically provide secure
-    login protection or guarantee that a page contains editing features.
-  </div>
+<h2>Website Management</h2>
 
-  <h2>Website Management</h2>
+<div class="grid">
 
-  <div class="grid">
+<section class="card">
+<h3>📰 News Management</h3>
+<p>Create and manage campaign news stories.</p>
+<a class="btn" href="admin-news.html">Manage News</a>
+</section>
 
-    <section class="card">
-      <h3>📰 News Management</h3>
-      <p>Open the campaign news administration page.</p>
-      <a class="btn" href="admin-news.html">Manage News</a>
-    </section>
+<section class="card">
+<h3>📢 Announcements</h3>
+<p>Open the campaign announcements page.</p>
+<a class="btn" href="announcement.html">Manage Announcements</a>
+</section>
 
-    <section class="card">
-      <h3>📢 Announcements</h3>
-      <p>Open the campaign announcements page.</p>
-      <a class="btn" href="announcement.html">Manage Announcements</a>
-    </section>
+<section class="card">
+<h3>🖼️ Photo Gallery</h3>
+<p>View campaign photographs.</p>
+<a class="btn" href="gallery.html">Open Gallery</a>
+</section>
 
-    <section class="card">
-      <h3>🖼️ Photo Gallery</h3>
-      <p>View the campaign photo gallery.</p>
-      <a class="btn" href="gallery.html">Open Gallery</a>
-    </section>
+<section class="card">
+<h3>🎬 Campaign Videos</h3>
+<p>View campaign videos.</p>
+<a class="btn" href="videos.html">Open Videos</a>
+</section>
 
-    <section class="card">
-      <h3>🎬 Campaign Videos</h3>
-      <p>Open the campaign videos page.</p>
-      <a class="btn" href="videos.html">Open Videos</a>
-    </section>
+<section class="card">
+<h3>👥 Campaign Team</h3>
+<p>Open the official campaign team page.</p>
+<a class="btn" href="campaign-team.html">Open Campaign Team</a>
+</section>
 
-    <section class="card">
-      <h3>👥 Campaign Team</h3>
-      <p>Open the campaign team page.</p>
-      <a class="btn" href="team.html">Open Team Page</a>
-    </section>
+<section class="card">
+<h3>🎯 Campaign Priorities</h3>
+<p>View campaign priorities and policy information.</p>
+<a class="btn" href="priorities.html">Open Priorities</a>
+</section>
 
-    <section class="card">
-      <h3>🎯 Campaign Priorities</h3>
-      <p>Open the campaign priorities page.</p>
-      <a class="btn" href="priorities.html">Open Priorities</a>
-    </section>
+<section class="card">
+<h3>📣 Campaign Announcements</h3>
+<p>View public campaign announcements.</p>
+<a class="btn" href="announcement.html">View Announcements</a>
+</section>
 
-    <section class="card">
-      <h3>🗳️ Polling Agent Registration</h3>
-      <p>Open the polling agent registration form.</p>
-      <a class="btn" href="polling-agent-registration.html">Open Registration</a>
-    </section>
+<section class="card">
+<h3>🗳️ Polling Agent Registration</h3>
+<p>Open the polling agent registration form.</p>
+<a class="btn" href="polling-agent-registration.html">Open Registration</a>
+</section>
 
-    <section class="card">
-      <h3>📋 Polling Agent Records</h3>
-      <p>Open the polling agent records page.</p>
-      <a class="btn" href="polling-agent-records.html">View Records</a>
-    </section>
+<section class="card">
+<h3>📋 Polling Agent Records</h3>
+<p>Open the polling agent records page.</p>
+<a class="btn" href="polling-agent-records.html">View Records</a>
+</section>
 
-    <section class="card">
-      <h3>📊 Election Results</h3>
-      <p>Open the election results reporting page.</p>
-      <a class="btn" href="results-reporting.html">Open Results Reporting</a>
-    </section>
+<section class="card">
+<h3>📊 Results Reporting</h3>
+<p>Open the results reporting page.</p>
+<a class="btn" href="results-reporting.html">Open Results Reporting</a>
+</section>
 
-    <section class="card media">
-      <h3>📤 Upload Photos & Videos</h3>
-      <p>Upload campaign media to the configured Cloudinary account.</p>
-      <a class="btn" href="media-upload.html">Upload Media</a>
-    </section>
+<section class="card media">
+<h3>📤 Upload Photos & Videos</h3>
+<p>Upload campaign media to your configured Cloudinary account.</p>
+<a class="btn" href="media-upload.html">Upload Media</a>
+</section>
 
-  </div>
+</div>
 
-  <p style="text-align:center;margin-top:30px">
-    <a class="btn" href="index.html">← Return to Campaign Homepage</a>
-  </p>
-
+<p style="text-align:center;margin-top:30px">
+<a class="btn" href="index.html">← Return to Campaign Homepage</a>
+</p>
 </main>
 
 <footer>
-  CONSISTENCY 2027 • Official Campaign Website<br>
-  Service to the People
+CONSISTENCY 2027 • Campaign Website
 </footer>
 
 </body>
