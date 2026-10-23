@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f23">
+<title>News Management | CONSISTENCY 2027</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f7f1;color:#222}
+header{background:#087f23;color:white;text-align:center;padding:22px 12px}
+main{max-width:850px;margin:22px auto;padding:15px}
+.card{background:white;padding:20px;margin-bottom:20px;border-radius:10px;box-shadow:0 2px 8px #0001}
+h2{color:#087f23}
+label{display:block;font-weight:bold;margin-top:14px}
+input,textarea{width:100%;padding:12px;margin-top:6px;border:1px solid #bbb;border-radius:6px;font-size:16px}
+textarea{min-height:120px;resize:vertical}
+button,.btn{display:inline-block;background:#087f23;color:white;border:0;padding:12px 16px;border-radius:6px;text-decoration:none;font-size:15px;font-weight:bold;margin-top:12px;cursor:pointer}
+.delete{background:#b91c1c}
+.story{border:1px solid #ddd;border-radius:8px;padding:15px;margin-top:15px;overflow-wrap:anywhere}
+.story img{width:100%;max-height:300px;object-fit:contain;background:#eee}
+.small{color:#555;font-size:13px;line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+<h1>CONSISTENCY 2027</h1>
+<p>Campaign News Management</p>
+</header>
+
+<main>
+<div class="card">
+<h2>Publish Campaign News</h2>
+<p class="small">Add a headline, article, and optional image URL. This basic version saves news in this browser only. It does not automatically publish stories to the public website or synchronize with other devices.</p>
+
+<form id="newsForm">
+<label for="headline">News Headline</label>
+<input id="headline" required maxlength="200" placeholder="Enter news headline">
+
+<label for="imageUrl">Image URL (optional)</label>
+<input id="imageUrl" type="url" placeholder="https://example.com/photo.jpg">
+
+<label for="article">Full News Story</label>
+<textarea id="article" required placeholder="Write the full campaign news story here"></textarea>
+
+<button type="submit">Save News</button>
+<button type="button" id="clearForm" style="background:#555">Clear Form</button>
+</form>
+<p id="status" role="status"></p>
+</div>
+
+<div class="card">
+<h2>Saved News on This Device</h2>
+<div id="newsList"></div>
+</div>
+
+<a class="btn" href="admin-dashboard.html">← Admin Dashboard</a>
+<a class="btn" href="index.html">Homepage</a>
+</main>
+
+<script>
+(function(){
+const KEY="consistency2027_news_v1";
+const form=document.getElementById("newsForm");
+const list=document.getElementById("newsList");
+const status=document.getElementById("status");
+let editingId=null;
+
+function getNews(){
+ try{return JSON.parse(localStorage.getItem(KEY)||"[]")}
+ catch(e){return []}
+}
+function saveNews(items){
+ try{
+  localStorage.setItem(KEY,JSON.stringify(items));
+  return true;
+ }catch(e){
+  status.textContent="Unable to save. Your browser storage may be full.";
+  return false;
+ }
+}
+function make(tag,text){
+ const el=document.createElement(tag);
+ if(text!==undefined)el.textContent=text;
+ return el;
+}
+function render(){
+ list.replaceChildren();
+ const items=getNews();
+ if(!items.length){
+  list.appendChild(make("p","No news has been saved on this device yet."));
+  return;
+ }
+ items.slice().reverse().forEach(item=>{
+  const box=make("article");
+  box.className="story";
+  box.appendChild(make("h3",item.headline));
+  if(item.imageUrl){
+   const img=make("img");
+   img.src=item.imageUrl;
+   img.alt=item.headline;
+   img.loading="lazy";
+   img.onerror=()=>{img.alt="Image could not be loaded";img.style.display="none"};
+   box.appendChild(img);
+  }
+  box.appendChild(make("p",item.article));
+  box.appendChild(make("p",item.date));
+  const edit=make("button","Edit");
+  edit.type="button";
+  edit.onclick=()=>{
+   document.getElementById("headline").value=item.headline;
+   document.getElementById("imageUrl").value=item.imageUrl||"";
+   document.getElementById("article").value=item.article;
+   editingId=item.id;
+   window.scrollTo({top:0,behavior:"smooth"});
+  };
+  const del=make("button","Delete");
+  del.type="button";
+  del.className="delete";
+  del.onclick=()=>{
+   if(!confirm("Delete this saved news story?"))return;
+   if(saveNews(getNews().filter(x=>x.id!==item.id))){
+    if(editingId===item.id){editingId=null;form.reset()}
+    render();
+    status.textContent="News deleted from this device.";
+   }
+  };
+  box.append(edit,del);
+  list.appendChild(box);
+ });
+}
+form.addEventListener("submit",function(e){
+ e.preventDefault();
+ const headline=document.getElementById("headline").value.trim();
+ const imageUrl=document.getElementById("imageUrl").value.trim();
+ const article=document.getElementById("article").value.trim();
+ if(!headline||!article){status.textContent="Enter a headline and news story.";return}
+ const items=getNews();
+ if(editingId){
+  const i=items.findIndex(x=>x.id===editingId);
+  if(i>=0)items[i]={...items[i],headline,imageUrl,article};
+  else items.push({id:Date.now().toString(),headline,imageUrl,article,date:new Date().toLocaleString()});
+ }else{
+  items.push({id:Date.now().toString(),headline,imageUrl,article,date:new Date().toLocaleString()});
+ }
+ if(saveNews(items)){
+  form.reset();
+  editingId=null;
+  status.textContent="News saved in this browser.";
+  render();
+ }
+});
+document.getElementById("clearForm").addEventListener("click",()=>{
+ form.reset();editingId=null;status.textContent="";
+});
+render();
+})();
+</script>
+</body>
+</html>
