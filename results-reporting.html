@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f23">
+<title>Results Reporting | CONSISTENCY 2027</title>
+<style>
+:root{--green:#087f23;--dark:#075719;--gold:#e0b52c;--light:#f1f8f0;--red:#b42323}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#222}
+header{background:var(--green);color:white;text-align:center;padding:24px 12px;border-bottom:5px solid var(--gold)}
+header h1{margin:0 0 8px;font-size:26px}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;background:white;padding:12px}
+nav a{background:var(--green);color:white;padding:11px 14px;border-radius:5px;text-decoration:none;font-size:14px}
+main{max-width:1100px;margin:auto;padding:16px}
+.notice{padding:13px;background:#fff5d5;border-left:4px solid var(--gold);line-height:1.5;margin-bottom:18px}
+.panel{background:white;padding:18px;border-radius:8px;margin-bottom:18px;box-shadow:0 2px 8px #0000000d}
+h2{color:var(--dark);margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px}
+label{font-weight:bold;font-size:14px;display:block}
+input,select,textarea{width:100%;padding:12px;margin-top:6px;border:1px solid #bbb;border-radius:5px;font:inherit}
+button{border:0;padding:11px 14px;border-radius:5px;font-weight:bold;cursor:pointer}
+.primary{background:var(--green);color:white}
+.lightbtn{background:#e7eee7;color:#173a1c}
+.danger{background:var(--red);color:white}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:18px}
+.card{background:white;padding:15px;border-top:4px solid var(--green);border-radius:6px}
+.card strong{display:block;font-size:25px;color:var(--green)}
+.card span{font-size:13px}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:850px}
+th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left;font-size:13px}
+th{background:var(--green);color:white}
+tr:nth-child(even){background:#f7faf7}
+footer{text-align:center;background:#073f16;color:white;padding:20px;font-size:13px}
+#message{margin-top:12px;font-weight:bold}
+@media(max-width:500px){main{padding:10px}.panel{padding:13px}header h1{font-size:22px}}
+</style>
+</head>
+<body>
+<header>
+<h1>CONSISTENCY 2027</h1>
+<p>Election Results Reporting</p>
+<p>Consistency Today, Better Tomorrow!</p>
+</header>
+<nav>
+<a href="index.html">Home</a>
+<a href="admin-dashboard.html">Admin Dashboard</a>
+<a href="polling-agent-records.html">Polling Agent Records</a>
+</nav>
+
+<main>
+<div class="notice">
+<strong>Important:</strong> This is a manual record-keeping tool. Entries are not official election results and are not independently verified. Do not publish unverified results as official. Records are saved only in this browser on this device.
+</div>
+
+<div class="cards">
+<div class="card"><strong id="total">0</strong><span>Reports saved</span></div>
+<div class="card"><strong id="units">0</strong><span>Different polling units</span></div>
+<div class="card"><strong id="votes">0</strong><span>Total votes entered</span></div>
+</div>
+
+<section class="panel">
+<h2 id="formTitle">Add Results Report</h2>
+<form id="resultsForm">
+<input type="hidden" id="recordId">
+<div class="grid">
+<label>State
+<input id="state" value="Imo State" maxlength="80" required>
+</label>
+<label>Local Government Area *
+<input id="lga" maxlength="100" required>
+</label>
+<label>Ward *
+<input id="ward" maxlength="100" required>
+</label>
+<label>Polling Unit *
+<input id="pollingUnit" maxlength="150" required>
+</label>
+<label>Candidate / Party Name *
+<input id="candidate" maxlength="150" required>
+</label>
+<label>Votes Recorded *
+<input id="candidateVotes" type="number" min="0" max="10000000" step="1" required>
+</label>
+<label>Report Status
+<select id="status">
+<option value="Unverified">Unverified</option>
+<option value="Checked">Checked</option>
+</select>
+</label>
+<label>Date Reported *
+<input id="reportDate" type="date" required>
+</label>
+<label>Reported By
+<input id="reportedBy" maxlength="100">
+</label>
+<label>Notes
+<textarea id="notes" rows="2" maxlength="500"></textarea>
+</label>
+</div>
+<div class="actions">
+<button class="primary" type="submit" id="saveBtn">Save Report</button>
+<button class="lightbtn" type="button" id="clearBtn">Clear Form</button>
+</div>
+<div id="message" role="status" aria-live="polite"></div>
+</form>
+</section>
+
+<section class="panel">
+<h2>Saved Results Reports</h2>
+<label>Search reports
+<input id="search" placeholder="Search LGA, ward, polling unit, candidate or status">
+</label>
+<div class="actions">
+<button class="primary" type="button" id="exportBtn">Export CSV Backup</button>
+<button class="lightbtn" type="button" id="clearSearch">Clear Search</button>
+</div>
+<p id="count">0 reports</p>
+<div class="tablewrap">
+<table>
+<thead><tr>
+<th>No.</th><th>LGA</th><th>Ward</th><th>Polling Unit</th>
+<th>Candidate / Party</th><th>Votes</th><th>Status</th>
+<th>Date</th><th>Actions</th>
+</tr></thead>
+<tbody id="tableBody"></tbody>
+</table>
+</div>
+<p id="empty">No reports have been saved in this browser.</p>
+</section>
+</main>
+<footer>CONSISTENCY 2027 | Results Reporting</footer>
+
+<script>
+(function(){
+"use strict";
+const KEY="consistency2027_results_reports_v1";
+const $=id=>document.getElementById(id);
+let reports=[];
+
+function load(){
+ try{
+  const value=JSON.parse(localStorage.getItem(KEY)||"[]");
+  reports=Array.isArray(value)?value:[];
+ }catch(e){
+  reports=[];
+  alert("Could not read stored reports. Do not clear browser data if you need to recover existing information.");
+ }
+}
+function save(){
+ try{localStorage.setItem(KEY,JSON.stringify(reports));return true}
+ catch(e){alert("Unable to save. Check browser storage and export a backup if possible.");return false}
+}
+function esc(v){
+ return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function today(){
+ const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());
+ return d.toISOString().slice(0,10);
+}
+function reset(){
+ $("resultsForm").reset();
+ $("recordId").value="";
+ $("state").value="Imo State";
+ $("reportDate").value=today();
+ $("formTitle").textContent="Add Results Report";
+ $("saveBtn").textContent="Save Report";
+}
+function render(){
+ const q=$("search").value.trim().toLowerCase();
+ const filtered=reports.filter(r=>[
+ r.state,r.lga,r.ward,r.pollingUnit,r.candidate,r.status,r.reportDate,r.reportedBy
+ ].some(v=>String(v||"").toLowerCase().includes(q)));
+ $("tableBody").innerHTML=filtered.map((r,i)=>`<tr>
+ <td>${i+1}</td><td>${esc(r.lga)}</td><td>${esc(r.ward)}</td>
+ <td>${esc(r.pollingUnit)}</td><td>${esc(r.candidate)}</td>
+ <td>${esc(r.candidateVotes)}</td><td>${esc(r.status)}</td>
+ <td>${esc(r.reportDate)}</td><td>
+ <div class="actions">
+ <button class="lightbtn" type="button" data-edit="${esc(r.id)}">Edit</button>
+ <button class="danger" type="button" data-delete="${esc(r.id)}">Delete</button>
+ </div></td></tr>`).join("");
+ $("empty").style.display=filtered.length?"none":"block";
+ $("count").textContent=filtered.length+" report(s) shown";
+ $("total").textContent=reports.length;
+ $("units").textContent=new Set(reports.map(r=>(r.lga+"|"+r.ward+"|"+r.pollingUnit).toLowerCase())).size;
+ $("votes").textContent=reports.reduce((sum,r)=>sum+Number(r.candidateVotes||0),0).toLocaleString();
+}
+$("resultsForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ const id=$("recordId").value;
+ const votes=Number($("candidateVotes").value);
+ if(!Number.isSafeInteger(votes)||votes<0||votes>10000000){
+  $("message").textContent="Enter a valid whole number of votes.";return;
+ }
+ const record={
+ id:id||(crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)),
+ state:$("state").value.trim(),lga:$("lga").value.trim(),
+ ward:$("ward").value.trim(),pollingUnit:$("pollingUnit").value.trim(),
+ candidate:$("candidate").value.trim(),candidateVotes:votes,
+ status:$("status").value,reportDate:$("reportDate").value,
+ reportedBy:$("reportedBy").value.trim(),notes:$("notes").value.trim()
+ };
+ if(!record.state||!record.lga||!record.ward||!record.pollingUnit||
+ !record.candidate||!record.reportDate){
+  $("message").textContent="Please complete all required fields.";return;
+ }
+ const previous=reports.slice();
+ reports=id?reports.map(r=>r.id===id?record:r):[...reports,record];
+ if(!save()){reports=previous;return}
+ reset();render();
+ $("message").textContent=id?"Report updated.":"Report saved in this browser.";
+});
+$("tableBody").addEventListener("click",function(e){
+ const edit=e.target.closest("[data-edit]");
+ const del=e.target.closest("[data-delete]");
+ if(edit){
+  const r=reports.find(x=>x.id===edit.dataset.edit);if(!r)return;
+  $("recordId").value=r.id;
+  ["state","lga","ward","pollingUnit","candidate","candidateVotes","status","reportDate","reportedBy","notes"].forEach(k=>$(k).value=r[k]??"");
+  $("formTitle").textContent="Edit Results Report";
+  $("saveBtn").textContent="Update Report";
+  $("message").textContent="";
+  window.scrollTo({top:0,behavior:"smooth"});
+ }
+ if(del){
+  const r=reports.find(x=>x.id===del.dataset.delete);if(!r)return;
+  if(!confirm("Delete this report?"))return;
+  const previous=reports.slice();reports=reports.filter(x=>x.id!==r.id);
+  if(!save()){reports=previous;return}render();
+ }
+});
+$("clearBtn").addEventListener("click",reset);
+$("search").addEventListener("input",render);
+$("clearSearch").addEventListener("click",()=>{$("search").value="";render()});
+$("exportBtn").addEventListener("click",function(){
+ if(!reports.length){alert("There are no reports to export.");return}
+ const cols=["state","lga","ward","pollingUnit","candidate","candidateVotes","status","reportDate","reportedBy","notes"];
+ const headers=["State","LGA","Ward","Polling Unit","Candidate / Party","Votes","Status","Date","Reported By","Notes"];
+ const cell=v=>{let s=String(v??"");if(/^[=+\-@\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'};
+ const csv=[headers.map(cell).join(","),...reports.map(r=>cols.map(k=>cell(r[k])).join(","))].join("\r\n");
+ const url=URL.createObjectURL(new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8"}));
+ const a=document.createElement("a");a.href=url;a.download="consistency-2027-results-reports.csv";
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+load();reset();render();
+})();
+</script>
+</body>
+</html>
