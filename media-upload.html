@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CONSISTENCY 2027 | Media Upload</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f7f1;color:#173b27}
+header{background:#087f23;color:white;text-align:center;padding:22px 14px}
+header h1{margin:0;font-size:24px}
+header p{margin:8px 0 0}
+main{max-width:650px;margin:24px auto;padding:16px}
+.card{background:white;border-radius:14px;padding:22px;box-shadow:0 3px 15px #0001}
+label{display:block;font-weight:bold;margin:17px 0 7px}
+input,textarea,button{width:100%;padding:13px;border-radius:8px;font-size:16px}
+input,textarea{border:1px solid #bbb;background:white}
+textarea{min-height:90px;resize:vertical}
+button{border:0;background:#087f23;color:white;font-weight:bold;margin-top:18px;cursor:pointer}
+button:disabled{opacity:.6}
+.note{font-size:14px;line-height:1.5;color:#555}
+#status{margin-top:16px;line-height:1.5;overflow-wrap:anywhere}
+#preview{width:100%;max-height:300px;object-fit:contain;margin-top:14px;display:none}
+.result{background:#edf7ed;padding:12px;border-radius:8px;overflow-wrap:anywhere;margin-top:12px}
+a{color:#087f23}
+</style>
+</head>
+<body>
+<header>
+<h1>CONSISTENCY 2027</h1>
+<p>Campaign Media Upload Centre</p>
+</header>
+
+<main>
+<div class="card">
+<h2>Upload Pictures & Videos</h2>
+<p class="note">Choose a photo or video from your phone. After uploading, copy the media link to use on the campaign website.</p>
+
+<form id="uploadForm">
+<label for="title">Media Title</label>
+<input id="title" type="text" placeholder="Enter a title" required>
+
+<label for="description">Description</label>
+<textarea id="description" placeholder="Enter a short description"></textarea>
+
+<label for="media">Choose Picture or Video</label>
+<input id="media" type="file" accept="image/*,video/*" required>
+
+<img id="preview" alt="Selected media preview">
+
+<button id="uploadButton" type="submit">Upload Media</button>
+</form>
+
+<div id="status" role="status"></div>
+<div id="result"></div>
+
+<p class="note">
+<a href="index.html">Return to Campaign Homepage</a>
+</p>
+</div>
+</main>
+
+<script>
+const CLOUD_NAME = "x8osevg3";
+const UPLOAD_PRESET = "consistency2027_upload";
+
+const form = document.getElementById("uploadForm");
+const fileInput = document.getElementById("media");
+const preview = document.getElementById("preview");
+const statusBox = document.getElementById("status");
+const resultBox = document.getElementById("result");
+const uploadButton = document.getElementById("uploadButton");
+
+fileInput.addEventListener("change", () => {
+  preview.style.display = "none";
+  resultBox.innerHTML = "";
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  if (file.type.startsWith("image/")) {
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+  } else if (file.type.startsWith("video/")) {
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+  }
+});
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const file = fileInput.files[0];
+  if (!file) {
+    statusBox.textContent = "Please choose a picture or video.";
+    return;
+  }
+
+  const isImage = file.type.startsWith("image/");
+  const isVideo = file.type.startsWith("video/");
+
+  if (!isImage && !isVideo) {
+    statusBox.textContent = "Please select an image or video file.";
+    return;
+  }
+
+  // Conservative browser-side size limit; account limits may differ.
+  const maxSize = isVideo ? 100 * 1024 * 1024 : 15 * 1024 * 1024;
+  if (file.size > maxSize) {
+    statusBox.textContent = isVideo
+      ? "This video is larger than 100 MB. Please choose a smaller video."
+      : "This picture is larger than 15 MB. Please choose a smaller picture.";
+    return;
+  }
+
+  uploadButton.disabled = true;
+  statusBox.textContent = "Uploading... Please keep this page open.";
+  resultBox.innerHTML = "";
+
+  try {
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", UPLOAD_PRESET);
+    data.append("context", "caption=" + (document.getElementById("title").value || "Campaign media"));
+
+    const resourceType = isVideo ? "video" : "image";
+    const endpoint = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${resourceType}/upload`;
+
+    const response = await fetch(endpoint, {
+      method: "POST",
+      body: data
+    });
+
+    const uploaded = await response.json();
+
+    if (!response.ok) {
+      throw new Error(uploaded.error?.message || "Upload failed. Check your Cloudinary preset and settings.");
+    }
+
+    const mediaUrl = uploaded.secure_url;
+    const title = document.getElementById("title").value.trim();
+    const description = document.getElementById("description").value.trim();
+
+    statusBox.textContent = "Upload successful!";
+    resultBox.innerHTML = `
+      <div class="result">
+        <strong>Title:</strong> ${escapeHtml(title)}<br>
+        <strong>Description:</strong> ${escapeHtml(description || "No description")}<br><br>
+        <strong>Uploaded media link:</strong><br>
+        <a href="${mediaUrl}" target="_blank" rel="noopener">Open uploaded media</a><br><br>
+        <button type="button" id="copyLink">Copy Media Link</button>
+        <p class="note">This upload is now stored in Cloudinary. It will not automatically appear on your public Gallery or Videos page until that page is connected to a shared publishing system.</p>
+      </div>`;
+
+    document.getElementById("copyLink").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(mediaUrl);
+        statusBox.textContent = "Media link copied.";
+      } catch {
+        statusBox.textContent = "Please open the media link and copy its address manually.";
+      }
+    });
+  } catch (error) {
+    statusBox.textContent = "Upload error: " + error.message;
+  } finally {
+    uploadButton.disabled = false;
+  }
+});
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[char]);
+}
+</script>
+</body>
+</html>
