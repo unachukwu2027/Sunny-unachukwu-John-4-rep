@@ -3,278 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Admin Dashboard | CONSISTENCY 2027</title>
-<meta name="theme-color" content="#087f23">
 
 <style>
-:root {
-    --green: #087f23;
-    --dark: #064b19;
-    --gold: #d6a500;
-    --red: #c9232d;
-    --light: #f2f7f2;
-    --white: #ffffff;
-    --text: #253126;
-    --muted: #718071;
-}
-
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--light);
-    color: var(--text);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f7f2;
+  color: #183b26;
 }
 
 header {
-    background: var(--green);
-    color: white;
-    padding: 20px;
-    border-bottom: 5px solid var(--gold);
+  background: #087f23;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  border-bottom: 5px solid #d62828;
 }
 
-.header-inner {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    flex-wrap: wrap;
+header h1 {
+  margin: 0;
+  font-size: 25px;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo {
-    width: 55px;
-    height: 55px;
-    border: 3px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 19px;
-    background: white;
-    color: var(--green);
-}
-
-.brand h1 {
-    margin: 0;
-    font-size: 22px;
-}
-
-.brand p {
-    margin: 5px 0 0;
-    font-size: 12px;
-}
-
-.header-actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.header-actions a {
-    display: inline-block;
-    padding: 10px 13px;
-    background: white;
-    color: var(--dark);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.header-actions a.logout {
-    background: var(--red);
-    color: white;
+header p {
+  margin-bottom: 0;
 }
 
 .container {
-    max-width: 1200px;
-    padding: 25px 16px;
-    margin: auto;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
 }
 
 .welcome {
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    border-left: 5px solid var(--gold);
-    box-shadow: 0 4px 15px rgba(0,0,0,.04);
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 12px #00000010;
 }
 
 .welcome h2 {
-    color: var(--green);
-    margin: 0 0 8px;
+  margin-top: 0;
+  color: #087f23;
 }
 
-.welcome p {
-    margin: 0;
-    color: var(--muted);
-    line-height: 1.7;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
 }
 
-.section-title {
-    margin: 30px 0 16px;
-    color: var(--dark);
-    font-size: 21px;
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 3px 12px #00000012;
+  border-top: 4px solid #087f23;
+  display: flex;
+  flex-direction: column;
 }
 
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 15px;
-    margin-top: 22px;
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
 }
 
-.stat {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    border-bottom: 4px solid var(--green);
-    box-shadow: 0 4px 15px rgba(0,0,0,.04);
+.card p {
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
 }
 
-.stat span {
-    display: block;
-    color: var(--muted);
-    font-size: 13px;
+.card a {
+  display: block;
+  background: #087f23;
+  color: white;
+  padding: 13px 10px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 7px;
+  margin-top: 10px;
 }
 
-.stat strong {
-    display: block;
-    margin-top: 10px;
-    color: var(--green);
-    font-size: 28px;
+.card a:hover {
+  background: #05651b;
 }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+.media-card {
+  border-top-color: #d62828;
 }
 
-.menu-card {
-    background: white;
-    border-radius: 11px;
-    padding: 22px;
-    border: 1px solid #e2ebe2;
-    box-shadow: 0 4px 15px rgba(0,0,0,.04);
-    display: flex;
-    flex-direction: column;
-    min-height: 205px;
+.media-card a {
+  background: #d62828;
 }
 
-.menu-card .icon {
-    font-size: 30px;
-    margin-bottom: 12px;
+.media-card a:hover {
+  background: #a91d1d;
 }
 
-.menu-card h3 {
-    color: var(--green);
-    margin: 0 0 9px;
-    font-size: 18px;
-}
-
-.menu-card p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-    margin: 0 0 18px;
-    flex: 1;
-}
-
-.menu-card a {
-    background: var(--green);
-    color: white;
-    padding: 11px 12px;
-    text-align: center;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.menu-card a:hover {
-    background: var(--dark);
-}
-
-.menu-card.important {
-    border-top: 4px solid var(--gold);
-}
-
-.menu-card.polling {
-    border-top: 4px solid var(--red);
+.home-button {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #183b26;
+  color: white;
+  text-decoration: none;
+  border-radius: 7px;
+  margin: 25px 0 10px;
 }
 
 .notice {
-    background: #fff8dc;
-    border-left: 5px solid var(--gold);
-    border-radius: 8px;
-    padding: 17px;
-    margin-top: 28px;
-    font-size: 13px;
-    line-height: 1.7;
+  background: #fff4d6;
+  border-left: 5px solid #d6a300;
+  padding: 15px;
+  border-radius: 7px;
+  line-height: 1.6;
+  margin-top: 25px;
 }
 
 footer {
-    background: var(--dark);
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 25px;
-    border-top: 5px solid var(--gold);
-    font-size: 13px;
+  background: #183b26;
+  color: white;
+  text-align: center;
+  padding: 20px 12px;
+  margin-top: 25px;
+  font-size: 14px;
 }
 
-footer p {
-    margin: 5px;
-}
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 21px;
+  }
 
-@media (max-width: 800px) {
-    .menu-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 520px) {
-    .header-inner {
-        align-items: flex-start;
-    }
-
-    .brand h1 {
-        font-size: 18px;
-    }
-
-    .stats {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-card {
-        min-height: auto;
-    }
-
-    .header-actions {
-        width: 100%;
-    }
-
-    .header-actions a {
-        flex: 1;
-        text-align: center;
-    }
+  .container {
+    padding: 14px;
+  }
 }
 </style>
 </head>
@@ -282,168 +152,108 @@ footer p {
 <body>
 
 <header>
-    <div class="header-inner">
-        <div class="brand">
-            <div class="logo">C27</div>
-            <div>
-                <h1>CONSISTENCY 2027</h1>
-                <p>ADMINISTRATION DASHBOARD</p>
-            </div>
-        </div>
-
-        <div class="header-actions">
-            <a href="index.html">View Website</a>
-            <a href="admin-login.html" class="logout">Logout</a>
-        </div>
-    </div>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Campaign Administration Dashboard</p>
 </header>
 
 <main class="container">
 
-    <section class="welcome">
-        <h2>Welcome to the Admin Dashboard</h2>
-        <p>
-            Manage campaign information and access your website's
-            administration pages from one place. Select a service
-            below to continue.
-        </p>
-    </section>
+  <section class="welcome">
+    <h2>Welcome, Campaign Administrator</h2>
+    <p>
+      Manage campaign news, announcements, photographs, videos,
+      campaign team information and other campaign resources from
+      this dashboard.
+    </p>
+  </section>
 
-    <h2 class="section-title">Dashboard Overview</h2>
+  <section class="grid">
 
-    <section class="stats">
-        <div class="stat">
-            <span>News Management</span>
-            <strong>📰</strong>
-        </div>
+    <div class="card">
+      <h3>📰 Campaign News</h3>
+      <p>Open the campaign news management page.</p>
+      <a href="admin-news.html">Manage News</a>
+    </div>
 
-        <div class="stat">
-            <span>Campaign Announcements</span>
-            <strong>📢</strong>
-        </div>
+    <div class="card">
+      <h3>📢 Announcements</h3>
+      <p>Open the campaign announcements page.</p>
+      <a href="announcement.html">Manage Announcements</a>
+    </div>
 
-        <div class="stat">
-            <span>Polling Agent Services</span>
-            <strong>🗳️</strong>
-        </div>
-    </section>
+    <div class="card">
+      <h3>🖼️ Gallery</h3>
+      <p>View the campaign photo gallery.</p>
+      <a href="gallery.html">Open Gallery</a>
+    </div>
 
-    <h2 class="section-title">Website Management</h2>
+    <div class="card">
+      <h3>👥 Campaign Team</h3>
+      <p>Open the campaign team page.</p>
+      <a href="team.html">Open Campaign Team</a>
+    </div>
 
-    <section class="menu-grid">
+    <div class="card">
+      <h3>🎯 Campaign Priorities</h3>
+      <p>View the campaign priorities and proposals.</p>
+      <a href="priorities.html">Open Priorities</a>
+    </div>
 
-        <article class="menu-card">
-            <div class="icon">📰</div>
-            <h3>Manage News</h3>
-            <p>Open the campaign news administration page.</p>
-            <a href="admin-news.html">Open News Management</a>
-        </article>
+    <div class="card">
+      <h3>🎬 Campaign Videos</h3>
+      <p>Open the campaign video page.</p>
+      <a href="video.html">Open Videos</a>
+    </div>
 
-        <article class="menu-card">
-            <div class="icon">📢</div>
-            <h3>Announcements</h3>
-            <p>View the public announcements page.</p>
-            <a href="announcement.html">Open Announcements</a>
-        </article>
+    <div class="card">
+      <h3>🗳️ Polling Agent Registration</h3>
+      <p>Open the polling agent registration form.</p>
+      <a href="polling-agent-registration.html">Register Polling Agents</a>
+    </div>
 
-        <article class="menu-card">
-            <div class="icon">📸</div>
-            <h3>Manage Gallery</h3>
-            <p>Open the campaign photographs and gallery page.</p>
-            <a href="gallery.html">Open Gallery</a>
-        </article>
+    <div class="card">
+      <h3>📋 Polling Agent Records</h3>
+      <p>Open the polling agent records page, if configured.</p>
+      <a href="polling-agent-records.html">View Agent Records</a>
+    </div>
 
-        <article class="menu-card">
-            <div class="icon">👥</div>
-            <h3>Campaign Team</h3>
-            <p>View the campaign team page.</p>
-            <a href="campaign-team.html">Open Team Page</a>
-        </article>
+    <div class="card">
+      <h3>📊 Results Reporting</h3>
+      <p>Open the campaign results reporting page, if configured.</p>
+      <a href="results-reporting.html">Open Results Reporting</a>
+    </div>
 
-        <article class="menu-card">
-            <div class="icon">📋</div>
-            <h3>Campaign Priorities</h3>
-            <p>View the campaign priorities page.</p>
-            <a href="priorities.html">Open Priorities</a>
-        </article>
+    <div class="card media-card">
+      <h3>📸 Media Upload</h3>
+      <p>
+        Select pictures and videos directly from your phone
+        and upload them to Cloudinary.
+      </p>
+      <a href="media-upload.html">Upload Pictures & Videos</a>
+    </div>
 
-        <article class="menu-card">
-            <div class="icon">🎥</div>
-            <h3>Campaign Videos</h3>
-            <p>Open the campaign video page.</p>
-            <a href="video.html">Open Videos</a>
-        </article>
+  </section>
 
-    </section>
+  <div class="notice">
+    <strong>Important:</strong>
+    The Media Upload button opens the Cloudinary upload page.
+    Uploaded files are stored online, but they will not automatically
+    appear on the public Gallery or Videos pages until a shared
+    publishing system is connected. Protect the upload page with
+    proper administrator authentication before relying on it for
+    public campaign uploads.
+  </div>
 
-    <h2 class="section-title">Polling Agent Management</h2>
-
-    <section class="menu-grid">
-
-        <article class="menu-card polling">
-            <div class="icon">📝</div>
-            <h3>Polling Agent Registration</h3>
-            <p>
-                Open the polling agent registration form.
-                Use it to access the registration page.
-            </p>
-            <a href="polling-agent-registration.html">
-                Open Registration Form
-            </a>
-        </article>
-
-        <article class="menu-card polling">
-            <div class="icon">📋</div>
-            <h3>Polling Agent Records</h3>
-            <p>
-                Open the page for viewing polling agent records,
-                if that page has been created.
-            </p>
-            <a href="polling-agent-records.html">
-                Open Agent Records
-            </a>
-        </article>
-
-        <article class="menu-card important">
-            <div class="icon">📊</div>
-            <h3>Election Results Reporting</h3>
-            <p>
-                Open the results reporting page, if available.
-                Ensure all reporting follows applicable electoral
-                rules and official procedures.
-            </p>
-            <a href="results-reporting.html">
-                Open Results Reporting
-            </a>
-        </article>
-
-    </section>
-
-    <section class="notice">
-        <strong>Important information:</strong><br>
-        This dashboard is a navigation page. Adding these links
-        does not create missing pages, save new records, or connect
-        the site to a central database. Each destination must exist
-        in the GitHub repository with exactly the same filename.
-        Browser-based records may remain only on the device that
-        created them. Do not enter sensitive personal information
-        unless the registration system has appropriate security
-        and data-protection arrangements.
-    </section>
+  <a class="home-button" href="index.html">
+    ← Return to Campaign Homepage
+  </a>
 
 </main>
 
 <footer>
-    <p><strong>CONSISTENCY 2027</strong></p>
-    <p>Barr. Sunny John Unachukwu, Esq.</p>
-    <p>Service to the People | Consistency Today, Better Tomorrow</p>
-    <p>&copy; <span id="year"></span> CONSISTENCY 2027</p>
+  <p>CONSISTENCY 2027 Campaign Administration</p>
+  <p>Service to the People | Consistency Today, Better Tomorrow!</p>
 </footer>
-
-<script>
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-</script>
 
 </body>
 </html>
