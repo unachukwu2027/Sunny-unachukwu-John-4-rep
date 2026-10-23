@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f23">
+<title>Announcements | CONSISTENCY 2027</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f7f1;color:#222}
+header{background:#087f23;color:#fff;text-align:center;padding:24px 12px}
+main{max-width:850px;margin:25px auto;padding:15px}
+.card{background:#fff;padding:20px;border-radius:10px;margin-bottom:20px;box-shadow:0 2px 8px #0001}
+h2{color:#087f23}
+label{display:block;font-weight:bold;margin-top:14px}
+input,textarea{width:100%;padding:12px;margin-top:6px;border:1px solid #bbb;border-radius:6px;font-size:16px}
+textarea{min-height:100px}
+button,.btn{display:inline-block;border:0;background:#087f23;color:white;padding:12px 16px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:12px;cursor:pointer}
+.delete{background:#b91c1c}
+.item{border:1px solid #ddd;border-radius:8px;padding:15px;margin-top:14px;overflow-wrap:anywhere}
+.small{font-size:13px;color:#555;line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+<h1>CONSISTENCY 2027</h1>
+<p>Campaign Announcement Management</p>
+</header>
+
+<main>
+<section class="card">
+<h2>Create Announcement</h2>
+<p class="small">Write and save announcements on this device. This starter version does not automatically publish announcements to the public homepage or synchronize them across devices.</p>
+
+<form id="announcementForm">
+<label for="title">Announcement Title</label>
+<input id="title" maxlength="200" required placeholder="Enter announcement title">
+
+<label for="date">Announcement Date</label>
+<input id="date" type="date" required>
+
+<label for="details">Announcement Details</label>
+<textarea id="details" required placeholder="Write the announcement here"></textarea>
+
+<button type="submit">Save Announcement</button>
+<button type="button" id="clear" style="background:#555">Clear Form</button>
+</form>
+<p id="status" role="status"></p>
+</section>
+
+<section class="card">
+<h2>Saved Announcements</h2>
+<div id="list"></div>
+</section>
+
+<a class="btn" href="admin-dashboard.html">← Admin Dashboard</a>
+<a class="btn" href="index.html">Homepage</a>
+</main>
+
+<script>
+(function(){
+const KEY="consistency2027_announcements_v1";
+const form=document.getElementById("announcementForm");
+const list=document.getElementById("list");
+const status=document.getElementById("status");
+let editingId=null;
+
+function read(){
+ try{return JSON.parse(localStorage.getItem(KEY)||"[]")}
+ catch(e){return []}
+}
+function save(items){
+ try{localStorage.setItem(KEY,JSON.stringify(items));return true}
+ catch(e){status.textContent="Unable to save. Browser storage may be full.";return false}
+}
+function el(tag,text){
+ const node=document.createElement(tag);
+ if(text!==undefined)node.textContent=text;
+ return node;
+}
+function render(){
+ list.replaceChildren();
+ const items=read().slice().reverse();
+ if(!items.length){
+  list.appendChild(el("p","No announcements saved on this device yet."));
+  return;
+ }
+ items.forEach(item=>{
+  const box=el("article");
+  box.className="item";
+  box.appendChild(el("h3",item.title));
+  box.appendChild(el("p","Date: "+item.date));
+  box.appendChild(el("p",item.details));
+  const edit=el("button","Edit");
+  edit.type="button";
+  edit.onclick=()=>{
+   document.getElementById("title").value=item.title;
+   document.getElementById("date").value=item.date;
+   document.getElementById("details").value=item.details;
+   editingId=item.id;
+   window.scrollTo({top:0,behavior:"smooth"});
+  };
+  const del=el("button","Delete");
+  del.type="button";
+  del.className="delete";
+  del.onclick=()=>{
+   if(!confirm("Delete this announcement?"))return;
+   if(save(read().filter(x=>x.id!==item.id))){
+    if(editingId===item.id){editingId=null;form.reset()}
+    render();
+    status.textContent="Announcement deleted from this device.";
+   }
+  };
+  box.append(edit,del);
+  list.appendChild(box);
+ });
+}
+form.addEventListener("submit",function(event){
+ event.preventDefault();
+ const title=document.getElementById("title").value.trim();
+ const date=document.getElementById("date").value;
+ const details=document.getElementById("details").value.trim();
+ if(!title||!date||!details){
+  status.textContent="Please complete all fields.";
+  return;
+ }
+ const items=read();
+ if(editingId){
+  const index=items.findIndex(x=>x.id===editingId);
+  if(index>=0)items[index]={...items[index],title,date,details};
+  else items.push({id:Date.now().toString(),title,date,details});
+ }else{
+  items.push({id:Date.now().toString(),title,date,details});
+ }
+ if(save(items)){
+  form.reset();
+  editingId=null;
+  status.textContent="Announcement saved on this device.";
+  render();
+ }
+});
+document.getElementById("clear").addEventListener("click",()=>{
+ form.reset();editingId=null;status.textContent="";
+});
+render();
+})();
+</script>
+</body>
+</html>
