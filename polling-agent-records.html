@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f23">
+<title>Polling Agent Records | CONSISTENCY 2027</title>
+
+<style>
+:root {
+  --green: #087f23;
+  --dark: #075719;
+  --gold: #e0b52c;
+  --light: #f1f8f0;
+  --red: #c62828;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: #222;
+}
+header {
+  background: var(--green);
+  color: white;
+  padding: 23px 15px;
+  text-align: center;
+  border-bottom: 5px solid var(--gold);
+}
+header h1 { margin: 0 0 8px; font-size: 25px; }
+header p { margin: 0; font-size: 14px; }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px;
+  background: white;
+}
+nav a {
+  color: white;
+  background: var(--green);
+  padding: 11px 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+main { max-width: 1150px; margin: auto; padding: 18px; }
+.notice {
+  background: #fff8dd;
+  border-left: 4px solid var(--gold);
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.panel {
+  background: white;
+  border-radius: 9px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px #00000010;
+}
+h2 { color: var(--dark); margin-top: 0; }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 13px;
+}
+label { display: block; font-weight: bold; font-size: 14px; }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font: inherit;
+  background: white;
+}
+button {
+  border: 0;
+  border-radius: 5px;
+  padding: 11px 14px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+.primary { background: var(--green); color: white; }
+.secondary { background: #e7eee7; color: #173a1c; }
+.danger { background: var(--red); color: white; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stat {
+  background: white;
+  border-top: 4px solid var(--green);
+  padding: 16px;
+  border-radius: 7px;
+  box-shadow: 0 2px 7px #0000000c;
+}
+.stat strong { display: block; font-size: 25px; color: var(--green); }
+.stat span { font-size: 13px; }
+.search-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.search-row input { flex: 1; min-width: 180px; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 850px; }
+th, td {
+  padding: 11px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 13px;
+}
+th { background: var(--green); color: white; }
+tr:nth-child(even) { background: #f7faf7; }
+.status { font-weight: bold; color: var(--green); }
+.small-actions { display: flex; gap: 6px; }
+.small-actions button { padding: 8px; }
+#message { margin-top: 12px; font-weight: bold; }
+footer {
+  background: #073f16;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+}
+@media(max-width: 500px) {
+  main { padding: 11px; }
+  .panel { padding: 13px; }
+  header h1 { font-size: 21px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Polling Agent Records Management</p>
+  <p>Service to the People • Consistency Today, Better Tomorrow!</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="admin-dashboard.html">Admin Dashboard</a>
+  <a href="polling-agent-registration.html">Agent Registration</a>
+</nav>
+
+<main>
+  <div class="notice">
+    <strong>Local browser storage:</strong> These records are stored only in
+    this browser on this device. They are not shared with other phones and
+    do not automatically include submissions made through another form.
+    Use this page only on a device you trust.
+  </div>
+
+  <section class="summary">
+    <div class="stat"><strong id="totalCount">0</strong><span>Total agents</span></div>
+    <div class="stat"><strong id="activeCount">0</strong><span>Active</span></div>
+    <div class="stat"><strong id="pendingCount">0</strong><span>Pending</span></div>
+  </section>
+
+  <section class="panel">
+    <h2 id="formTitle">Add Polling Agent</h2>
+    <form id="agentForm">
+      <input type="hidden" id="recordId">
+
+      <div class="form-grid">
+        <label>Agent Full Name *
+          <input id="fullName" maxlength="100" required>
+        </label>
+
+        <label>Phone Number *
+          <input id="phone" type="tel" maxlength="25" required>
+        </label>
+
+        <label>State
+          <input id="state" value="Imo State" maxlength="60">
+        </label>
+
+        <label>Local Government Area *
+          <input id="lga" maxlength="100" required>
+        </label>
+
+        <label>Ward *
+          <input id="ward" maxlength="100" required>
+        </label>
+
+        <label>Polling Unit *
+          <input id="pollingUnit" maxlength="150" required>
+        </label>
+
+        <label>Registration Status
+          <select id="status">
+            <option value="Pending">Pending</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </label>
+
+        <label>Registration Date
+          <input id="regDate" type="date" required>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="primary" type="submit" id="saveButton">Save Agent</button>
+        <button class="secondary" type="button" id="resetButton">Clear Form</button>
+      </div>
+      <div id="message" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <section class="panel">
+    <h2>Registered Polling Agents</h2>
+
+    <div class="search-row">
+      <input id="searchInput" placeholder="Search name, phone, ward, LGA or polling unit">
+      <button class="secondary" id="clearSearch" type="button">Clear Search</button>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="exportButton" type="button">Export CSV Backup</button>
+    </div>
+
+    <p id="resultCount">0 records</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>LGA</th>
+            <th>Ward</th>
+            <th>Polling Unit</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="agentTable"></tbody>
+      </table>
+    </div>
+    <p id="emptyMessage">No agents have been added in this browser yet.</p>
+  </section>
+</main>
+
+<footer>
+  CONSISTENCY 2027 | Polling Agent Records<br>
+  Keep your records secure and back up your data regularly.
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "consistency2027_polling_agents_v1";
+  const $ = id => document.getElementById(id);
+
+  let agents = [];
+
+  function loadAgents() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      agents = Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      agents = [];
+      alert("Stored records could not be read. Do not clear browser data if you need to recover existing records.");
+    }
+  }
+
+  function saveAgents() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(agents));
+      return true;
+    } catch (error) {
+      alert("The browser could not save the records. Export a backup if possible and check your available storage.");
+      return false;
+    }
+  }
+
+  function escapeHTML(value) {
+    return String(value == null ? "" : value).replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  function today() {
+    const date = new Date();
+    const offset = date.getTimezoneOffset();
+    return new Date(date.getTime() - offset * 60000).toISOString().slice(0, 10);
+  }
+
+  function resetForm() {
+    $("agentForm").reset();
+    $("recordId").value = "";
+    $("regDate").value = today();
+    $("state").value = "Imo State";
+    $("formTitle").textContent = "Add Polling Agent";
+    $("saveButton").textContent = "Save Agent";
+    $("message").textContent = "";
+  }
+
+  function updateSummary() {
+    $("totalCount").textContent = agents.length;
+    $("activeCount").textContent = agents.filter(a => a.status === "Active").length;
+    $("pendingCount").textContent = agents.filter(a => a.status === "Pending").length;
+  }
+
+  function render() {
+    const query = $("searchInput").value.trim().toLowerCase();
+
+    const filtered = agents.filter(agent => [
+      agent.fullName, agent.phone, agent.state, agent.lga,
+      agent.ward, agent.pollingUnit, agent.status, agent.regDate
+    ].some(value => String(value || "").toLowerCase().includes(query)));
+
+    $("agentTable").innerHTML = filtered.map((agent, index) => `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${escapeHTML(agent.fullName)}</td>
+        <td>${escapeHTML(agent.phone)}</td>
+        <td>${escapeHTML(agent.lga)}</td>
+        <td>${escapeHTML(agent.ward)}</td>
+        <td>${escapeHTML(agent.pollingUnit)}</td>
+        <td class="status">${escapeHTML(agent.status)}</td>
+        <td>${escapeHTML(agent.regDate)}</td>
+        <td>
+          <div class="small-actions">
+            <button class="secondary" type="button" data-edit="${escapeHTML(agent.id)}">Edit</button>
+            <button class="danger" type="button" data-delete="${escapeHTML(agent.id)}">Delete</button>
+          </div>
+        </td>
+      </tr>
+    `).join("");
+
+    $("emptyMessage").style.display = filtered.length ? "none" : "block";
+    $("resultCount").textContent = filtered.length + " record(s) shown";
+    updateSummary();
+  }
+
+  $("agentForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const id = $("recordId").value;
+    const agent = {
+      id: id || (crypto.randomUUID ? crypto.randomUUID() :
+        Date.now().toString(36) + Math.random().toString(36).slice(2)),
+      fullName: $("fullName").value.trim(),
+      phone: $("phone").value.trim(),
+      state: $("state").value.trim(),
+      lga: $("lga").value.trim(),
+      ward: $("ward").value.trim(),
+      pollingUnit: $("pollingUnit").value.trim(),
+      status: $("status").value,
+      regDate: $("regDate").value
+    };
+
+    if (!agent.fullName || !agent.phone || !agent.lga ||
+        !agent.ward || !agent.pollingUnit || !agent.regDate) {
+      $("message").textContent = "Please complete all required fields.";
+      return;
+    }
+
+    const previous = agents.slice();
+
+    if (id) {
+      agents = agents.map(existing => existing.id === id ? agent : existing);
+    } else {
+      agents.push(agent);
+    }
+
+    if (!saveAgents()) {
+      agents = previous;
+      return;
+    }
+
+    $("message").textContent = id ? "Agent record updated." : "Agent record saved.";
+    resetForm();
+    $("message").textContent = id ? "Agent record updated." : "Agent record saved.";
+    render();
+  });
+
+  $("agentTable").addEventListener("click", function (event) {
+    const editButton = event.target.closest("[data-edit]");
+    const deleteButton = event.target.closest("[data-delete]");
+
+    if (editButton) {
+      const agent = agents.find(a => a.id === editButton.dataset.edit);
+      if (!agent) return;
+
+      $("recordId").value = agent.id;
+      $("fullName").value = agent.fullName;
+      $("phone").value = agent.phone;
+      $("state").value = agent.state;
+      $("lga").value = agent.lga;
+      $("ward").value = agent.ward;
+      $("pollingUnit").value = agent.pollingUnit;
+      $("status").value = agent.status;
+      $("regDate").value = agent.regDate;
+      $("formTitle").textContent = "Edit Polling Agent";
+      $("saveButton").textContent = "Update Agent";
+      $("message").textContent = "";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    if (deleteButton) {
+      const agent = agents.find(a => a.id === deleteButton.dataset.delete);
+      if (!agent) return;
+
+      if (!confirm("Delete the record for " + agent.fullName + "? This cannot be undone.")) return;
+
+      const previous = agents.slice();
+      agents = agents.filter(a => a.id !== agent.id);
+
+      if (!saveAgents()) {
+        agents = previous;
+        return;
+      }
+      render();
+      $("message").textContent = "Agent record deleted.";
+    }
+  });
+
+  $("searchInput").addEventListener("input", render);
+
+  $("clearSearch").addEventListener("click", function () {
+    $("searchInput").value = "";
+    render();
+  });
+
+  $("resetButton").addEventListener("click", resetForm);
+
+  $("exportButton").addEventListener("click", function () {
+    if (!agents.length) {
+      alert("There are no records to export.");
+      return;
+    }
+
+    const columns = [
+      ["Full Name", "fullName"], ["Phone", "phone"],
+      ["State", "state"], ["LGA", "lga"], ["Ward", "ward"],
+      ["Polling Unit", "pollingUnit"], ["Status", "status"],
+      ["Registration Date", "regDate"]
+    ];
+
+    function csvCell(value) {
+      let text = String(value == null ? "" : value);
+      if (/^[=+\-@\t\r]/.test(text)) text = "'" + text;
+      return '"' + text.replace(/"/g, '""') + '"';
+    }
+
+    const rows = [
+      columns.map(column => csvCell(column[0])).join(","),
+      ...agents.map(agent => columns.map(column => csvCell(agent[column[1]])).join(","))
+    ];
+
+    const blob = new Blob(["\uFEFF" + rows.join("\r\n")], {
+      type: "text/csv;charset=utf-8;"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "consistency-2027-polling-agent-records.csv";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+
+  loadAgents();
+  resetForm();
+  render();
+})();
+</script>
+</body>
+</html>
