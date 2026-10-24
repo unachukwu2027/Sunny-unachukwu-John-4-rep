@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideas & Suggestions | CONSISTENCY 2027</title>
+  <meta name="description" content="Share ideas and suggestions for community development with the CONSISTENCY 2027 campaign.">
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    :root {
+      --green: #087f23;
+      --dark-green: #064d1a;
+      --gold: #ffd700;
+      --light: #f3f8f3;
+      --text: #183020;
+      --white: #fff;
+      --border: #d5e3d6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 26px 15px;
+      border-bottom: 5px solid var(--gold);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(25px, 5vw, 38px);
+    }
+
+    header p { margin: 6px 0 0; font-weight: bold; }
+
+    nav {
+      background: var(--dark-green);
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 10px;
+      margin: 3px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    nav a:hover, nav a:focus {
+      background: var(--gold);
+      color: var(--dark-green);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #087f23, #064d1a);
+      color: white;
+      text-align: center;
+      padding: 38px 18px;
+    }
+
+    .hero h2 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 5vw, 36px);
+    }
+
+    .hero p { max-width: 740px; margin: auto; }
+
+    .container {
+      width: min(100% - 28px, 850px);
+      margin: 30px auto;
+    }
+
+    .section-title {
+      color: var(--dark-green);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .intro {
+      text-align: center;
+      margin: 0 auto 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      margin-bottom: 22px;
+      border-radius: 11px;
+      border-top: 4px solid var(--green);
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 15px 0 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #aebfae;
+      border-radius: 6px;
+      font: inherit;
+      background: white;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--green);
+      outline-offset: 1px;
+    }
+
+    .hint {
+      font-size: 14px;
+      color: #536556;
+      margin-top: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      border: 0;
+      border-radius: 6px;
+      padding: 12px 18px;
+      margin: 8px 5px 5px 0;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .green-button { background: var(--green); color: white; }
+    .gold-button { background: var(--gold); color: #183020; }
+    .whatsapp-button { background: #128c4a; color: white; }
+
+    .notice {
+      background: #fff8d9;
+      border-left: 5px solid #d7a900;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+
+    .success {
+      background: #e3f3e6;
+      border-left: 5px solid var(--green);
+      padding: 14px;
+      border-radius: 5px;
+      margin-top: 18px;
+    }
+
+    .idea-item {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 15px;
+      margin: 12px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .idea-item h4 { margin: 0 0 5px; color: var(--dark-green); }
+
+    .share-box {
+      text-align: center;
+      padding: 22px;
+      background: #e4f1e5;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #063f16;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+
+    footer a { color: var(--gold); }
+
+    @media (max-width: 480px) {
+      nav a { font-size: 14px; padding: 7px 8px; }
+      .card { padding: 17px; }
+      .button { width: 100%; margin: 5px 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+  <p>Consistency Today, Better Tomorrow!</p>
+</header>
+
+<nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="live-events.html">Live Events</a>
+  <a href="campaign-team.html">Campaign Team</a>
+  <a href="polling-unit-information.html">Polling Unit Info</a>
+  <a href="endorsements.html">Endorsements</a>
+  <a href="ideas-suggestions.html" aria-current="page">Ideas & Suggestions</a>
+</nav>
+
+<section class="hero">
+  <h2>Your Ideas Matter</h2>
+  <p>
+    Share constructive ideas and suggestions about community needs,
+    public services and development priorities.
+  </p>
+</section>
+
+<main class="container">
+
+  <section>
+    <h2 class="section-title">Submit an Idea or Suggestion</h2>
+    <p class="intro">
+      Please describe your suggestion clearly. Contact details are optional.
+      Avoid including sensitive personal information.
+    </p>
+
+    <div class="card">
+      <form id="idea-form">
+        <label for="category">Suggestion Category *</label>
+        <select id="category" required>
+          <option value="">Choose a category</option>
+          <option>Roads and Infrastructure</option>
+          <option>Education</option>
+          <option>Healthcare</option>
+          <option>Youth Development and Skills</option>
+          <option>Agriculture</option>
+          <option>Employment and Enterprise</option>
+          <option>Water and Sanitation</option>
+          <option>Security</option>
+          <option>Community Development</option>
+          <option>Other</option>
+        </select>
+
+        <label for="title">Suggestion Title *</label>
+        <input id="title" type="text" maxlength="100"
+               placeholder="Give your idea a short title" required>
+
+        <label for="community">Community or Area (Optional)</label>
+        <input id="community" type="text" maxlength="100"
+               placeholder="Enter your community or area">
+
+        <label for="description">Describe Your Idea *</label>
+        <textarea id="description" maxlength="2000"
+                  placeholder="What is the problem, and what solution do you suggest?"
+                  required></textarea>
+        <p class="hint">Maximum 2,000 characters.</p>
+
+        <label for="name">Your Name (Optional)</label>
+        <input id="name" type="text" maxlength="100"
+               autocomplete="name" placeholder="Enter your name">
+
+        <label for="contact">Contact Details (Optional)</label>
+        <input id="contact" type="text" maxlength="100"
+               placeholder="Email or phone number, if you wish">
+
+        <div class="notice">
+          <strong>Privacy notice:</strong>
+          This demonstration saves suggestions in this browser only.
+          They are not automatically sent to the campaign team or visible
+          to visitors using other devices. Do not enter passwords, financial
+          details or other sensitive information.
+        </div>
+
+        <button class="button green-button" type="submit">
+          Save Suggestion on This Device
+        </button>
+
+        <button class="button gold-button" type="reset">
+          Clear Form
+        </button>
+
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Suggestions Saved on This Device</h2>
+    <p class="intro">
+      Only suggestions saved in this browser profile appear below.
+    </p>
+
+    <div class="card">
+      <p id="idea-count">No suggestions saved yet.</p>
+      <div id="saved-ideas"></div>
+
+      <button class="button green-button" id="export-ideas" type="button">
+        Download My Suggestions
+      </button>
+
+      <button class="button gold-button" id="delete-ideas" type="button">
+        Delete Saved Suggestions
+      </button>
+
+      <p class="hint">
+        Download creates a text file on this device. Deleting saved
+        suggestions cannot be undone.
+      </p>
+    </div>
+  </section>
+
+  <section class="share-box">
+    <h2>Share This Page</h2>
+    <p>Invite others to share constructive ideas for community development.</p>
+
+    <a class="button whatsapp-button"
+       id="whatsapp-share"
+       href="#"
+       target="_blank"
+       rel="noopener noreferrer">
+      Share on WhatsApp
+    </a>
+
+    <button class="button green-button" id="copy-link" type="button">
+      Copy Page Link
+    </button>
+
+    <p id="copy-status" role="status" aria-live="polite"></p>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>CONSISTENCY 2027</strong></p>
+  <p>Consistency Today, Better Tomorrow!</p>
+  <p>Service to the People</p>
+  <p><a href="index.html">Return to Homepage</a></p>
+  <p>&copy; 2027 CONSISTENCY 2027. All rights reserved.</p>
+</footer>
+
+<script>
+(function () {
+  const STORAGE_KEY = "consistency2027_ideas_v1";
+  const form = document.getElementById("idea-form");
+  const status = document.getElementById("form-status");
+  const savedIdeas = document.getElementById("saved-ideas");
+  const ideaCount = document.getElementById("idea-count");
+
+  function loadIdeas() {
+    try {
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveIdeas(ideas) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ideas));
+  }
+
+  function renderIdeas() {
+    const ideas = loadIdeas();
+    savedIdeas.replaceChildren();
+
+    ideaCount.textContent = ideas.length === 1
+      ? "1 suggestion saved on this device."
+      : ideas.length + " suggestions saved on this device.";
+
+    if (ideas.length === 0) {
+      savedIdeas.textContent = "No suggestions saved yet.";
+      return;
+    }
+
+    ideas.slice().reverse().forEach(function (idea) {
+      const item = document.createElement("article");
+      item.className = "idea-item";
+
+      const title = document.createElement("h4");
+      title.textContent = idea.title;
+
+      const category = document.createElement("p");
+      category.textContent = "Category: " + idea.category;
+
+      const description = document.createElement("p");
+      description.textContent = idea.description;
+
+      const area = document.createElement("p");
+      area.textContent = idea.community ? "Area: " + idea.community : "";
+
+      const date = document.createElement("small");
+      date.textContent = "Saved: " + idea.date;
+
+      item.append(title, category, description, area, date);
+      savedIdeas.appendChild(item);
+    });
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const idea = {
+      category: document.getElementById("category").value,
+      title: document.getElementById("title").value.trim(),
+      community: document.getElementById("community").value.trim(),
+      description: document.getElementById("description").value.trim(),
+      name: document.getElementById("name").value.trim(),
+      contact: document.getElementById("contact").value.trim(),
+      date: new Date().toLocaleString()
+    };
+
+    if (!idea.category || !idea.title || !idea.description) {
+      status.textContent = "Please complete all required fields.";
+      return;
+    }
+
+    try {
+      const ideas = loadIdeas();
+      ideas.push(idea);
+      saveIdeas(ideas);
+      renderIdeas();
+      form.reset();
+      status.textContent =
+        "Suggestion saved on this device. It has not been sent to the campaign team.";
+    } catch (error) {
+      status.textContent =
+        "The browser could not save this suggestion. Try downloading your information or using another browser.";
+    }
+  });
+
+  document.getElementById("export-ideas").addEventListener("click", function () {
+    const ideas = loadIdeas();
+
+    if (!ideas.length) {
+      alert("There are no saved suggestions to download.");
+      return;
+    }
+
+    const text = ideas.map(function (idea, index) {
+      return [
+        "Suggestion " + (index + 1),
+        "Category: " + idea.category,
+        "Title: " + idea.title,
+        "Community: " + idea.community,
+        "Description: " + idea.description,
+        "Name: " + idea.name,
+        "Contact: " + idea.contact,
+        "Saved: " + idea.date
+      ].join("\n");
+    }).join("\n\n--------------------\n\n");
+
+    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "consistency-2027-suggestions.txt";
+    link.click();
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById("delete-ideas").addEventListener("click", function () {
+    if (confirm("Delete all suggestions saved in this browser? This cannot be undone.")) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderIdeas();
+      status.textContent = "Saved suggestions deleted from this browser.";
+    }
+  });
+
+  const pageUrl = window.location.href;
+  document.getElementById("whatsapp-share").href =
+    "https://wa.me/?text=" +
+    encodeURIComponent("Share your ideas for community development: " + pageUrl);
+
+  document.getElementById("copy-link").addEventListener("click", async function () {
+    const message = document.getElementById("copy-status");
+
+    try {
+      await navigator.clipboard.writeText(pageUrl);
+      message.textContent = "Page link copied successfully.";
+    } catch (error) {
+      message.textContent =
+        "Copy is unavailable. Copy the page address from your browser's address bar.";
+    }
+  });
+
+  renderIdeas();
+})();
+</script>
+
+</body>
+</html>
