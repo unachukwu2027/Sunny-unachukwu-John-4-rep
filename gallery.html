@@ -1,658 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f23">
+<title>Campaign Gallery | CONSISTENCY 2027</title>
+<meta name="description" content="Explore the CONSISTENCY 2027 campaign gallery for Barr. Sunny John Unachukwu, Esq., Mbaitoli/Ikeduru Federal Constituency, Imo State.">
 
-  <title>Campaign Gallery | CONSISTENCY 2027</title>
+<style>
+:root {
+  --green:#087f23;
+  --dark:#075d1b;
+  --gold:#ffd700;
+  --red:#c62828;
+  --bg:#f5faf5;
+  --text:#263329;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none}
+.flag-line{height:6px;background:linear-gradient(to right,#087f23 33.33%,white 33.33%,white 66.66%,#c62828 66.66%)}
+header{background:var(--green);color:white;padding:22px 16px;border-bottom:5px solid var(--gold);text-align:center}
+header h1{font-size:clamp(25px,5vw,38px);font-weight:900}
+header h1 span{color:var(--gold)}
+header p{margin-top:7px;font-size:14px}
+nav{background:var(--dark);padding:12px;display:flex;justify-content:center;flex-wrap:wrap;gap:5px}
+nav a{color:white;font-size:13px;font-weight:bold;padding:8px 11px;border-radius:5px}
+nav a:hover{background:var(--gold);color:var(--dark)}
+.hero{background:linear-gradient(135deg,#e6f6e8,#fff);text-align:center;padding:48px 18px}
+.hero-label{display:inline-block;background:var(--gold);color:var(--dark);border-radius:30px;padding:5px 15px;font-size:12px;font-weight:bold;letter-spacing:1px;margin-bottom:12px}
+.hero h2{font-size:clamp(29px,5vw,43px);color:var(--dark);margin-bottom:12px}
+.hero p{max-width:700px;margin:auto;color:#566357}
+.container{width:92%;max-width:1150px;margin:40px auto}
+.gallery-heading{text-align:center;margin-bottom:28px}
+.gallery-heading h2{color:var(--dark);font-size:28px;margin-bottom:8px}
+.gallery-heading p{color:#687569;font-size:14px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.gallery-card{background:white;border-radius:12px;overflow:hidden;border:1px solid #dce9dd;box-shadow:0 5px 20px #12341210;transition:transform .2s}
+.gallery-card:hover{transform:translateY(-3px)}
+.image-button{display:block;border:none;padding:0;width:100%;background:#eaf3eb;cursor:zoom-in}
+.gallery-card img{display:block;width:100%;height:310px;object-fit:contain;background:#edf4ed}
+.image-caption{padding:16px}
+.image-caption h3{font-size:17px;color:var(--dark);margin-bottom:5px}
+.image-caption p{color:#687569;font-size:13px;margin-bottom:14px;overflow-wrap:anywhere}
+.button-row{display:flex;gap:8px;flex-wrap:wrap}
+.action-button{display:inline-block;border:none;cursor:pointer;border-radius:5px;padding:9px 12px;font-size:12px;font-weight:bold;text-align:center}
+.share-button{background:var(--green);color:white}
+.view-button{background:#fff6c4;color:#4b4617}
+.gallery-note{margin-top:30px;padding:18px;background:#fffbe7;border-left:5px solid var(--gold);border-radius:6px;font-size:13px;color:#5f5825}
+.status{padding:20px;margin:15px 0;text-align:center;background:white;border:1px solid #dce9dd;border-radius:8px;overflow-wrap:anywhere}
+.cta{background:var(--green);color:white;text-align:center;padding:35px 18px;border-top:5px solid var(--gold);border-bottom:5px solid var(--red)}
+.cta h2{font-size:27px;margin-bottom:8px}
+.cta p{margin-bottom:18px}
+.cta a{display:inline-block;background:var(--gold);color:#17331c;padding:11px 18px;margin:5px;border-radius:5px;font-weight:bold}
+footer{background:#102a17;color:#e1eee3;padding:25px 15px;text-align:center;font-size:13px}
+.footer-links{margin:12px 0}
+.footer-links a{display:inline-block;color:var(--gold);margin:5px 9px}
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:#000e;padding:20px;align-items:center;justify-content:center;flex-direction:column}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95%;max-height:78vh;object-fit:contain;border:2px solid white;border-radius:5px}
+.lightbox-caption{color:white;margin-top:12px;text-align:center}
+.close-lightbox{position:absolute;top:12px;right:20px;color:white;background:transparent;border:none;font-size:40px;cursor:pointer}
+@media(max-width:850px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-card img{height:280px}}
+@media(max-width:560px){.gallery-grid{grid-template-columns:1fr}.gallery-card img{height:300px}.container{margin:28px auto}nav a{font-size:12px;padding:7px 8px}}
+</style>
+</head>
+<body>
 
-  <meta name="description" content="Explore the CONSISTENCY 2027 campaign gallery for Barr. Sunny John Unachukwu, Esq., Mbaitoli/Ikeduru Federal Constituency, Imo State.">
+<div class="flag-line"></div>
 
-  <meta name="theme-color" content="#087f23">
+<header>
+  <h1>CONSISTENCY <span>2027</span></h1>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p>Mbaitoli/Ikeduru Federal Constituency, Imo State</p>
+</header>
 
-  <style>
-    :root {
-      --green: #087f23;
-      --dark-green: #075d1b;
-      --gold: #ffd700;
-      --red: #c62828;
-      --white: #ffffff;
-      --background: #f5faf5;
-      --text: #263329;
+<nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="manifesto.html">Manifesto</a>
+  <a href="projects.html">Priorities</a>
+  <a href="news.html">News</a>
+  <a href="announcements.html">Announcements</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="events.html">Events</a>
+  <a href="calendar.html">Calendar</a>
+  <a href="volunteer.html">Volunteer</a>
+  <a href="contact.html">Contact</a>
+  <a href="site-map.html">Website Directory</a>
+</nav>
+
+<section class="hero">
+  <span class="hero-label">CONSISTENCY 2027</span>
+  <h2>Campaign Photo Gallery</h2>
+  <p>Explore campaign photographs and visual materials. Select an image to enlarge it or share it with friends and supporters.</p>
+</section>
+
+<main class="container">
+  <div class="gallery-heading">
+    <h2>Our Gallery</h2>
+    <p>Campaign images and visual materials</p>
+  </div>
+
+  <div id="galleryStatus" class="status" role="status" aria-live="polite">
+    Loading published gallery photographs…
+  </div>
+
+  <div id="galleryGrid" class="gallery-grid"></div>
+
+  <div class="gallery-note">
+    <strong>Gallery updates:</strong> Published photographs are retrieved from the campaign's Supabase gallery table. Images must use publicly accessible direct image URLs.
+  </div>
+</main>
+
+<section class="cta">
+  <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
+  <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+  <a href="index.html">Return to Homepage</a>
+  <a href="volunteer.html">Get Involved</a>
+</section>
+
+<footer>
+  <p><strong>CONSISTENCY 2027</strong></p>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p>Mbaitoli/Ikeduru Federal Constituency, Imo State.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="site-map.html">Website Directory</a>
+  </div>
+  <p>&copy; <span id="currentYear"></span> CONSISTENCY 2027. All rights reserved.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged gallery image">
+  <button class="close-lightbox" id="closeLightbox" type="button" aria-label="Close enlarged image">&times;</button>
+  <img id="lightboxImage" src="" alt="Enlarged campaign photograph">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://sibionetcywotyrfrneb.supabase.co";
+const SUPABASE_KEY = "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
+
+const grid = document.getElementById("galleryGrid");
+const statusBox = document.getElementById("galleryStatus");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+
+let galleryItems = [];
+
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+function showStatus(message) {
+  statusBox.textContent = message;
+  statusBox.hidden = false;
+}
+
+function hideStatus() {
+  statusBox.hidden = true;
+}
+
+function firstValue(row, names) {
+  for (const name of names) {
+    if (row[name] !== undefined && row[name] !== null &&
+        String(row[name]).trim() !== "") {
+      return row[name];
+    }
+  }
+  return "";
+}
+
+function getImageUrl(row) {
+  return firstValue(row, [
+    "image_url", "photo_url", "image", "photo", "image_link", "url"
+  ]);
+}
+
+function getTitle(row, index) {
+  return firstValue(row, [
+    "title", "name", "caption", "image_title"
+  ]) || "CONSISTENCY 2027 — Image " + (index + 1);
+}
+
+function getDescription(row) {
+  return firstValue(row, [
+    "description", "summary", "caption", "details"
+  ]) || "CONSISTENCY 2027 campaign gallery.";
+}
+
+function openLightbox(index) {
+  const item = galleryItems[index];
+  if (!item) return;
+  lightboxImage.src = item.image;
+  lightboxImage.alt = item.title;
+  lightboxCaption.textContent = item.title;
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+  document.getElementById("closeLightbox").focus();
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightboxImage.src = "";
+  document.body.style.overflow = "";
+}
+
+document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeLightbox();
+});
+
+async function shareImage(index) {
+  const item = galleryItems[index];
+  if (!item) return;
+
+  const text = item.title + "\n" + item.description +
+    "\n" + item.image;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: item.title,
+        text: item.description,
+        url: item.image
+      });
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+
+  window.open(
+    "https://wa.me/?text=" + encodeURIComponent(text),
+    "_blank",
+    "noopener"
+  );
+}
+
+function createCard(item, index) {
+  const article = document.createElement("article");
+  article.className = "gallery-card";
+
+  const imageButton = document.createElement("button");
+  imageButton.type = "button";
+  imageButton.className = "image-button";
+  imageButton.setAttribute("aria-label", "Enlarge " + item.title);
+  imageButton.addEventListener("click", () => openLightbox(index));
+
+  const image = document.createElement("img");
+  image.src = item.image;
+  image.alt = item.title;
+  image.loading = "lazy";
+
+  image.addEventListener("error", () => {
+    image.alt = "Image could not be loaded: " + item.title;
+    image.style.objectFit = "contain";
+    image.style.padding = "20px";
+    image.removeAttribute("src");
+    imageButton.style.cursor = "default";
+  });
+
+  imageButton.appendChild(image);
+
+  const caption = document.createElement("div");
+  caption.className = "image-caption";
+
+  const heading = document.createElement("h3");
+  heading.textContent = item.title;
+
+  const description = document.createElement("p");
+  description.textContent = item.description;
+
+  const row = document.createElement("div");
+  row.className = "button-row";
+
+  const viewButton = document.createElement("button");
+  viewButton.type = "button";
+  viewButton.className = "action-button view-button";
+  viewButton.textContent = "Enlarge Image";
+  viewButton.addEventListener("click", () => openLightbox(index));
+
+  const shareButton = document.createElement("button");
+  shareButton.type = "button";
+  shareButton.className = "action-button share-button";
+  shareButton.textContent = "Share Image";
+  shareButton.addEventListener("click", () => shareImage(index));
+
+  row.append(viewButton, shareButton);
+  caption.append(heading, description, row);
+  article.append(imageButton, caption);
+
+  return article;
+}
+
+async function loadGallery() {
+  showStatus("Loading published gallery photographs…");
+
+  try {
+    const response = await fetch(
+      SUPABASE_URL +
+      "/rest/v1/campaign_gallery?select=*&published=eq.true",
+      {
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY
+        }
+      }
+    );
+
+    const raw = await response.text();
+    let data;
+
+    try {
+      data = raw ? JSON.parse(raw) : [];
+    } catch {
+      throw new Error("Supabase returned an unexpected response.");
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .flag-line {
-      height: 6px;
-      background: linear-gradient(
-        to right,
-        #087f23 33.33%,
-        #ffffff 33.33%,
-        #ffffff 66.66%,
-        #c62828 66.66%
+    if (!response.ok) {
+      throw new Error(
+        data.message || data.msg || data.error ||
+        "Supabase returned HTTP " + response.status
       );
     }
 
-    header {
-      background: var(--green);
-      color: white;
-      padding: 22px 16px;
-      border-bottom: 5px solid var(--gold);
-      text-align: center;
+    if (!Array.isArray(data)) {
+      throw new Error("The gallery response was not a list of records.");
     }
 
-    header h1 {
-      font-size: clamp(25px, 5vw, 38px);
-      font-weight: 900;
+    galleryItems = data
+      .map((row, originalIndex) => ({
+        image: getImageUrl(row),
+        title: getTitle(row, originalIndex),
+        description: getDescription(row)
+      }))
+      .filter(item => {
+        if (!item.image) return false;
+        try {
+          const url = new URL(item.image);
+          return url.protocol === "https:" || url.protocol === "http:";
+        } catch {
+          return false;
+        }
+      });
+
+    grid.replaceChildren();
+
+    if (galleryItems.length === 0) {
+      showStatus(
+        data.length
+          ? "Gallery records were found, but no usable image URL was detected. We need to check your campaign_gallery column names."
+          : "No published gallery photographs are available yet."
+      );
+      return;
     }
 
-    header h1 span {
-      color: var(--gold);
-    }
-
-    header p {
-      margin-top: 7px;
-      font-size: 14px;
-    }
-
-    nav {
-      background: var(--dark-green);
-      padding: 12px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    nav a {
-      color: white;
-      font-size: 13px;
-      font-weight: bold;
-      padding: 8px 11px;
-      border-radius: 5px;
-    }
-
-    nav a:hover {
-      background: var(--gold);
-      color: var(--dark-green);
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #e6f6e8, #ffffff);
-      text-align: center;
-      padding: 48px 18px;
-    }
-
-    .hero-label {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--dark-green);
-      border-radius: 30px;
-      padding: 5px 15px;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    .hero h2 {
-      font-size: clamp(29px, 5vw, 43px);
-      color: var(--dark-green);
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: #566357;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1150px;
-      margin: 40px auto;
-    }
-
-    .gallery-heading {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .gallery-heading h2 {
-      color: var(--dark-green);
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .gallery-heading p {
-      color: #687569;
-      font-size: 14px;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .gallery-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #dce9dd;
-      box-shadow: 0 5px 20px #12341210;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .gallery-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px #1234121c;
-    }
-
-    .image-button {
-      display: block;
-      border: none;
-      padding: 0;
-      width: 100%;
-      background: #eaf3eb;
-      cursor: zoom-in;
-    }
-
-    .gallery-card img {
-      display: block;
-      width: 100%;
-      height: 310px;
-      object-fit: contain;
-      background: #edf4ed;
-    }
-
-    .image-caption {
-      padding: 16px;
-    }
-
-    .image-caption h3 {
-      font-size: 17px;
-      color: var(--dark-green);
-      margin-bottom: 5px;
-    }
-
-    .image-caption p {
-      color: #687569;
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .action-button {
-      display: inline-block;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      padding: 9px 12px;
-      font-size: 12px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .share-button {
-      background: var(--green);
-      color: white;
-    }
-
-    .share-button:hover {
-      background: var(--dark-green);
-    }
-
-    .view-button {
-      background: #fff6c4;
-      color: #4b4617;
-    }
-
-    .view-button:hover {
-      background: var(--gold);
-    }
-
-    .gallery-note {
-      margin-top: 30px;
-      padding: 18px;
-      background: #fffbe7;
-      border-left: 5px solid var(--gold);
-      border-radius: 6px;
-      font-size: 13px;
-      color: #5f5825;
-    }
-
-    .cta {
-      background: var(--green);
-      color: white;
-      text-align: center;
-      padding: 35px 18px;
-      border-top: 5px solid var(--gold);
-      border-bottom: 5px solid var(--red);
-    }
-
-    .cta h2 {
-      font-size: 27px;
-      margin-bottom: 8px;
-    }
-
-    .cta p {
-      margin-bottom: 18px;
-    }
-
-    .cta a {
-      display: inline-block;
-      background: var(--gold);
-      color: #17331c;
-      padding: 11px 18px;
-      margin: 5px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    footer {
-      background: #102a17;
-      color: #e1eee3;
-      padding: 25px 15px;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    .footer-links {
-      margin: 12px 0;
-    }
-
-    .footer-links a {
-      display: inline-block;
-      color: var(--gold);
-      margin: 5px 9px;
-    }
-
-    /* IMAGE ENLARGEMENT */
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.93);
-      padding: 20px;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .lightbox.open {
-      display: flex;
-    }
-
-    .lightbox img {
-      max-width: 95%;
-      max-height: 78vh;
-      object-fit: contain;
-      border: 2px solid white;
-      border-radius: 5px;
-    }
-
-    .lightbox-caption {
-      color: white;
-      margin-top: 12px;
-      text-align: center;
-    }
-
-    .close-lightbox {
-      position: absolute;
-      top: 12px;
-      right: 20px;
-      color: white;
-      background: transparent;
-      border: none;
-      font-size: 40px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 850px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .gallery-card img {
-        height: 280px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-card img {
-        height: 300px;
-      }
-
-      .container {
-        margin: 28px auto;
-      }
-
-      nav a {
-        font-size: 12px;
-        padding: 7px 8px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="flag-line"></div>
-
-  <header>
-    <h1>CONSISTENCY <span>2027</span></h1>
-    <p>Barr. Sunny John Unachukwu, Esq.</p>
-    <p>Mbaitoli/Ikeduru Federal Constituency, Imo State</p>
-  </header>
-
-  <nav aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="manifesto.html">Manifesto</a>
-    <a href="projects.html">Priorities</a>
-    <a href="news.html">News</a>
-    <a href="announcements.html">Announcements</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="videos.html">Videos</a>
-    <a href="events.html">Events</a>
-    <a href="calendar.html">Calendar</a>
-    <a href="volunteer.html">Volunteer</a>
-    <a href="contact.html">Contact</a>
-    <a href="site-map.html">Website Directory</a>
-  </nav>
-
-  <section class="hero">
-    <span class="hero-label">CONSISTENCY 2027</span>
-    <h2>Campaign Photo Gallery</h2>
-
-    <p>
-      Explore the campaign's visual collection for Barr. Sunny John
-      Unachukwu, Esq. Select any image to enlarge it or share the
-      image link with friends and supporters.
-    </p>
-  </section>
-
-  <main class="container">
-
-    <div class="gallery-heading">
-      <h2>Our Gallery</h2>
-      <p>Campaign images and visual materials</p>
-    </div>
-
-    <div class="gallery-grid">
-
-      <!-- IMAGE 1 -->
-      <article class="gallery-card">
-        <button
-          type="button"
-          class="image-button"
-          onclick="openLightbox(0)"
-          aria-label="Enlarge campaign image 1"
-        >
-          <img
-            src="https://i.ibb.co/7JTRw0Hp/file-000000007be48211a6ab0047cbd9077e.png"
-            alt="CONSISTENCY 2027 campaign gallery image 1"
-            loading="lazy"
-          >
-        </button>
-
-        <div class="image-caption">
-          <h3>CONSISTENCY 2027 — Image 1</h3>
-          <p>Campaign gallery collection.</p>
-
-          <div class="button-row">
-            <button class="action-button view-button"
-              onclick="openLightbox(0)">
-              Enlarge Image
-            </button>
-
-            <button class="action-button share-button"
-              onclick="shareImage(0)">
-              Share Image
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- IMAGE 2 -->
-      <article class="gallery-card">
-        <button
-          type="button"
-          class="image-button"
-          onclick="openLightbox(1)"
-          aria-label="Enlarge campaign image 2"
-        >
-          <img
-            src="https://i.ibb.co/bgjzkh9Y/file-0000000090b48211b7fef934e2683c72.png"
-            alt="CONSISTENCY 2027 campaign gallery image 2"
-            loading="lazy"
-          >
-        </button>
-
-        <div class="image-caption">
-          <h3>CONSISTENCY 2027 — Image 2</h3>
-          <p>Campaign gallery collection.</p>
-
-          <div class="button-row">
-            <button class="action-button view-button"
-              onclick="openLightbox(1)">
-              Enlarge Image
-            </button>
-
-            <button class="action-button share-button"
-              onclick="shareImage(1)">
-              Share Image
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- IMAGE 3 -->
-      <article class="gallery-card">
-        <button
-          type="button"
-          class="image-button"
-          onclick="openLightbox(2)"
-          aria-label="Enlarge campaign image 3"
-        >
-          <img
-            src="https://i.ibb.co/5bDjS2k/file-0000000024ac82109ee25566b856b9b3.png"
-            alt="CONSISTENCY 2027 campaign gallery image 3"
-            loading="lazy"
-          >
-        </button>
-
-        <div class="image-caption">
-          <h3>CONSISTENCY 2027 — Image 3</h3>
-          <p>Campaign gallery collection.</p>
-
-          <div class="button-row">
-            <button class="action-button view-button"
-              onclick="openLightbox(2)">
-              Enlarge Image
-            </button>
-
-            <button class="action-button share-button"
-              onclick="shareImage(2)">
-              Share Image
-            </button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="gallery-note">
-      <strong>Note:</strong> These images are loaded from the ImgBB
-      links you supplied. An internet connection is required to
-      display them. You can add descriptive captions later if you
-      provide the details for each image.
-    </div>
-
-  </main>
-
-  <section class="cta">
-    <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
-    <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
-
-    <a href="index.html">Return to Homepage</a>
-    <a href="volunteer.html">Get Involved</a>
-  </section>
-
-  <footer>
-    <p><strong>CONSISTENCY 2027</strong></p>
-
-    <p>
-      Barr. Sunny John Unachukwu, Esq.
-    </p>
-
-    <p>
-      Mbaitoli/Ikeduru Federal Constituency, Imo State.
-    </p>
-
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="news.html">News</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-      <a href="site-map.html">Website Directory</a>
-    </div>
-
-    <p>
-      &copy; <span id="currentYear"></span> CONSISTENCY 2027.
-      All rights reserved.
-    </p>
-  </footer>
-
-  <!-- IMAGE LIGHTBOX -->
-  <div
-    class="lightbox"
-    id="lightbox"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Enlarged gallery image"
-    onclick="closeLightbox(event)"
-  >
-    <button
-      class="close-lightbox"
-      type="button"
-      onclick="closeLightbox()"
-      aria-label="Close enlarged image"
-    >&times;</button>
-
-    <img id="lightboxImage" src="" alt="Enlarged campaign image">
-
-    <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
-
-  <script>
-    const galleryImages = [
-      {
-        src: "https://i.ibb.co/7JTRw0Hp/file-000000007be48211a6ab0047cbd9077e.png",
-        title: "CONSISTENCY 2027 — Image 1"
-      },
-      {
-        src: "https://i.ibb.co/bgjzkh9Y/file-0000000090b48211b7fef934e2683c72.png",
-        title: "CONSISTENCY 2027 — Image 2"
-      },
-      {
-        src: "https://i.ibb.co/5bDjS2k/file-0000000024ac82109ee25566b856b9b3.png",
-        title: "CONSISTENCY 2027 — Image 3"
-      }
-    ];
-
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
-
-    function openLightbox(index) {
-      const item = galleryImages[index];
-
-      document.getElementById("lightboxImage").src = item.src;
-      document.getElementById("lightboxImage").alt = item.title;
-      document.getElementById("lightboxCaption").textContent =
-        item.title;
-
-      document.getElementById("lightbox").classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeLightbox(event) {
-      if (
-        event &&
-        event.target.id !== "lightbox" &&
-        !event.target.classList.contains("close-lightbox")
-      ) {
-        return;
-      }
-
-      document.getElementById("lightbox").classList.remove("open");
-      document.getElementById("lightboxImage").src = "";
-      document.body.style.overflow = "";
-    }
-
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        closeLightbox();
-      }
+    galleryItems.forEach((item, index) => {
+      grid.appendChild(createCard(item, index));
     });
 
-    async function shareImage(index) {
-      const item = galleryImages[index];
+    hideStatus();
 
-      const shareText =
-        item.title +
-        "\nCONSISTENCY TODAY, BETTER TOMORROW!\n" +
-        item.src;
+  } catch (error) {
+    showStatus(
+      "We could not load the gallery from Supabase. " +
+      error.message +
+      " Please check the campaign_gallery table, its published column, and its public SELECT policy."
+    );
+  }
+}
 
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: item.title,
-            text: "CONSISTENCY 2027 Campaign Gallery",
-            url: item.src
-          });
-          return;
-        } catch (error) {
-          if (error.name === "AbortError") {
-            return;
-          }
-        }
-      }
-
-      const whatsappUrl =
-        "https://wa.me/?text=" + encodeURIComponent(shareText);
-
-      window.open(whatsappUrl, "_blank", "noopener");
-    }
-  </script>
-
+loadGallery();
+</script>
 </body>
 </html>
