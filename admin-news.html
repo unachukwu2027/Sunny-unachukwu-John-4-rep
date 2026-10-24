@@ -2,346 +2,271 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087f23">
 <title>News Admin | CONSISTENCY 2027</title>
-
 <style>
-:root {
-  --green: #087f23;
-  --dark: #075c1b;
-  --light: #f1f8f1;
-  --red: #c62828;
-  --gold: #d4a017;
-}
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f3f5f3;
-  color: #222;
-}
-
-header {
-  background: var(--green);
-  color: white;
-  padding: 24px 16px;
-  text-align: center;
-  border-bottom: 5px solid var(--gold);
-}
-
-header h1 {
-  margin: 0 0 8px;
-  font-size: 25px;
-}
-
-header p { margin: 0; }
-
-nav {
-  background: var(--dark);
-  padding: 12px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 5px 10px;
-  display: inline-block;
-  font-weight: bold;
-}
-
-.container {
-  max-width: 850px;
-  margin: 25px auto;
-  padding: 0 15px;
-}
-
-.panel {
-  background: white;
-  padding: 22px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px #00000010;
-}
-
-h2 {
-  color: var(--green);
-  margin-top: 0;
-}
-
-label {
-  display: block;
-  margin: 17px 0 7px;
-  font-weight: bold;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  font-family: inherit;
-}
-
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-#content { min-height: 220px; }
-
-button, .button {
-  display: inline-block;
-  border: 0;
-  border-radius: 6px;
-  padding: 13px 17px;
-  margin-top: 16px;
-  cursor: pointer;
-  background: var(--green);
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-button:disabled {
-  opacity: .6;
-  cursor: not-allowed;
-}
-
-.secondary {
-  background: #555;
-}
-
-.notice {
-  background: var(--light);
-  border-left: 4px solid var(--green);
-  padding: 13px;
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-
-.warning {
-  background: #fff7e6;
-  border-left: 4px solid var(--gold);
-  padding: 13px;
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-
-.status {
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 6px;
-  display: none;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-.status.error {
-  display: block;
-  background: #ffebee;
-  color: #a31515;
-}
-
-.status.success {
-  display: block;
-  background: #e8f5e9;
-  color: #176b25;
-}
-
-.small {
-  color: #666;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-footer {
-  text-align: center;
-  background: #063f14;
-  color: white;
-  padding: 22px 12px;
-  margin-top: 35px;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6f3;color:#222}
+header{background:#087f23;color:white;text-align:center;padding:24px 12px;border-bottom:5px solid #d4a017}
+header h1{margin:0 0 8px}
+nav{background:#075c1b;text-align:center;padding:12px}
+nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
+main{max-width:850px;margin:24px auto;padding:0 14px}
+.panel{background:white;padding:22px;margin-bottom:20px;border-radius:10px;box-shadow:0 2px 10px #0001}
+h2{color:#087f23;margin-top:0}
+label{display:block;font-weight:bold;margin:16px 0 7px}
+input,textarea{width:100%;padding:13px;border:1px solid #ccc;border-radius:6px;font:16px Arial}
+textarea{min-height:100px;resize:vertical}
+#content{min-height:220px}
+button{background:#087f23;color:white;border:0;padding:13px 18px;border-radius:6px;font-weight:bold;font-size:15px;margin:14px 7px 0 0;cursor:pointer}
+button:disabled{opacity:.55;cursor:not-allowed}
+.secondary{background:#555}
+.status{display:none;margin-top:15px;padding:12px;border-radius:6px;line-height:1.5;overflow-wrap:anywhere}
+.status.error{display:block;background:#ffebee;color:#a31515}
+.status.success{display:block;background:#e8f5e9;color:#176b25}
+.notice{padding:13px;background:#f1f8f1;border-left:4px solid #087f23;line-height:1.6}
+.small{font-size:13px;color:#666;line-height:1.5}
+footer{text-align:center;background:#063f14;color:white;padding:22px}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>CONSISTENCY 2027</h1>
-  <p>Campaign News Administration</p>
+<h1>CONSISTENCY 2027</h1>
+<p>Campaign News Administration</p>
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="news.html">View News</a>
+<a href="index.html">Home</a>
+<a href="news.html">View News</a>
 </nav>
 
-<main class="container">
+<main>
+<section class="panel">
+<h2>Administrator Login</h2>
+<div class="notice">
+Sign in with the administrator email and password you created in Supabase.
+</div>
 
-  <section class="panel">
-    <h2>Administrator Access</h2>
+<form id="loginForm">
+<label for="email">Administrator Email</label>
+<input id="email" type="email" autocomplete="username" required>
 
-    <div class="notice">
-      This dashboard uses your existing Supabase project. Administrator
-      sign-in is required before news can be published securely.
-    </div>
+<label for="password">Password</label>
+<input id="password" type="password" autocomplete="current-password" required>
 
-    <label for="email">Administrator Email</label>
-    <input id="email" type="email" autocomplete="username"
-           placeholder="Enter your administrator email">
+<button id="loginBtn" type="submit">Sign In</button>
+<button id="logoutBtn" type="button" class="secondary" hidden>Sign Out</button>
+</form>
+<div id="authStatus" class="status" role="status" aria-live="polite"></div>
+<p class="small">Never share your administrator password. This page uses your Supabase publishable key and authenticated session.</p>
+</section>
 
-    <label for="password">Administrator Password</label>
-    <input id="password" type="password"
-           autocomplete="current-password"
-           placeholder="Enter your password">
+<section class="panel">
+<h2>Publish a News Article</h2>
+<p id="sessionMessage" class="notice">Please sign in before publishing.</p>
 
-    <button id="loginBtn" type="button">Sign In</button>
-    <button id="logoutBtn" type="button" class="secondary"
-            hidden>Sign Out</button>
+<form id="newsForm">
+<label for="title">News Headline *</label>
+<input id="title" maxlength="200" required>
 
-    <div id="authStatus" class="status" role="status"
-         aria-live="polite"></div>
+<label for="summary">Short Summary</label>
+<textarea id="summary" maxlength="1000"></textarea>
 
-    <p class="small">
-      An administrator account must first be created in Supabase
-      Authentication. Do not share your password or publish it in your
-      website code.
-    </p>
-  </section>
+<label for="image_url">Direct Image URL</label>
+<input id="image_url" type="url" placeholder="https://example.com/image.jpg">
 
-  <section class="panel">
-    <h2>Publish a News Article</h2>
+<label for="author">Author</label>
+<input id="author" maxlength="150" value="CONSISTENCY 2027 Media Team" required>
 
-    <div class="warning">
-      Publishing is disabled until secure administrator access and database
-      permissions are configured. This prevents unauthorized visitors from
-      publishing news to your campaign website.
-    </div>
+<label for="content">Full News Story *</label>
+<textarea id="content" required></textarea>
 
-    <form id="newsForm">
-      <label for="title">News Headline *</label>
-      <input id="title" maxlength="200" required
-             placeholder="Enter the news headline">
+<label>
+<input id="published" type="checkbox" checked style="width:auto">
+ Publish immediately
+</label>
 
-      <label for="summary">Short Summary</label>
-      <textarea id="summary" maxlength="1000"
-                placeholder="Write a short introduction"></textarea>
-
-      <label for="image_url">News Image URL</label>
-      <input id="image_url" type="url"
-             placeholder="https://example.com/image.jpg">
-
-      <label for="author">Author</label>
-      <input id="author" value="CONSISTENCY 2027 Media Team"
-             maxlength="150" required>
-
-      <label for="content">Full News Story *</label>
-      <textarea id="content" required
-                placeholder="Write the complete news article here"></textarea>
-
-      <button id="publishBtn" type="submit" disabled>
-        Publish News
-      </button>
-    </form>
-
-    <div id="publishStatus" class="status" role="status"
-         aria-live="polite"></div>
-  </section>
-
-  <section class="panel">
-    <h2>Publishing Instructions</h2>
-    <ol>
-      <li>Sign in using your authorized administrator account.</li>
-      <li>Enter the headline, summary, image URL and full story.</li>
-      <li>Publish only after the administrator permissions are configured.</li>
-      <li>Published articles will appear on the public news page when
-          <code>news.html</code> retrieves them from Supabase.</li>
-    </ol>
-    <p class="small">
-      Image URLs must point directly to an image file accessible by your
-      website. A normal image-hosting page link may not display as an image.
-    </p>
-  </section>
-
+<button id="publishBtn" type="submit" disabled>Publish News</button>
+</form>
+<div id="publishStatus" class="status" role="status" aria-live="polite"></div>
+</section>
 </main>
 
 <footer>
-  <strong>CONSISTENCY 2027</strong><br>
-  The Choice Is Now. The Choice Is Clear.
+<strong>CONSISTENCY 2027</strong><br>
+The Choice Is Now. The Choice Is Clear.
 </footer>
 
 <script>
-/*
-  SECURITY-FIRST STARTER
+const PROJECT_URL = "https://sibionetcywotyrfrneb.supabase.co";
+const PUBLISHABLE_KEY = "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
 
-  This page intentionally does not send a public INSERT request.
-  We will connect the authenticated administrator session and confirm
-  the required RLS permissions before enabling publishing.
+let accessToken = null;
 
-  Supabase publishable keys are intended for client-side use with RLS.
-  Never put a service-role or secret key in this file.
-*/
+const $ = id => document.getElementById(id);
 
-const SUPABASE_URL =
-  "https://sibionetcywotyrfrneb.supabase.co";
-
-const SUPABASE_PUBLISHABLE_KEY =
-  "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
-
-const authStatus = document.getElementById("authStatus");
-const publishStatus = document.getElementById("publishStatus");
-const loginBtn = document.getElementById("loginBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-const publishBtn = document.getElementById("publishBtn");
-
-function showStatus(element, message, type) {
-  element.textContent = message;
-  element.className = "status " + type;
+function showStatus(id, message, type) {
+  const el = $(id);
+  el.textContent = message;
+  el.className = "status " + type;
 }
 
-loginBtn.addEventListener("click", function () {
-  showStatus(
-    authStatus,
-    "The secure sign-in connection has not been configured yet. " +
-    "Next, we must enable Supabase Authentication and authorize the " +
-    "administrator account before allowing publishing.",
-    "error"
-  );
+function setLoggedIn(loggedIn) {
+  $("publishBtn").disabled = !loggedIn;
+  $("logoutBtn").hidden = !loggedIn;
+  $("loginBtn").hidden = loggedIn;
+  $("email").disabled = loggedIn;
+  $("password").disabled = loggedIn;
+  $("sessionMessage").textContent = loggedIn
+    ? "Signed in. You can now submit a news article."
+    : "Please sign in before publishing.";
+}
+
+async function supabaseRequest(path, options = {}) {
+  const headers = {
+    "apikey": PUBLISHABLE_KEY,
+    "Content-Type": "application/json",
+    ...(options.headers || {})
+  };
+
+  if (options.authenticated) {
+    if (!accessToken) throw new Error("Please sign in again.");
+    headers.Authorization = "Bearer " + accessToken;
+  } else {
+    headers.Authorization = "Bearer " + PUBLISHABLE_KEY;
+  }
+
+  const response = await fetch(PROJECT_URL + path, {
+    ...options,
+    headers
+  });
+
+  const raw = await response.text();
+  let data = null;
+  try { data = raw ? JSON.parse(raw) : null; } catch {}
+
+  if (!response.ok) {
+    const message = data?.msg || data?.message || data?.error_description ||
+      data?.error || raw || ("HTTP " + response.status);
+    throw new Error(message);
+  }
+  return data;
+}
+
+$("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  $("loginBtn").disabled = true;
+  showStatus("authStatus", "Signing in…", "success");
+
+  try {
+    const email = $("email").value.trim();
+    const password = $("password").value;
+
+    const result = await supabaseRequest(
+      "/auth/v1/token?grant_type=password",
+      {
+        method: "POST",
+        body: JSON.stringify({ email, password })
+      }
+    );
+
+    if (!result.access_token) throw new Error("Supabase did not return an access token.");
+
+    accessToken = result.access_token;
+    $("password").value = "";
+    setLoggedIn(true);
+    showStatus("authStatus", "Signed in successfully.", "success");
+  } catch (error) {
+    accessToken = null;
+    setLoggedIn(false);
+    showStatus("authStatus", "Sign-in failed: " + error.message, "error");
+  } finally {
+    $("loginBtn").disabled = false;
+  }
 });
 
-logoutBtn.addEventListener("click", function () {
-  showStatus(
-    authStatus,
-    "No administrator session is active.",
-    "error"
-  );
+$("logoutBtn").addEventListener("click", () => {
+  accessToken = null;
+  setLoggedIn(false);
+  showStatus("authStatus", "You have signed out.", "success");
+  $("password").value = "";
 });
 
-document.getElementById("newsForm").addEventListener("submit", function (event) {
+$("newsForm").addEventListener("submit", async event => {
   event.preventDefault();
 
-  showStatus(
-    publishStatus,
-    "Publishing is currently locked for security. We must configure " +
-    "administrator authentication and the campaign_news RLS permissions " +
-    "before this form can safely publish articles.",
-    "error"
-  );
+  if (!accessToken) {
+    showStatus("publishStatus", "Please sign in first.", "error");
+    return;
+  }
+
+  const title = $("title").value.trim();
+  const content = $("content").value.trim();
+  const imageUrl = $("image_url").value.trim();
+
+  if (!title || !content) {
+    showStatus("publishStatus", "Headline and full story are required.", "error");
+    return;
+  }
+
+  if (imageUrl) {
+    try {
+      const parsed = new URL(imageUrl);
+      if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
+        throw new Error();
+      }
+    } catch {
+      showStatus("publishStatus", "Enter a valid HTTP or HTTPS image URL.", "error");
+      return;
+    }
+  }
+
+  $("publishBtn").disabled = true;
+  showStatus("publishStatus", "Publishing article…", "success");
+
+  try {
+    const article = {
+      title,
+      summary: $("summary").value.trim() || null,
+      content,
+      image_url: imageUrl || null,
+      author: $("author").value.trim() || "CONSISTENCY 2027 Media Team",
+      published: $("published").checked
+    };
+
+    await supabaseRequest("/rest/v1/campaign_news", {
+      method: "POST",
+      authenticated: true,
+      headers: { "Prefer": "return=minimal" },
+      body: JSON.stringify(article)
+    });
+
+    showStatus(
+      "publishStatus",
+      article.published
+        ? "Article published successfully! Open the public news page to check it."
+        : "Article saved as unpublished. It will not appear on the public news page yet.",
+      "success"
+    );
+
+    $("newsForm").reset();
+    $("author").value = "CONSISTENCY 2027 Media Team";
+    $("published").checked = true;
+  } catch (error) {
+    showStatus(
+      "publishStatus",
+      "Publishing failed: " + error.message +
+      " Check the administrator policy, table permissions, and connection.",
+      "error"
+    );
+  } finally {
+    $("publishBtn").disabled = !accessToken;
+  }
 });
 
-if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
-  showStatus(
-    authStatus,
-    "Supabase project settings are missing.",
-    "error"
-  );
-}
+setLoggedIn(false);
 </script>
-
 </body>
 </html>
