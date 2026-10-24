@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f23">
+  <meta name="description" content="Constituency information, community priorities, and public resources for the CONSISTENCY 2027 campaign.">
+  <title>Constituency Information | CONSISTENCY 2027</title>
+
+  <style>
+    :root {
+      --green: #087f23;
+      --dark-green: #07591b;
+      --gold: #d9a514;
+      --red: #c62828;
+      --light: #f3f9f2;
+      --text: #243126;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 28px 16px;
+      border-bottom: 5px solid var(--gold);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(25px, 5vw, 38px);
+    }
+
+    header p {
+      margin: 8px 0 0;
+    }
+
+    .slogan {
+      color: #ffe58a;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      background: var(--dark-green);
+      padding: 12px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 11px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--gold);
+      color: #172317;
+    }
+
+    .hero {
+      padding: 55px 18px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #07591b, #11963a);
+    }
+
+    .hero h2 {
+      margin: 0 0 12px;
+      font-size: clamp(27px, 5vw, 42px);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 22px;
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 5px;
+      padding: 11px 17px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      background: var(--gold);
+      color: #1b281b;
+      border: none;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 16px 45px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      color: var(--dark-green);
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 10px;
+      border-top: 4px solid var(--green);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--dark-green);
+    }
+
+    .notice {
+      background: #fff8df;
+      border-left: 5px solid var(--gold);
+      padding: 16px;
+      border-radius: 5px;
+    }
+
+    .resource-link {
+      display: inline-block;
+      color: var(--green);
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .form-box {
+      background: white;
+      padding: 22px;
+      border-radius: 10px;
+      border: 1px solid #dce8dc;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 14px 0 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #bdcdbd;
+      border-radius: 6px;
+      font: inherit;
+      background: white;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: #536253;
+    }
+
+    footer {
+      text-align: center;
+      background: #073f16;
+      color: white;
+      padding: 25px 15px;
+    }
+
+    footer a {
+      color: #ffe58a;
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 38px 16px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .card,
+      .form-box {
+        padding: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p class="slogan">THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+</header>
+
+<nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="live-events.html">Live Events</a>
+  <a href="campaign-team.html">Campaign Team</a>
+  <a href="polling-unit-information.html">Polling Information</a>
+  <a href="ideas-suggestions.html">Ideas & Suggestions</a>
+  <a href="endorsements.html">Endorsements</a>
+</nav>
+
+<div class="hero">
+  <h2>Our Constituency, Our Communities</h2>
+  <p>
+    Explore constituency information, community priorities, public resources,
+    and opportunities to share constructive ideas for local development.
+  </p>
+  <a class="button" href="#communities">Explore Communities</a>
+  <a class="button" href="#share-idea">Share a Community Priority</a>
+</div>
+
+<main>
+
+  <section>
+    <h2 class="section-title">About This Constituency</h2>
+    <div class="card">
+      <p>
+        This page is designed to provide residents and visitors with useful
+        information about the constituency represented by the CONSISTENCY 2027
+        campaign website.
+      </p>
+      <p>
+        The goal is to create a helpful place for community information,
+        public-service resources, and documented local development priorities.
+      </p>
+      <p class="notice">
+        <strong>Information awaiting confirmation:</strong>
+        Please confirm the official federal constituency name, the states or
+        local government areas it covers, and the communities to be listed
+        before publishing specific geographical details.
+      </p>
+    </div>
+  </section>
+
+  <section id="communities">
+    <h2 class="section-title">Communities & Local Priorities</h2>
+    <p>
+      Each community can have its own profile covering local needs,
+      infrastructure, education, healthcare, agriculture, youth opportunities,
+      and other development matters.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>🏘️ Community Profiles</h3>
+        <p>
+          Add verified community names, location details, and relevant public
+          information here.
+        </p>
+        <p class="small-note">Community details can be added after verification.</p>
+      </article>
+
+      <article class="card">
+        <h3>🛣️ Infrastructure</h3>
+        <p>
+          Document reported needs relating to roads, bridges, electricity,
+          transport, drainage, and public facilities.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>🎓 Education</h3>
+        <p>
+          Share verified information about schools, educational facilities,
+          learning opportunities, and identified needs.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>🏥 Healthcare</h3>
+        <p>
+          Provide confirmed details about public health facilities, available
+          services, and community health concerns.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>🌾 Agriculture & Livelihoods</h3>
+        <p>
+          Highlight local agricultural activities, farming communities,
+          markets, and livelihood-related development priorities.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>👥 Youth & Community Development</h3>
+        <p>
+          Record community priorities relating to skills, employment,
+          sports, enterprise, and inclusive development.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Useful Public Resources</h2>
+
+    <div class="grid">
+      <article class="card">
+        <h3>INEC Voter Information</h3>
+        <p>Use the official Independent National Electoral Commission resources for voter information.</p>
+        <a class="resource-link"
+           href="https://www.inecnigeria.org/"
+           target="_blank" rel="noopener noreferrer">
+          Visit the INEC website
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>Polling Unit Locator</h3>
+        <p>Consult the official INEC portal for available polling-unit information.</p>
+        <a class="resource-link"
+           href="https://cvr.inecnigeria.org/pu"
+           target="_blank" rel="noopener noreferrer">
+          Open polling-unit locator
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>Share a Community Priority</h3>
+        <p>Use the form below to prepare a community development suggestion.</p>
+        <a class="resource-link" href="#share-idea">Go to suggestion form</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="share-idea">
+    <h2 class="section-title">Share a Community Priority</h2>
+
+    <div class="form-box">
+      <p>
+        Residents can use this form to describe an issue affecting their
+        community. Please do not include passwords, financial details,
+        or other sensitive personal information.
+      </p>
+
+      <form id="communityForm">
+        <label for="community">Community name</label>
+        <input id="community" name="community" required maxlength="100"
+               placeholder="Enter community name">
+
+        <label for="category">Area of concern</label>
+        <select id="category" name="category" required>
+          <option value="">Choose a category</option>
+          <option>Roads and infrastructure</option>
+          <option>Education</option>
+          <option>Healthcare</option>
+          <option>Agriculture</option>
+          <option>Water and sanitation</option>
+          <option>Youth and skills development</option>
+          <option>Employment and enterprise</option>
+          <option>Electricity</option>
+          <option>Other community issue</option>
+        </select>
+
+        <label for="details">Describe the issue or priority</label>
+        <textarea id="details" name="details" required maxlength="2000"
+                  placeholder="Explain the issue and the improvement you would like to see"></textarea>
+
+        <label for="contact">Optional contact details</label>
+        <input id="contact" name="contact" maxlength="120"
+               placeholder="Optional phone number or email">
+
+        <button class="button" type="submit">Prepare Suggestion</button>
+      </form>
+
+      <p class="small-note">
+        Important: this form does not transmit submissions to the campaign
+        team or save them to a central database. It prepares a message for you
+        to copy and send yourself.
+      </p>
+
+      <div id="result" class="notice" hidden aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Our Commitment to Accurate Information</h2>
+    <div class="card">
+      <p>
+        Constituency names, community lists, public facilities, statistics,
+        and development claims should be checked against reliable sources
+        before publication. This page is intended to inform the public and
+        provide space for constructive community feedback.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>CONSISTENCY 2027</strong></p>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p>CONSISTENCY TODAY, BETTER TOMORROW!</p>
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="news.html">News</a> |
+    <a href="polling-unit-information.html">Polling Information</a>
+  </p>
+  <p>&copy; <span id="year"></span> CONSISTENCY 2027. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("communityForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const community = document.getElementById("community").value.trim();
+    const category = document.getElementById("category").value;
+    const details = document.getElementById("details").value.trim();
+    const contact = document.getElementById("contact").value.trim();
+
+    if (!community || !category || !details) {
+      alert("Please complete the community name, category, and description.");
+      return;
+    }
+
+    const message =
+      "COMMUNITY PRIORITY SUBMISSION\n\n" +
+      "Community: " + community + "\n" +
+      "Category: " + category + "\n" +
+      "Details: " + details + "\n" +
+      (contact ? "Contact: " + contact + "\n" : "") +
+      "\nPrepared through the CONSISTENCY 2027 Constituency Information page.";
+
+    const result = document.getElementById("result");
+    result.hidden = false;
+    result.replaceChildren();
+
+    const heading = document.createElement("strong");
+    heading.textContent = "Your suggestion is ready.";
+    result.appendChild(heading);
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent =
+      "Copy the message below and send it to the appropriate contact. " +
+      "It has not been sent automatically.";
+    result.appendChild(paragraph);
+
+    const output = document.createElement("textarea");
+    output.readOnly = true;
+    output.rows = 9;
+    output.value = message;
+    output.setAttribute("aria-label", "Prepared community suggestion");
+    result.appendChild(output);
+
+    const copyButton = document.createElement("button");
+    copyButton.type = "button";
+    copyButton.className = "button";
+    copyButton.textContent = "Select Message to Copy";
+    copyButton.addEventListener("click", function() {
+      output.focus();
+      output.select();
+      output.setSelectionRange(0, output.value.length);
+      paragraph.textContent =
+        "The message is selected. Use your phone's Copy command, then paste it into your chosen messaging app.";
+    });
+    result.appendChild(copyButton);
+  });
+</script>
+
+</body>
+</html>
