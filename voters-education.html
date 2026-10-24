@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f23">
+  <meta name="description" content="Nonpartisan voter education, voting information, and official INEC resources for Nigerians.">
+  <title>Voters Education | CONSISTENCY 2027</title>
+
+  <style>
+    :root {
+      --green: #087f23;
+      --dark: #07591b;
+      --gold: #e2b52b;
+      --light: #f3f8f2;
+      --text: #253328;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 26px 15px;
+      border-bottom: 5px solid var(--gold);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(25px, 5vw, 38px);
+    }
+
+    header p {
+      margin: 6px 0;
+    }
+
+    .slogan {
+      color: #ffec9b;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px;
+      background: var(--dark);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--gold);
+      color: #182418;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 45px 18px;
+      color: white;
+      background: linear-gradient(135deg, #064c19, #12943b);
+    }
+
+    .hero h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 5vw, 42px);
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 25px 16px 45px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      color: var(--dark);
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 17px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      border-top: 4px solid var(--green);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    .notice {
+      background: #fff8df;
+      border-left: 5px solid var(--gold);
+      padding: 16px;
+      border-radius: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 6px 4px;
+      padding: 11px 16px;
+      background: var(--gold);
+      color: #172317;
+      text-decoration: none;
+      font-weight: bold;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .resource {
+      display: block;
+      margin: 10px 0;
+      color: var(--green);
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .quiz-question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: white;
+      border: 1px solid #dce7dc;
+      border-radius: 8px;
+    }
+
+    .quiz-question label {
+      display: block;
+      padding: 5px 0;
+      cursor: pointer;
+    }
+
+    #quiz-result {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    footer {
+      background: #073f16;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer a {
+      color: #ffec9b;
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 13px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p class="slogan">THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+</header>
+
+<nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="live-events.html">Live Events</a>
+  <a href="campaign-team.html">Campaign Team</a>
+  <a href="polling-unit-information.html">Polling Information</a>
+  <a href="constituency-information.html">Constituency</a>
+  <a href="ideas-suggestions.html">Ideas & Suggestions</a>
+</nav>
+
+<div class="hero">
+  <h2>Know Your Voting Rights</h2>
+  <p>
+    Understand the voting process, consult official election information,
+    and help make elections peaceful, informed, and participatory.
+  </p>
+  <a class="button" href="#official-resources">Official INEC Resources</a>
+  <a class="button" href="#voter-quiz">Test Your Knowledge</a>
+</div>
+
+<main>
+
+  <section>
+    <h2 class="section-title">Why Voter Education Matters</h2>
+    <div class="card">
+      <p>
+        Voter education helps citizens understand election procedures,
+        check official information, protect their voting rights, and
+        participate peacefully in the democratic process.
+      </p>
+      <p>
+        This page provides general educational information. For current
+        requirements, dates, eligibility decisions, and official procedures,
+        always consult the Independent National Electoral Commission (INEC).
+      </p>
+      <div class="notice">
+        <strong>Nonpartisan information:</strong> Every eligible voter should
+        be able to access accurate election information and make an independent
+        choice. Your vote is your personal decision.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Important Things Every Voter Should Know</h2>
+
+    <div class="grid">
+      <article class="card">
+        <h3>🪪 Voter Registration</h3>
+        <p>
+          Check official INEC information about voter registration,
+          eligibility, registration updates, and any applicable deadlines.
+        </p>
+        <a class="resource" href="https://cvr.inecnigeria.org/"
+           target="_blank" rel="noopener noreferrer">
+          Visit INEC registration portal
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>📍 Find Your Polling Unit</h3>
+        <p>
+          Check your assigned polling unit through official INEC resources
+          before election day. Do not rely only on forwarded messages.
+        </p>
+        <a class="resource" href="https://cvr.inecnigeria.org/pu"
+           target="_blank" rel="noopener noreferrer">
+          Open INEC polling-unit locator
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>🗳️ On Election Day</h3>
+        <p>
+          Follow instructions from authorised election officials, observe
+          the official process, and ask officials if you need procedural help.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>🔒 Protect Your Choice</h3>
+        <p>
+          Make your voting decision independently. Do not allow threats,
+          intimidation, or pressure to determine your choice.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>🚫 Reject Vote Buying</h3>
+        <p>
+          Do not sell your vote or participate in electoral fraud.
+          Consult official authorities for guidance on reporting suspected
+          electoral offences.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>🤝 Keep Elections Peaceful</h3>
+        <p>
+          Respect other voters, avoid spreading unverified election claims,
+          and do not participate in violence or intimidation.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Before You Go to Vote</h2>
+    <div class="card">
+      <ol>
+        <li>Check your registration status using official INEC information.</li>
+        <li>Confirm your assigned polling unit and its location.</li>
+        <li>Review official guidance on accepted identification and voting procedures.</li>
+        <li>Check official announcements about election dates and opening times.</li>
+        <li>Follow the lawful instructions of election officials.</li>
+        <li>Keep your voting choice private and independent.</li>
+      </ol>
+      <p class="notice">
+        Procedures and requirements can change. Confirm the latest instructions
+        directly with INEC before election day.
+      </p>
+    </div>
+  </section>
+
+  <section id="official-resources">
+    <h2 class="section-title">Official Election Resources</h2>
+    <div class="card">
+      <p>Use these official resources to verify election information.</p>
+
+      <a class="resource" href="https://www.inecnigeria.org/"
+         target="_blank" rel="noopener noreferrer">
+        Independent National Electoral Commission (INEC)
+      </a>
+
+      <a class="resource" href="https://cvr.inecnigeria.org/"
+         target="_blank" rel="noopener noreferrer">
+        INEC Voter Registration Portal
+      </a>
+
+      <a class="resource" href="https://cvr.inecnigeria.org/pu"
+         target="_blank" rel="noopener noreferrer">
+        INEC Polling-Unit Locator
+      </a>
+
+      <a class="resource" href="https://www.inecnigeria.org/voters/education"
+         target="_blank" rel="noopener noreferrer">
+        INEC Voter Education Resources
+      </a>
+
+      <p class="notice">
+        If a page does not open, visit the main INEC website and navigate
+        to the relevant service. Check that you are using an official website
+        before entering personal information.
+      </p>
+    </div>
+  </section>
+
+  <section id="voter-quiz">
+    <h2 class="section-title">Voter Education Quiz</h2>
+    <p>Answer these questions to check your understanding.</p>
+
+    <form id="quizForm">
+      <div class="quiz-question">
+        <p><strong>1. Where should you verify official election information?</strong></p>
+        <label><input type="radio" name="q1" value="a" required>
+          A forwarded social media message only</label>
+        <label><input type="radio" name="q1" value="b">
+          Official INEC resources</label>
+        <label><input type="radio" name="q1" value="c">
+          An unverified rumour</label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>2. Who should make your voting choice?</strong></p>
+        <label><input type="radio" name="q2" value="a" required>
+          Another person should decide for you</label>
+        <label><input type="radio" name="q2" value="b">
+          A campaign group should decide for you</label>
+        <label><input type="radio" name="q2" value="c">
+          You should make your own choice</label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>3. What should you do if you need help at your polling unit?</strong></p>
+        <label><input type="radio" name="q3" value="a" required>
+          Ask an authorised election official</label>
+        <label><input type="radio" name="q3" value="b">
+          Follow any stranger's instructions</label>
+        <label><input type="radio" name="q3" value="c">
+          Rely on rumours</label>
+      </div>
+
+      <button class="button" type="submit">Check My Answers</button>
+      <button class="button" type="reset">Try Again</button>
+    </form>
+
+    <p id="quiz-result" aria-live="polite"></p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Share This Information</h2>
+    <div class="card">
+      <p>
+        Help others find reliable voter education information by sharing
+        this page with friends, family, and community members.
+      </p>
+
+      <button class="button" type="button" id="shareButton">
+        Share This Page
+      </button>
+
+      <button class="button" type="button" id="copyButton">
+        Copy Page Link
+      </button>
+
+      <p id="shareStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>CONSISTENCY 2027</strong></p>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p>CONSISTENCY TODAY, BETTER TOMORROW!</p>
+  <p>
+    Voter education is for everyone. Verify official election information
+    before acting on it.
+  </p>
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="polling-unit-information.html">Polling Information</a> |
+    <a href="constituency-information.html">Constituency Information</a>
+  </p>
+  <p>&copy; <span id="year"></span> CONSISTENCY 2027.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("quizForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const answers = {
+      q1: "b",
+      q2: "c",
+      q3: "a"
+    };
+
+    const form = new FormData(event.target);
+    let score = 0;
+
+    for (const question in answers) {
+      if (form.get(question) === answers[question]) {
+        score++;
+      }
+    }
+
+    document.getElementById("quiz-result").textContent =
+      "You scored " + score + " out of 3. " +
+      (score === 3
+        ? "Excellent! Keep checking official sources."
+        : "Review the information above and try again.");
+  });
+
+  document.getElementById("quizForm").addEventListener("reset", function() {
+    document.getElementById("quiz-result").textContent = "";
+  });
+
+  const pageUrl = window.location.href;
+
+  document.getElementById("shareButton").addEventListener("click", async function() {
+    const shareData = {
+      title: "Voters Education | CONSISTENCY 2027",
+      text: "Read general voter education information and find official INEC resources.",
+      url: pageUrl
+    };
+
+    const status = document.getElementById("shareStatus");
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        status.textContent = "Sharing opened.";
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          status.textContent = "Sharing was not available. You can copy the page link instead.";
+        }
+      }
+    } else {
+      const message = shareData.text + " " + pageUrl;
+      window.open(
+        "https://wa.me/?text=" + encodeURIComponent(message),
+        "_blank",
+        "noopener,noreferrer"
+      );
+      status.textContent = "WhatsApp sharing opened.";
+    }
+  });
+
+  document.getElementById("copyButton").addEventListener("click", async function() {
+    const status = document.getElementById("shareStatus");
+    const url = window.location.href;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      status.textContent = "Page link copied.";
+    } catch (error) {
+      status.textContent = "Copy may be blocked by your browser. Select and copy the address from your browser's address bar.";
+    }
+  });
+</script>
+
+</body>
+</html>
