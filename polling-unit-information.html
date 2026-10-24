@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polling Unit Information | CONSISTENCY 2027</title>
+  <meta name="description" content="Access official Nigerian voter registration resources, polling unit lookup, and voter education information.">
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    :root {
+      --green: #087f23;
+      --dark-green: #075b1b;
+      --gold: #ffd700;
+      --red: #c62828;
+      --light: #f3f8f3;
+      --text: #183020;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 26px 15px;
+      border-bottom: 5px solid var(--gold);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(25px, 5vw, 38px);
+    }
+
+    header p {
+      margin: 6px 0 0;
+      font-weight: bold;
+    }
+
+    nav {
+      background: var(--dark-green);
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 11px;
+      margin: 3px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--gold);
+      color: #183020;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #087f23, #064d1a);
+      color: white;
+      padding: 38px 18px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: clamp(25px, 5vw, 36px);
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 20px;
+    }
+
+    .container {
+      width: min(100% - 28px, 1000px);
+      margin: 30px auto;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark-green);
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 22px;
+      border-top: 4px solid var(--green);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .07);
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      color: var(--dark-green);
+      margin-top: 0;
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 17px;
+      margin: 5px 4px 5px 0;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .green-button {
+      background: var(--green);
+      color: white;
+    }
+
+    .blue-button {
+      background: #1769aa;
+      color: white;
+    }
+
+    .whatsapp-button {
+      background: #128c4a;
+      color: white;
+    }
+
+    .hero .button {
+      background: var(--gold);
+      color: #17351d;
+    }
+
+    .notice {
+      padding: 17px;
+      border-left: 5px solid #d7a900;
+      background: #fff8d9;
+      border-radius: 5px;
+      margin: 24px 0;
+    }
+
+    .steps {
+      padding-left: 22px;
+    }
+
+    .steps li {
+      margin-bottom: 12px;
+    }
+
+    .faq details {
+      background: white;
+      border: 1px solid #dce8dc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 7px;
+    }
+
+    .faq summary {
+      color: var(--dark-green);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .share {
+      text-align: center;
+      background: #e4f1e5;
+      border-radius: 10px;
+      padding: 24px 15px;
+      margin-top: 30px;
+    }
+
+    footer {
+      background: #063f16;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 14px;
+        padding: 7px 9px;
+      }
+
+      .card {
+        padding: 17px;
+      }
+
+      .button {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+  <p>Consistency Today, Better Tomorrow!</p>
+</header>
+
+<nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="live-events.html">Live Events</a>
+  <a href="campaign-team.html">Campaign Team</a>
+</nav>
+
+<section class="hero">
+  <h2>Polling Unit & Voter Information</h2>
+  <p>
+    Find official voter services, check your polling-unit information,
+    and learn how to prepare for election day.
+  </p>
+
+  <a class="button"
+     href="https://cvr.inecnigeria.org/pu"
+     target="_blank"
+     rel="noopener noreferrer">
+    Find My Polling Unit
+  </a>
+
+  <a class="button"
+     href="https://www.inecnigeria.org/"
+     target="_blank"
+     rel="noopener noreferrer">
+    Visit INEC Website
+  </a>
+</section>
+
+<main class="container">
+
+  <section>
+    <h2 class="section-title">Official Voter Resources</h2>
+    <p class="section-intro">
+      Use the official Independent National Electoral Commission (INEC)
+      resources for voter registration services and polling-unit information.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">📍</div>
+        <h3>Find Your Polling Unit</h3>
+        <p>
+          Look up your assigned polling unit through the official INEC
+          polling-unit locator.
+        </p>
+        <a class="button green-button"
+           href="https://cvr.inecnigeria.org/pu"
+           target="_blank"
+           rel="noopener noreferrer">
+          Find Polling Unit
+        </a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🪪</div>
+        <h3>Voter Registration Services</h3>
+        <p>
+          Visit INEC's official portal for available registration,
+          information-update, transfer and PVC-replacement services.
+        </p>
+        <a class="button green-button"
+           href="https://cvr.inecnigeria.org/Public/getStarted"
+           target="_blank"
+           rel="noopener noreferrer">
+          Open Voter Portal
+        </a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📚</div>
+        <h3>Voter Education</h3>
+        <p>
+          Learn about voting procedures, voter rights and election-day
+          guidance from INEC.
+        </p>
+        <a class="button green-button"
+           href="https://www.inecnigeria.org/voters/education"
+           target="_blank"
+           rel="noopener noreferrer">
+          Read Voter Guide
+        </a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🌐</div>
+        <h3>Official Election Updates</h3>
+        <p>
+          Check official election announcements and published information
+          directly from INEC.
+        </p>
+        <a class="button green-button"
+           href="https://www.inecnigeria.org/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Visit INEC
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">How to Find Your Polling Unit</h2>
+
+    <div class="card">
+      <ol class="steps">
+        <li>
+          <strong>Open the official polling-unit locator.</strong>
+          Use the “Find My Polling Unit” button above.
+        </li>
+        <li>
+          <strong>Follow the portal's instructions.</strong>
+          Select the relevant state, local government area and ward if requested.
+        </li>
+        <li>
+          <strong>Confirm your assigned location.</strong>
+          Check the displayed polling-unit details carefully.
+        </li>
+        <li>
+          <strong>Plan ahead.</strong>
+          Confirm the location and check official INEC announcements
+          before election day.
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Election-Day Preparation</h2>
+
+    <div class="grid">
+      <article class="card">
+        <h3>✔ Verify Your Details</h3>
+        <p>
+          Check your registration and polling-unit information using
+          official INEC resources before election day.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>✔ Follow Official Guidance</h3>
+        <p>
+          Check INEC announcements for the confirmed election date,
+          opening arrangements and required voter identification.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>✔ Vote Independently</h3>
+        <p>
+          Your vote is your choice. Make your decision freely and keep
+          your ballot choice private.
+        </p>
+      </article>
+    </div>
+
+    <div class="notice">
+      <strong>Important:</strong> This page provides general voter
+      information. It is not an INEC service and does not register voters
+      or determine polling-unit assignments. Always verify details through
+      official INEC channels. Never share your voter identification number,
+      passwords or sensitive personal information with unofficial websites.
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <details>
+      <summary>How do I find my assigned polling unit?</summary>
+      <p>
+        Open the official INEC polling-unit locator and follow its
+        instructions to find your assigned location.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I use this campaign page to register to vote?</summary>
+      <p>
+        No. This page provides links to official resources. Use INEC's
+        official voter portal for registration services and check which
+        services are currently available.
+      </p>
+    </details>
+
+    <details>
+      <summary>Where can I confirm election dates?</summary>
+      <p>
+        Check the official INEC website for the current election timetable
+        and any subsequent announcements.
+      </p>
+    </details>
+
+    <details>
+      <summary>What if my polling-unit details appear incorrect?</summary>
+      <p>
+        Contact INEC through its official website or contact channels
+        for guidance on checking or correcting your registration details.
+      </p>
+    </details>
+  </section>
+
+  <section class="share">
+    <h2>Share This Information</h2>
+    <p>Help others find official polling-unit and voter-information resources.</p>
+
+    <a class="button whatsapp-button"
+       id="whatsapp-share"
+       href="#"
+       target="_blank"
+       rel="noopener noreferrer">
+      Share on WhatsApp
+    </a>
+
+    <button class="button green-button" id="copy-link" type="button">
+      Copy Page Link
+    </button>
+
+    <p id="copy-status" role="status" aria-live="polite"></p>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>CONSISTENCY 2027</strong></p>
+  <p>Consistency Today, Better Tomorrow!</p>
+  <p>Service to the People</p>
+  <p><a href="index.html">Return to Homepage</a></p>
+  <p>
+    Voter information links are provided for public information.
+    Please confirm election details with INEC.
+  </p>
+  <p>&copy; 2027 CONSISTENCY 2027. All rights reserved.</p>
+</footer>
+
+<script>
+  const pageUrl = window.location.href;
+
+  const shareText =
+    "Find official polling-unit and voter-information resources here: " +
+    pageUrl;
+
+  document.getElementById("whatsapp-share").href =
+    "https://wa.me/?text=" + encodeURIComponent(shareText);
+
+  document.getElementById("copy-link").addEventListener("click", async function () {
+    const status = document.getElementById("copy-status");
+
+    try {
+      await navigator.clipboard.writeText(pageUrl);
+      status.textContent = "Page link copied successfully.";
+    } catch (error) {
+      status.textContent =
+        "Copy is unavailable. Please copy the page address from your browser.";
+    }
+  });
+</script>
+
+</body>
+</html>
