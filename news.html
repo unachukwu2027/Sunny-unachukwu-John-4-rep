@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Latest News | CONSISTENCY 2027</title>
-<meta name="description" content="Latest campaign news and community updates from Barr. Sunny Unachukwu John, Esq.">
+<meta name="description" content="Campaign news and community updates from Barr. Sunny Unachukwu John, Esq.">
 <meta name="theme-color" content="#087f23">
 
 <style>
@@ -164,9 +164,7 @@ nav a:hover { color: var(--red); }
   font-size: 30px;
 }
 
-.section-heading p {
-  color: #657065;
-}
+.section-heading p { color: #657065; }
 
 .status {
   background: white;
@@ -273,10 +271,7 @@ nav a:hover { color: var(--red); }
 }
 
 .share-buttons a,
-.share-buttons button {
-  flex: 1;
-  min-width: 80px;
-}
+.share-buttons button { flex: 1; min-width: 80px; }
 
 .whatsapp { background: #168b45; }
 .facebook { background: #1877f2; }
@@ -317,11 +312,7 @@ nav a:hover { color: var(--red); }
   margin-bottom: 8px;
 }
 
-.cta .button {
-  margin: 10px 4px 0;
-  padding: 12px 18px;
-}
-
+.cta .button { margin: 10px 4px 0; padding: 12px 18px; }
 .green-button { background: var(--green); }
 .red-button { background: var(--red); }
 
@@ -333,15 +324,8 @@ footer {
   margin-top: 45px;
 }
 
-footer p {
-  font-size: 14px;
-  margin: 5px 0;
-}
-
-footer .gold-text {
-  color: #ffe69a;
-  font-weight: bold;
-}
+footer p { font-size: 14px; margin: 5px 0; }
+footer .gold-text { color: #ffe69a; font-weight: bold; }
 
 .back-top {
   display: inline-block;
@@ -401,16 +385,13 @@ footer .gold-text {
 }
 
 @media (max-width: 900px) {
-  .news-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 600px) {
   header h1 { font-size: 21px; }
   .hero { padding: 40px 15px; }
   .hero h2 { font-size: 28px; }
-
   .news-grid { grid-template-columns: 1fr; }
   .news-image { height: 230px; }
   .filter-box { width: 100%; }
@@ -459,18 +440,15 @@ footer .gold-text {
       public statements and development priorities.
     </p>
     <p class="small-note">
-      News on this page is loaded from the campaign database.
-      Please verify information before sharing it as an official announcement.
+      News is loaded from the campaign database. Please verify
+      information before sharing it as an official announcement.
     </p>
   </section>
 
   <div class="toolbar">
     <div class="search-box">
-      <input
-        type="search"
-        id="newsSearch"
-        placeholder="Search news and updates..."
-        aria-label="Search news">
+      <input type="search" id="newsSearch"
+        placeholder="Search news and updates..." aria-label="Search news">
     </div>
 
     <div class="filter-box">
@@ -526,13 +504,8 @@ footer .gold-text {
 
 </main>
 
-<div
-  class="story-modal"
-  id="storyModal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modalTitle">
-
+<div class="story-modal" id="storyModal"
+  role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
     <h2 id="modalTitle"></h2>
     <div id="modalMeta" class="news-meta"></div>
@@ -554,24 +527,17 @@ footer .gold-text {
 </footer>
 
 <script>
-/*
-  CONSISTENCY 2027 NEWS CONNECTION
-
-  This page reads published articles from Supabase.
-  It does not yet provide administrator publishing access.
-*/
+/* SUPABASE CONNECTION */
 
 const SUPABASE_URL =
   "https://sibionetcywotyrfrneb.supabase.co";
 
 /*
-  Paste your existing Supabase publishable key between
-  the quotation marks below.
-
-  Do not put a service-role key or secret key in this file.
+  This is the publishable key previously supplied for your project.
+  Use only a publishable key in browser code, never a secret/service-role key.
 */
 const SUPABASE_KEY =
-  "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+  "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
 
 const newsGrid = document.getElementById("newsGrid");
 const loadingMessage = document.getElementById("loadingMessage");
@@ -587,8 +553,7 @@ const modalClose = document.getElementById("modalClose");
 
 let campaignNews = [];
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, function(char) {
@@ -606,10 +571,7 @@ function formatDate(value) {
   if (!value) return "Campaign News";
 
   const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) {
-    return "Campaign News";
-  }
+  if (Number.isNaN(date.getTime())) return "Campaign News";
 
   return date.toLocaleDateString("en-NG", {
     day: "numeric",
@@ -618,10 +580,6 @@ function formatDate(value) {
   });
 }
 
-/*
-  The existing campaign_news table does not necessarily have
-  a category column. For now, articles default to Campaign Updates.
-*/
 function getCategory(article) {
   const value = String(article.category || "").toLowerCase();
 
@@ -633,8 +591,6 @@ function getCategory(article) {
 }
 
 function getCategoryLabel(article) {
-  const category = getCategory(article);
-
   const labels = {
     "campaign": "Campaign Updates",
     "development": "Development",
@@ -642,7 +598,7 @@ function getCategoryLabel(article) {
     "public-service": "Public Service"
   };
 
-  return labels[category];
+  return labels[getCategory(article)];
 }
 
 function getSummary(article) {
@@ -658,30 +614,29 @@ function makeShareUrl(article) {
 }
 
 function renderNews() {
-  const searchTerm = searchInput.value.toLowerCase().trim();
+  const query = searchInput.value.toLowerCase().trim();
   const selectedCategory = categoryFilter.value;
+
+  newsGrid.innerHTML = "";
 
   const filtered = campaignNews.filter(function(article) {
     const title = String(article.title || "").toLowerCase();
     const summary = String(article.summary || "").toLowerCase();
     const content = String(article.content || "").toLowerCase();
-    const category = getCategory(article);
 
     const matchesSearch =
-      title.includes(searchTerm) ||
-      summary.includes(searchTerm) ||
-      content.includes(searchTerm);
+      title.includes(query) ||
+      summary.includes(query) ||
+      content.includes(query);
 
     const matchesCategory =
       selectedCategory === "all" ||
-      category === selectedCategory;
+      getCategory(article) === selectedCategory;
 
     return matchesSearch && matchesCategory;
   });
 
-  newsGrid.innerHTML = "";
-  emptyMessage.style.display =
-    filtered.length ? "none" : "block";
+  emptyMessage.style.display = filtered.length ? "none" : "block";
 
   filtered.forEach(function(article) {
     const card = document.createElement("article");
@@ -696,14 +651,14 @@ function renderNews() {
     const date = escapeHTML(formatDate(article.created_at));
 
     const imageUrl = String(article.image_url || "").trim();
-    const safeImageUrl =
-      /^https?:\/\//i.test(imageUrl) ? imageUrl : "";
+    const safeImageUrl = /^https?:\/\//i.test(imageUrl)
+      ? imageUrl
+      : "";
 
     const imageHTML = safeImageUrl
       ? `<img class="news-image"
-              src="${escapeHTML(safeImageUrl)}"
-              alt="${title}"
-              loading="lazy">`
+           src="${escapeHTML(safeImageUrl)}"
+           alt="${title}" loading="lazy">`
       : "";
 
     card.innerHTML = `
@@ -736,12 +691,10 @@ function renderNews() {
     const shareText = (article.title || "Campaign Update") +
       " — " + shareUrl;
 
-    const whatsappLink = card.querySelector(".whatsapp");
-    whatsappLink.href =
+    card.querySelector(".whatsapp").href =
       "https://wa.me/?text=" + encodeURIComponent(shareText);
 
-    const facebookLink = card.querySelector(".facebook");
-    facebookLink.href =
+    card.querySelector(".facebook").href =
       "https://www.facebook.com/sharer/sharer.php?u=" +
       encodeURIComponent(shareUrl);
 
@@ -761,8 +714,7 @@ function renderNews() {
 function openStory(article) {
   modalTitle.textContent = article.title || "Campaign Update";
   modalMeta.textContent =
-    formatDate(article.created_at) +
-    " · " +
+    formatDate(article.created_at) + " · " +
     (article.author || "CONSISTENCY 2027 Media Team");
 
   modalStory.textContent =
@@ -790,15 +742,6 @@ searchInput.addEventListener("input", renderNews);
 categoryFilter.addEventListener("change", renderNews);
 
 async function loadCampaignNews() {
-  if (
-    !SUPABASE_KEY ||
-    SUPABASE_KEY === "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE"
-  ) {
-    loadingMessage.textContent =
-      "Supabase key is missing. Add your publishable key in the script.";
-    return;
-  }
-
   const endpoint =
     SUPABASE_URL +
     "/rest/v1/campaign_news" +
@@ -816,26 +759,20 @@ async function loadCampaignNews() {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(
-        "Supabase returned HTTP " +
-        response.status + ". " + errorText
-      );
+      const details = await response.text();
+      throw new Error("HTTP " + response.status + ": " + details);
     }
 
     const data = await response.json();
 
     if (!Array.isArray(data)) {
-      throw new Error("Unexpected response from the news database.");
+      throw new Error("Unexpected response from Supabase.");
     }
 
     campaignNews = data;
     loadingMessage.style.display = "none";
     renderNews();
 
-    /*
-      If the page was opened with ?article=ID, show that story.
-    */
     const requestedId =
       new URLSearchParams(window.location.search).get("article");
 
@@ -848,13 +785,11 @@ async function loadCampaignNews() {
     }
 
   } catch (error) {
-    console.error("News loading error:", error);
+    console.error("Supabase news error:", error);
 
     loadingMessage.textContent =
-      "We could not load the news at this time. Please check your " +
-      "internet connection and Supabase configuration, then refresh.";
-
-    emptyMessage.style.display = "none";
+      "We could not load the news. Please check your internet connection, " +
+      "Supabase key, table configuration and published-news access policy.";
   }
 }
 
