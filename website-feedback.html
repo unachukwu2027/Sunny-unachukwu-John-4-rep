@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087f23">
+  <meta name="description" content="Share feedback, report website problems, and suggest improvements for the CONSISTENCY 2027 website.">
+  <title>Website Feedback & Support | CONSISTENCY 2027</title>
+
+  <style>
+    :root {
+      --green: #087f23;
+      --dark-green: #07591b;
+      --gold: #e2b52b;
+      --light: #f3f8f2;
+      --text: #253328;
+      --white: #ffffff;
+      --border: #d7e3d7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      background: var(--light);
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      color: white;
+      background: var(--green);
+      border-bottom: 5px solid var(--gold);
+      padding: 26px 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(25px, 5vw, 38px);
+    }
+
+    header p {
+      margin: 6px 0;
+    }
+
+    .slogan {
+      color: #ffeb99;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px;
+      background: var(--dark-green);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--gold);
+      color: #172317;
+    }
+
+    .hero {
+      padding: 42px 18px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #064c19, #12943b);
+    }
+
+    .hero h2 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 16px 45px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--green);
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    h2, h3 {
+      color: var(--dark-green);
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font: inherit;
+      color: var(--text);
+      background: white;
+      border: 1px solid #b9cbb9;
+      border-radius: 6px;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 12px 5px 0 0;
+      padding: 12px 17px;
+      border: none;
+      border-radius: 6px;
+      background: var(--green);
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: var(--gold);
+      color: #172317;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+
+    .notice {
+      background: #fff8df;
+      border-left: 5px solid var(--gold);
+      padding: 14px;
+      border-radius: 5px;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: #566456;
+    }
+
+    #result {
+      margin-top: 20px;
+      overflow-wrap: anywhere;
+    }
+
+    #preparedMessage {
+      min-height: 180px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      background: #073f16;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer a {
+      color: #ffeb99;
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 13px;
+      }
+
+      .card {
+        padding: 17px;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p class="slogan">THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
+</header>
+
+<nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="live-events.html">Live Events</a>
+  <a href="campaign-team.html">Campaign Team</a>
+  <a href="polling-unit-information.html">Polling Information</a>
+  <a href="constituency-information.html">Constituency</a>
+  <a href="voters-education.html">Voters Education</a>
+  <a href="ideas-suggestions.html">Ideas & Suggestions</a>
+</nav>
+
+<div class="hero">
+  <h2>Website Feedback & Support</h2>
+  <p>
+    Help us improve your website experience. Report technical problems,
+    suggest improvements, or share comments about the website.
+  </p>
+</div>
+
+<main>
+
+  <section class="card">
+    <h2>Send Your Feedback</h2>
+
+    <p>
+      Complete the form below to prepare a feedback message. You can then
+      copy it or open WhatsApp to send it to the appropriate contact.
+    </p>
+
+    <form id="feedbackForm">
+      <label for="type">Type of feedback</label>
+      <select id="type" required>
+        <option value="">Select a category</option>
+        <option>Website problem or broken link</option>
+        <option>Page not opening</option>
+        <option>Image or video problem</option>
+        <option>Suggestion for improvement</option>
+        <option>Incorrect or outdated website information</option>
+        <option>Accessibility or mobile display problem</option>
+        <option>General website feedback</option>
+        <option>Other</option>
+      </select>
+
+      <label for="page">Page affected (optional)</label>
+      <input
+        id="page"
+        type="text"
+        maxlength="200"
+        placeholder="Example: News page or Gallery page">
+
+      <label for="name">Your name (optional)</label>
+      <input
+        id="name"
+        type="text"
+        maxlength="100"
+        autocomplete="name"
+        placeholder="Enter your name">
+
+      <label for="contact">Your email or phone (optional)</label>
+      <input
+        id="contact"
+        type="text"
+        maxlength="120"
+        placeholder="Only if you want a reply">
+
+      <label for="message">Describe your feedback</label>
+      <textarea
+        id="message"
+        required
+        maxlength="2000"
+        placeholder="Tell us what happened or what you would like improved..."></textarea>
+
+      <button class="button" type="submit">Prepare Feedback</button>
+    </form>
+
+    <div id="result" hidden aria-live="polite">
+      <h3>Your Feedback Message</h3>
+      <p>
+        Review the message below. It has not been sent yet.
+      </p>
+
+      <label for="preparedMessage">Prepared message</label>
+      <textarea id="preparedMessage" readonly></textarea>
+
+      <button class="button secondary" type="button" id="selectButton">
+        Select Message to Copy
+      </button>
+
+      <button class="button" type="button" id="whatsappButton">
+        Send Through WhatsApp
+      </button>
+
+      <p class="small-note">
+        WhatsApp will open with your message prepared. You must review and
+        press Send yourself. No feedback is automatically transmitted by
+        this page.
+      </p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>How This Feedback Form Works</h2>
+
+    <div class="notice">
+      <strong>Privacy notice:</strong> This form does not send or store
+      feedback in a central database. Your message is prepared on your
+      device. You decide whether to copy it or send it through WhatsApp.
+    </div>
+
+    <ul>
+      <li>Providing your name is optional.</li>
+      <li>Contact details are optional.</li>
+      <li>Do not enter passwords, bank details, or sensitive personal information.</li>
+      <li>Check your message before sending it.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>Why is a page not opening?</h3>
+      <p>
+        Check your internet connection and try refreshing the page.
+        If the problem continues, report the page name and the error you see.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I suggest a new website feature?</h3>
+      <p>
+        Yes. Select the suggestion category and describe the feature or
+        improvement you would like to see.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Will my feedback be sent automatically?</h3>
+      <p>
+        No. This version prepares a message for you to copy or send yourself.
+        It does not automatically deliver feedback to the website team.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I use this page on my phone?</h3>
+      <p>
+        Yes. The page is designed to adapt to mobile phones, tablets,
+        and desktop screens.
+      </p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Return to the Website</h2>
+    <p>Use the link below to return to the main campaign website.</p>
+    <a class="button" href="index.html">Back to Homepage</a>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>CONSISTENCY 2027</strong></p>
+  <p>Barr. Sunny John Unachukwu, Esq.</p>
+  <p>CONSISTENCY TODAY, BETTER TOMORROW!</p>
+  <p><a href="index.html">Home</a> | <a href="news.html">News</a></p>
+  <p>&copy; <span id="year"></span> CONSISTENCY 2027.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  const feedbackForm = document.getElementById("feedbackForm");
+  const result = document.getElementById("result");
+  const preparedMessage = document.getElementById("preparedMessage");
+
+  feedbackForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const type = document.getElementById("type").value.trim();
+    const page = document.getElementById("page").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const contact = document.getElementById("contact").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!type || !message) {
+      alert("Please select a feedback category and describe your feedback.");
+      return;
+    }
+
+    preparedMessage.value =
+      "CONSISTENCY 2027 WEBSITE FEEDBACK\n\n" +
+      "Category: " + type + "\n" +
+      "Page affected: " + (page || "Not specified") + "\n" +
+      "Name: " + (name || "Not provided") + "\n" +
+      "Contact: " + (contact || "Not provided") + "\n\n" +
+      "Feedback:\n" + message;
+
+    result.hidden = false;
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  document.getElementById("selectButton").addEventListener("click", function() {
+    preparedMessage.focus();
+    preparedMessage.select();
+    preparedMessage.setSelectionRange(0, preparedMessage.value.length);
+  });
+
+  document.getElementById("whatsappButton").addEventListener("click", function() {
+    const url = "https://wa.me/?text=" +
+      encodeURIComponent(preparedMessage.value);
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  });
+</script>
+
+</body>
+</html>
