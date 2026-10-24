@@ -20,13 +20,9 @@
   --text: #222222;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -183,13 +179,8 @@ nav {
 }
 
 @keyframes welcomeScroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 /* HERO BANNER */
@@ -201,13 +192,10 @@ nav {
   justify-content: center;
   text-align: center;
   color: white;
-  background:
-    linear-gradient(135deg, rgba(4,91,25,.97), rgba(8,127,35,.88));
+  background: linear-gradient(135deg, rgba(4,91,25,.97), rgba(8,127,35,.88));
 }
 
-.hero-content {
-  max-width: 900px;
-}
+.hero-content { max-width: 900px; }
 
 .hero-label {
   display: inline-block;
@@ -226,9 +214,7 @@ nav {
   margin: 22px 0 15px;
 }
 
-.hero h2 span {
-  color: #ffdf59;
-}
+.hero h2 span { color: #ffdf59; }
 
 .hero p {
   font-size: 17px;
@@ -262,9 +248,7 @@ nav {
   color: var(--dark-green);
 }
 
-.button:hover {
-  opacity: .9;
-}
+.button:hover { opacity: .9; }
 
 /* GENERAL CONTENT */
 .container {
@@ -311,9 +295,7 @@ nav {
   margin-bottom: 10px;
 }
 
-.card p {
-  margin-bottom: 0;
-}
+.card p { margin-bottom: 0; }
 
 .card-link {
   display: inline-block;
@@ -323,9 +305,7 @@ nav {
   text-decoration: none;
 }
 
-.card-link:hover {
-  text-decoration: underline;
-}
+.card-link:hover { text-decoration: underline; }
 
 /* CAMPAIGN SLOGAN */
 .slogan {
@@ -355,9 +335,7 @@ footer {
   padding: 30px 20px;
 }
 
-footer h3 {
-  margin-top: 0;
-}
+footer h3 { margin-top: 0; }
 
 footer p {
   margin: 7px 0;
@@ -378,16 +356,14 @@ footer p {
   text-decoration: none;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
-}
+.footer-links a:hover { text-decoration: underline; }
 
-/* WEBSITE DEVELOPER CREDIT - ADDED */
+/* DEVELOPER CREDIT */
 .developer-credit {
   max-width: 650px;
   margin: 25px auto 0;
   padding: 20px 12px 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255,255,255,.3);
   text-align: center;
 }
 
@@ -404,13 +380,11 @@ footer p {
   overflow-wrap: anywhere;
 }
 
-.developer-credit .developer-role {
-  font-weight: bold;
-}
+.developer-credit .developer-role { font-weight: bold; }
 
 .developer-credit .developer-services {
   font-size: 12px;
-  opacity: 0.9;
+  opacity: .9;
 }
 
 /* ACCESSIBILITY */
@@ -422,9 +396,7 @@ button:focus-visible {
 
 /* MOBILE RESPONSIVENESS */
 @media (max-width: 850px) {
-  .menu-toggle {
-    display: block;
-  }
+  .menu-toggle { display: block; }
 
   .nav-inner {
     display: none;
@@ -433,9 +405,7 @@ button:focus-visible {
     padding: 5px 12px 12px;
   }
 
-  .nav-inner.open {
-    display: flex;
-  }
+  .nav-inner.open { display: flex; }
 
   .nav-inner a {
     padding: 12px;
@@ -447,22 +417,16 @@ button:focus-visible {
     text-align: center;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
-  }
+  .cards { grid-template-columns: 1fr; }
 
   .hero {
     min-height: 380px;
     padding: 45px 18px;
   }
 
-  .header-inner {
-    padding: 13px;
-  }
+  .header-inner { padding: 13px; }
 
-  .brand h1 {
-    font-size: 18px;
-  }
+  .brand h1 { font-size: 18px; }
 
   .welcome-label {
     padding: 15px 10px;
@@ -476,9 +440,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
   .welcome-moving-text {
     animation: none;
@@ -486,9 +448,7 @@ button:focus-visible {
     white-space: normal;
   }
 
-  .welcome-message {
-    white-space: normal;
-  }
+  .welcome-message { white-space: normal; }
 }
 </style>
 </head>
@@ -503,7 +463,6 @@ button:focus-visible {
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-
     <div class="logo">C27</div>
 
     <div class="brand">
@@ -511,7 +470,6 @@ button:focus-visible {
       <p>Barr. Sunny John Unachukwu, Esq.</p>
       <p>Mbaitoli/Ikeduru Federal Constituency, Imo State</p>
     </div>
-
   </div>
 </header>
 
@@ -541,10 +499,13 @@ button:focus-visible {
     <a href="gallery.html">Gallery</a>
     <a href="videos.html">Videos</a>
     <a href="events.html">Events</a>
+
+    <!-- VOTERS EDUCATION MENU LINK ADDED -->
+    <a href="voters-education.html">Voters Education</a>
+
     <a href="volunteer.html">Volunteer</a>
     <a href="contact.html">Contact</a>
 
-    <!-- ADMIN LOGIN LINK -->
     <a href="admin-login.html" class="admin-link">
       🔐 Admin Login
     </a>
@@ -555,12 +516,9 @@ button:focus-visible {
 <!-- MOVING WELCOME NOTE -->
 <section class="welcome-section" aria-label="Welcome message">
 
-  <div class="welcome-label">
-    WELCOME
-  </div>
+  <div class="welcome-label">WELCOME</div>
 
   <div class="welcome-message">
-
     <div class="welcome-moving-text">
       Welcome to the official campaign website of Barr. Sunny John
       Unachukwu, Esq. — CONSISTENCY 2027!
@@ -570,19 +528,15 @@ button:focus-visible {
       &nbsp;&nbsp;&nbsp; Together, let us work towards a better future
       for Mbaitoli/Ikeduru Federal Constituency.
     </div>
-
   </div>
 
 </section>
 
 <!-- HERO BANNER -->
 <section class="hero">
-
   <div class="hero-content">
 
-    <span class="hero-label">
-      CONSISTENCY 2027
-    </span>
+    <span class="hero-label">CONSISTENCY 2027</span>
 
     <h2>
       THE CHOICE IS NOW.<br>
@@ -596,7 +550,6 @@ button:focus-visible {
     </p>
 
     <div class="hero-buttons">
-
       <a class="button button-gold" href="biography.html">
         Meet the Candidate
       </a>
@@ -604,11 +557,9 @@ button:focus-visible {
       <a class="button button-white" href="manifesto.html">
         Explore the Manifesto
       </a>
-
     </div>
 
   </div>
-
 </section>
 
 <!-- CAMPAIGN PRIORITIES -->
@@ -616,7 +567,6 @@ button:focus-visible {
 
   <div class="section-heading">
     <h2>Our Campaign Priorities</h2>
-
     <p>
       A proposed development agenda focused on people,
       opportunities, essential services and community development.
@@ -627,95 +577,65 @@ button:focus-visible {
 
     <article class="card">
       <h3>Education</h3>
-
       <p>
         Promote improved access to quality education,
         learning resources and opportunities for young people.
       </p>
-
-      <a class="card-link" href="priorities.html">
-        Learn More →
-      </a>
+      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
     <article class="card">
       <h3>Healthcare</h3>
-
       <p>
         Support efforts to improve access to healthcare services
         and strengthen community health facilities.
       </p>
-
-      <a class="card-link" href="priorities.html">
-        Learn More →
-      </a>
+      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
     <article class="card">
       <h3>Roads and Infrastructure</h3>
-
       <p>
         Advocate for better roads, reliable water access,
         electricity and other essential infrastructure.
       </p>
-
-      <a class="card-link" href="priorities.html">
-        Learn More →
-      </a>
+      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
     <article class="card">
       <h3>Youth Empowerment</h3>
-
       <p>
         Encourage skills development, entrepreneurship
         and opportunities for young people.
       </p>
-
-      <a class="card-link" href="priorities.html">
-        Learn More →
-      </a>
+      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
     <article class="card">
       <h3>Agriculture</h3>
-
       <p>
         Promote agricultural development, farming opportunities
         and support for local producers.
       </p>
-
-      <a class="card-link" href="priorities.html">
-        Learn More →
-      </a>
+      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
     <article class="card">
       <h3>Community Development</h3>
-
       <p>
         Encourage inclusive representation, community engagement
         and development initiatives.
       </p>
-
-      <a class="card-link" href="priorities.html">
-        Learn More →
-      </a>
+      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
   </div>
-
 </section>
 
 <!-- CAMPAIGN SLOGAN -->
 <section class="slogan">
-
   <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
-
-  <p>
-    MBAIKE'S CHOSEN ONE FOR HOR · SERVICE TO THE PEOPLE
-  </p>
-
+  <p>MBAIKE'S CHOSEN ONE FOR HOR · SERVICE TO THE PEOPLE</p>
 </section>
 
 <!-- EXPLORE CAMPAIGN -->
@@ -723,7 +643,6 @@ button:focus-visible {
 
   <div class="section-heading">
     <h2>Explore the Campaign</h2>
-
     <p>
       Learn more about the candidate, follow campaign announcements
       and discover the proposed priorities.
@@ -734,64 +653,47 @@ button:focus-visible {
 
     <article class="card">
       <h3>Candidate Biography</h3>
-
       <p>
         Read about the candidate's background, professional journey
         and public service experience.
       </p>
-
-      <a class="card-link" href="biography.html">
-        Read Biography →
-      </a>
+      <a class="card-link" href="biography.html">Read Biography →</a>
     </article>
 
     <article class="card">
       <h3>Campaign News</h3>
-
       <p>
         Visit the news section for campaign reports and announcements.
       </p>
-
-      <a class="card-link" href="news.html">
-        View News →
-      </a>
+      <a class="card-link" href="news.html">View News →</a>
     </article>
 
     <article class="card">
       <h3>Website Administration</h3>
-
       <p>
         Authorized website administrators can access the
         administration login page.
       </p>
-
-      <a class="card-link" href="admin-login.html">
-        Open Admin Login →
-      </a>
+      <a class="card-link" href="admin-login.html">Open Admin Login →</a>
     </article>
 
   </div>
-
 </section>
 
 <!-- FOOTER -->
 <footer>
 
   <h3>CONSISTENCY 2027</h3>
-
   <p>Barr. Sunny John Unachukwu, Esq.</p>
-
   <p>Service to the People</p>
 
   <div class="footer-links">
-
     <a href="index.html">Home</a>
     <a href="biography.html">Biography</a>
     <a href="news.html">News</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
     <a href="admin-login.html">Admin Login</a>
-
   </div>
 
   <p style="margin-top:20px">
@@ -801,19 +703,12 @@ button:focus-visible {
 
   <!-- WEBSITE DEVELOPER CREDIT -->
   <div class="developer-credit">
-
     <p>Website Designed &amp; Developed by</p>
-
     <h4>INEKWE THEOPHILUS AKOJI</h4>
-
-    <p class="developer-role">
-      NYSC Member — Ikeduru
-    </p>
-
+    <p class="developer-role">NYSC Member — Ikeduru</p>
     <p class="developer-services">
       Website Design | Web Development | Digital Solutions
     </p>
-
   </div>
 
 </footer>
@@ -826,10 +721,7 @@ const mainMenu = document.getElementById("mainMenu");
 menuToggle.addEventListener("click", function () {
   const isOpen = mainMenu.classList.toggle("open");
 
-  menuToggle.setAttribute(
-    "aria-expanded",
-    String(isOpen)
-  );
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
 
   menuToggle.innerHTML = isOpen
     ? "✕ CLOSE MENU"
