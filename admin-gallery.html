@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f23">
+<title>Admin Gallery | CONSISTENCY 2027</title>
+
+<style>
+:root {
+  --green: #087f23;
+  --dark: #075b1b;
+  --red: #c62828;
+  --gold: #d4a017;
+  --light: #f2f8f1;
+  --white: #fff;
+  --border: #dce5dc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: var(--light);
+}
+
+header {
+  background: var(--green);
+  color: white;
+  padding: 22px 16px;
+  text-align: center;
+  border-bottom: 5px solid var(--gold);
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 25px;
+}
+
+header p { margin: 0; font-size: 14px; }
+
+main {
+  width: min(100% - 24px, 850px);
+  margin: 22px auto;
+}
+
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 12px #00000008;
+}
+
+h2 { color: var(--dark); margin-top: 0; }
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 15px 0 7px;
+}
+
+input, textarea, button { font: inherit; }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b8c9b8;
+  border-radius: 7px;
+  background: white;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button, .button-link {
+  display: inline-block;
+  border: 0;
+  border-radius: 7px;
+  padding: 12px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.primary { background: var(--green); color: white; }
+.secondary { background: #e4f1e4; color: var(--dark); }
+.danger { background: var(--red); color: white; }
+.gold { background: var(--gold); color: #222; }
+
+button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.status {
+  padding: 12px;
+  border-radius: 7px;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.status:empty { display: none; }
+.success { background: #e2f6e5; color: #135c22; }
+.error { background: #ffebee; color: #a10e1a; }
+.info { background: #e8f1ff; color: #16447b; }
+.hidden { display: none !important; }
+
+.preview {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  background: #f0f0f0;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.photo-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  min-width: 0;
+  background: white;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 7px;
+  background: #eee;
+}
+
+.photo-card h3 {
+  margin: 10px 0 6px;
+  overflow-wrap: anywhere;
+}
+
+.photo-card p {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  background: #eee;
+}
+
+.badge.published { background: #dff5e3; color: #17642a; }
+.badge.draft { background: #fff0d4; color: #7c4b00; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.actions button { margin-top: 5px; }
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #e3eee3;
+  font-size: 13px;
+}
+
+footer a { color: var(--dark); font-weight: bold; }
+.small { font-size: 13px; line-height: 1.6; color: #555; }
+
+@media (max-width: 420px) {
+  .panel { padding: 15px; }
+  header h1 { font-size: 21px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Campaign Gallery Administration</p>
+</header>
+
+<main>
+
+  <section class="panel" id="loginPanel">
+    <h2>Administrator Login</h2>
+    <p class="small">
+      Sign in with your existing campaign administrator account.
+    </p>
+
+    <form id="loginForm">
+      <label for="email">Administrator Email</label>
+      <input id="email" type="email" autocomplete="username" required>
+
+      <label for="password">Password</label>
+      <input id="password" type="password"
+             autocomplete="current-password" required>
+
+      <button class="primary" id="loginButton" type="submit">
+        Sign In
+      </button>
+    </form>
+
+    <div id="loginStatus" class="status" role="status"
+         aria-live="polite"></div>
+  </section>
+
+  <section id="dashboard" class="hidden">
+
+    <section class="panel">
+      <h2>Gallery Dashboard</h2>
+      <p id="signedInAs" class="small"></p>
+
+      <div class="actions">
+        <button class="secondary" id="refreshButton" type="button">
+          Refresh Gallery
+        </button>
+        <button class="danger" id="logoutButton" type="button">
+          Sign Out
+        </button>
+      </div>
+
+      <div id="dashboardStatus" class="status" role="status"
+           aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Upload Campaign Photograph</h2>
+
+      <form id="uploadForm">
+        <label for="photoTitle">Photograph Title</label>
+        <input type="text" id="photoTitle" maxlength="200"
+               required placeholder="Enter photograph title">
+
+        <label for="photoDescription">Description</label>
+        <textarea id="photoDescription" maxlength="5000"
+          placeholder="Describe this campaign photograph"></textarea>
+
+        <label for="photoFile">Choose Photograph</label>
+        <input type="file" id="photoFile"
+               accept="image/jpeg,image/png,image/webp,image/gif"
+               required>
+
+        <p class="small">
+          Supported formats: JPG, PNG, WEBP and GIF.
+          Maximum file size: 5 MB.
+        </p>
+
+        <img id="imagePreview" class="preview hidden"
+             alt="Selected photograph preview">
+
+        <label>
+          <input type="checkbox" id="publishImmediately" checked>
+          Publish immediately after uploading
+        </label>
+
+        <button class="primary" id="uploadButton" type="submit">
+          Upload Photograph
+        </button>
+      </form>
+
+      <div id="uploadStatus" class="status" role="status"
+           aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Manage Photographs</h2>
+      <p class="small">
+        Published photographs can appear on the public gallery page.
+        Unpublished photographs remain hidden from visitors.
+      </p>
+      <div id="photoGrid" class="photo-grid"></div>
+    </section>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>CONSISTENCY 2027 Campaign Website</p>
+  <p>
+    <a href="gallery.html">View Public Gallery</a> |
+    <a href="index.html">Return to Homepage</a>
+  </p>
+</footer>
+
+<script>
+"use strict";
+
+const PROJECT_URL = "https://sibionetcywotyrfrneb.supabase.co";
+const PUBLISHABLE_KEY =
+  "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
+
+const BUCKET = "campaign-gallery";
+const TABLE = "campaign_gallery";
+const ADMIN_UID = "100bf64c-440b-44cc-8985-cc5ad5d45541";
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+let accessToken = null;
+let currentUser = null;
+let selectedPreviewUrl = null;
+let busy = false;
+
+const $ = id => document.getElementById(id);
+
+function showStatus(id, message, type = "info") {
+  const element = $(id);
+  element.textContent = message;
+  element.className = "status " + type;
+}
+
+function clearStatus(id) {
+  $(id).textContent = "";
+  $(id).className = "status";
+}
+
+function authHeaders(extra = {}) {
+  if (!accessToken) throw new Error("Please sign in again.");
+
+  return {
+    apikey: PUBLISHABLE_KEY,
+    Authorization: "Bearer " + accessToken,
+    ...extra
+  };
+}
+
+async function readResponse(response) {
+  const text = await response.text();
+  let data = null;
+
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch (_) {
+    data = text;
+  }
+
+  if (!response.ok) {
+    const message = data && typeof data === "object"
+      ? data.message || data.error_description || data.error
+      : data;
+
+    throw new Error(message || "Request failed: HTTP " + response.status);
+  }
+
+  return data;
+}
+
+async function apiRequest(url, options = {}) {
+  return readResponse(await fetch(url, options));
+}
+
+function requireAdmin() {
+  if (!currentUser || currentUser.id !== ADMIN_UID) {
+    throw new Error(
+      "This account is not the designated campaign administrator."
+    );
+  }
+}
+
+function showDashboard() {
+  $("loginPanel").classList.add("hidden");
+  $("dashboard").classList.remove("hidden");
+  $("signedInAs").textContent =
+    "Signed in as " + (currentUser.email || "administrator");
+}
+
+function showLogin() {
+  $("dashboard").classList.add("hidden");
+  $("loginPanel").classList.remove("hidden");
+  $("password").value = "";
+}
+
+$("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  if (busy) return;
+
+  busy = true;
+  $("loginButton").disabled = true;
+  showStatus("loginStatus", "Signing in...", "info");
+
+  try {
+    const result = await apiRequest(
+      PROJECT_URL + "/auth/v1/token?grant_type=password",
+      {
+        method: "POST",
+        headers: {
+          apikey: PUBLISHABLE_KEY,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: $("email").value.trim(),
+          password: $("password").value
+        })
+      }
+    );
+
+    if (!result.access_token || !result.user) {
+      throw new Error("Supabase did not return a valid login session.");
+    }
+
+    accessToken = result.access_token;
+    currentUser = result.user;
+
+    requireAdmin();
+    showDashboard();
+    showStatus("dashboardStatus", "Login successful.", "success");
+    await loadGallery();
+
+  } catch (error) {
+    accessToken = null;
+    currentUser = null;
+    showLogin();
+    showStatus("loginStatus", error.message || "Login failed.", "error");
+
+  } finally {
+    busy = false;
+    $("loginButton").disabled = false;
+  }
+});
+
+$("logoutButton").addEventListener("click", async () => {
+  const token = accessToken;
+
+  accessToken = null;
+  currentUser = null;
+
+  try {
+    if (token) {
+      await fetch(PROJECT_URL + "/auth/v1/logout", {
+        method: "POST",
+        headers: {
+          apikey: PUBLISHABLE_KEY,
+          Authorization: "Bearer " + token
+        }
+      });
+    }
+  } catch (_) {}
+
+  $("photoGrid").replaceChildren();
+  showLogin();
+  showStatus("loginStatus", "You have signed out.", "success");
+});
+
+$("photoFile").addEventListener("change", () => {
+  const file = $("photoFile").files[0];
+
+  if (selectedPreviewUrl) {
+    URL.revokeObjectURL(selectedPreviewUrl);
+    selectedPreviewUrl = null;
+  }
+
+  $("imagePreview").classList.add("hidden");
+
+  if (!file) return;
+
+  if (file.size > MAX_FILE_SIZE) {
+    showStatus("uploadStatus", "The photograph must be 5 MB or smaller.", "error");
+    $("photoFile").value = "";
+    return;
+  }
+
+  const allowed = [
+    "image/jpeg", "image/png", "image/webp", "image/gif"
+  ];
+
+  if (!allowed.includes(file.type)) {
+    showStatus("uploadStatus", "Choose a JPG, PNG, WEBP, or GIF image.", "error");
+    $("photoFile").value = "";
+    return;
+  }
+
+  selectedPreviewUrl = URL.createObjectURL(file);
+  $("imagePreview").src = selectedPreviewUrl;
+  $("imagePreview").classList.remove("hidden");
+  clearStatus("uploadStatus");
+});
+
+function publicImageUrl(path) {
+  return PROJECT_URL + "/storage/v1/object/public/" +
+    BUCKET + "/" +
+    path.split("/").map(encodeURIComponent).join("/");
+}
+
+function storageObjectPath(url) {
+  const marker = "/storage/v1/object/public/" + BUCKET + "/";
+
+  if (!url || !url.includes(marker)) return null;
+
+  const encodedPath = url.split(marker)[1].split("?")[0];
+
+  try {
+    return encodedPath.split("/").map(decodeURIComponent).join("/");
+  } catch (_) {
+    return encodedPath;
+  }
+}
+
+$("uploadForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  if (busy) return;
+
+  busy = true;
+  $("uploadButton").disabled = true;
+
+  let uploadedPath = null;
+  let databaseRecordCreated = false;
+
+  try {
+    requireAdmin();
+
+    const title = $("photoTitle").value.trim();
+    const description = $("photoDescription").value.trim();
+    const file = $("photoFile").files[0];
+    const published = $("publishImmediately").checked;
+
+    if (!title) throw new Error("Enter a photograph title.");
+    if (!file) throw new Error("Choose a photograph first.");
+    if (file.size > MAX_FILE_SIZE) {
+      throw new Error("The photograph must be 5 MB or smaller.");
+    }
+
+    showStatus("uploadStatus", "Uploading photograph...", "info");
+
+    const safeName = file.name
+      .replace(/[^a-zA-Z0-9._-]/g, "_")
+      .slice(-100);
+
+    const path = Date.now() + "-" +
+      crypto.randomUUID() + "-" + safeName;
+
+    uploadedPath = path;
+
+    await apiRequest(
+      PROJECT_URL + "/storage/v1/object/" + BUCKET + "/" +
+      path.split("/").map(encodeURIComponent).join("/"),
+      {
+        method: "POST",
+        headers: authHeaders({
+          "Content-Type": file.type,
+          "x-upsert": "false"
+        }),
+        body: file
+      }
+    );
+
+    showStatus("uploadStatus", "Image uploaded. Saving details...", "info");
+
+    await apiRequest(
+      PROJECT_URL + "/rest/v1/" + TABLE,
+      {
+        method: "POST",
+        headers: authHeaders({
+          "Content-Type": "application/json",
+          Prefer: "return=representation"
+        }),
+        body: JSON.stringify({
+          title,
+          description,
+          image_url: publicImageUrl(path),
+          published
+        })
+      }
+    );
+
+    databaseRecordCreated = true;
+    $("uploadForm").reset();
+    $("imagePreview").classList.add("hidden");
+
+    if (selectedPreviewUrl) {
+      URL.revokeObjectURL(selectedPreviewUrl);
+      selectedPreviewUrl = null;
+    }
+
+    showStatus(
+      "uploadStatus",
+      published
+        ? "Photograph uploaded and published successfully!"
+        : "Photograph uploaded as a draft.",
+      "success"
+    );
+
+    await loadGallery();
+
+  } catch (error) {
+    let message = error.message || "Upload failed.";
+
+    if (uploadedPath && !databaseRecordCreated) {
+      message += " The image may already be in Storage. Check before retrying.";
+    }
+
+    showStatus("uploadStatus", message, "error");
+
+  } finally {
+    busy = false;
+    $("uploadButton").disabled = false;
+  }
+});
+
+async function loadGallery() {
+  requireAdmin();
+
+  showStatus("dashboardStatus", "Loading gallery...", "info");
+  $("photoGrid").replaceChildren();
+
+  try {
+    const records = await apiRequest(
+      PROJECT_URL + "/rest/v1/" + TABLE +
+      "?select=id,title,description,image_url,published,created_at&order=created_at.desc",
+      { headers: authHeaders() }
+    );
+
+    if (!Array.isArray(records)) {
+      throw new Error("Unexpected response from the gallery table.");
+    }
+
+    if (records.length === 0) {
+      $("photoGrid").textContent = "No photographs have been uploaded yet.";
+      showStatus("dashboardStatus", "Gallery loaded. No photographs yet.", "success");
+      return;
+    }
+
+    records.forEach(record => {
+      const card = document.createElement("article");
+      card.className = "photo-card";
+
+      const image = document.createElement("img");
+      image.src = record.image_url || "";
+      image.alt = record.title || "Campaign photograph";
+      image.loading = "lazy";
+
+      image.addEventListener("error", () => {
+        image.alt = "Image could not be loaded";
+      });
+
+      const title = document.createElement("h3");
+      title.textContent = record.title || "Untitled photograph";
+
+      const description = document.createElement("p");
+      description.textContent = record.description || "No description.";
+
+      const badge = document.createElement("span");
+      badge.className = "badge " +
+        (record.published ? "published" : "draft");
+      badge.textContent = record.published ? "Published" : "Draft";
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = record.published ? "gold" : "primary";
+      toggle.textContent = record.published ? "Unpublish" : "Publish";
+      toggle.addEventListener("click", () => {
+        changePublished(record.id, !record.published);
+      });
+
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "danger";
+      remove.textContent = "Delete";
+      remove.addEventListener("click", () => deletePhoto(record));
+
+      actions.append(toggle, remove);
+      card.append(image, title, description, badge, actions);
+      $("photoGrid").appendChild(card);
+    });
+
+    showStatus(
+      "dashboardStatus",
+      records.length + " photograph record(s) loaded.",
+      "success"
+    );
+
+  } catch (error) {
+    showStatus(
+      "dashboardStatus",
+      "Could not load gallery: " + (error.message || "Unknown error"),
+      "error"
+    );
+  }
+}
+
+async function changePublished(id, published) {
+  if (busy) return;
+  busy = true;
+
+  try {
+    requireAdmin();
+
+    await apiRequest(
+      PROJECT_URL + "/rest/v1/" + TABLE + "?id=eq." + encodeURIComponent(id),
+      {
+        method: "PATCH",
+        headers: authHeaders({
+          "Content-Type": "application/json",
+          Prefer: "return=minimal"
+        }),
+        body: JSON.stringify({ published })
+      }
+    );
+
+    showStatus(
+      "dashboardStatus",
+      published ? "Photograph published." : "Photograph unpublished.",
+      "success"
+    );
+
+    await loadGallery();
+
+  } catch (error) {
+    showStatus("dashboardStatus", "Update failed: " + error.message, "error");
+
+  } finally {
+    busy = false;
+  }
+}
+
+async function deletePhoto(record) {
+  if (busy) return;
+
+  if (!confirm(
+    "Permanently delete '" + (record.title || "this photograph") +
+    "' and its stored image?"
+  )) return;
+
+  busy = true;
+
+  try {
+    requireAdmin();
+
+    await apiRequest(
+      PROJECT_URL + "/rest/v1/" + TABLE + "?id=eq." + encodeURIComponent(record.id),
+      {
+        method: "DELETE",
+        headers: authHeaders({ Prefer: "return=minimal" })
+      }
+    );
+
+    const path = storageObjectPath(record.image_url);
+
+    if (path) {
+      const response = await fetch(
+        PROJECT_URL + "/storage/v1/object/" + BUCKET + "/" +
+        path.split("/").map(encodeURIComponent).join("/"),
+        {
+          method: "DELETE",
+          headers: authHeaders()
+        }
+      );
+
+      if (!response.ok) {
+        const message = await response.text();
+        showStatus(
+          "dashboardStatus",
+          "Gallery record deleted, but image cleanup failed: " + message,
+          "error"
+        );
+        await loadGallery();
+        return;
+      }
+    }
+
+    showStatus("dashboardStatus", "Photograph deleted.", "success");
+    await loadGallery();
+
+  } catch (error) {
+    showStatus("dashboardStatus", "Deletion failed: " + error.message, "error");
+
+  } finally {
+    busy = false;
+  }
+}
+
+$("refreshButton").addEventListener("click", async () => {
+  if (busy) return;
+
+  try {
+    await loadGallery();
+  } catch (error) {
+    showStatus("dashboardStatus", error.message, "error");
+  }
+});
+</script>
+
+</body>
+</html>
