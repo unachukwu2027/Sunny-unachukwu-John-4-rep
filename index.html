@@ -21,7 +21,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -32,7 +31,6 @@ body {
   line-height: 1.7;
 }
 
-/* TOP ANNOUNCEMENT BAR */
 .topbar {
   background: var(--dark-green);
   color: white;
@@ -43,7 +41,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* WEBSITE HEADER */
 header {
   background: white;
   border-bottom: 3px solid var(--gold);
@@ -85,7 +82,7 @@ header {
   font-size: 13px;
 }
 
-/* NAVIGATION */
+/* MAIN NAVIGATION */
 nav {
   background: var(--green);
   position: relative;
@@ -125,6 +122,18 @@ nav {
   background: #991b1b;
 }
 
+/* Gallery Admin gets a separate highlighted menu link */
+.nav-inner .gallery-admin-link {
+  background: #174a9c;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.nav-inner .gallery-admin-link:hover {
+  background: #10346f;
+}
+
 .menu-toggle {
   display: none;
   width: 100%;
@@ -138,7 +147,7 @@ nav {
   cursor: pointer;
 }
 
-/* MOVING WELCOME NOTE */
+/* WELCOME NOTE */
 .welcome-section {
   display: flex;
   align-items: center;
@@ -183,7 +192,7 @@ nav {
   100% { transform: translateX(-100%); }
 }
 
-/* HERO BANNER */
+/* HERO */
 .hero {
   min-height: 440px;
   padding: 65px 20px;
@@ -274,7 +283,7 @@ nav {
   margin: auto;
 }
 
-/* CAMPAIGN CARDS */
+/* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -307,7 +316,7 @@ nav {
 
 .card-link:hover { text-decoration: underline; }
 
-/* CAMPAIGN SLOGAN */
+/* SLOGAN */
 .slogan {
   background: var(--light-green);
   border-top: 1px solid #cce5d1;
@@ -358,6 +367,11 @@ footer p {
 
 .footer-links a:hover { text-decoration: underline; }
 
+.footer-links .gallery-admin-footer {
+  color: #ffdf59;
+  font-weight: bold;
+}
+
 /* DEVELOPER CREDIT */
 .developer-credit {
   max-width: 650px;
@@ -394,7 +408,7 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
-/* MOBILE RESPONSIVENESS */
+/* MOBILE */
 @media (max-width: 850px) {
   .menu-toggle { display: block; }
 
@@ -412,7 +426,8 @@ button:focus-visible {
     border-bottom: 1px solid #ffffff25;
   }
 
-  .nav-inner .admin-link {
+  .nav-inner .admin-link,
+  .nav-inner .gallery-admin-link {
     margin: 8px 0 0;
     text-align: center;
   }
@@ -455,16 +470,13 @@ button:focus-visible {
 
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   CONSISTENCY 2027 — SERVICE TO THE PEOPLE
 </div>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="logo">C27</div>
-
     <div class="brand">
       <h1>CONSISTENCY 2027</h1>
       <p>Barr. Sunny John Unachukwu, Esq.</p>
@@ -499,25 +511,28 @@ button:focus-visible {
     <a href="gallery.html">Gallery</a>
     <a href="videos.html">Videos</a>
     <a href="events.html">Events</a>
-
-    <!-- VOTERS EDUCATION MENU LINK ADDED -->
     <a href="voters-education.html">Voters Education</a>
-
     <a href="volunteer.html">Volunteer</a>
     <a href="contact.html">Contact</a>
 
+    <!-- ADMINISTRATION LINKS -->
     <a href="admin-login.html" class="admin-link">
       🔐 Admin Login
+    </a>
+
+    <a href="admin-news.html" class="admin-link">
+      📰 News Admin
+    </a>
+
+    <a href="admin-gallery.html" class="gallery-admin-link">
+      📸 Gallery Admin
     </a>
 
   </div>
 </nav>
 
-<!-- MOVING WELCOME NOTE -->
 <section class="welcome-section" aria-label="Welcome message">
-
   <div class="welcome-label">WELCOME</div>
-
   <div class="welcome-message">
     <div class="welcome-moving-text">
       Welcome to the official campaign website of Barr. Sunny John
@@ -529,13 +544,10 @@ button:focus-visible {
       for Mbaitoli/Ikeduru Federal Constituency.
     </div>
   </div>
-
 </section>
 
-<!-- HERO BANNER -->
 <section class="hero">
   <div class="hero-content">
-
     <span class="hero-label">CONSISTENCY 2027</span>
 
     <h2>
@@ -553,18 +565,14 @@ button:focus-visible {
       <a class="button button-gold" href="biography.html">
         Meet the Candidate
       </a>
-
       <a class="button button-white" href="manifesto.html">
         Explore the Manifesto
       </a>
     </div>
-
   </div>
 </section>
 
-<!-- CAMPAIGN PRIORITIES -->
 <section class="container">
-
   <div class="section-heading">
     <h2>Our Campaign Priorities</h2>
     <p>
@@ -574,7 +582,6 @@ button:focus-visible {
   </div>
 
   <div class="cards">
-
     <article class="card">
       <h3>Education</h3>
       <p>
@@ -628,19 +635,15 @@ button:focus-visible {
       </p>
       <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
-
   </div>
 </section>
 
-<!-- CAMPAIGN SLOGAN -->
 <section class="slogan">
   <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
   <p>MBAIKE'S CHOSEN ONE FOR HOR · SERVICE TO THE PEOPLE</p>
 </section>
 
-<!-- EXPLORE CAMPAIGN -->
 <section class="container">
-
   <div class="section-heading">
     <h2>Explore the Campaign</h2>
     <p>
@@ -650,7 +653,6 @@ button:focus-visible {
   </div>
 
   <div class="cards">
-
     <article class="card">
       <h3>Candidate Biography</h3>
       <p>
@@ -671,18 +673,19 @@ button:focus-visible {
     <article class="card">
       <h3>Website Administration</h3>
       <p>
-        Authorized website administrators can access the
-        administration login page.
+        Authorized website administrators can access news and gallery
+        management using the campaign administration pages.
       </p>
       <a class="card-link" href="admin-login.html">Open Admin Login →</a>
+      <br>
+      <a class="card-link" href="admin-news.html">Manage News →</a>
+      <br>
+      <a class="card-link" href="admin-gallery.html">Manage Gallery →</a>
     </article>
-
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-
   <h3>CONSISTENCY 2027</h3>
   <p>Barr. Sunny John Unachukwu, Esq.</p>
   <p>Service to the People</p>
@@ -694,6 +697,10 @@ button:focus-visible {
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
     <a href="admin-login.html">Admin Login</a>
+    <a href="admin-news.html">News Admin</a>
+    <a class="gallery-admin-footer" href="admin-gallery.html">
+      📸 Gallery Admin
+    </a>
   </div>
 
   <p style="margin-top:20px">
@@ -701,7 +708,6 @@ button:focus-visible {
     CONSISTENCY 2027. All rights reserved.
   </p>
 
-  <!-- WEBSITE DEVELOPER CREDIT -->
   <div class="developer-credit">
     <p>Website Designed &amp; Developed by</p>
     <h4>INEKWE THEOPHILUS AKOJI</h4>
@@ -710,7 +716,6 @@ button:focus-visible {
       Website Design | Web Development | Digital Solutions
     </p>
   </div>
-
 </footer>
 
 <script>
