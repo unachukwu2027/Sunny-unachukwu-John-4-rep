@@ -3,275 +3,308 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#087f23">
-
+<meta name="robots" content="noindex, nofollow">
 <title>Admin Login | CONSISTENCY 2027</title>
-
 <style>
-* {
-  box-sizing: border-box;
+:root {
+  --green: #087f23;
+  --dark: #045b19;
+  --light: #eaf7ed;
+  --red: #c62828;
 }
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: #222;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #045b19, #087f23);
+  flex-direction: column;
 }
-
-.login-box {
-  width: 100%;
-  max-width: 410px;
-  background: white;
-  padding: 30px 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 35px #0004;
-}
-
-.logo {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  background: #087f23;
+header {
+  background: var(--green);
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-  font-weight: bold;
-  margin: 0 auto 15px;
-  border: 4px solid #d6a500;
-}
-
-h1 {
+  padding: 22px 15px;
   text-align: center;
-  color: #087f23;
-  font-size: 23px;
-  margin-bottom: 5px;
 }
-
-.subtitle {
-  text-align: center;
-  color: #666;
-  line-height: 1.6;
-  font-size: 14px;
-  margin-bottom: 25px;
+header h1 { margin: 0 0 8px; font-size: 24px; }
+header p { margin: 0; }
+main {
+  width: 100%;
+  max-width: 460px;
+  margin: 35px auto;
+  padding: 0 16px;
+  flex: 1;
 }
-
+.card {
+  background: white;
+  padding: 26px 22px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px #00000012;
+}
+h2 { color: var(--dark); margin-top: 0; }
 label {
   display: block;
   font-weight: bold;
-  margin: 16px 0 7px;
-  font-size: 14px;
+  margin: 17px 0 7px;
 }
-
 input {
   width: 100%;
   padding: 13px;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   border-radius: 7px;
   font-size: 16px;
 }
-
-input:focus {
-  outline: 2px solid #b8e3c0;
-  border-color: #087f23;
-}
-
-.password-wrap {
-  display: flex;
-  gap: 6px;
-}
-
-.password-wrap input {
-  min-width: 0;
-  flex: 1;
-}
-
-.password-wrap button {
-  padding: 0 12px;
-  background: #e8f5e9;
-  color: #045b19;
-  border: 1px solid #b8d8be;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.login-button {
+button, .link-button {
+  display: block;
   width: 100%;
-  padding: 14px;
-  margin-top: 23px;
+  padding: 13px;
+  margin-top: 18px;
   border: 0;
   border-radius: 7px;
+  background: var(--green);
   color: white;
-  background: #087f23;
   font-size: 16px;
   font-weight: bold;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
 }
-
-.login-button:hover {
-  background: #045b19;
-}
-
-.error {
-  display: none;
-  color: #b91c1c;
-  background: #fee2e2;
-  padding: 11px;
-  border-radius: 6px;
+button:disabled { opacity: .65; cursor: wait; }
+#message {
   margin-top: 15px;
-  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
-
+.error { color: var(--red); }
+.success { color: var(--dark); }
 .notice {
-  margin-top: 20px;
+  background: #fff6d8;
+  border-left: 4px solid #d6a500;
   padding: 12px;
-  background: #fff8df;
-  border: 1px solid #ead58a;
-  border-radius: 7px;
-  font-size: 12px;
-  line-height: 1.6;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 18px;
 }
-
-.back {
+#portal { display: none; }
+.secondary { background: #2457a7; }
+.home-link {
   display: block;
   text-align: center;
-  margin-top: 20px;
-  color: #087f23;
-  text-decoration: none;
-  font-size: 14px;
+  margin: 22px 0;
+  color: var(--dark);
 }
-
 footer {
-  margin-top: 20px;
   text-align: center;
-  font-size: 12px;
-  color: #777;
+  padding: 18px;
+  font-size: 13px;
+  background: #fff;
 }
 </style>
 </head>
-
 <body>
 
-<div class="login-box">
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Campaign Administration Portal</p>
+</header>
 
-  <div class="logo">C27</div>
+<main>
+  <section class="card" id="loginCard">
+    <h2>Admin Login</h2>
+    <p>Sign in with your authorized administrator account.</p>
 
-  <h1>ADMIN LOGIN</h1>
+    <form id="loginForm">
+      <label for="email">Administrator Email</label>
+      <input id="email" type="email" autocomplete="username"
+             required placeholder="Enter your admin email">
 
-  <p class="subtitle">
-    CONSISTENCY 2027<br>
-    Campaign Website Administration
-  </p>
+      <label for="password">Password</label>
+      <input id="password" type="password"
+             autocomplete="current-password"
+             required placeholder="Enter your password">
 
-  <form id="loginForm">
+      <button id="loginButton" type="submit">Sign In Securely</button>
+    </form>
 
-    <label for="username">Username</label>
+    <div id="message" role="status" aria-live="polite"></div>
 
-    <input
-      type="text"
-      id="username"
-      autocomplete="username"
-      placeholder="Enter admin username"
-      required
-    >
-
-    <label for="password">Password</label>
-
-    <div class="password-wrap">
-      <input
-        type="password"
-        id="password"
-        autocomplete="current-password"
-        placeholder="Enter admin password"
-        required
-      >
-
-      <button type="button" id="togglePassword">
-        Show
-      </button>
+    <div class="notice">
+      Access is restricted to the designated campaign administrator.
+      Do not share your password or access tokens.
     </div>
+  </section>
 
-    <button class="login-button" type="submit">
-      Login to Dashboard
-    </button>
+  <section class="card" id="portal">
+    <h2>Administration Portal</h2>
+    <p class="success">Your Supabase session has been verified.</p>
+    <p>Select the area you want to manage:</p>
 
-    <div class="error" id="errorMessage" role="alert">
-      Incorrect username or password.
-    </div>
+    <a class="link-button" href="admin-news.html">Manage Campaign News</a>
+    <a class="link-button secondary" href="admin-gallery.html">Manage Campaign Gallery</a>
+    <button type="button" id="logoutButton"
+            style="background:#c62828">Sign Out</button>
+    <div id="portalMessage" role="status"></div>
+  </section>
 
-  </form>
+  <a class="home-link" href="index.html">← Return to Campaign Homepage</a>
+</main>
 
-  <div class="notice">
-    <strong>Security notice:</strong>
-    This demonstration login does not provide secure authentication.
-    Do not enter confidential information.
-  </div>
-
-  <a class="back" href="index.html">
-    ← Return to Campaign Website
-  </a>
-
-  <footer>
-    CONSISTENCY 2027 | Service to the People
-  </footer>
-
-</div>
+<footer>
+  &copy; <span id="year"></span> CONSISTENCY 2027 Campaign
+</footer>
 
 <script>
-"use strict";
+(() => {
+  "use strict";
 
-/*
- * DEMONSTRATION ONLY.
- * Anyone who can read this public source code can discover these values.
- * Replace them only for testing; this does not make the login secure.
- */
-const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "ChangeMe2027!";
+  const SUPABASE_URL = "https://sibionetcywotyrfrneb.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
 
-const SESSION_KEY = "consistency2027_demo_admin_session";
+  // Only this administrator account is authorized for this portal.
+  const ADMIN_UID = "100bf64c-440b-44cc-8985-cc5ad5d45541";
 
-document.getElementById("togglePassword").addEventListener("click", function () {
-  const passwordInput = document.getElementById("password");
+  const form = document.getElementById("loginForm");
+  const loginCard = document.getElementById("loginCard");
+  const portal = document.getElementById("portal");
+  const message = document.getElementById("message");
+  const button = document.getElementById("loginButton");
 
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    this.textContent = "Hide";
-  } else {
-    passwordInput.type = "password";
-    this.textContent = "Show";
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  function showMessage(text, type) {
+    message.className = type || "";
+    message.textContent = text;
   }
-});
 
-document.getElementById("loginForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value;
-  const errorMessage = document.getElementById("errorMessage");
-
-  if (
-    username === ADMIN_USERNAME &&
-    password === ADMIN_PASSWORD
-  ) {
-    /*
-     * This is only a browser-side demonstration session.
-     * It is not a security boundary.
-     */
-    sessionStorage.setItem(SESSION_KEY, "demo");
-
-    window.location.href = "admin-dashboard.html";
-  } else {
-    errorMessage.style.display = "block";
-    document.getElementById("password").value = "";
+  function showPortal() {
+    loginCard.style.display = "none";
+    portal.style.display = "block";
   }
-});
+
+  function showLogin() {
+    portal.style.display = "none";
+    loginCard.style.display = "block";
+  }
+
+  async function checkSession() {
+    const token = sessionStorage.getItem("consistency_admin_token");
+    if (!token) return;
+
+    try {
+      const response = await fetch(SUPABASE_URL + "/auth/v1/user", {
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + token
+        }
+      });
+
+      if (!response.ok) {
+        sessionStorage.removeItem("consistency_admin_token");
+        sessionStorage.removeItem("consistency_admin_refresh");
+        return;
+      }
+
+      const user = await response.json();
+
+      if (user.id === ADMIN_UID) {
+        showPortal();
+      } else {
+        sessionStorage.removeItem("consistency_admin_token");
+        sessionStorage.removeItem("consistency_admin_refresh");
+      }
+    } catch (error) {
+      showMessage("Could not verify your session. Check your internet connection.", "error");
+    }
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    button.disabled = true;
+    button.textContent = "Verifying...";
+    showMessage("Connecting to Supabase...", "");
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch(
+        SUPABASE_URL + "/auth/v1/token?grant_type=password",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_KEY
+          },
+          body: JSON.stringify({ email, password })
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.msg || result.message ||
+          result.error_description || result.error ||
+          "Sign-in failed. Check your credentials."
+        );
+      }
+
+      if (!result.user || result.user.id !== ADMIN_UID) {
+        throw new Error(
+          "This account is not authorized for the campaign admin portal."
+        );
+      }
+
+      sessionStorage.setItem("consistency_admin_token", result.access_token);
+      if (result.refresh_token) {
+        sessionStorage.setItem("consistency_admin_refresh", result.refresh_token);
+      }
+
+      document.getElementById("password").value = "";
+      showMessage("", "");
+      showPortal();
+
+    } catch (error) {
+      showMessage(
+        error.message || "Unable to connect to Supabase. Please try again.",
+        "error"
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = "Sign In Securely";
+    }
+  });
+
+  document.getElementById("logoutButton").addEventListener("click", async () => {
+    const token = sessionStorage.getItem("consistency_admin_token");
+
+    try {
+      if (token) {
+        await fetch(SUPABASE_URL + "/auth/v1/logout", {
+          method: "POST",
+          headers: {
+            "apikey": SUPABASE_KEY,
+            "Authorization": "Bearer " + token
+          }
+        });
+      }
+    } catch (error) {
+      // Clear the local session even if the network is unavailable.
+    }
+
+    sessionStorage.removeItem("consistency_admin_token");
+    sessionStorage.removeItem("consistency_admin_refresh");
+    document.getElementById("portalMessage").textContent = "";
+    showLogin();
+    showMessage("You have signed out.", "success");
+  });
+
+  checkSession();
+})();
 </script>
-
 </body>
 </html>
