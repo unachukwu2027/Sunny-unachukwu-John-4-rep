@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087f23">
-<title>News Admin | CONSISTENCY 2027</title>
-<style>
+<title>News Admin | CONSISTENCY 2027</title><style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#f3f6f3;color:#222}
 header{background:#087f23;color:white;text-align:center;padding:24px 12px;border-bottom:5px solid #d4a017}
@@ -16,7 +14,10 @@ main{max-width:850px;margin:24px auto;padding:0 14px}
 .panel{background:white;padding:22px;margin-bottom:20px;border-radius:10px;box-shadow:0 2px 10px #0001}
 h2{color:#087f23;margin-top:0}
 label{display:block;font-weight:bold;margin:16px 0 7px}
-input,textarea{width:100%;padding:13px;border:1px solid #ccc;border-radius:6px;font:16px Arial}
+input:not([type=checkbox]):not([type=file]),textarea{
+width:100%;padding:13px;border:1px solid #ccc;border-radius:6px;font:16px Arial
+}
+input[type=file]{display:block;width:100%;padding:12px;background:#f7faf7;border:1px solid #ccc;border-radius:6px;font-size:16px}
 textarea{min-height:100px;resize:vertical}
 #content{min-height:220px}
 button{background:#087f23;color:white;border:0;padding:13px 18px;border-radius:6px;font-weight:bold;font-size:15px;margin:14px 7px 0 0;cursor:pointer}
@@ -27,83 +28,80 @@ button:disabled{opacity:.55;cursor:not-allowed}
 .status.success{display:block;background:#e8f5e9;color:#176b25}
 .notice{padding:13px;background:#f1f8f1;border-left:4px solid #087f23;line-height:1.6}
 .small{font-size:13px;color:#666;line-height:1.5}
+#imagePreview{display:none;max-width:100%;max-height:350px;object-fit:contain;margin-top:12px;border-radius:8px;border:1px solid #ddd}
 footer{text-align:center;background:#063f14;color:white;padding:22px}
-</style>
-</head>
-<body>
-
-<header>
+.checkrow{display:flex;align-items:center;gap:8px;margin-top:18px}
+.checkrow label{margin:0}
+@media(max-width:500px){.panel{padding:17px}header h1{font-size:23px}}
+</style></head><body><header>
 <h1>CONSISTENCY 2027</h1>
 <p>Campaign News Administration</p>
-</header>
-
-<nav>
+</header><nav>
 <a href="index.html">Home</a>
 <a href="news.html">View News</a>
-</nav>
-
-<main>
-<section class="panel">
-<h2>Administrator Login</h2>
-<div class="notice">
-Sign in with the administrator email and password you created in Supabase.
-</div>
-
-<form id="loginForm">
+</nav><main><section class="panel">
+<h2>Administrator Login</h2><div class="notice">
+Sign in with your administrator email and password created in Supabase.
+</div><form id="loginForm">
 <label for="email">Administrator Email</label>
-<input id="email" type="email" autocomplete="username" required>
-
-<label for="password">Password</label>
+<input id="email" type="email" autocomplete="username" required><label for="password">Password</label>
 <input id="password" type="password" autocomplete="current-password" required>
 
 <button id="loginBtn" type="submit">Sign In</button>
 <button id="logoutBtn" type="button" class="secondary" hidden>Sign Out</button>
-</form>
-<div id="authStatus" class="status" role="status" aria-live="polite"></div>
-<p class="small">Never share your administrator password. This page uses your Supabase publishable key and authenticated session.</p>
-</section>
 
-<section class="panel">
-<h2>Publish a News Article</h2>
-<p id="sessionMessage" class="notice">Please sign in before publishing.</p>
-
-<form id="newsForm">
-<label for="title">News Headline *</label>
+</form><div id="authStatus" class="status" role="status" aria-live="polite"></div><p class="small">
+Never share your administrator password. Use only your authorized administrator account.
+</p>
+</section><section class="panel">
+<h2>Publish a News Article</h2><p id="sessionMessage" class="notice">Please sign in before publishing.</p><form id="newsForm"><label for="title">News Headline *</label>
 <input id="title" maxlength="200" required>
 
 <label for="summary">Short Summary</label>
-<textarea id="summary" maxlength="1000"></textarea>
 
-<label for="image_url">Direct Image URL</label>
+<textarea id="summary" maxlength="1000"></textarea><label for="photo">Choose Photograph from Your Phone</label>
+<input id="photo" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+
+<p class="small">
+Select a picture from your phone's gallery or files. The picture will be uploaded automatically when you publish the article.
+Maximum file size: 8 MB. Supported formats: JPG, PNG, WebP and GIF.
+</p><img id="imagePreview" alt="Preview of selected news photograph"><button id="removePhotoBtn" type="button" class="secondary" hidden>
+Remove Selected Photograph
+</button><p id="photoStatus" class="small" aria-live="polite"></p><label for="image_url">Or Use an Existing Image URL (Optional)</label>
 <input id="image_url" type="url" placeholder="https://example.com/image.jpg">
 
-<label for="author">Author</label>
+<p class="small">
+If you select a photograph above, it will be used instead of this URL.
+</p><label for="author">Author</label>
 <input id="author" maxlength="150" value="CONSISTENCY 2027 Media Team" required>
 
 <label for="content">Full News Story *</label>
-<textarea id="content" required></textarea>
 
-<label>
-<input id="published" type="checkbox" checked style="width:auto">
- Publish immediately
-</label>
+<textarea id="content" required></textarea><div class="checkrow">
+<input id="published" type="checkbox" checked>
+<label for="published">Publish immediately</label>
+</div><button id="publishBtn" type="submit" disabled>Publish News</button>
 
-<button id="publishBtn" type="submit" disabled>Publish News</button>
-</form>
-<div id="publishStatus" class="status" role="status" aria-live="polite"></div>
-</section>
-</main>
-
-<footer>
+</form><div id="publishStatus" class="status" role="status" aria-live="polite"></div>
+</section></main><footer>
 <strong>CONSISTENCY 2027</strong><br>
 The Choice Is Now. The Choice Is Clear.
-</footer>
-
-<script>
+</footer><script>
 const PROJECT_URL = "https://sibionetcywotyrfrneb.supabase.co";
 const PUBLISHABLE_KEY = "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
 
+const STORAGE_BUCKET = "campaign-news-images";
+const MAX_FILE_SIZE = 8 * 1024 * 1024;
+const ALLOWED_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif"
+];
+
 let accessToken = null;
+let selectedPhoto = null;
+let currentUserId = null;
 
 const $ = id => document.getElementById(id);
 
@@ -127,7 +125,6 @@ function setLoggedIn(loggedIn) {
 async function supabaseRequest(path, options = {}) {
   const headers = {
     "apikey": PUBLISHABLE_KEY,
-    "Content-Type": "application/json",
     ...(options.headers || {})
   };
 
@@ -145,41 +142,113 @@ async function supabaseRequest(path, options = {}) {
 
   const raw = await response.text();
   let data = null;
-  try { data = raw ? JSON.parse(raw) : null; } catch {}
+
+  try {
+    data = raw ? JSON.parse(raw) : null;
+  } catch {}
 
   if (!response.ok) {
-    const message = data?.msg || data?.message || data?.error_description ||
-      data?.error || raw || ("HTTP " + response.status);
+    const message = data?.msg || data?.message ||
+      data?.error_description || data?.error || raw ||
+      ("HTTP " + response.status);
+
     throw new Error(message);
   }
+
   return data;
 }
 
+function clearPhoto() {
+  selectedPhoto = null;
+  $("photo").value = "";
+  $("imagePreview").removeAttribute("src");
+  $("imagePreview").style.display = "none";
+  $("removePhotoBtn").hidden = true;
+  $("photoStatus").textContent = "";
+}
+
+$("photo").addEventListener("change", () => {
+  const file = $("photo").files[0];
+
+  if (!file) {
+    clearPhoto();
+    return;
+  }
+
+  if (!ALLOWED_TYPES.includes(file.type)) {
+    clearPhoto();
+    showStatus("publishStatus",
+      "Please select a JPG, PNG, WebP or GIF image.", "error");
+    return;
+  }
+
+  if (file.size > MAX_FILE_SIZE) {
+    clearPhoto();
+    showStatus("publishStatus",
+      "This photograph exceeds 8 MB. Please choose a smaller image.", "error");
+    return;
+  }
+
+  selectedPhoto = file;
+
+  const previewUrl = URL.createObjectURL(file);
+  $("imagePreview").src = previewUrl;
+  $("imagePreview").style.display = "block";
+  $("removePhotoBtn").hidden = false;
+  $("photoStatus").textContent =
+    "Selected: " + file.name + " (" +
+    (file.size / 1024 / 1024).toFixed(2) + " MB)";
+
+  $("publishStatus").className = "status";
+  $("publishStatus").textContent = "";
+});
+
+$("removePhotoBtn").addEventListener("click", clearPhoto);
+
 $("loginForm").addEventListener("submit", async event => {
   event.preventDefault();
+
   $("loginBtn").disabled = true;
   showStatus("authStatus", "Signing in…", "success");
 
   try {
-    const email = $("email").value.trim();
-    const password = $("password").value;
-
     const result = await supabaseRequest(
       "/auth/v1/token?grant_type=password",
       {
         method: "POST",
-        body: JSON.stringify({ email, password })
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          email: $("email").value.trim(),
+          password: $("password").value
+        })
       }
     );
 
-    if (!result.access_token) throw new Error("Supabase did not return an access token.");
+    if (!result.access_token || !result.user?.id) {
+      throw new Error("Supabase did not return a valid user session.");
+    }
+
+    /*
+      Replace this check with the UUID of your authorized admin
+      if your Supabase project uses a designated administrator.
+      The current code checks the configured admin UID.
+    */
+    const ADMIN_UID = "100bf64c-440b-44cc-8985-cc5ad5d45541";
+
+    if (result.user.id !== ADMIN_UID) {
+      throw new Error("This account is not authorized to administer this website.");
+    }
 
     accessToken = result.access_token;
+    currentUserId = result.user.id;
     $("password").value = "";
+
     setLoggedIn(true);
     showStatus("authStatus", "Signed in successfully.", "success");
+
   } catch (error) {
     accessToken = null;
+    currentUserId = null;
     setLoggedIn(false);
     showStatus("authStatus", "Sign-in failed: " + error.message, "error");
   } finally {
@@ -189,76 +258,158 @@ $("loginForm").addEventListener("submit", async event => {
 
 $("logoutBtn").addEventListener("click", () => {
   accessToken = null;
+  currentUserId = null;
   setLoggedIn(false);
+  clearPhoto();
   showStatus("authStatus", "You have signed out.", "success");
   $("password").value = "";
 });
 
+async function uploadPhoto(file) {
+  if (!accessToken || !currentUserId) {
+    throw new Error("Please sign in again before uploading a photograph.");
+  }
+
+  const extensionByType = {
+    "image/jpeg": "jpg",
+    "image/png": "png",
+    "image/webp": "webp",
+    "image/gif": "gif"
+  };
+
+  const extension = extensionByType[file.type];
+
+  if (!extension) {
+    throw new Error("Unsupported image format.");
+  }
+
+  /*
+    Each upload uses a unique file name to avoid overwriting
+    an existing image.
+  */
+  const uniqueName =
+    currentUserId + "/" + Date.now() + "-" +
+    crypto.randomUUID() + "." + extension;
+
+  const uploadUrl =
+    PROJECT_URL + "/storage/v1/object/" +
+    STORAGE_BUCKET + "/" +
+    uniqueName.split("/").map(encodeURIComponent).join("/");
+
+  const response = await fetch(uploadUrl, {
+    method: "POST",
+    headers: {
+      "apikey": PUBLISHABLE_KEY,
+      "Authorization": "Bearer " + accessToken,
+      "Content-Type": file.type,
+      "x-upsert": "false"
+    },
+    body: file
+  });
+
+  const raw = await response.text();
+  let data = null;
+
+  try {
+    data = raw ? JSON.parse(raw) : null;
+  } catch {}
+
+  if (!response.ok) {
+    throw new Error(
+      data?.message || data?.error || raw ||
+      "Image upload failed. Check the Supabase Storage bucket and upload policies."
+    );
+  }
+
+  return PROJECT_URL + "/storage/v1/object/public/" +
+    STORAGE_BUCKET + "/" +
+    uniqueName.split("/").map(encodeURIComponent).join("/");
+}
+
 $("newsForm").addEventListener("submit", async event => {
   event.preventDefault();
 
-  if (!accessToken) {
+  if (!accessToken || !currentUserId) {
     showStatus("publishStatus", "Please sign in first.", "error");
     return;
   }
 
   const title = $("title").value.trim();
   const content = $("content").value.trim();
-  const imageUrl = $("image_url").value.trim();
+  const enteredImageUrl = $("image_url").value.trim();
 
   if (!title || !content) {
-    showStatus("publishStatus", "Headline and full story are required.", "error");
+    showStatus("publishStatus",
+      "Headline and full story are required.", "error");
     return;
   }
 
-  if (imageUrl) {
+  if (!selectedPhoto && enteredImageUrl) {
     try {
-      const parsed = new URL(imageUrl);
+      const parsed = new URL(enteredImageUrl);
+
       if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
         throw new Error();
       }
     } catch {
-      showStatus("publishStatus", "Enter a valid HTTP or HTTPS image URL.", "error");
+      showStatus("publishStatus",
+        "Enter a valid HTTP or HTTPS image URL.", "error");
       return;
     }
   }
 
   $("publishBtn").disabled = true;
-  showStatus("publishStatus", "Publishing article…", "success");
 
   try {
+    let imageUrl = enteredImageUrl || null;
+
+    if (selectedPhoto) {
+      showStatus("publishStatus",
+        "Uploading your photograph… Please keep this page open.", "success");
+
+      imageUrl = await uploadPhoto(selectedPhoto);
+    }
+
+    showStatus("publishStatus", "Saving news article…", "success");
+
     const article = {
-      title,
+      title: title,
       summary: $("summary").value.trim() || null,
-      content,
-      image_url: imageUrl || null,
-      author: $("author").value.trim() || "CONSISTENCY 2027 Media Team",
+      content: content,
+      image_url: imageUrl,
+      author: $("author").value.trim() ||
+        "CONSISTENCY 2027 Media Team",
       published: $("published").checked
     };
 
     await supabaseRequest("/rest/v1/campaign_news", {
       method: "POST",
       authenticated: true,
-      headers: { "Prefer": "return=minimal" },
+      headers: {
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
       body: JSON.stringify(article)
     });
 
     showStatus(
       "publishStatus",
       article.published
-        ? "Article published successfully! Open the public news page to check it."
-        : "Article saved as unpublished. It will not appear on the public news page yet.",
+        ? "News published successfully! Your photograph has been uploaded if you selected one. Check the public news page."
+        : "News saved as unpublished. It will not appear on the public news page until published.",
       "success"
     );
 
     $("newsForm").reset();
     $("author").value = "CONSISTENCY 2027 Media Team";
     $("published").checked = true;
+    clearPhoto();
+
   } catch (error) {
     showStatus(
       "publishStatus",
-      "Publishing failed: " + error.message +
-      " Check the administrator policy, table permissions, and connection.",
+      "Could not save the article: " + error.message +
+      " If the photograph failed to upload, check the bucket name and its upload policies.",
       "error"
     );
   } finally {
@@ -267,6 +418,5 @@ $("newsForm").addEventListener("submit", async event => {
 });
 
 setLoggedIn(false);
-</script>
-</body>
+</script></body>
 </html>
