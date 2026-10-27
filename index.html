@@ -92,7 +92,6 @@ footer{background:#082e18;color:#e6eee8;padding:30px 0}
 .footer-brand{font-weight:900}
 .footer-sub{font-size:.84rem;color:#b9cdbf}
 .disclaimer{font-size:.76rem;color:#b9cdbf;margin-top:18px;border-top:1px solid #ffffff20;padding-top:14px}
-
 @media(max-width:900px){
 nav{gap:13px;font-size:.84rem}
 .hero-grid{gap:24px;padding:48px 0}
@@ -148,7 +147,9 @@ h1{letter-spacing:-1px}
   <div class="container nav">
     <a class="brand" href="#home" aria-label="Sunny John Unachukwu home">
       <span class="brand-mark">✓</span>
-      <span>SUNNY JOHN UNACHUKWU<small>CONSISTENCY • SERVICE • DEVELOPMENT</small></span>
+      <span>SUNNY JOHN UNACHUKWU
+        <small>CONSISTENCY • SERVICE • DEVELOPMENT</small>
+      </span>
     </a>
     <button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
     <nav>
@@ -270,13 +271,16 @@ h1{letter-spacing:-1px}
         <div class="contact-item"><strong>Campaign Message</strong>Service to the People — Consistency Today, Better Tomorrow!</div>
         <p><em>Official phone number, email, office address and verified social links can be added here.</em></p>
       </div>
+
       <div class="contact-panel">
         <h3>Send a Message</h3>
         <form id="contactForm">
           <label for="name">Your name</label>
           <input id="name" name="name" required placeholder="Enter your name">
+
           <label for="email">Email address (optional)</label>
           <input id="email" name="email" type="email" placeholder="you@example.com">
+
           <label for="topic">Message topic</label>
           <select id="topic" name="topic">
             <option>General enquiry</option>
@@ -284,8 +288,10 @@ h1{letter-spacing:-1px}
             <option>Volunteer interest</option>
             <option>Community suggestion</option>
           </select>
+
           <label for="message">Your message</label>
           <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+
           <button class="btn btn-green" type="submit">Prepare Message</button>
           <p id="formNotice" aria-live="polite" style="font-size:.85rem"></p>
         </form>
@@ -309,30 +315,23 @@ h1{letter-spacing:-1px}
   </div>
 </footer>
 
+<!-- EXISTING CONTACT FORM SCRIPT -->
 <script>
-document.querySelectorAll('nav a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.querySelector('nav').classList.remove('open');
-  });
-});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.querySelector('nav').classList.remove('open')));
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit',function(e){
   e.preventDefault();
 
-  const d = new FormData(this);
-  const text =
-    `Name: ${d.get('name')}\n` +
-    `Email: ${d.get('email') || 'Not provided'}\n` +
-    `Topic: ${d.get('topic')}\n\n` +
-    `${d.get('message')}`;
+  const d=new FormData(this);
 
-  const notice = document.getElementById('formNotice');
-  notice.textContent = 'This demo form does not send messages until an official email or service is connected.';
+  document.getElementById('formNotice').textContent='Your message is ready to copy. This demo form does not send messages until an official email or service is connected.';
 
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(() => {
-      notice.textContent = 'Message copied. You can now paste it into your preferred messaging app.';
-    }).catch(() => {});
+  const text=`Name: ${d.get('name')}\nEmail: ${d.get('email')||'Not provided'}\nTopic: ${d.get('topic')}\n\n${d.get('message')}`;
+
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{
+      document.getElementById('formNotice').textContent='Message copied. You can now paste it into your preferred messaging app.';
+    }).catch(()=>{});
   }
 });
 </script>
@@ -346,7 +345,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
   if (!window.supabase) return;
 
-  const analyticsClient = window.supabase.createClient(
+  const client = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
@@ -360,24 +359,22 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     return "desktop";
   }
 
-  const visit = {
-    page_path: window.location.pathname,
-    referrer: document.referrer
-      ? document.referrer.substring(0, 1000)
-      : null,
-    device_type: getDeviceType()
-  };
-
-  analyticsClient
+  client
     .from("visitor_events")
-    .insert(visit)
+    .insert({
+      page_path: window.location.pathname,
+      referrer: document.referrer
+        ? document.referrer.substring(0, 1000)
+        : null,
+      device_type: getDeviceType()
+    })
     .then(function (result) {
       if (result.error) {
-        console.error("Visitor tracking failed:", result.error.message);
+        console.error("Visitor tracking error:", result.error.message);
       }
     })
     .catch(function (error) {
-      console.error("Visitor tracking could not connect:", error);
+      console.error("Tracking connection error:", error);
     });
 })();
 </script>
