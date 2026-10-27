@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visitor Statistics | CONSISTENCY 2027</title>
+<style>
+:root {
+  --green: #087f23;
+  --dark: #075c1b;
+  --light: #eef8ef;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7f4;
+  color: #202820;
+}
+header {
+  background: var(--green);
+  color: white;
+  padding: 22px 16px;
+  text-align: center;
+}
+header h1 { margin: 0 0 8px; font-size: 23px; }
+header p { margin: 0; }
+main {
+  width: min(1100px, 94%);
+  margin: 22px auto;
+}
+.panel {
+  background: white;
+  padding: 18px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: 1px solid #dce7dc;
+}
+button {
+  border: 0;
+  background: var(--green);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 7px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 4px 4px 4px 0;
+}
+button:hover { background: var(--dark); }
+input {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  font-size: 16px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--light);
+  border: 1px solid #d5e8d6;
+  border-radius: 10px;
+  padding: 17px;
+}
+.card span { display: block; font-size: 14px; }
+.card strong {
+  display: block;
+  font-size: 28px;
+  color: var(--dark);
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+h2 { font-size: 20px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  text-align: left;
+  border-bottom: 1px solid #e2e8e2;
+  padding: 11px 7px;
+  overflow-wrap: anywhere;
+}
+th { background: #eef8ef; }
+.table-wrap { overflow-x: auto; }
+.bar-row {
+  display: grid;
+  grid-template-columns: minmax(80px, 1fr) 3fr 45px;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.bar {
+  background: #e5eee5;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 15px;
+}
+.bar > div {
+  height: 100%;
+  background: var(--green);
+}
+#status { line-height: 1.5; }
+.muted { color: #5b665b; font-size: 14px; }
+footer {
+  text-align: center;
+  padding: 22px;
+  color: #5b665b;
+}
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CONSISTENCY 2027</h1>
+  <p>Website Visitor Statistics</p>
+</header>
+
+<main>
+  <section class="panel" id="loginPanel">
+    <h2>Administrator Login</h2>
+    <p>Sign in using your authorized campaign administrator account.</p>
+    <form id="loginForm">
+      <label for="email">Administrator email</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <button type="submit">Sign In</button>
+    </form>
+    <p id="loginMessage" role="status"></p>
+  </section>
+
+  <section id="dashboard" hidden>
+    <div class="panel">
+      <h2>Traffic Overview</h2>
+      <p id="status" role="status">Loading statistics...</p>
+      <button id="refreshButton" type="button">Refresh Statistics</button>
+      <button id="logoutButton" type="button">Sign Out</button>
+      <p class="muted">
+        These figures count recorded page visits, not verified unique people.
+        Statistics are based on the records currently available.
+      </p>
+    </div>
+
+    <div class="cards">
+      <div class="card"><span>Total recorded visits</span><strong id="total">—</strong></div>
+      <div class="card"><span>Today's visits</span><strong id="today">—</strong></div>
+      <div class="card"><span>This month's visits</span><strong id="month">—</strong></div>
+      <div class="card"><span>Visits in last 7 days</span><strong id="week">—</strong></div>
+    </div>
+
+    <section class="panel">
+      <h2>Daily Traffic — Last 7 Days</h2>
+      <div id="chart"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Most Visited Pages</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Page</th><th>Recorded visits</th></tr></thead>
+          <tbody id="popularPages"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Device Breakdown</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Device</th><th>Recorded visits</th></tr></thead>
+          <tbody id="devices"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Referral Sources</h2>
+      <p class="muted">External referrers may be missing when browsers or apps hide this information.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Source</th><th>Recorded visits</th></tr></thead>
+          <tbody id="sources"></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer>CONSISTENCY 2027 · Official Website Statistics</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+  const SUPABASE_URL = "https://sibionetcywotyrfrneb.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
+  const ADMIN_UID = "100bf64c-440b-44cc-8985-cc5ad5d45541";
+
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const $ = id => document.getElementById(id);
+
+  const loginPanel = $("loginPanel");
+  const dashboard = $("dashboard");
+
+  function showLogin(message = "") {
+    loginPanel.hidden = false;
+    dashboard.hidden = true;
+    $("loginMessage").textContent = message;
+  }
+
+  function showDashboard() {
+    loginPanel.hidden = true;
+    dashboard.hidden = false;
+  }
+
+  $("loginForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    $("loginMessage").textContent = "Signing in...";
+
+    const { error } = await client.auth.signInWithPassword({
+      email: $("email").value.trim(),
+      password: $("password").value
+    });
+
+    if (error) {
+      $("loginMessage").textContent = "Login failed. Check your email and password.";
+      return;
+    }
+
+    await checkSession();
+  });
+
+  async function checkSession() {
+    const { data, error } = await client.auth.getSession();
+
+    if (error || !data.session) {
+      showLogin();
+      return;
+    }
+
+    if (data.session.user.id !== ADMIN_UID) {
+      await client.auth.signOut();
+      showLogin("This account is not authorized to view statistics.");
+      return;
+    }
+
+    showDashboard();
+    await loadStats();
+  }
+
+  $("logoutButton").addEventListener("click", async () => {
+    await client.auth.signOut();
+    showLogin("You have signed out.");
+  });
+
+  $("refreshButton").addEventListener("click", loadStats);
+
+  function localDateKey(date) {
+    return date.getFullYear() + "-" +
+      String(date.getMonth() + 1).padStart(2, "0") + "-" +
+      String(date.getDate()).padStart(2, "0");
+  }
+
+  function safeText(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  function renderTable(id, rows, emptyText) {
+    const tbody = $(id);
+    tbody.replaceChildren();
+
+    if (!rows.length) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = 2;
+      td.textContent = emptyText;
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      return;
+    }
+
+    rows.forEach(([label, count]) => {
+      const tr = document.createElement("tr");
+      const first = document.createElement("td");
+      const second = document.createElement("td");
+      first.textContent = label;
+      second.textContent = count;
+      tr.append(first, second);
+      tbody.appendChild(tr);
+    });
+  }
+
+  async function loadStats() {
+    $("status").textContent = "Loading recorded visits...";
+
+    const { data: sessionData } = await client.auth.getSession();
+    const user = sessionData.session && sessionData.session.user;
+
+    if (!user || user.id !== ADMIN_UID) {
+      showLogin("Please sign in with the authorized administrator account.");
+      return;
+    }
+
+    // Fetch records in pages so larger datasets can be read.
+    let rows = [];
+    const pageSize = 1000;
+    let offset = 0;
+
+    try {
+      while (true) {
+        const { data, error } = await client
+          .from("visitor_events")
+          .select("page_path,referrer,device_type,created_at")
+          .order("created_at", { ascending: false })
+          .range(offset, offset + pageSize - 1);
+
+        if (error) throw error;
+
+        rows = rows.concat(data || []);
+        if (!data || data.length < pageSize) break;
+
+        offset += pageSize;
+
+        if (rows.length >= 50000) break;
+      }
+
+      const now = new Date();
+      const todayKey = localDateKey(now);
+      const monthKey = todayKey.slice(0, 7);
+      const sevenDaysAgo = new Date(now);
+      sevenDaysAgo.setDate(now.getDate() - 6);
+      sevenDaysAgo.setHours(0, 0, 0, 0);
+
+      const todayCount = rows.filter(row =>
+        localDateKey(new Date(row.created_at)) === todayKey
+      ).length;
+
+      const monthCount = rows.filter(row =>
+        localDateKey(new Date(row.created_at)).slice(0, 7) === monthKey
+      ).length;
+
+      const weekRows = rows.filter(row =>
+        new Date(row.created_at) >= sevenDaysAgo
+      );
+
+      $("total").textContent = rows.length.toLocaleString();
+      $("today").textContent = todayCount.toLocaleString();
+      $("month").textContent = monthCount.toLocaleString();
+      $("week").textContent = weekRows.length.toLocaleString();
+
+      const pageCounts = {};
+      const deviceCounts = {};
+      const sourceCounts = {};
+      const dayCounts = {};
+
+      rows.forEach(row => {
+        const page = row.page_path || "/";
+        pageCounts[page] = (pageCounts[page] || 0) + 1;
+
+        const device = row.device_type || "unknown";
+        deviceCounts[device] = (deviceCounts[device] || 0) + 1;
+
+        let source = "Direct / unavailable";
+        if (row.referrer) {
+          try {
+            const host = new URL(row.referrer).hostname.replace(/^www\./, "");
+            source = host || source;
+          } catch {}
+        }
+        sourceCounts[source] = (sourceCounts[source] || 0) + 1;
+
+        const date = localDateKey(new Date(row.created_at));
+        dayCounts[date] = (dayCounts[date] || 0) + 1;
+      });
+
+      renderTable(
+        "popularPages",
+        Object.entries(pageCounts).sort((a,b) => b[1]-a[1]).slice(0,10),
+        "No visits recorded yet."
+      );
+
+      renderTable(
+        "devices",
+        Object.entries(deviceCounts).sort((a,b) => b[1]-a[1]),
+        "No visits recorded yet."
+      );
+
+      renderTable(
+        "sources",
+        Object.entries(sourceCounts).sort((a,b) => b[1]-a[1]).slice(0,10),
+        "No visits recorded yet."
+      );
+
+      const chart = $("chart");
+      chart.replaceChildren();
+
+      for (let i = 6; i >= 0; i--) {
+        const date = new Date(now);
+        date.setDate(now.getDate() - i);
+        const key = localDateKey(date);
+        const count = dayCounts[key] || 0;
+        const row = document.createElement("div");
+        row.className = "bar-row";
+
+        const label = document.createElement("span");
+        label.textContent = key.slice(5);
+
+        const bar = document.createElement("div");
+        bar.className = "bar";
+        const fill = document.createElement("div");
+        const maximum = Math.max(1, ...Array.from({length:7}, (_,j) => {
+          const d = new Date(now);
+          d.setDate(now.getDate() - j);
+          return dayCounts[localDateKey(d)] || 0;
+        }));
+        fill.style.width = (count / maximum * 100) + "%";
+        bar.appendChild(fill);
+
+        const value = document.createElement("strong");
+        value.textContent = count;
+
+        row.append(label, bar, value);
+        chart.appendChild(row);
+      }
+
+      $("status").textContent =
+        "Statistics updated: " + now.toLocaleString() +
+        ". " + rows.length.toLocaleString() +
+        (rows.length >= 50000 ? " or more" : "") +
+        " records loaded.";
+    } catch (error) {
+      console.error(error);
+      $("status").textContent =
+        "Could not load statistics. Check the database policies and administrator login.";
+    }
+  }
+
+  checkSession();
+})();
+</script>
+</body>
+</html>
