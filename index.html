@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CONSISTENCY 2027 | Barr. Sunny John Unachukwu</title>
-
 <meta name="theme-color" content="#087f23">
-<meta name="description" content="Campaign website of Barr. Sunny John Unachukwu, for Mbaitoli/Ikeduru Federal Constituency, Imo State.">
+<meta name="description" content="Official CONSISTENCY 2027 campaign website for Barr. Sunny Unachukwu John, focused on responsible representation and sustainable development in Mbaitoli/Ikeduru Federal Constituency, Imo State.">
+<title>Barr. Sunny Unachukwu John | CONSISTENCY 2027</title>
 
 <style>
 :root {
@@ -18,452 +16,507 @@
   --gold: #d6a500;
   --white: #ffffff;
   --text: #222222;
+  --muted: #606060;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background: #f7faf7;
-  line-height: 1.7;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
 }
 
 .topbar {
   background: var(--dark-green);
   color: white;
   text-align: center;
-  padding: 9px 12px;
-  font-size: 13px;
+  padding: 8px 12px;
   font-weight: bold;
+  font-size: 13px;
   letter-spacing: 1px;
 }
 
 header {
   background: white;
-  border-bottom: 3px solid var(--gold);
+  border-bottom: 3px solid var(--green);
 }
 
 .header-inner {
   max-width: 1200px;
   margin: auto;
-  padding: 17px 20px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
 .logo {
-  width: 68px;
-  height: 68px;
-  flex-shrink: 0;
+  width: 78px;
+  height: 78px;
+  flex: 0 0 78px;
+  overflow: hidden;
   border-radius: 50%;
+  border: 3px solid var(--gold);
+  background: var(--light-green);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 19px;
-  font-weight: bold;
-  background: var(--green);
-  border: 3px solid var(--gold);
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.brand {
+  min-width: 0;
 }
 
 .brand h1 {
-  color: var(--green);
-  font-size: 22px;
   margin: 0;
-  line-height: 1.4;
+  font-size: clamp(18px, 3vw, 28px);
+  color: var(--dark-green);
+  line-height: 1.25;
 }
 
 .brand p {
-  margin: 3px 0 0;
-  font-size: 13px;
-}
-
-/* MAIN NAVIGATION */
-nav {
-  background: var(--green);
-  position: relative;
-  z-index: 10;
-}
-
-.nav-inner {
-  max-width: 1250px;
-  margin: auto;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.nav-inner a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 13px 10px;
-  font-size: 13px;
+  margin: 5px 0 0;
+  color: var(--red);
+  font-size: 14px;
   font-weight: bold;
-}
-
-.nav-inner a:hover {
-  background: var(--dark-green);
-}
-
-.nav-inner .admin-link {
-  background: var(--red);
-  border-radius: 5px;
-  margin: 5px;
-}
-
-.nav-inner .admin-link:hover {
-  background: #991b1b;
-}
-
-/* Gallery Admin gets a separate highlighted menu link */
-.nav-inner .gallery-admin-link {
-  background: #174a9c;
-  border: 1px solid white;
-  border-radius: 5px;
-  margin: 5px;
-}
-
-.nav-inner .gallery-admin-link:hover {
-  background: #10346f;
 }
 
 .menu-toggle {
   display: none;
-  width: 100%;
-  padding: 14px 18px;
+  margin-left: auto;
   background: var(--green);
   color: white;
-  border: none;
+  border: 0;
+  border-radius: 6px;
+  padding: 11px 14px;
   font-size: 16px;
   font-weight: bold;
-  text-align: left;
   cursor: pointer;
 }
 
-/* WELCOME NOTE */
-.welcome-section {
-  display: flex;
-  align-items: center;
-  background: white;
-  border-bottom: 2px solid var(--gold);
-  overflow: hidden;
-  min-height: 55px;
+nav {
+  background: var(--green);
+  color: white;
 }
 
-.welcome-label {
-  background: var(--red);
-  color: white;
-  padding: 15px 18px;
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-inner a {
+  text-decoration: none;
+  padding: 12px 10px;
+  display: block;
   font-size: 13px;
   font-weight: bold;
-  flex-shrink: 0;
-  z-index: 2;
 }
 
-.welcome-message {
+.nav-inner a:hover,
+.nav-inner a:focus {
+  background: var(--dark-green);
+  text-decoration: underline;
+}
+
+.nav-inner .admin-link {
+  background: var(--red);
+}
+
+.nav-inner .gallery-admin-link {
+  background: #2457a7;
+}
+
+.welcome {
+  background: #fff7d6;
+  border-bottom: 1px solid #ead58a;
+  padding: 9px 0;
   overflow: hidden;
   white-space: nowrap;
-  flex: 1;
-  padding: 12px 0;
-}
-
-.welcome-moving-text {
-  display: inline-block;
-  color: var(--green);
+  color: var(--dark-green);
   font-weight: bold;
-  font-size: 14px;
+}
+
+.welcome span {
+  display: inline-block;
   padding-left: 100%;
-  animation: welcomeScroll 40s linear infinite;
+  animation: welcomeMove 24s linear infinite;
 }
 
-.welcome-message:hover .welcome-moving-text {
-  animation-play-state: paused;
+@keyframes welcomeMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
-@keyframes welcomeScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-/* HERO */
 .hero {
-  min-height: 440px;
-  padding: 65px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background:
+    linear-gradient(115deg, rgba(4,91,25,.96), rgba(8,127,35,.88)),
+    linear-gradient(white, var(--light-green));
   color: white;
-  background: linear-gradient(135deg, rgba(4,91,25,.97), rgba(8,127,35,.88));
+  padding: 65px 20px;
+  text-align: center;
 }
 
-.hero-content { max-width: 900px; }
+.hero-content {
+  max-width: 900px;
+  margin: auto;
+}
 
 .hero-label {
-  display: inline-block;
-  padding: 7px 16px;
-  border: 1px solid var(--gold);
-  border-radius: 30px;
-  color: white;
-  font-size: 13px;
+  color: #ffe58a;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-size: 14px;
 }
 
 .hero h2 {
-  font-size: clamp(30px, 5vw, 53px);
-  line-height: 1.2;
-  margin: 22px 0 15px;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.18;
+  margin: 15px 0;
 }
 
-.hero h2 span { color: #ffdf59; }
+.hero h2 span {
+  color: #ffe58a;
+}
 
 .hero p {
   font-size: 17px;
-  max-width: 750px;
-  margin: 0 auto 25px;
+  max-width: 740px;
+  margin: 15px auto 25px;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 12px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .button {
   display: inline-block;
-  padding: 12px 21px;
-  border-radius: 6px;
   text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
   font-weight: bold;
-  border: 1px solid transparent;
+  border: 2px solid white;
 }
 
-.button-gold {
-  background: var(--gold);
-  color: #222;
-}
-
-.button-white {
+.button-primary {
   background: white;
   color: var(--dark-green);
 }
 
-.button:hover { opacity: .9; }
+.button-secondary {
+  background: var(--red);
+  color: white;
+  border-color: var(--red);
+}
 
-/* GENERAL CONTENT */
-.container {
-  max-width: 1100px;
+.button:hover {
+  opacity: .9;
+}
+
+.section {
+  max-width: 1150px;
   margin: auto;
   padding: 45px 20px;
 }
 
 .section-heading {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .section-heading h2 {
-  color: var(--green);
-  font-size: 29px;
-  margin: 0 0 10px;
+  color: var(--dark-green);
+  font-size: clamp(24px, 4vw, 32px);
+  margin: 0 0 8px;
 }
 
 .section-heading p {
-  color: #555;
+  color: var(--muted);
   max-width: 750px;
   margin: auto;
 }
 
-/* CARDS */
-.cards {
+.priority-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
-.card {
-  background: white;
-  border: 1px solid #e0e8e0;
-  border-radius: 10px;
+.priority-card {
   padding: 23px;
-  box-shadow: 0 3px 12px #00000008;
+  border-radius: 10px;
+  border: 1px solid #d9e9dc;
+  border-top: 4px solid var(--green);
+  background: white;
 }
 
-.card h3 {
-  color: var(--green);
-  margin-top: 0;
-  margin-bottom: 10px;
+.priority-card h3 {
+  margin: 0 0 10px;
+  color: var(--dark-green);
+  font-size: 19px;
 }
 
-.card p { margin-bottom: 0; }
-
-.card-link {
-  display: inline-block;
-  margin-top: 15px;
-  color: var(--green);
-  font-weight: bold;
-  text-decoration: none;
+.priority-card p {
+  margin: 0;
+  color: #555;
 }
 
-.card-link:hover { text-decoration: underline; }
-
-/* SLOGAN */
 .slogan {
   background: var(--light-green);
-  border-top: 1px solid #cce5d1;
-  border-bottom: 1px solid #cce5d1;
-  padding: 40px 20px;
+  border-top: 1px solid #d4e8d8;
+  border-bottom: 1px solid #d4e8d8;
   text-align: center;
+  padding: 35px 20px;
 }
 
 .slogan h2 {
-  color: var(--green);
-  font-size: clamp(24px, 4vw, 36px);
-  margin: 0 0 10px;
+  color: var(--dark-green);
+  margin: 0 0 8px;
+  font-size: clamp(24px, 4vw, 34px);
 }
 
 .slogan p {
   margin: 0;
   font-weight: bold;
+  color: var(--red);
+  letter-spacing: 1px;
 }
 
-/* FOOTER */
-footer {
-  background: #073d16;
-  color: white;
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.explore-card {
+  display: block;
+  padding: 20px 15px;
+  border-radius: 8px;
+  border: 1px solid #d9e9dc;
+  background: #fff;
+  text-decoration: none;
   text-align: center;
-  padding: 30px 20px;
+  font-weight: bold;
+  color: var(--dark-green);
 }
 
-footer h3 { margin-top: 0; }
+.explore-card:hover,
+.explore-card:focus {
+  background: var(--light-green);
+  border-color: var(--green);
+}
 
-footer p {
-  margin: 7px 0;
-  font-size: 13px;
+.admin-section {
+  background: #f7faf7;
+  border-top: 1px solid #e0e9e1;
+  padding: 35px 20px;
+}
+
+.admin-box {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.admin-box h2 {
+  color: var(--dark-green);
+}
+
+.admin-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.admin-buttons a {
+  text-decoration: none;
+  color: white;
+  padding: 11px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  background: var(--red);
+}
+
+.admin-buttons .news-admin {
+  background: var(--red);
+}
+
+.admin-buttons .gallery-admin {
+  background: #2457a7;
+}
+
+footer {
+  background: #073f16;
+  color: white;
+  padding: 28px 20px 15px;
+  text-align: center;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
   justify-content: center;
-  margin-top: 18px;
+  gap: 8px 18px;
+  margin: 12px 0 18px;
 }
 
 .footer-links a {
   color: white;
-  font-size: 13px;
   text-decoration: none;
+  font-size: 14px;
 }
 
-.footer-links a:hover { text-decoration: underline; }
-
-.footer-links .gallery-admin-footer {
-  color: #ffdf59;
-  font-weight: bold;
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
-/* DEVELOPER CREDIT */
-.developer-credit {
-  max-width: 650px;
-  margin: 25px auto 0;
-  padding: 20px 12px 5px;
-  border-top: 1px solid rgba(255,255,255,.3);
-  text-align: center;
-}
-
-.developer-credit p {
-  margin: 5px 0;
-  font-size: 13px;
-}
-
-.developer-credit h4 {
-  margin: 5px 0;
-  color: #ffdf59;
-  font-size: 16px;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-.developer-credit .developer-role { font-weight: bold; }
-
-.developer-credit .developer-services {
+.footer-credit {
+  border-top: 1px solid #477c52;
+  padding-top: 13px;
+  margin-top: 15px;
   font-size: 12px;
-  opacity: .9;
+  color: #e0eee2;
 }
 
-/* ACCESSIBILITY */
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 3px;
-}
-
-/* MOBILE */
 @media (max-width: 850px) {
-  .menu-toggle { display: block; }
+  .priority-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-inner a {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header-inner {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 62px;
+    height: 62px;
+    flex-basis: 62px;
+  }
+
+  .brand h1 {
+    font-size: 17px;
+  }
+
+  .brand p {
+    font-size: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav.open {
+    display: block;
+  }
 
   .nav-inner {
-    display: none;
-    align-items: stretch;
+    display: flex;
     flex-direction: column;
+    align-items: stretch;
     padding: 5px 12px 12px;
   }
 
-  .nav-inner.open { display: flex; }
-
   .nav-inner a {
-    padding: 12px;
-    border-bottom: 1px solid #ffffff25;
+    padding: 11px 12px;
+    border-bottom: 1px solid #ffffff2b;
+    font-size: 14px;
   }
 
   .nav-inner .admin-link,
   .nav-inner .gallery-admin-link {
-    margin: 8px 0 0;
-    text-align: center;
+    margin-top: 5px;
   }
 
-  .cards { grid-template-columns: 1fr; }
-
   .hero {
-    min-height: 380px;
     padding: 45px 18px;
   }
 
-  .header-inner { padding: 13px; }
-
-  .brand h1 { font-size: 18px; }
-
-  .welcome-label {
-    padding: 15px 10px;
-    font-size: 11px;
+  .hero p {
+    font-size: 16px;
   }
 
-  .welcome-moving-text {
-    font-size: 12px;
-    animation-duration: 45s;
+  .priority-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section {
+    padding: 35px 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand h1 {
+    font-size: 15px;
+  }
+
+  .logo {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 
-  .welcome-moving-text {
+  .welcome span {
     animation: none;
     padding-left: 12px;
     white-space: normal;
   }
-
-  .welcome-message { white-space: normal; }
 }
 </style>
 </head>
@@ -476,37 +529,43 @@ button:focus-visible {
 
 <header>
   <div class="header-inner">
-    <div class="logo">C27</div>
-    <div class="brand">
-      <h1>CONSISTENCY 2027</h1>
-      <p>Barr. Sunny John Unachukwu, Esq.</p>
-      <p>Mbaitoli/Ikeduru Federal Constituency, Imo State</p>
+
+    <!-- Candidate photograph replacing the C27 logo -->
+    <div class="logo">
+      <img
+        src="https://i.ibb.co/nsTVYS37/file-0000000090b48211b7fef934e2683c72.png"
+        alt="Barr. Sunny Unachukwu John"
+        onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-weight:bold;color:#045b19;font-size:13px;text-align:center;padding:4px&quot;>SUNNY<br>UNACHUKWU</span>';"
+      >
     </div>
+
+    <div class="brand">
+      <h1>Barr. Sunny Unachukwu John</h1>
+      <p>CONSISTENCY 2027 | Mbaitoli/Ikeduru Federal Constituency</p>
+    </div>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mainMenu">
+      ☰ MENU
+    </button>
+
   </div>
 </header>
 
-<!-- MAIN MENU -->
-<nav aria-label="Main navigation">
-
-  <button
-    class="menu-toggle"
-    id="menuToggle"
-    aria-expanded="false"
-    aria-controls="mainMenu"
-    type="button">
-    ☰ MENU
-  </button>
-
-  <div class="nav-inner" id="mainMenu">
-
+<nav id="mainMenu">
+  <div class="nav-inner">
     <a href="index.html">Home</a>
-    <a href="about.html">About Candidate</a>
+    <a href="about.html">About</a>
     <a href="biography.html">Biography</a>
     <a href="manifesto.html">Manifesto</a>
     <a href="priorities.html">Priorities</a>
     <a href="projects.html">Projects</a>
     <a href="campaign-team.html">Campaign Team</a>
-    <a href="news.html">Latest News</a>
+    <a href="news.html">News</a>
     <a href="announcements.html">Announcements</a>
     <a href="gallery.html">Gallery</a>
     <a href="videos.html">Videos</a>
@@ -514,181 +573,145 @@ button:focus-visible {
     <a href="voters-education.html">Voters Education</a>
     <a href="volunteer.html">Volunteer</a>
     <a href="contact.html">Contact</a>
-
-    <!-- ADMINISTRATION LINKS -->
-    <a href="admin-login.html" class="admin-link">
-      🔐 Admin Login
-    </a>
-
-    <a href="admin-news.html" class="admin-link">
-      📰 News Admin
-    </a>
-
-    <a href="admin-gallery.html" class="gallery-admin-link">
-      📸 Gallery Admin
-    </a>
-
+    <a class="admin-link" href="admin-login.html">🔐 Admin Login</a>
+    <a class="admin-link" href="admin-news.html">📰 News Admin</a>
+    <a class="gallery-admin-link" href="admin-gallery.html">📸 Gallery Admin</a>
   </div>
 </nav>
 
-<section class="welcome-section" aria-label="Welcome message">
-  <div class="welcome-label">WELCOME</div>
-  <div class="welcome-message">
-    <div class="welcome-moving-text">
-      Welcome to the official campaign website of Barr. Sunny John
-      Unachukwu, Esq. — CONSISTENCY 2027!
-      &nbsp;&nbsp;&nbsp; Service to the People.
-      &nbsp;&nbsp;&nbsp; Consistency Today, Better Tomorrow!
-      &nbsp;&nbsp;&nbsp; MBAIKE'S CHOSEN ONE FOR HOR.
-      &nbsp;&nbsp;&nbsp; Together, let us work towards a better future
-      for Mbaitoli/Ikeduru Federal Constituency.
-    </div>
-  </div>
-</section>
+<div class="welcome">
+  <span>
+    Welcome to the CONSISTENCY 2027 campaign website of Barr. Sunny Unachukwu John — Our People. Our Future. Our Development.
+  </span>
+</div>
 
 <section class="hero">
   <div class="hero-content">
-    <span class="hero-label">CONSISTENCY 2027</span>
+    <div class="hero-label">CONSISTENCY 2027</div>
 
-    <h2>
-      THE CHOICE IS NOW.<br>
-      <span>THE CHOICE IS CLEAR.</span>
-    </h2>
+    <h2>A New Vision for <span>Mbaitoli/Ikeduru</span></h2>
 
     <p>
-      Barr. Sunny John Unachukwu, Esq.
-      — Service to the People and a vision for a better future
-      for Mbaitoli/Ikeduru Federal Constituency.
+      Welcome to the campaign platform of Barr. Sunny Unachukwu John.
+      Explore his background, proposed development priorities, campaign
+      updates, and opportunities to participate in the future of our constituency.
     </p>
 
     <div class="hero-buttons">
-      <a class="button button-gold" href="biography.html">
-        Meet the Candidate
-      </a>
-      <a class="button button-white" href="manifesto.html">
-        Explore the Manifesto
-      </a>
+      <a class="button button-primary" href="biography.html">Meet the Candidate</a>
+      <a class="button button-secondary" href="manifesto.html">Explore the Agenda</a>
     </div>
   </div>
 </section>
 
-<section class="container">
+<section class="section">
   <div class="section-heading">
     <h2>Our Campaign Priorities</h2>
     <p>
-      A proposed development agenda focused on people,
-      opportunities, essential services and community development.
+      A people-centred approach to representation, opportunity,
+      community development, and responsible public service.
     </p>
   </div>
 
-  <div class="cards">
-    <article class="card">
-      <h3>Education</h3>
-      <p>
-        Promote improved access to quality education,
-        learning resources and opportunities for young people.
-      </p>
-      <a class="card-link" href="priorities.html">Learn More →</a>
-    </article>
+  <div class="priority-grid">
 
-    <article class="card">
-      <h3>Healthcare</h3>
-      <p>
-        Support efforts to improve access to healthcare services
-        and strengthen community health facilities.
-      </p>
-      <a class="card-link" href="priorities.html">Learn More →</a>
-    </article>
-
-    <article class="card">
+    <article class="priority-card">
       <h3>Roads and Infrastructure</h3>
       <p>
-        Advocate for better roads, reliable water access,
-        electricity and other essential infrastructure.
+        Advocate for improved community roads, drainage, transportation,
+        and attention to essential infrastructure needs.
       </p>
-      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
-    <article class="card">
+    <article class="priority-card">
       <h3>Youth Empowerment</h3>
       <p>
-        Encourage skills development, entrepreneurship
-        and opportunities for young people.
+        Promote skills acquisition, entrepreneurship, digital learning,
+        and access to opportunities for young people.
       </p>
-      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
-    <article class="card">
-      <h3>Agriculture</h3>
+    <article class="priority-card">
+      <h3>Education</h3>
       <p>
-        Promote agricultural development, farming opportunities
-        and support for local producers.
+        Support advocacy for better learning environments, student
+        opportunities, and access to educational information.
       </p>
-      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
 
-    <article class="card">
-      <h3>Community Development</h3>
+    <article class="priority-card">
+      <h3>Women and Families</h3>
       <p>
-        Encourage inclusive representation, community engagement
-        and development initiatives.
+        Encourage women's economic participation, enterprise development,
+        and initiatives that support families and communities.
       </p>
-      <a class="card-link" href="priorities.html">Learn More →</a>
     </article>
+
+    <article class="priority-card">
+      <h3>Healthcare and Welfare</h3>
+      <p>
+        Advocate for accessible healthcare, community health awareness,
+        and attention to vulnerable residents.
+      </p>
+    </article>
+
+    <article class="priority-card">
+      <h3>Local Economy</h3>
+      <p>
+        Promote opportunities for farmers, traders, artisans, small
+        businesses, and local economic development.
+      </p>
+    </article>
+
   </div>
 </section>
 
 <section class="slogan">
-  <h2>CONSISTENCY TODAY, BETTER TOMORROW!</h2>
-  <p>MBAIKE'S CHOSEN ONE FOR HOR · SERVICE TO THE PEOPLE</p>
+  <h2>Our People. Our Future. Our Development.</h2>
+  <p>CONSISTENCY 2027</p>
 </section>
 
-<section class="container">
+<section class="section">
   <div class="section-heading">
     <h2>Explore the Campaign</h2>
     <p>
-      Learn more about the candidate, follow campaign announcements
-      and discover the proposed priorities.
+      Learn about the candidate, follow campaign updates,
+      and discover ways to participate.
     </p>
   </div>
 
-  <div class="cards">
-    <article class="card">
-      <h3>Candidate Biography</h3>
-      <p>
-        Read about the candidate's background, professional journey
-        and public service experience.
-      </p>
-      <a class="card-link" href="biography.html">Read Biography →</a>
-    </article>
+  <div class="explore-grid">
+    <a class="explore-card" href="about.html">About the Campaign</a>
+    <a class="explore-card" href="biography.html">Candidate Biography</a>
+    <a class="explore-card" href="manifesto.html">Development Agenda</a>
+    <a class="explore-card" href="news.html">Latest News</a>
+    <a class="explore-card" href="gallery.html">Photo Gallery</a>
+    <a class="explore-card" href="videos.html">Campaign Videos</a>
+    <a class="explore-card" href="events.html">Campaign Events</a>
+    <a class="explore-card" href="volunteer.html">Volunteer</a>
+  </div>
+</section>
 
-    <article class="card">
-      <h3>Campaign News</h3>
-      <p>
-        Visit the news section for campaign reports and announcements.
-      </p>
-      <a class="card-link" href="news.html">View News →</a>
-    </article>
+<section class="admin-section">
+  <div class="admin-box">
+    <h2>Website Administration</h2>
+    <p>
+      Authorized administrators can use the management pages
+      to maintain campaign news and photographs.
+    </p>
 
-    <article class="card">
-      <h3>Website Administration</h3>
-      <p>
-        Authorized website administrators can access news and gallery
-        management using the campaign administration pages.
-      </p>
-      <a class="card-link" href="admin-login.html">Open Admin Login →</a>
-      <br>
-      <a class="card-link" href="admin-news.html">Manage News →</a>
-      <br>
-      <a class="card-link" href="admin-gallery.html">Manage Gallery →</a>
-    </article>
+    <div class="admin-buttons">
+      <a href="admin-login.html">Admin Login</a>
+      <a class="news-admin" href="admin-news.html">📰 News Admin</a>
+      <a class="gallery-admin" href="admin-gallery.html">📸 Gallery Admin</a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <h3>CONSISTENCY 2027</h3>
-  <p>Barr. Sunny John Unachukwu, Esq.</p>
-  <p>Service to the People</p>
+  <strong>Barr. Sunny Unachukwu John</strong>
+  <div>CONSISTENCY 2027 Campaign</div>
+  <div>Mbaitoli/Ikeduru Federal Constituency, Imo State</div>
 
   <div class="footer-links">
     <a href="index.html">Home</a>
@@ -698,44 +721,38 @@ button:focus-visible {
     <a href="contact.html">Contact</a>
     <a href="admin-login.html">Admin Login</a>
     <a href="admin-news.html">News Admin</a>
-    <a class="gallery-admin-footer" href="admin-gallery.html">
-      📸 Gallery Admin
-    </a>
+    <a href="admin-gallery.html">Gallery Admin</a>
   </div>
 
-  <p style="margin-top:20px">
-    &copy; <span id="currentYear"></span>
-    CONSISTENCY 2027. All rights reserved.
-  </p>
+  <div>&copy; <span id="year"></span> CONSISTENCY 2027. All rights reserved.</div>
 
-  <div class="developer-credit">
-    <p>Website Designed &amp; Developed by</p>
-    <h4>INEKWE THEOPHILUS AKOJI</h4>
-    <p class="developer-role">NYSC Member — Ikeduru</p>
-    <p class="developer-services">
-      Website Design | Web Development | Digital Solutions
-    </p>
+  <div class="footer-credit">
+    Website Design and Development:<br>
+    <strong>INEKWE THEOPHILUS AKOJI</strong><br>
+    NYSC Member — Ikeduru
   </div>
 </footer>
 
 <script>
-/* MOBILE MENU */
-const menuToggle = document.getElementById("menuToggle");
-const mainMenu = document.getElementById("mainMenu");
+(function () {
+  const menuToggle = document.getElementById("menuToggle");
+  const mainMenu = document.getElementById("mainMenu");
 
-menuToggle.addEventListener("click", function () {
-  const isOpen = mainMenu.classList.toggle("open");
+  menuToggle.addEventListener("click", function () {
+    const isOpen = mainMenu.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  mainMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mainMenu.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
 
-  menuToggle.innerHTML = isOpen
-    ? "✕ CLOSE MENU"
-    : "☰ MENU";
-});
-
-/* AUTOMATIC COPYRIGHT YEAR */
-document.getElementById("currentYear").textContent =
-  new Date().getFullYear();
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+})();
 </script>
 
 </body>
