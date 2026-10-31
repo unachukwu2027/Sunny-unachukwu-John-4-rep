@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+>
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Latest News | CONSISTENCY 2027</title>
 <meta name="description" content="Campaign news and community updates from Barr. Sunny Unachukwu John, Esq.">
-<meta name="theme-color" content="#087f23">
-
-<style>
+<meta name="theme-color" content="#087f23"><style>
 :root {
   --green:#087f23; --dark-green:#064c19; --red:#c62828;
   --gold:#d4af37; --light:#f3f8f3; --text:#263328;
@@ -42,7 +40,6 @@ nav a:hover { color:var(--red); }
 .news-card { background:white; border-radius:11px; overflow:hidden; box-shadow:0 4px 15px #00000010; border-bottom:4px solid var(--green); display:flex; flex-direction:column; min-width:0; }
 .news-card:nth-child(even) { border-bottom-color:var(--red); }
 
-/* Clickable news pictures */
 .news-image-link {
   display:block;
   width:100%;
@@ -88,7 +85,6 @@ footer p { font-size:14px; margin:5px 0; }
 footer .gold-text { color:#ffe69a; font-weight:bold; }
 .back-top { display:inline-block; margin:12px 0; padding:8px 16px; border-radius:5px; background:var(--gold); color:#173d1b; font-weight:bold; text-decoration:none; }
 
-/* Full-size image viewer */
 .image-viewer {
   display:none;
   position:fixed;
@@ -147,16 +143,11 @@ footer .gold-text { color:#ffe69a; font-weight:bold; }
   .section-heading h2 { font-size:25px; }
   .modal-content { padding:18px; }
 }
-</style>
-</head>
-
-<body id="top">
+</style></head><body id="top">
 <header>
   <h1>SUNNY UNACHUKWU JOHN, ESQ.</h1>
   <p>CONSISTENCY 2027 | Mbaitoli/Ikeduru Federal Constituency</p>
-</header>
-
-<nav aria-label="Main navigation">
+</header><nav aria-label="Main navigation">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="biography.html">Biography</a>
@@ -166,23 +157,17 @@ footer .gold-text { color:#ffe69a; font-weight:bold; }
   <a href="gallery.html">Gallery</a>
   <a href="events.html">Events</a>
   <a href="contact.html">Contact</a>
-</nav>
-
-<section class="hero">
+</nav><section class="hero">
   <span class="hero-label">CONSISTENCY 2027</span>
   <h2>News &amp; Community Updates</h2>
   <p>Campaign announcements, community conversations, development priorities and public engagement updates concerning Mbaitoli/Ikeduru Federal Constituency.</p>
   <p class="slogan">THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
-</section>
-
-<main class="container">
+</section><main class="container">
   <section class="intro">
     <h2>Welcome to Our News Centre</h2>
     <p>Explore published campaign announcements, community updates, public statements and development priorities.</p>
     <p class="small-note">News is loaded from the campaign database. Please verify information before sharing it as an official announcement.</p>
-  </section>
-
-  <div class="toolbar">
+  </section>  <div class="toolbar">
     <div class="search-box">
       <input type="search" id="newsSearch" placeholder="Search news and updates..." aria-label="Search news">
     </div>
@@ -195,9 +180,7 @@ footer .gold-text { color:#ffe69a; font-weight:bold; }
         <option value="public-service">Public Service</option>
       </select>
     </div>
-  </div>
-
-  <section>
+  </div>  <section>
     <div class="section-heading">
       <h2>Latest Updates</h2>
       <p>Latest published campaign news and announcements.</p>
@@ -205,40 +188,28 @@ footer .gold-text { color:#ffe69a; font-weight:bold; }
     <div id="loadingMessage" class="status" aria-live="polite">Connecting to the campaign news database...</div>
     <div id="newsGrid" class="news-grid"></div>
     <div id="emptyMessage" class="empty-message" aria-live="polite">No published news is available yet.</div>
-  </section>
-
-  <section class="disclaimer">
+  </section>  <section class="disclaimer">
     <h3>Editorial Notice</h3>
     <p>Published articles should contain accurate dates, locations, verified facts and authorised photographs. Proposed priorities should not be presented as completed projects.</p>
-  </section>
-
-  <section class="cta">
+  </section>  <section class="cta">
     <h2>Stay Connected</h2>
     <p>Explore the campaign website for information about the candidate, development priorities and contact details.</p>
     <a href="projects.html" class="button green-button">View Development Priorities</a>
     <a href="contact.html" class="button red-button">Contact the Campaign</a>
   </section>
-</main>
-
-<!-- Full-size picture viewer -->
-<div class="image-viewer" id="imageViewer" role="dialog" aria-modal="true" aria-label="Full-size news picture">
+</main><div class="image-viewer" id="imageViewer" role="dialog" aria-modal="true" aria-label="Full-size news picture">
   <button type="button" class="viewer-close" id="viewerClose" aria-label="Close image viewer">✕ Close</button>
   <img id="viewerImage" alt="">
   <div class="image-viewer-caption" id="viewerCaption"></div>
   <div class="viewer-open-original" id="viewerOriginal"></div>
-</div>
-
-<!-- Full news story dialog -->
-<div class="story-modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+</div><div class="story-modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
     <h2 id="modalTitle"></h2>
     <div id="modalMeta" class="news-meta"></div>
     <p id="modalStory"></p>
     <button class="modal-close" id="modalClose" type="button">Close Story</button>
   </div>
-</div>
-
-<footer>
+</div><footer>
   <p><strong>SUNNY UNACHUKWU JOHN, ESQ.</strong></p>
   <p class="gold-text">CONSISTENCY 2027</p>
   <p>THE CHOICE IS NOW. THE CHOICE IS CLEAR.</p>
@@ -246,11 +217,12 @@ footer .gold-text { color:#ffe69a; font-weight:bold; }
   <p>Service to the People</p>
   <a href="#top" class="back-top">Back to Top</a>
   <p>&copy; <span id="year"></span> Sunny Unachukwu John. All rights reserved.</p>
-</footer>
-
-<script>
+</footer><script>
 const SUPABASE_URL = "https://sibionetcywotyrfrneb.supabase.co";
 const SUPABASE_KEY = "sb_publishable_I4twpfihwtAML9wFLgY2-Q_v2S85kAI";
+
+const VERCEL_PREVIEW_URL =
+  "https://sunny-news-preview-78etfkl5g-sunny-campaign-website.vercel.app/api/preview?article=";
 
 const newsGrid = document.getElementById("newsGrid");
 const loadingMessage = document.getElementById("loadingMessage");
@@ -309,10 +281,9 @@ function getSummary(article) {
   return article.summary || String(article.content || "").slice(0,180) || "Read this campaign news update.";
 }
 
+/* Updated sharing link: Vercel generates the article-specific social preview. */
 function makeShareUrl(article) {
-  const url = new URL(window.location.href);
-  url.searchParams.set("article", article.id);
-  return url.toString();
+  return VERCEL_PREVIEW_URL + encodeURIComponent(article.id);
 }
 
 function openImageViewer(url, title) {
@@ -497,6 +468,5 @@ async function loadCampaignNews() {
 }
 
 loadCampaignNews();
-</script>
-</body>
+</script></body>
 </html>
